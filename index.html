@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>此刻 · The Present — 身心健康・TimeWaver 諮詢</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Outfit:wght@300;400;500;600&family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#234B47;
+    --teal:#199E91;
+    --teal-2:#46B8AC;
+    --aqua:#86D9CB;
+    --gold:#E0B158;
+    --gold-soft:#F0D69A;
+    --gold-deep:#C28A2E;
+    --paper:#FBFAF4;
+    --paper-2:#EBF6F1;
+    --cloud:#FFFFFF;
+    --muted:#5C7370;
+    --line:rgba(35,75,71,.13);
+    --display:"Fraunces","Noto Serif TC",Georgia,serif;
+    --body:"Outfit","Noto Sans TC",system-ui,sans-serif;
+    --maxw:1180px;
+    --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.65;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .en{font-family:var(--body);letter-spacing:.04em;color:var(--muted);font-weight:300}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+  section{padding:clamp(56px,9vw,120px) 0}
+
+  /* ---------- type scale (fluid) ---------- */
+  h1{font-family:var(--display);font-weight:500;line-height:1.08;font-size:clamp(2.1rem,6.4vw,4.4rem);letter-spacing:-.01em}
+  h2{font-family:var(--display);font-weight:500;line-height:1.14;font-size:clamp(1.7rem,4.2vw,2.9rem)}
+  h3{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,2.4vw,1.5rem)}
+  p{font-size:clamp(.98rem,1.5vw,1.08rem)}
+  .kicker{font-family:var(--body);text-transform:uppercase;letter-spacing:.28em;font-size:.72rem;color:var(--gold);font-weight:500}
+  .lead{font-size:clamp(1.05rem,2vw,1.25rem);color:var(--muted);font-weight:300;max-width:54ch}
+
+  .sec-head{text-align:center;max-width:60ch;margin:0 auto clamp(34px,5vw,60px)}
+  .sec-head .kicker{display:block;margin-bottom:14px}
+  .sec-head .en{display:block;margin-top:6px;font-size:.95rem}
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--body);font-weight:500;
+    padding:.85em 1.6em;border-radius:999px;font-size:.95rem;transition:.25s ease;cursor:pointer;border:1px solid transparent}
+  .btn-gold{background:var(--gold);color:#fff}
+  .btn-gold:hover{background:#b1862f;transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--teal);color:var(--teal)}
+  .btn-ghost:hover{background:var(--teal);color:#fff}
+  .btn-line{border-color:var(--teal);color:var(--teal)}
+  .btn-line:hover{background:var(--teal);color:#fff}
+  .more{display:inline-flex;align-items:center;gap:.4em;color:var(--teal);font-weight:500;font-size:.92rem;transition:.2s}
+  .more:hover{gap:.7em;color:var(--gold)}
+
+  /* ---------- top announcement ---------- */
+  .topbar{background:var(--ink);color:#cfe3e2;text-align:center;font-size:.8rem;letter-spacing:.05em;padding:9px 16px}
+  .topbar a{color:var(--gold-soft);font-weight:500}
+
+  /* ---------- header / nav ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(251,250,244,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:baseline;gap:.5em;font-family:var(--display);font-size:1.5rem;font-weight:600;color:var(--ink)}
+  .brand small{font-family:var(--body);font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .menu{display:flex;align-items:center;gap:clamp(14px,2vw,30px);list-style:none}
+  .menu a{font-size:.92rem;color:var(--ink);font-weight:400;transition:.2s}
+  .menu a:hover{color:var(--teal)}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .lang-switcher{display:flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:999px;padding:.3em .7em;background:rgba(255,255,255,.6);backdrop-filter:blur(8px)}
+  .lang-btn{font-size:.78rem;color:var(--muted);cursor:pointer;background:none;border:0;font-family:var(--body);padding:.2em .3em;border-radius:999px;transition:.2s;font-weight:400}
+  .lang-btn:hover{color:var(--teal)}
+  .lang-btn.active{color:var(--teal);font-weight:700;background:rgba(25,158,145,.1)}
+  .lang-div{color:var(--line);font-size:.75rem;user-select:none}
+  .burger,.burger-box{display:none}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;color:var(--ink);overflow:hidden;
+    background:linear-gradient(160deg,#d6f1ea 0%,#eaf7ef 45%,#fdf6e6 100%)}
+  .hero .wrap{position:relative;z-index:2;padding-top:clamp(60px,10vw,110px);padding-bottom:clamp(70px,11vw,130px)}
+  .hero h1{color:var(--ink);max-width:16ch}
+  .hero h1 em{font-style:italic;color:var(--gold-deep)}
+  .hero .sub{margin-top:22px;color:#3E5C58;font-size:clamp(1.02rem,2vw,1.25rem);font-weight:300;max-width:46ch}
+  .hero .en-sub{display:block;margin-top:8px;font-size:.95rem;color:var(--muted);letter-spacing:.04em}
+  .hero .cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
+  .wave{position:absolute;inset:0;z-index:1;opacity:.5}
+  .particles span{position:absolute;border-radius:50%;background:var(--teal);opacity:.32;animation:float 9s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+  .scroll-hint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:2;color:var(--muted);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase}
+
+  /* fade-up load animation */
+  .fade{opacity:0;transform:translateY(18px);animation:up .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .fade.d1{animation-delay:.12s}.fade.d2{animation-delay:.24s}.fade.d3{animation-delay:.36s}.fade.d4{animation-delay:.48s}
+  @keyframes up{to{opacity:1;transform:none}}
+
+  /* ---------- intro strip ---------- */
+  .intro{background:var(--cloud)}
+  .intro .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,64px);align-items:center}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .chip{border:1px solid var(--line);border-radius:999px;padding:.5em 1em;font-size:.85rem;color:var(--teal);background:var(--paper)}
+  .photo{border-radius:var(--r);aspect-ratio:4/3;background:
+      linear-gradient(135deg,rgba(95,184,174,.25),rgba(196,154,69,.22)),var(--paper-2);
+    display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;letter-spacing:.2em;
+    border:1px solid var(--line)}
+
+  /* ---------- card grids ---------- */
+  .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(18px,2.4vw,28px)}
+  .card{background:var(--cloud);border-radius:var(--r);overflow:hidden;border:1px solid var(--line);
+    transition:.3s ease;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px -22px rgba(16,42,48,.4)}
+  .card .pic{aspect-ratio:3/2;background:linear-gradient(135deg,var(--teal),var(--teal-2));position:relative}
+  .card .pic.alt1{background:linear-gradient(135deg,#2e7b80,#5fb8ae)}
+  .card .pic.alt2{background:linear-gradient(135deg,#1a5b63,#23707a)}
+  .card .pic.warm{background:linear-gradient(135deg,#c49a45,#e4cd93)}
+  .card .pic span{position:absolute;left:16px;bottom:14px;color:rgba(255,255,255,.85);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase}
+  .card .body{padding:24px 24px 26px;flex:1;display:flex;flex-direction:column}
+  .card h3{margin-bottom:4px}
+  .card .en{font-size:.82rem;margin-bottom:12px}
+  .card p{color:var(--muted);font-size:.95rem;flex:1}
+  .card .more{margin-top:18px}
+
+  /* ---------- product band ---------- */
+  .band{background:var(--paper-2);color:var(--ink)}
+  .band .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,5vw,60px);align-items:center}
+  .band h2{color:var(--ink)}
+  .band .en{color:var(--muted)}
+  .band p{color:#44605C;margin-top:16px}
+  .band .photo{background:linear-gradient(135deg,rgba(224,177,88,.32),rgba(134,217,203,.42)),#dff0ea;color:var(--muted);border-color:var(--line)}
+
+  /* ---------- booking CTA ---------- */
+  .booking{background:var(--paper-2);text-align:center}
+  .booking .box{background:var(--cloud);border:1px solid var(--line);border-radius:24px;padding:clamp(34px,6vw,64px);max-width:780px;margin:0 auto}
+  .booking h2{margin-bottom:10px}
+  .booking .cta{margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn-wa{background:#25D366;color:#fff}
+  .btn-wa:hover{background:#1da851;transform:translateY(-2px)}
+
+  /* ---------- articles ---------- */
+  .article{background:var(--cloud);border-radius:var(--r);border:1px solid var(--line);overflow:hidden;transition:.3s}
+  .article:hover{transform:translateY(-5px);box-shadow:0 16px 36px -24px rgba(16,42,48,.4)}
+  .article .pic{aspect-ratio:16/10;background:linear-gradient(135deg,#dfe9e6,#eef0e7)}
+  .article .body{padding:22px 22px 24px}
+  .article .tag{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .article h3{font-size:1.18rem;margin:8px 0 8px}
+  .article p{color:var(--muted);font-size:.92rem}
+
+  /* ---------- testimonials ---------- */
+  /* ---- memo testimonials ---- */
+  .quotes{background:linear-gradient(160deg,#f0f7f4 0%,#faf9f2 100%)}
+  .memo-board{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(18px,2.5vw,30px)}
+  .memo{
+    background:#fff;
+    border-radius:4px 4px 4px 4px;
+    padding:clamp(22px,3vw,32px) clamp(20px,3vw,30px) clamp(20px,3vw,28px);
+    box-shadow:0 2px 8px rgba(35,75,71,.08), 0 8px 24px -8px rgba(35,75,71,.12), 3px 3px 0 #e8e2d4;
+    border-top:5px solid var(--teal);
+    position:relative;
+    transition:.3s ease;
+    display:flex;flex-direction:column;
+  }
+  .memo:nth-child(2){border-top-color:var(--gold);transform:rotate(.4deg)}
+  .memo:nth-child(3){border-top-color:var(--aqua);transform:rotate(-.3deg)}
+  .memo:hover{transform:rotate(0) translateY(-6px);box-shadow:0 12px 40px -12px rgba(35,75,71,.22), 3px 3px 0 #e0d8cc}
+  .memo::before{content:'📌';position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:1.3rem}
+  .memo-tag{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:14px}
+  .memo:nth-child(2) .memo-tag{color:var(--gold-deep)}
+  .memo:nth-child(3) .memo-tag{color:#2E9B8F}
+  .memo-weeks{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;color:var(--muted);
+    border-bottom:1px dashed var(--line);padding-bottom:14px;margin-bottom:18px;font-style:italic}
+  .memo-text{font-family:var(--display);font-style:italic;font-size:clamp(.98rem,1.6vw,1.08rem);
+    color:#2d4a46;line-height:1.8;flex:1}
+  .memo-from{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:flex-end}
+  .memo-from b{font-style:normal;font-family:var(--body);font-weight:600;font-size:.9rem;color:var(--ink)}
+  .memo-from small{display:block;color:var(--muted);font-size:.78rem;margin-top:3px;font-style:normal}
+  .memo-stars{color:var(--gold);font-size:.8rem;letter-spacing:.08em}
+
+  /* ---------- footer ---------- */
+  footer{background:#2E7E74;color:#dcefe9;padding-top:clamp(48px,7vw,80px)}
+  .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(24px,4vw,48px)}
+  footer h4{font-family:var(--display);color:#fff;font-weight:500;font-size:1.05rem;margin-bottom:14px}
+  footer .brand{color:#fff;margin-bottom:12px}
+  footer ul{list-style:none}
+  footer li{margin-bottom:9px;font-size:.9rem}
+  footer a:hover{color:var(--gold-soft)}
+  .social{display:flex;gap:12px;margin-top:6px}
+  .social a{width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;transition:.2s}
+  .social a:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+  .disclaimer{border-top:1px solid rgba(255,255,255,.18);margin-top:clamp(36px,5vw,56px);padding:22px 0;font-size:.76rem;color:#bfe0d9;line-height:1.6}
+  .copy{padding-bottom:30px;font-size:.78rem;color:#aed7cf}
+
+  /* ===================================================== */
+  /* MOBILE — the part that fixes your 手機版 layout        */
+  /* ===================================================== */
+  @media(max-width:860px){
+    .menu{position:fixed;inset:74px 0 auto 0;background:var(--paper);flex-direction:column;align-items:flex-start;
+      gap:0;padding:8px 24px 24px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:.35s ease;height:auto}
+    .menu li{width:100%;border-bottom:1px solid var(--line)}
+    .menu a{display:block;padding:15px 0;font-size:1.05rem}
+    .burger-box:checked ~ .menu{transform:none}
+    .burger{display:flex;flex-direction:column;gap:5px;width:30px;cursor:pointer;background:none;border:0;padding:6px 0}
+    .burger span{height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+    .burger-box:checked ~ .nav .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .burger-box:checked ~ .nav .burger span:nth-child(2){opacity:0}
+    .burger-box:checked ~ .nav .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .nav-cta .btn{display:none}
+    .intro .grid,.band .grid{grid-template-columns:1fr}
+    .band .photo{order:-1}
+    .fgrid{grid-template-columns:1fr 1fr;gap:30px}
+  }
+  @media(max-width:480px){
+    .fgrid{grid-template-columns:1fr}
+    .hero .cta{flex-direction:column;align-items:stretch}
+    .hero .cta .btn{justify-content:center}
+  }
+
+  /* ========== TIMEWAVER SECTION ========== */
+  .tw-section{background:linear-gradient(160deg,#0e2e2a 0%,#163e38 60%,#1a4a42 100%);color:#e8f4f1;position:relative;overflow:hidden}
+  .tw-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 30%,rgba(25,158,145,.18) 0%,transparent 70%);pointer-events:none}
+  .tw-section .wrap{position:relative;z-index:2}
+  .tw-kicker{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--aqua);font-weight:500;display:block;margin-bottom:16px}
+  .tw-section h2{color:#fff;margin-bottom:10px}
+  .tw-section .tw-lead{color:#a8d4ce;font-size:clamp(1rem,1.8vw,1.18rem);max-width:58ch;margin-bottom:48px;font-weight:300}
+  .tw-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
+  .tw-tab{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:999px;
+    padding:.6em 1.3em;font-size:.88rem;color:#a8d4ce;cursor:pointer;transition:.25s;font-family:var(--body);font-weight:400}
+  .tw-tab:hover{background:rgba(255,255,255,.13);color:#fff}
+  .tw-tab.active{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:500}
+  .tw-panel{display:none;animation:twfade .4s ease}
+  .tw-panel.active{display:block}
+  @keyframes twfade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .tw-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px);align-items:start}
+  .tw-grid.single{grid-template-columns:1fr}
+  .tw-text h3{color:#fff;font-size:clamp(1.3rem,2.5vw,1.8rem);margin-bottom:16px}
+  .tw-text p{color:#c2deda;line-height:1.75;margin-bottom:16px;font-size:clamp(.95rem,1.5vw,1.06rem)}
+  .tw-text p:last-child{margin-bottom:0}
+  .tw-text strong{color:#e0f0ec}
+  .tw-visual{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+  .tw-visual-box{aspect-ratio:4/3;background:linear-gradient(135deg,rgba(25,158,145,.35),rgba(224,177,88,.2)),rgba(255,255,255,.04);
+    display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:.8rem;letter-spacing:.2em}
+  .tw-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px;margin-top:8px}
+  .tw-step{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:24px}
+  .tw-step-num{font-family:var(--display);font-size:2rem;color:var(--aqua);font-weight:500;line-height:1;margin-bottom:10px}
+  .tw-step h4{color:#fff;font-size:1rem;font-weight:500;margin-bottom:8px}
+  .tw-step p{color:#a8d4ce;font-size:.9rem;line-height:1.6}
+  .tw-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .tw-pill{background:rgba(25,158,145,.22);border:1px solid rgba(25,158,145,.4);border-radius:8px;
+    padding:.5em 1em;font-size:.85rem;color:#86d9cb}
+  .tw-dim-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:12px;margin-top:24px}
+  .tw-dim{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px 16px;text-align:center}
+  .tw-dim .num{font-family:var(--display);font-size:1.4rem;color:var(--gold);font-weight:500}
+  .tw-dim .label{font-size:.8rem;color:#a8d4ce;margin-top:6px;line-height:1.4}
+  .tw-cta-strip{margin-top:48px;padding:32px 36px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+    border-radius:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+  .tw-cta-strip p{color:#c2deda;font-size:1rem;max-width:48ch}
+  .tw-cta-strip strong{display:block;color:#fff;font-size:1.15rem;margin-bottom:6px}
+  @media(max-width:760px){
+    .tw-grid{grid-template-columns:1fr}
+    .tw-cta-strip{flex-direction:column;align-items:flex-start;padding:24px}
+  }
+  /* ========== END TIMEWAVER SECTION ========== */
+
+  /* ---- video section ---- */
+  .vid-section{background:var(--ink);padding:clamp(56px,9vw,110px) 0}
+  .vid-section .sec-head .kicker{color:var(--aqua)}
+  .vid-section h2{color:#fff}
+  .vid-section .en{color:#9fc2bf}
+  .vid-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:28px;margin-top:48px}
+  .vid-card{border-radius:20px;overflow:hidden;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}
+  .vid-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden}
+  .vid-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .vid-placeholder{position:absolute;top:0;left:0;width:100%;height:100%;
+    background:linear-gradient(135deg,rgba(25,158,145,.3),rgba(35,75,71,.8));
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;cursor:pointer}
+  .vid-play{width:64px;height:64px;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.25s}
+  .vid-play svg{width:24px;height:24px;fill:#fff;margin-left:4px}
+  .vid-placeholder:hover .vid-play{background:var(--teal);border-color:var(--teal);transform:scale(1.08)}
+  .vid-placeholder p{color:rgba(255,255,255,.7);font-size:.85rem;letter-spacing:.15em;text-transform:uppercase}
+  .vid-label{padding:20px 22px}
+  .vid-label h3{color:#fff;font-size:1.1rem;margin-bottom:6px}
+  .vid-label p{color:#9fc2bf;font-size:.9rem}
+</style>
+</head>
+<body>
+
+<!-- announcement -->
+<div class="topbar"><span data-i18n="topbar-text">加入「此刻會員」，尊享專屬內容與優先預約 · <a href="#member">立即加入 →</a></span></div>
+
+<!-- header -->
+<header>
+  <input type="checkbox" id="burger-box" class="burger-box">
+  <div class="wrap nav">
+    <a class="brand" href="#">此刻<small>The&nbsp;Present</small></a>
+    <ul class="menu">
+      <li><a href="#services" data-i18n="nav-services">服務</a></li>
+      <li><a href="#products" data-i18n="nav-products">產品</a></li>
+      <li><a href="#courses" data-i18n="nav-courses">課程</a></li>
+      <li><a href="#articles" data-i18n="nav-articles">文章</a></li>
+      <li><a href="#about" data-i18n="nav-about">關於</a></li>
+      <li><a href="#member" data-i18n="nav-member">會員專區</a></li>
+    </ul>
+    <div class="nav-cta">
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn active" data-lang="zh-Hant" onclick="setLang('zh-Hant')">繁</button>
+        <span class="lang-div">|</span>
+        <button class="lang-btn" data-lang="zh-Hans" onclick="setLang('zh-Hans')">簡</button>
+        <span class="lang-div">|</span>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="https://wa.me/85296215876" target="_blank" class="btn btn-gold">預約諮詢</a>
+      <label for="burger-box" class="burger" aria-label="選單"><span></span><span></span><span></span></label>
+    </div>
+  </div>
+</header>
+
+<!-- hero -->
+<section class="hero">
+  <svg class="wave" viewBox="0 0 1440 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,360 C320,260 560,460 840,380 C1080,310 1280,420 1440,360 L1440,600 L0,600 Z" fill="rgba(95,184,174,.18)"/>
+    <path d="M0,430 C300,360 620,520 920,440 C1160,378 1320,470 1440,430 L1440,600 L0,600 Z" fill="rgba(196,154,69,.14)"/>
+  </svg>
+  <div class="particles" aria-hidden="true">
+    <span style="width:8px;height:8px;left:12%;top:30%"></span>
+    <span style="width:5px;height:5px;left:78%;top:22%;animation-delay:1.5s"></span>
+    <span style="width:11px;height:11px;left:64%;top:60%;animation-delay:.8s"></span>
+    <span style="width:6px;height:6px;left:30%;top:68%;animation-delay:2.2s"></span>
+  </div>
+  <div class="wrap">
+    <p class="kicker fade" data-i18n="hero-kicker">身心健康 · TimeWaver 諮詢</p>
+    <h1 class="fade d1" data-i18n="hero-h1">回到<em>此刻</em>，<br>讓身心重新和諧。</h1>
+    <p class="sub fade d2">透過 TimeWaver 信息場技術與芳香療法，陪你覺察內在、調和能量，安住於當下的圓滿。
+      <span class="en-sub">Reconnect with the present moment — harmony for body and mind.</span></p>
+    <div class="cta fade d3">
+      <a href="https://wa.me/85296215876" target="_blank" class="btn btn-gold" data-i18n="hero-btn1">預約一次諮詢 →</a>
+      <a href="#about" class="btn btn-ghost" data-i18n="hero-btn2">認識 TimeWaver</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll ↓</div>
+</section>
+
+<!-- intro -->
+<section class="intro" id="about">
+  <div class="wrap grid">
+    <div>
+      <p class="kicker">什麼是 TimeWaver</p>
+      <h2 style="margin-top:12px">在信息場中，<br>聆聽身心的訊息。</h2>
+      <p class="en">An invitation to listen — through the information field.</p>
+      <p class="lead" style="margin-top:18px">TimeWaver 是一套源自德國的信息場技術。我們透過它去分析與和諧身心的深層背景，讓被打結的能量重新流動，陪你在放鬆中找回內在的平衡與覺察。</p>
+      <div class="chips">
+        <span class="chip">信息場分析</span>
+        <span class="chip">能量和諧</span>
+        <span class="chip">芳香療法整合</span>
+        <span class="chip">身心覺察</span>
+      </div>
+    </div>
+    <div class="photo">相片 PHOTO</div>
+  </div>
+</section>
+
+
+<!-- ===== TIMEWAVER SECTION ===== -->
+<section class="tw-section" id="what-is-timewaver">
+  <div class="wrap">
+    <span class="tw-kicker">認識 TimeWaver</span>
+    <h2>什麼是 TimeWaver 信息場技術？</h2>
+    <p class="tw-lead">TimeWaver 是源自德國的信息場分析系統，連結意識與物質，協助你在生活、健康與目標中達到和諧。<br>
+    <span style="font-size:.9rem;color:rgba(168,212,206,.7)">What is TimeWaver? An information field technology that bridges consciousness and matter.</span></p>
+
+    <!-- Tab navigation -->
+    <div class="tw-tabs" role="tablist">
+      <button class="tw-tab active" onclick="switchTab(this,'tab-what')" role="tab">什麼是信息場</button>
+      <button class="tw-tab" onclick="switchTab(this,'tab-how')" role="tab">如何運作</button>
+      <button class="tw-tab" onclick="switchTab(this,'tab-dim')" role="tab">12維模型</button>
+      <button class="tw-tab" onclick="switchTab(this,'tab-coaching')" role="tab">Coaching Wheel</button>
+      <button class="tw-tab" onclick="switchTab(this,'tab-apply')" role="tab">應用範疇</button>
+    </div>
+
+    <!-- Panel 1: 什麼是信息場 -->
+    <div class="tw-panel active" id="tab-what">
+      <div class="tw-grid">
+        <div class="tw-text">
+          <h3>信息場——身體與意識之間的橋樑</h3>
+          <p>我們每個人都有兩個面向：<strong>身體（物質）</strong>與<strong>思想（意識）</strong>。這兩者的連結，就是所謂的「信息場」。它既不屬於身體，也不屬於精神，而是兩者之間一種全新的存在。</p>
+          <p>TimeWaver 的創始人 Marcus Schmieke 說：「思想可以在信息場中創造出顯化在物質中的形狀；物質世界同樣可以影響信息場的思想。當身體與意識不能相互交流，我們便會生病。」</p>
+          <p>TimeWaver 系統正是透過信息場技術，<strong>分析與協調身心的深層背景因素</strong>，讓被阻塞的能量重新流動。</p>
+          <div class="tw-pills">
+            <span class="tw-pill">量子物理學基礎</span>
+            <span class="tw-pill">生物場域論</span>
+            <span class="tw-pill">心理學整合</span>
+            <span class="tw-pill">靈性修行視角</span>
+          </div>
+        </div>
+        <div class="tw-visual">
+          <div class="tw-visual-box">IMAGE</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2: 如何運作 -->
+    <div class="tw-panel" id="tab-how">
+      <div class="tw-grid">
+        <div class="tw-text">
+          <h3>TimeWaver 如何為你分析與調和？</h3>
+          <p>TimeWaver 在德國研發，現已被全球逾 <strong>1,500 名諮詢師</strong>使用。系統會鎖定你個人的信息場，即時分析，並從 <strong>12 個不同維度</strong>進行頻率的調整與調和。</p>
+          <p>分析範圍涵蓋：身體壓力成因、睡眠質素影響因素、細胞健康狀態、免疫系統狀態、情緒及信念的影響、居住環境的影響等。</p>
+          <p>每一個人身體失衡的成因各有不同，可以是食物敏感、毒素過多、情緒壓力或環境因素。TimeWaver 幫助你從信息場中<strong>找出肉眼看不見的根源</strong>，而不只是處理表面症狀。</p>
+        </div>
+        <div class="tw-text">
+          <h3>主要分析模組</h3>
+          <div class="tw-pills" style="flex-direction:column;gap:12px">
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🔬 器官統整模組 — 52器官能量場分析</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">⚡ 經絡模組 — 中醫經絡能量通道優化</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🕐 時間軸模組 — 過去、現在與未來的生命線</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🎵 音頻模組 — 個人化頻率平衡療法</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🌀 光環模組 — 脈輪分析與可視化</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🧬 波動基因模組 — DNA波動場調節</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3: 12維模型 -->
+    <div class="tw-panel" id="tab-dim">
+      <div class="tw-grid">
+        <div class="tw-text">
+          <h3>Burkhard Heim 的 12 維模型</h3>
+          <p>TimeWaver 的理論基礎來自德國物理學家 <strong>Burkhard Heim</strong>（Werner Heisenberg 的學生）在 20 世紀 70 年代末提出的統一場論。他完成了許多著名物理學家（包括 Einstein 和 Hawking）未能完成的任務。</p>
+          <p>根據 Heim 的模型，信息場位於<strong>第 7 維和第 8 維</strong>——這是我們存在的層面，所有問題的答案、預先決定和所有知識都儲存於此。通過 TimeWaver，更高的維度與我們習慣的時空四個維度進行溝通。</p>
+        </div>
+        <div class="tw-text">
+          <div class="tw-dim-grid">
+            <div class="tw-dim"><div class="num">d1–d4</div><div class="label">物質世界<br>四維時空</div></div>
+            <div class="tw-dim"><div class="num">d5–d6</div><div class="label">能量控制場<br>ECL</div></div>
+            <div class="tw-dim"><div class="num">d7–d8</div><div class="label">信息場<br>意識層面</div></div>
+            <div class="tw-dim"><div class="num">d9–d10</div><div class="label">全球信息場<br>GIF</div></div>
+            <div class="tw-dim"><div class="num">d11–d12</div><div class="label">心識空間<br>純意識</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 4: Coaching Wheel -->
+    <div class="tw-panel" id="tab-coaching">
+      <div class="tw-text tw-grid single" style="margin-bottom:28px">
+        <div>
+          <h3>Coaching Wheel — 5 步驟諮詢流程</h3>
+          <p>透過多維度的信息場分析，促進深度自我覺察，比較「意識」與「潛意識」之間的差異，協助你找到真正屬於自己的方向。</p>
+        </div>
+      </div>
+      <div class="tw-steps">
+        <div class="tw-step">
+          <div class="tw-step-num">01</div>
+          <h4>自我評價</h4>
+          <p>根據 13 個生命領域（家庭、財務、健康、事業、友誼、靈性等），以 1–10 分進行自我評估。</p>
+        </div>
+        <div class="tw-step">
+          <div class="tw-step-num">02</div>
+          <h4>探索願景與目標</h4>
+          <p>透過回答 TimeWaver 的問題，讓你的夢想、願望與願景變得更加清晰具體。</p>
+        </div>
+        <div class="tw-step">
+          <div class="tw-step-num">03</div>
+          <h4>信息場分析</h4>
+          <p>多維度分析將你的自我評價（意識）與潛意識進行比較，把隱藏的模式帶入覺察。</p>
+        </div>
+        <div class="tw-step">
+          <div class="tw-step-num">04</div>
+          <h4>制定行動計劃</h4>
+          <p>從短期和長期目標的角度，優化你的觀點，制定具體可行的行動計劃。</p>
+        </div>
+        <div class="tw-step">
+          <div class="tw-step-num">05</div>
+          <h4>執行與跟進</h4>
+          <p>根據 TimeWaver 的評估進行諮詢，與顧問一起執行計劃，持續追蹤進展。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 5: 應用範疇 -->
+    <div class="tw-panel" id="tab-apply">
+      <div class="tw-grid">
+        <div class="tw-text">
+          <h3>廣泛的應用領域</h3>
+          <p>TimeWaver 的信息場技術可以應用於生活各個層面，從個人身心健康到企業管理，提供多元的支持與洞察。</p>
+          <div class="tw-pills" style="flex-direction:column;gap:10px;margin-top:16px">
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">💚 心靈成長與發展</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🌿 身體保健與管理（睡眠、免疫、細胞健康）</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🤝 人際關係與家庭和諧</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🏢 企業決策與領導支援</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🏡 居住空間能量優化</span>
+          </div>
+        </div>
+        <div class="tw-text">
+          <h3>常見的諮詢主題</h3>
+          <p style="margin-bottom:20px">在我們的諮詢中，客人常帶來以下議題：</p>
+          <div class="tw-steps" style="grid-template-columns:1fr">
+            <div class="tw-step" style="padding:18px">
+              <h4>😴 睡眠困擾</h4>
+              <p>全球約 10-30% 人口受睡眠障礙影響。TimeWaver 幫助找出影響睡眠的信息場因素。</p>
+            </div>
+            <div class="tw-step" style="padding:18px">
+              <h4>😰 情緒與壓力</h4>
+              <p>長期壓力、焦慮、情緒困擾背後往往有更深的信息場根源需要被看見與調和。</p>
+            </div>
+            <div class="tw-step" style="padding:18px">
+              <h4>🔋 身體活力低落</h4>
+              <p>細胞膜電位降低是許多身體失衡的根源。TimeWaver 頻率調和助你恢復自然電壓。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="tw-cta-strip">
+      <div>
+        <strong>準備好體驗 TimeWaver 了嗎？</strong>
+        <p>首次諮詢包含 15 分鐘免費了解，讓我陪你看看哪一種方式最適合此刻的你。</p>
+      </div>
+      <a href="#booking" class="btn btn-gold">預約免費了解 →</a>
+    </div>
+  </div>
+</section>
+
+<script>
+function switchTab(btn, panelId) {
+  document.querySelectorAll('.tw-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tw-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+</script>
+<!-- ===== END TIMEWAVER SECTION ===== -->
+
+<!-- services -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">諮詢服務</span>
+      <h2>找到最適合你此刻的方式</h2>
+      <span class="en">TimeWaver Consultation Services</span>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="pic alt2"><span>Photo</span></div>
+        <div class="body">
+          <h3>量子諮詢</h3>
+          <span class="en">Quantum Consultation</span>
+          <p>透過信息場分析，了解身心當下的整體狀態，為你梳理需要被看見的面向。</p>
+          <a href="#" class="more">了解更多 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="pic alt1"><span>Photo</span></div>
+        <div class="body">
+          <h3>量子調和</h3>
+          <span class="en">Quantum Harmonizing</span>
+          <p>針對分析結果進行能量和諧，協助被阻塞的生命能量重新流動。</p>
+          <a href="#" class="more">了解更多 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="pic"><span>Photo</span></div>
+        <div class="body">
+          <h3>身心療癒</h3>
+          <span class="en">Body &amp; Mind Wellness</span>
+          <p>結合芳香療法與身心陪伴，在放鬆的空間裡，溫柔地回到自己。</p>
+          <a href="#" class="more">了解更多 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- product band -->
+<section class="band" id="products">
+  <div class="wrap grid">
+    <div class="photo">精油套裝 PHOTO</div>
+    <div>
+      <p class="kicker">嚴選產品</p>
+      <h2>精油套裝</h2>
+      <p class="en">Curated Essential Oil Sets</p>
+      <p>為日常的身心照顧而選。從睡眠、放鬆到專注，讓自然的香氣陪你回到平衡，把諮詢室裡的安定帶回家。</p>
+      <div class="cta" style="margin-top:26px"><a href="#" class="btn btn-gold">選購套裝 →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- courses -->
+<section id="courses">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">證書課程</span>
+      <h2>把照顧的能力，帶回家庭</h2>
+      <span class="en">Certificate Courses</span>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="pic warm"><span>Photo</span></div>
+        <div class="body">
+          <h3>嬰兒按摩證書課程</h3>
+          <span class="en">Infant Massage Certificate</span>
+          <p>透過溫柔的觸碰，建立親子之間的安全感與連結。</p>
+          <a href="#" class="more">課程詳情 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="pic alt1"><span>Photo</span></div>
+        <div class="body">
+          <h3>健腦操證書課程</h3>
+          <span class="en">Brain Gym Certificate</span>
+          <p>以簡單的身體律動，幫助孩子提升專注與學習狀態。</p>
+          <a href="#" class="more">課程詳情 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="pic alt2"><span>Photo</span></div>
+        <div class="body">
+          <h3>兒童芳療證書課程</h3>
+          <span class="en">Kids Aromatherapy Certificate</span>
+          <p>認識適合兒童的精油與安全用法，為家庭打造天然的照顧。</p>
+          <a href="#" class="more" onclick="openCourseModal(event)" data-i18n="crs3-btn">課程詳情 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- ── Kids Course Modal ── -->
+<div id="courseModal" style="display:none;position:fixed;inset:0;z-index:999;align-items:center;justify-content:center;padding:20px">
+  <div onclick="closeCourseModal()" style="position:absolute;inset:0;background:rgba(15,35,32,.6);backdrop-filter:blur(6px)"></div>
+  <div style="position:relative;background:#fff;border-radius:24px;padding:clamp(28px,5vw,48px);max-width:520px;width:100%;box-shadow:0 32px 80px -20px rgba(15,35,32,.5);z-index:1">
+    <button onclick="closeCourseModal()" style="position:absolute;top:18px;right:18px;background:var(--paper);border:0;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.1rem;color:var(--muted);display:flex;align-items:center;justify-content:center">✕</button>
+    <p class="kicker" style="margin-bottom:12px">證書課程</p>
+    <h3 style="font-family:var(--display);font-size:1.5rem;color:var(--ink);margin-bottom:10px" data-i18n="crs3-h3">兒童芳療證書課程</h3>
+    <p style="color:var(--muted);font-size:.95rem;margin-bottom:24px" data-i18n="crs3-modal-p">認識適合兒童的精油與安全用法，為家庭打造天然的照顧。課程由 SANE 機構提供，按此了解詳情及報名。</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="https://www.sane.hk/aromachild" target="_blank" class="btn btn-gold" style="flex:1;justify-content:center;min-width:160px" data-i18n="crs3-modal-btn">前往課程報名 →</a>
+      <button onclick="closeCourseModal()" class="btn btn-line" style="flex:1;min-width:120px;cursor:pointer" data-i18n="crs3-modal-close">關閉</button>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- booking -->
+<section class="booking" id="booking">
+  <div class="wrap">
+    <div class="box">
+      <span class="kicker" data-i18n="bk-kicker">預約 · 免費體驗</span>
+      <h2 style="margin-top:12px" data-i18n="bk-h2">準備好回到此刻了嗎？</h2>
+      <p class="lead" style="margin:14px auto 0">先來一次免費的 15 分鐘了解，看看哪一種方式最適合你。</p>
+      <div class="cta">
+        <a href="https://wa.me/85296215876" target="_blank" class="btn btn-wa" data-i18n="bk-btn1">WhatsApp 預約</a>
+        <a href="https://wa.me/85296215876" target="_blank" class="btn btn-line" data-i18n="bk-btn2">WhatsApp 揀時間</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- articles -->
+<section id="articles">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">文章 · 見證</span>
+      <h2>慢讀一篇，照顧自己</h2>
+      <span class="en">Articles &amp; Stories</span>
+    </div>
+    <div class="grid-3">
+      <article class="article">
+        <div class="pic"></div>
+        <div class="body">
+          <span class="tag">身心靈</span>
+          <h3>病由心生，是真的嗎？</h3>
+          <p>當情緒長期緊繃，身體往往最先替我們說話⋯⋯</p>
+          <a href="#" class="more" style="margin-top:14px">閱讀更多 →</a>
+        </div>
+      </article>
+      <article class="article">
+        <div class="pic"></div>
+        <div class="body">
+          <span class="tag">客人見證</span>
+          <h3>一次諮詢後，我睡得好了</h3>
+          <p>一位媽媽分享，她如何重新找回放鬆與睡眠⋯⋯</p>
+          <a href="#" class="more" style="margin-top:14px">閱讀更多 →</a>
+        </div>
+      </article>
+      <article class="article">
+        <div class="pic"></div>
+        <div class="body">
+          <span class="tag">芳療生活</span>
+          <h3>三款適合睡前的精油</h3>
+          <p>把忙碌的一天放下，從一個簡單的香氣儀式開始⋯⋯</p>
+          <a href="#" class="more" style="margin-top:14px">閱讀更多 →</a>
+        </div>
+      </article>
+    </div>
+    <div style="text-align:center;margin-top:42px"><a href="#" class="btn btn-line">更多文章 →</a></div>
+  </div>
+</section>
+
+
+<!-- ===== VIDEO SECTION ===== -->
+<!--
+=======================================================
+📹 影片管理指南
+=======================================================
+換 YouTube 影片：
+  1. 去 YouTube，撳「分享」→「嵌入」
+  2. 複製 src 入面 /embed/XXXXXXX 嗰串 ID
+  3. 將下面 YOUR_YOUTUBE_ID 換成你嘅 ID
+
+換 Vimeo 影片：
+  src="https://player.vimeo.com/video/YOUR_VIMEO_ID"
+
+暫時未有影片？保留 placeholder，之後再換。
+=======================================================
+-->
+<section class="vid-section" id="videos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">了解 TimeWaver</span>
+      <h2 style="color:#fff">親眼看看，儀器如何運作</h2>
+      <span class="en">See TimeWaver in Action</span>
+    </div>
+    <div class="vid-grid">
+
+      <!-- 影片 1 ── 換成你嘅 YouTube ID -->
+      <div class="vid-card">
+        <div class="vid-wrap">
+          <!--
+            📹 有影片時，移除下面 vid-placeholder，換成：
+            <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          -->
+          <div class="vid-placeholder">
+            <div class="vid-play">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <p>影片即將上線</p>
+          </div>
+        </div>
+        <div class="vid-label">
+          <h3>什麼是 TimeWaver 信息場技術？</h3>
+          <p>三分鐘了解 TimeWaver 如何精準探測身心狀態，數據說話，不是盲估。</p>
+        </div>
+      </div>
+
+      <!-- 影片 2 ── 換成官方或你嘅介紹片 -->
+      <div class="vid-card">
+        <div class="vid-wrap">
+          <!--
+            📹 官方 TimeWaver 國際影片範例：
+            <iframe src="https://www.youtube.com/embed/官方ID"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          -->
+          <div class="vid-placeholder">
+            <div class="vid-play">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <p>影片即將上線</p>
+          </div>
+        </div>
+        <div class="vid-label">
+          <h3>遙距調和是如何進行的？</h3>
+          <p>唔需請假、唔需出門——四週遙距調和的真實流程示範。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ===== END VIDEO SECTION ===== -->
+
+<!-- testimonials -->
+<section class="quotes">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker" data-i18n="tst-kicker">真實回饋</span>
+      <h2 data-i18n="tst-h2">她們留下的話</h2>
+      <span class="en">Words from Our Clients</span>
+    </div>
+
+    <div class="memo-board">
+
+      <!-- Memo 1 : 高管 · 遙距 · 決策清晰 -->
+      <div class="memo">
+        <span class="memo-tag">企業高管 · 遙距調和</span>
+        <p class="memo-weeks">✦ 四週體驗後的分享</p>
+        <p class="memo-text">「以前總是感覺有什麼卡住了，但說不清楚在哪裡。調和報告出來的時候，那些卡點一目了然——不是我的感覺，是儀器直接顯示出來的。四週之後，做決定時那種拉扯感消失了，整個人清爽了很多，連身邊的人都說我不一樣了。」</p>
+        <div class="memo-from">
+          <div>
+            <b>V. C.</b>
+            <small>跨國企業高管 · 香港</small>
+          </div>
+          <span class="memo-stars">★★★★★</span>
+        </div>
+      </div>
+
+      <!-- Memo 2 : 媽媽 · 家庭頻率 · 日常改變 -->
+      <div class="memo">
+        <span class="memo-tag">全職媽媽 · 家庭頻率調和</span>
+        <p class="memo-weeks">✦ 四週全家調和後的日常</p>
+        <p class="memo-text">「最驚喜的是，儀器的分析竟然把我們家的狀況說得一清二楚——每個人的卡點都不一樣，但全部都在報告裡。四週遙距調和之後，家裡的氛圍輕鬆了，孩子睡得好了，飯桌上的笑聲多了。我終於感覺，全家人回到了同一個頻率上。」</p>
+        <div class="memo-from">
+          <div>
+            <b>S. L.</b>
+            <small>三孩媽媽 · 太古城</small>
+          </div>
+          <span class="memo-stars">★★★★★</span>
+        </div>
+      </div>
+
+      <!-- Memo 3 : 專業人士 · 精準反射 · 零打擾日程 -->
+      <div class="memo">
+        <span class="memo-tag">專業人士 · 深度校準</span>
+        <p class="memo-weeks">✦ 四週調和 · 零打擾日程</p>
+        <p class="memo-text">「完全不需要請假，不需要改變任何日程——這對我來說非常重要。報告裡呈現的每一個狀態，都精準對應了我近期的生活，像一面鏡子。調和之後，那種說不出來的沉重感慢慢散了，睡眠穩了，早上醒來開始有期待感了。」</p>
+        <div class="memo-from">
+          <div>
+            <b>M. K.</b>
+            <small>專業顧問 · 中環</small>
+          </div>
+          <span class="memo-stars">★★★★★</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer id="member">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="font-family:var(--display);font-size:1.5rem;font-weight:600">此刻 · The Present</div>
+        <p style="font-size:.9rem;color:#c9e6e0;max-width:34ch" data-i18n="ft-desc">陪你回到當下，讓身心重新和諧。TimeWaver 信息場諮詢 · 芳香療法 · 身心課程。</p>
+      </div>
+      <div>
+        <h4>探索</h4>
+        <ul>
+          <li><a href="#services">諮詢服務</a></li>
+          <li><a href="#products">精油套裝</a></li>
+          <li><a href="#courses">證書課程</a></li>
+          <li><a href="#articles">文章見證</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>聯絡我們</h4>
+        <ul>
+          <li><a href="https://wa.me/85296215876" target="_blank" data-i18n="ft-wa">WhatsApp 預約</a></li>
+          <li><a href="mailto:juliayuen.qfc@gmail.com">juliayuen.qfc@gmail.com</a></li>
+          <li><span data-i18n="ft-hours">辦公時間：一至五 10:30–18:30</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>會員專區</h4>
+        <ul>
+          <li><a href="#">會員登入</a></li>
+          <li><a href="#">我的課程</a></li>
+          <li><a href="#">立即加入會員</a></li>
+        </ul>
+        <div class="social">
+          <a href="https://www.youtube.com/@juliayuen" target="_blank" title="YouTube">YT</a>
+          <a href="https://www.facebook.com/juliayuen" target="_blank" title="Facebook">FB</a>
+          <a href="#" title="Instagram">IG</a>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer">聲明：TimeWaver 信息場分析與和諧屬整全身心調理範疇，並非醫療診斷、治療或藥物，不能取代專業醫療意見。如有健康問題，請諮詢註冊醫療人員。</p>
+    <p class="copy">© 2026 此刻 The Present · Julia Yuen. 版權所有。</p>
+  </div>
+</footer>
+
+
+<script>
+// ============================================================
+// THREE-LANGUAGE SYSTEM  繁體 / 簡體 / EN
+// ============================================================
+const T = {
+  // TOPBAR
+  'topbar-text':{
+    'zh-Hant':'加入「此刻會員」，尊享專屬內容與優先預約 · <a href="#member">立即加入 →</a>',
+    'zh-Hans':'加入「此刻会员」，尊享专属内容与优先预约 · <a href="#member">立即加入 →</a>',
+    'en':'Join The Present Members for exclusive content & priority booking · <a href="#member">Join Now →</a>'},
+  // NAV
+  'nav-services':{'zh-Hant':'服務','zh-Hans':'服务','en':'Services'},
+  'nav-products':{'zh-Hant':'產品','zh-Hans':'产品','en':'Products'},
+  'nav-courses':{'zh-Hant':'課程','zh-Hans':'课程','en':'Courses'},
+  'nav-articles':{'zh-Hant':'文章','zh-Hans':'文章','en':'Articles'},
+  'nav-about':{'zh-Hant':'關於','zh-Hans':'关于','en':'About'},
+  'nav-member':{'zh-Hant':'會員專區','zh-Hans':'会员专区','en':'Members'},
+  // HERO
+  'hero-kicker':{'zh-Hant':'身心健康 · TimeWaver 諮詢','zh-Hans':'身心健康 · TimeWaver 咨询','en':'Wellness · TimeWaver Consultation'},
+  'hero-h1':{'zh-Hant':'回到<em>此刻</em>，<br>讓身心重新和諧。','zh-Hans':'回到<em>此刻</em>，<br>让身心重新和谐。','en':'Return to <em>this moment</em>,<br>restore harmony within.'},
+  'hero-btn1':{'zh-Hant':'預約一次諮詢 →','zh-Hans':'预约一次咨询 →','en':'Book a Consultation →'},
+  'hero-btn2':{'zh-Hant':'認識 TimeWaver','zh-Hans':'认识 TimeWaver','en':'Learn About TimeWaver'},
+  // INTRO
+  'intro-kicker':{'zh-Hant':'什麼是 TimeWaver','zh-Hans':'什么是 TimeWaver','en':'What is TimeWaver'},
+  'intro-h2':{'zh-Hant':'在信息場中，<br>聆聽身心的訊息。','zh-Hans':'在信息场中，<br>聆听身心的讯息。','en':'In the information field,<br>listen to what your body knows.'},
+  'intro-p':{'zh-Hant':'TimeWaver 是一套源自德國的信息場技術。我們透過它去分析與和諧身心的深層背景，讓被打結的能量重新流動，陪你在放鬆中找回內在的平衡與覺察。',
+    'zh-Hans':'TimeWaver 是一套源自德国的信息场技术。我们透过它去分析与和谐身心的深层背景，让被打结的能量重新流动，陪你在放松中找回内在的平衡与觉察。',
+    'en':'TimeWaver is an information field technology from Germany. It analyses the deeper background of your body and mind, helps blocked energy flow again, and guides you back to inner balance.'},
+  // SERVICES
+  'srv-kicker':{'zh-Hant':'諮詢服務','zh-Hans':'咨询服务','en':'Consultation Services'},
+  'srv-h2':{'zh-Hant':'找到最適合你此刻的方式','zh-Hans':'找到最适合你此刻的方式','en':'Find the right approach for you'},
+  'srv1-h3':{'zh-Hant':'量子諮詢','zh-Hans':'量子咨询','en':'Quantum Consultation'},
+  'srv1-p':{'zh-Hant':'透過信息場分析，了解身心當下的整體狀態，為你梳理需要被看見的面向。',
+    'zh-Hans':'透过信息场分析，了解身心当下的整体状态，为你梳理需要被看见的面向。',
+    'en':'Through information field analysis, we reveal the overall state of your body and mind, and surface what needs to be seen.'},
+  'srv2-h3':{'zh-Hant':'量子調和','zh-Hans':'量子调和','en':'Quantum Harmonizing'},
+  'srv2-p':{'zh-Hant':'針對分析結果進行能量和諧，協助被阻塞的生命能量重新流動。',
+    'zh-Hans':'针对分析结果进行能量和谐，协助被阻塞的生命能量重新流动。',
+    'en':'We harmonise energy based on the analysis results, helping blocked life energy flow freely again.'},
+  'srv3-h3':{'zh-Hant':'身心療癒','zh-Hans':'身心疗愈','en':'Body & Mind Wellness'},
+  'srv3-p':{'zh-Hant':'結合芳香療法與身心陪伴，在放鬆的空間裡，溫柔地回到自己。',
+    'zh-Hans':'结合芳香疗法与身心陪伴，在放松的空间里，温柔地回到自己。',
+    'en':'Combining aromatherapy and mindful accompaniment, gently returning to yourself in a relaxed space.'},
+  // PRODUCT
+  'prd-kicker':{'zh-Hant':'嚴選產品','zh-Hans':'严选产品','en':'Curated Products'},
+  'prd-h2':{'zh-Hant':'精油套裝','zh-Hans':'精油套装','en':'Essential Oil Sets'},
+  'prd-p':{'zh-Hant':'為日常的身心照顧而選。從睡眠、放鬆到專注，讓自然的香氣陪你回到平衡，把諮詢室裡的安定帶回家。',
+    'zh-Hans':'为日常的身心照顾而选。从睡眠、放松到专注，让自然的香气陪你回到平衡，把咨询室里的安定带回家。',
+    'en':'Curated for your daily body-mind care. From sleep to focus, let natural aromatics bring balance home.'},
+  'prd-btn':{'zh-Hant':'選購套裝 →','zh-Hans':'选购套装 →','en':'Shop Sets →'},
+  // COURSES
+  'crs-kicker':{'zh-Hant':'證書課程','zh-Hans':'证书课程','en':'Certificate Courses'},
+  'crs-h2':{'zh-Hant':'把照顧的能力，帶回家庭','zh-Hans':'把照顾的能力，带回家庭','en':'Bring the gift of care home'},
+  'crs1-h3':{'zh-Hant':'嬰兒按摩證書課程','zh-Hans':'婴儿按摩证书课程','en':'Infant Massage Certificate'},
+  'crs1-p':{'zh-Hant':'透過溫柔的觸碰，建立親子之間的安全感與連結。','zh-Hans':'透过温柔的触碰，建立亲子之间的安全感与连结。','en':'Build safety and connection through gentle touch.'},
+  'crs1-btn':{'zh-Hant':'課程詳情 →','zh-Hans':'课程详情 →','en':'Course Details →'},
+  'crs2-h3':{'zh-Hant':'健腦操證書課程','zh-Hans':'健脑操证书课程','en':'Brain Gym Certificate'},
+  'crs2-p':{'zh-Hant':'以簡單的身體律動，幫助孩子提升專注與學習狀態。','zh-Hans':'以简单的身体律动，帮助孩子提升专注与学习状态。','en':'Simple body movements to support children\'s focus and learning.'},
+  'crs2-btn':{'zh-Hant':'課程詳情 →','zh-Hans':'课程详情 →','en':'Course Details →'},
+  'crs3-h3':{'zh-Hant':'兒童芳療證書課程','zh-Hans':'儿童芳疗证书课程','en':'Kids Aromatherapy Certificate'},
+  'crs3-p':{'zh-Hant':'認識適合兒童的精油與安全用法，為家庭打造天然的照顧。','zh-Hans':'认识适合儿童的精油与安全用法，为家庭打造天然的照顾。','en':'Learn child-safe essential oils and natural family care.'},
+  'crs3-btn':{'zh-Hant':'課程詳情 →','zh-Hans':'课程详情 →','en':'Course Details →'},
+  'crs3-modal-p':{'zh-Hant':'認識適合兒童的精油與安全用法，為家庭打造天然的照顧。課程由 SANE 機構提供，按此了解詳情及報名。',
+    'zh-Hans':'认识适合儿童的精油与安全用法，为家庭打造天然的照顾。课程由 SANE 机构提供，按此了解详情及报名。',
+    'en':'Learn child-safe essential oils and natural family care. This course is provided by SANE. Click below for details and registration.'},
+  'crs3-modal-btn':{'zh-Hant':'前往課程報名 →','zh-Hans':'前往课程报名 →','en':'Go to Course Registration →'},
+  'crs3-modal-close':{'zh-Hant':'關閉','zh-Hans':'关闭','en':'Close'},
+  // BOOKING
+  'bk-kicker':{'zh-Hant':'預約 · 免費體驗','zh-Hans':'预约 · 免费体验','en':'Book · Free Discovery'},
+  'bk-h2':{'zh-Hant':'準備好回到此刻了嗎？','zh-Hans':'准备好回到此刻了吗？','en':'Ready to return to the present?'},
+  'bk-p':{'zh-Hant':'先來一次免費的 15 分鐘了解，看看哪一種方式最適合你。',
+    'zh-Hans':'先来一次免费的 15 分钟了解，看看哪一种方式最适合你。',
+    'en':'Start with a free 15-minute discovery call to find the right fit for you.'},
+  'bk-btn1':{'zh-Hant':'WhatsApp 預約','zh-Hans':'WhatsApp 预约','en':'WhatsApp Booking'},
+  'bk-btn2':{'zh-Hant':'WhatsApp 揀時間','zh-Hans':'WhatsApp 选时间','en':'Pick a Time via WhatsApp'},
+  // ARTICLES
+  'art-kicker':{'zh-Hant':'文章 · 見證','zh-Hans':'文章 · 见证','en':'Articles & Stories'},
+  'art-h2':{'zh-Hant':'慢讀一篇，照顧自己','zh-Hans':'慢读一篇，照顾自己','en':'Slow down. Read. Take care.'},
+  // TESTIMONIALS
+  'tst-kicker':{'zh-Hant':'真實回饋','zh-Hans':'真实回馈','en':'Client Stories'},
+  'tst-h2':{'zh-Hant':'她們留下的話','zh-Hans':'她们留下的话','en':'Words from Our Clients'},
+  // FOOTER
+  'ft-desc':{'zh-Hant':'陪你回到當下，讓身心重新和諧。TimeWaver 信息場諮詢 · 芳香療法 · 身心課程。',
+    'zh-Hans':'陪你回到当下，让身心重新和谐。TimeWaver 信息场咨询 · 芳香疗法 · 身心课程。',
+    'en':'Guiding you back to the present. TimeWaver Consultation · Aromatherapy · Wellness Courses.'},
+  'ft-explore':{'zh-Hant':'探索','zh-Hans':'探索','en':'Explore'},
+  'ft-srv':{'zh-Hant':'諮詢服務','zh-Hans':'咨询服务','en':'Consultations'},
+  'ft-prd':{'zh-Hant':'精油套裝','zh-Hans':'精油套装','en':'Essential Oils'},
+  'ft-crs':{'zh-Hant':'證書課程','zh-Hans':'证书课程','en':'Courses'},
+  'ft-art':{'zh-Hant':'文章見證','zh-Hans':'文章见证','en':'Articles'},
+  'ft-contact':{'zh-Hant':'聯絡我們','zh-Hans':'联络我们','en':'Contact'},
+  'ft-wa':{'zh-Hant':'WhatsApp 預約','zh-Hans':'WhatsApp 预约','en':'WhatsApp Booking'},
+  'ft-hours':{'zh-Hant':'辦公時間：一至五 10:30–18:30','zh-Hans':'办公时间：周一至五 10:30–18:30','en':'Mon–Fri 10:30–18:30'},
+  'ft-member':{'zh-Hant':'會員專區','zh-Hans':'会员专区','en':'Members Area'},
+  'ft-login':{'zh-Hant':'會員登入','zh-Hans':'会员登入','en':'Member Login'},
+  'ft-mycourse':{'zh-Hant':'我的課程','zh-Hans':'我的课程','en':'My Courses'},
+  'ft-join':{'zh-Hant':'立即加入會員','zh-Hans':'立即加入会员','en':'Join Now'},
+  'ft-disc':{'zh-Hant':'聲明：TimeWaver 信息場分析與和諧屬整全身心調理範疇，並非醫療診斷、治療或藥物，不能取代專業醫療意見。如有健康問題，請諮詢註冊醫療人員。',
+    'zh-Hans':'声明：TimeWaver 信息场分析与和谐属整全身心调理范畴，并非医疗诊断、治疗或药物，不能取代专业医疗意见。如有健康问题，请咨询注册医疗人员。',
+    'en':'Disclaimer: TimeWaver information field analysis and harmonisation falls within holistic wellness and does not constitute medical diagnosis, treatment or medication, and cannot replace professional medical advice.'},
+  'ft-copy':{'zh-Hant':'© 2026 此刻 The Present · Julia Yuen. 版權所有。','zh-Hans':'© 2026 此刻 The Present · Julia Yuen. 版权所有。','en':'© 2026 The Present · Julia Yuen. All rights reserved.'},
+};
+
+let currentLang = 'zh-Hant';
+
+function setLang(lang) {
+  currentLang = lang;
+  // update active button
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+  });
+  // update all tagged elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (T[key] && T[key][lang]) el.innerHTML = T[key][lang];
+  });
+  // update html lang attr
+  const langMap = {'zh-Hant':'zh-Hant','zh-Hans':'zh-Hans','en':'en'};
+  document.documentElement.lang = langMap[lang];
+}
+
+function openCourseModal(e) {
+  e.preventDefault();
+  const m = document.getElementById('courseModal');
+  m.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCourseModal() {
+  document.getElementById('courseModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// close on Escape key
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeCourseModal(); });
+
+function switchTab(btn, panelId) {
+  document.querySelectorAll('.tw-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tw-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+</script>
+
+</body>
+</html>
