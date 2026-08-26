@@ -282,6 +282,32 @@
   .proof-divider{width:1px;height:28px;background:rgba(255,255,255,.2)}
   @media(max-width:600px){.proof-divider{display:none}.proof-bar .wrap{gap:12px}}
 
+
+  /* ---- pricing section ---- */
+  .pricing{background:linear-gradient(160deg,#f0f7f4 0%,#faf9f2 100%)}
+  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+  .price-card{background:#fff;border-radius:24px;padding:clamp(28px,4vw,40px);border:1px solid var(--line);
+    display:flex;flex-direction:column;transition:.3s;position:relative;overflow:hidden}
+  .price-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px -20px rgba(35,75,71,.25)}
+  .price-card.featured{border:2px solid var(--teal);background:linear-gradient(160deg,#f0faf8,#fff)}
+  .price-card.featured::before{content:'最受歡迎';position:absolute;top:18px;right:-28px;
+    background:var(--teal);color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.12em;
+    padding:.4em 2.8em;transform:rotate(35deg);transform-origin:center}
+  .price-icon{font-size:2rem;margin-bottom:16px}
+  .price-name{font-family:var(--display);font-size:1.3rem;font-weight:500;color:var(--ink);margin-bottom:6px}
+  .price-sub{font-size:.82rem;color:var(--muted);margin-bottom:20px;font-style:italic}
+  .price-features{list-style:none;margin-bottom:24px;flex:1}
+  .price-features li{display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:#3E5C58;
+    padding:8px 0;border-bottom:1px solid var(--line)}
+  .price-features li:last-child{border-bottom:0}
+  .price-features li::before{content:'✦';color:var(--teal);font-size:.7rem;margin-top:3px;flex-shrink:0}
+  .price-cta{margin-top:auto}
+  .price-hint{font-size:.78rem;color:var(--muted);text-align:center;margin-top:10px;font-style:italic}
+  .price-from{font-size:.75rem;color:var(--muted);margin-bottom:16px;text-align:center;
+    background:var(--paper);border-radius:999px;padding:.4em 1em;display:inline-block}
+  @media(max-width:860px){.pricing-grid{grid-template-columns:1fr}}
+  @media(min-width:580px) and (max-width:860px){.pricing-grid{grid-template-columns:1fr 1fr}}
+
   /* ---- video section ---- */
   .vid-section{background:var(--ink);padding:clamp(56px,9vw,110px) 0}
   .vid-section .sec-head .kicker{color:var(--aqua)}
@@ -320,7 +346,8 @@
       <li><a href="#services" data-i18n="nav-services">服務</a></li>
       <li><a href="#products" data-i18n="nav-products">產品</a></li>
       <li><a href="#courses" data-i18n="nav-courses">課程</a></li>
-      <li><a href="#articles" data-i18n="nav-articles">文章</a></li>
+      <li><a href="#articles" data-i18n="nav-articles">文章</a>
+      <li><a href="#pricing">收費方案</a></li></li>
       <li><a href="#about" data-i18n="nav-about">關於</a></li>
       <li><a href="#member" data-i18n="nav-member">會員專區</a></li>
     </ul>
@@ -691,6 +718,100 @@ function switchTab(btn, panelId) {
   </div>
 </div>
 </section>
+
+
+<!-- ===== PRICING SECTION ===== -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">服務方案</span>
+      <h2>找到最適合你此刻的方案</h2>
+      <span class="en">Choose Your Path to Harmony</span>
+      <p class="lead" style="margin-top:16px;font-size:.95rem">每一個人的卡點都不同。我們先了解你的狀況，再為你設計最適合的調和方式。</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- 方案一：初探體驗 -->
+      <div class="price-card">
+        <div class="price-icon">🔍</div>
+        <div class="price-name">初探體驗</div>
+        <div class="price-sub">Initial Discovery Session</div>
+        <div style="text-align:center;margin-bottom:20px">
+          <span class="price-from">單次諮詢 · 按需調和</span>
+        </div>
+        <ul class="price-features">
+          <li>TimeWaver 信息場掃描分析</li>
+          <li>身心卡點精準呈現報告</li>
+          <li>個人化調和建議</li>
+          <li>遙距進行，無需出門</li>
+          <li>15 分鐘免費了解諮詢</li>
+        </ul>
+        <div class="price-cta">
+          <a href="https://wa.me/85296215876" target="_blank" class="btn btn-line" style="width:100%;justify-content:center">WhatsApp 查詢 →</a>
+          <p class="price-hint">適合初次體驗 TimeWaver 的你</p>
+        </div>
+      </div>
+
+      <!-- 方案二：深度調和（最受歡迎） -->
+      <div class="price-card featured">
+        <div class="price-icon">✦</div>
+        <div class="price-name">深度調和套餐</div>
+        <div class="price-sub">Intensive Harmonizing Programme</div>
+        <div style="text-align:center;margin-bottom:20px">
+          <span class="price-from">2週 / 4週持續調和方案</span>
+        </div>
+        <ul class="price-features">
+          <li>深度信息場掃描與分析</li>
+          <li>2週或4週持續頻率調和</li>
+          <li>階段性進度報告</li>
+          <li>情緒、睡眠、活力全面調和</li>
+          <li>遙距進行，零打擾日程</li>
+          <li>WhatsApp 全程跟進支援</li>
+        </ul>
+        <div class="price-cta">
+          <a href="https://wa.me/85296215876" target="_blank" class="btn btn-gold" style="width:100%;justify-content:center">WhatsApp 查詢個人方案 →</a>
+          <p class="price-hint">最多客人選擇的深度調和方式</p>
+        </div>
+      </div>
+
+      <!-- 方案三：全面頻率方案 -->
+      <div class="price-card">
+        <div class="price-icon">🌐</div>
+        <div class="price-name">全面頻率方案</div>
+        <div class="price-sub">Family · Corporate · Space</div>
+        <div style="text-align:center;margin-bottom:20px">
+          <span class="price-from">家庭 · 企業 · 空間能量</span>
+        </div>
+        <ul class="price-features">
+          <li>全家頻率對齊調和</li>
+          <li>企業決策場域能量優化</li>
+          <li>居住 / 辦公空間頻率調和</li>
+          <li>多人同步分析報告</li>
+          <li>度身訂造個人化方案</li>
+          <li>遙距全球服務</li>
+        </ul>
+        <div class="price-cta">
+          <a href="https://wa.me/85296215876" target="_blank" class="btn btn-line" style="width:100%;justify-content:center">WhatsApp 查詢企業/家庭方案 →</a>
+          <p class="price-hint">適合家庭、企業及空間調和需求</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom note -->
+    <div style="text-align:center;margin-top:40px;padding:24px;background:#fff;border-radius:16px;border:1px solid var(--line)">
+      <p style="color:var(--muted);font-size:.9rem;max-width:58ch;margin:0 auto">
+        所有方案均包含 <strong style="color:var(--teal)">免費 15 分鐘了解諮詢</strong>，
+        先了解你的狀況，再為你推薦最適合的方式。<br>
+        <span style="font-size:.82rem">遙距服務覆蓋香港、台灣及全球各地。</span>
+      </p>
+      <a href="https://wa.me/85296215876" target="_blank" class="btn btn-gold" style="margin-top:20px">預約免費了解 →</a>
+    </div>
+
+  </div>
+</section>
+<!-- ===== END PRICING SECTION ===== -->
 
 <!-- booking -->
 <section class="booking" id="booking">
