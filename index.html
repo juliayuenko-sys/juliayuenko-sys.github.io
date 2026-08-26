@@ -273,12 +273,23 @@
   }
   /* ========== END TIMEWAVER SECTION ========== */
 
+
+  /* ---- social proof bar ---- */
+  .proof-bar{background:var(--ink);padding:clamp(14px,2vw,20px) 0;overflow:hidden}
+  .proof-bar .wrap{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:clamp(16px,3vw,40px)}
+  .proof-item{display:flex;align-items:center;gap:10px;color:#cfe3e2;font-size:clamp(.78rem,1.2vw,.88rem);white-space:nowrap}
+  .proof-item .dot{width:6px;height:6px;background:var(--aqua);border-radius:50%;flex-shrink:0}
+  .proof-divider{width:1px;height:28px;background:rgba(255,255,255,.2)}
+  @media(max-width:600px){.proof-divider{display:none}.proof-bar .wrap{gap:12px}}
+
   /* ---- video section ---- */
   .vid-section{background:var(--ink);padding:clamp(56px,9vw,110px) 0}
   .vid-section .sec-head .kicker{color:var(--aqua)}
   .vid-section h2{color:#fff}
   .vid-section .en{color:#9fc2bf}
-  .vid-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:28px;margin-top:48px}
+  .vid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+  @media(max-width:900px){.vid-grid{grid-template-columns:1fr}}
+  @media(min-width:600px) and (max-width:900px){.vid-grid{grid-template-columns:1fr 1fr}}
   .vid-card{border-radius:20px;overflow:hidden;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}
   .vid-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden}
   .vid-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
@@ -352,6 +363,31 @@
   <div class="scroll-hint">Scroll ↓</div>
 </section>
 
+
+<!-- Social Proof Bar -->
+<div class="proof-bar">
+  <div class="wrap">
+    <div class="proof-item">
+      <span class="dot"></span>
+      <span>🎙️ U-SUN ASIA 國際講座受邀嘉賓</span>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <span class="dot"></span>
+      <span>✦ TimeWaver 13 模組認證顧問</span>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <span class="dot"></span>
+      <span>🎓 Brain Gym® 認證導師 · 香港國際嬰兒按摩協會認證導師</span>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <span class="dot"></span>
+      <span>🏫 Wellness Path 創辦人 · 整合身心諮詢師</span>
+    </div>
+  </div>
+</div>
 <!-- intro -->
 <section class="intro" id="about">
   <div class="wrap grid">
@@ -738,51 +774,55 @@ function switchTab(btn, panelId) {
     </div>
     <div class="vid-grid">
 
-      <!-- 影片 1 ── 換成你嘅 YouTube ID -->
+      <!-- 影片 1：Julia 親身介紹 -->
       <div class="vid-card">
+        <div style="background:rgba(25,158,145,.1);padding:8px 14px;display:flex;align-items:center;gap:8px">
+          <span style="background:var(--teal);color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.12em;padding:.25em .7em;border-radius:999px">🎤 Julia 親身講解</span>
+        </div>
         <div class="vid-wrap">
-          <!--
-            📹 有影片時，移除下面 vid-placeholder，換成：
-            <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          -->
-          <div class="vid-placeholder">
-            <div class="vid-play">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <p>影片即將上線</p>
-          </div>
+          <iframe src="https://www.youtube.com/embed/UZ7X8gIVHO8"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
         <div class="vid-label">
-          <h3>什麼是 TimeWaver 信息場技術？</h3>
-          <p>三分鐘了解 TimeWaver 如何精準探測身心狀態，數據說話，不是盲估。</p>
+          <h3 style="font-size:1rem">什麼是 TimeWaver 信息場技術？</h3>
+          <p style="font-size:.85rem">Julia 親身講解信息場分析如何精準呈現身心狀態，數據說話，不是盲估。</p>
         </div>
       </div>
 
-      <!-- 影片 2 ── 換成官方或你嘅介紹片 -->
-      <div class="vid-card">
+      <!-- 影片 2：U-SUN ASIA 國際講座 -->
+      <div class="vid-card" style="border:2px solid rgba(224,177,88,.5)">
+        <div style="background:rgba(224,177,88,.12);padding:8px 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <span style="background:var(--gold);color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.12em;padding:.25em .7em;border-radius:999px">🎙️ 受邀嘉賓講座</span>
+          <span style="font-size:.72rem;color:#9b7e3a">U-SUN ASIA × TimeWaver</span>
+        </div>
         <div class="vid-wrap">
-          <!--
-            📹 官方 TimeWaver 國際影片範例：
-            <iframe src="https://www.youtube.com/embed/官方ID"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          -->
-          <div class="vid-placeholder">
-            <div class="vid-play">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <p>影片即將上線</p>
-          </div>
+          <iframe src="https://www.youtube.com/embed/3w91tUDtHTE"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
         <div class="vid-label">
-          <h3>遙距調和是如何進行的？</h3>
-          <p>唔需請假、唔需出門——四週遙距調和的真實流程示範。</p>
+          <h3 style="font-size:1rem">「生活有方」Vol.2 — 能量掃描如何精準找出身心卡點</h3>
+          <p style="font-size:.85rem">受邀 U-SUN ASIA 國際研討會，現場示範 Aura 光環模組掃描。</p>
         </div>
       </div>
 
-    </div>
+      <!-- 影片 3：TimeWaver 官方 -->
+      <div class="vid-card">
+        <div style="background:rgba(16,42,48,.06);padding:8px 14px;display:flex;align-items:center;gap:8px">
+          <span style="background:#1A5B63;color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.12em;padding:.25em .7em;border-radius:999px">🏛️ TimeWaver 官方</span>
+        </div>
+        <div class="vid-wrap">
+          <iframe src="https://www.youtube.com/embed/vpY2LPX40ps"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <div class="vid-label">
+          <h3 style="font-size:1rem">TimeWaver Concepts — Information Field Technology</h3>
+          <p style="font-size:.85rem">TimeWaver 官方介紹信息場技術的科學原理與核心概念。</p>
+        </div>
+      </div>
+
   </div>
 </section>
 <!-- ===== END VIDEO SECTION ===== -->
