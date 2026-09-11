@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant-HK">
+<html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,19 +8,27 @@
 <meta property="og:title" content="此刻手作潤唇膏｜Julia Yuen">
 <meta property="og:description" content="你手上呢支潤唇膏，係朋友嘅心意。睇下佢點樣誕生。">
 <meta property="og:url" content="https://juliayuen.com/lip/">
-<meta name="theme-color" content="#F6F3EA">
+<meta name="theme-color" content="#FBFAF4">
+<link rel="alternate" hreflang="zh-Hant" href="https://juliayuen.com/lip/?lang=zh-Hant">
+<link rel="alternate" hreflang="zh-Hans" href="https://juliayuen.com/lip/?lang=zh-Hans">
+<link rel="alternate" hreflang="en" href="https://juliayuen.com/lip/?lang=en">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Noto+Serif+TC:wght@500;700&family=Outfit:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Noto+Serif+TC:wght@500;700&family=Noto+Serif+SC:wght@500;700&family=Outfit:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
 <style>
+/* 顏色同主頁一致 */
 :root{
-  --ink:#14333A; --teal:#2E7B80; --teal-deep:#1A5B63; --gold:#C09134; --paper:#F6F3EA;
-  --card:#FFFDF8; --wax:#EFE3C4; --line:rgba(20,51,58,.14); --muted:#4E666B;
-  --display:"Fraunces","Noto Serif TC","Noto Serif CJK TC",Georgia,serif;
+  --ink:#234B47; --teal:#199E91; --teal-deep:#17766C; --gold:#C28A2E; --gold-soft:#F0D69A; --paper:#FBFAF4; --paper-2:#EBF6F1;
+  --card:#FFFFFF; --wax:#F7ECD2; --line:rgba(35,75,71,.13); --muted:#5C7370;
   --serif-tc:"Noto Serif TC","Noto Serif CJK TC","Songti TC",serif;
   --body:"Outfit","Noto Sans TC","Noto Sans CJK TC","PingFang HK","Microsoft JhengHei",system-ui,sans-serif;
   --r:18px;
 }
+html[lang="zh-Hans"]{
+  --serif-tc:"Noto Serif SC","Noto Serif CJK SC","Songti SC",serif;
+  --body:"Outfit","Noto Sans SC","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+}
+html[lang="en"]{ --serif-tc:"Fraunces",Georgia,serif; }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
@@ -30,7 +38,7 @@ a{color:var(--teal-deep)}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
 .wrap{max-width:640px;margin-inline:auto}
 section{padding-block:56px;border-top:1px solid var(--line)}
-.eyebrow{font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);font-weight:600;margin:0 0 10px}
+.eyebrow{font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 10px}
 h1,h2,h3{font-family:var(--serif-tc);font-weight:700;text-wrap:balance;margin:0;color:var(--ink)}
 h2{font-size:clamp(26px,6.4vw,34px);line-height:1.3;margin-bottom:14px}
 h3{font-size:19px;line-height:1.4}
@@ -38,21 +46,27 @@ p{margin:0 0 14px}
 .lead{color:var(--muted)}
 .en{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:400}
 
-/* top bar */
-.top{display:flex;justify-content:space-between;align-items:center;padding-block:18px;max-width:640px;margin-inline:auto}
-.brand{font-family:var(--serif-tc);font-weight:700;font-size:18px;text-decoration:none;color:var(--ink);letter-spacing:.06em}
+/* top bar + language switcher (same as homepage) */
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:18px;max-width:640px;margin-inline:auto}
+.brand{font-family:"Noto Serif TC",var(--serif-tc);font-weight:700;font-size:18px;text-decoration:none;color:var(--ink);letter-spacing:.06em;white-space:nowrap}
 .brand span{font-family:"Fraunces",serif;font-weight:400;font-style:italic;letter-spacing:0;color:var(--teal);margin-left:6px;font-size:16px}
-.top a.home{font-size:14px;color:var(--muted);text-decoration:none}
+.lang-switcher{display:flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:999px;padding:.25em .6em;background:rgba(255,255,255,.7)}
+.lang-btn{font-size:13px;color:var(--muted);cursor:pointer;background:none;border:0;font-family:var(--body);padding:.2em .45em;border-radius:999px;transition:.2s}
+.lang-btn:hover{color:var(--teal)}
+.lang-btn.active{color:var(--teal-deep);font-weight:700;background:rgba(25,158,145,.12)}
+.lang-div{color:var(--line);font-size:12px;user-select:none}
 
 /* hero */
 .hero{padding-block:18px 48px;border-top:0}
 .hero h1{font-size:clamp(32px,8.6vw,46px);line-height:1.25;margin:6px 0 16px}
+html[lang="en"] .hero h1{font-weight:600;letter-spacing:-.01em}
 .hero h1 em{font-style:normal;color:var(--teal-deep);background:linear-gradient(transparent 62%,var(--wax) 62%)}
-.tag{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px 10px 10px 10px;padding:22px 22px 18px 58px;margin:8px 0 28px;transform:rotate(-1.6deg);box-shadow:0 10px 30px -18px rgba(20,51,58,.45);max-width:420px}
+html[lang="en"] .hero h1 em{font-style:italic}
+.tag{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 22px 18px 58px;margin:8px 0 28px;transform:rotate(-1.6deg);box-shadow:0 10px 30px -18px rgba(35,75,71,.45);max-width:420px}
 .tag::before{content:"";position:absolute;left:20px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;background:var(--paper);border:1.5px solid var(--gold)}
 .tag::after{content:"";position:absolute;left:44px;top:12px;bottom:12px;border-left:1px dashed var(--line)}
 .tag .k{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600}
-.tag .code{font-family:"Fraunces",Georgia,serif;font-size:40px;line-height:1.1;font-weight:600;color:var(--ink);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.tag .code{font-family:"Fraunces","Noto Serif TC",Georgia,serif;font-size:40px;line-height:1.1;font-weight:600;color:var(--ink);letter-spacing:.02em;font-variant-numeric:tabular-nums}
 .tag dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:12px 0 0;font-size:14px}
 .tag dt{color:var(--muted)}
 .tag dd{margin:0;font-weight:500}
@@ -65,8 +79,8 @@ p{margin:0 0 14px}
 .btn svg{width:18px;height:18px;flex:none}
 
 /* ingredients */
-.ing{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
-.ing li{display:grid;grid-template-columns:1fr;gap:4px;padding:16px 0;border-bottom:1px solid var(--line)}
+.ing{list-style:none;margin:22px 0 0;padding:0;display:grid;border-top:1px solid var(--line)}
+.ing li{display:grid;gap:4px;padding:16px 0;border-bottom:1px solid var(--line)}
 .ing .name{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
 .ing .name b{font-family:var(--serif-tc);font-size:18px}
 .ing .name i{font-family:"Fraunces",serif;color:var(--teal);font-size:15px}
@@ -89,7 +103,7 @@ p{margin:0 0 14px}
 .scent .dots{display:flex;gap:4px;margin-bottom:8px}
 .scent .dots i{width:12px;height:12px;border-radius:50%;display:block}
 .scent b{display:block;font-family:var(--serif-tc);font-size:16.5px}
-.scent small{display:block;font-family:"Fraunces",serif;font-style:italic;color:var(--teal);font-size:13.5px}
+.scent small{display:block;font-family:"Fraunces","Noto Serif TC",serif;font-style:italic;color:var(--teal);font-size:13.5px}
 .scent p{margin:6px 0 0;font-size:14px;color:var(--muted);line-height:1.55}
 .scent.star{border-color:var(--gold);background:linear-gradient(180deg,#FFF8E6,var(--card))}
 .pill{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:1px 8px;margin-top:8px}
@@ -97,13 +111,15 @@ p{margin:0 0 14px}
 
 /* order builder */
 #order{scroll-margin-top:12px}
-.builder{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 18px;margin-top:22px;display:grid;gap:22px;box-shadow:0 18px 40px -30px rgba(20,51,58,.5)}
+.builder{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 18px;margin-top:22px;display:grid;gap:22px;box-shadow:0 18px 40px -30px rgba(35,75,71,.5)}
 fieldset{border:0;margin:0;padding:0;min-width:0}
 legend,.lbl{font-weight:600;font-size:15px;margin-bottom:10px;padding:0;display:block}
+.hint{font-weight:400;color:var(--muted);font-size:13.5px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{position:relative}
 .chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
 .chip span{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;font-size:14.5px;background:var(--paper);transition:background .15s,border-color .15s,color .15s}
+.chip span b{font-weight:400}
 .chip input:checked+span{background:var(--teal-deep);border-color:var(--teal-deep);color:#fff}
 .chip input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
 .chip input:disabled+span{opacity:.4}
@@ -119,9 +135,14 @@ legend,.lbl{font-weight:600;font-size:15px;margin-bottom:10px;padding:0;display:
 .field textarea{resize:vertical;min-height:70px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media (max-width:460px){.grid2{grid-template-columns:1fr}}
-.preview{background:#E7F0EE;border-radius:14px;padding:14px 16px;font-size:14px;white-space:pre-wrap;line-height:1.65;color:var(--ink);border-left:3px solid var(--teal)}
+.preview{background:var(--paper-2);border-radius:14px;padding:14px 16px;font-size:14px;white-space:pre-wrap;line-height:1.65;color:var(--ink);border-left:3px solid var(--teal)}
 .preview-h{font-size:12.5px;color:var(--muted);letter-spacing:.1em;margin-bottom:6px}
 .price-note{font-size:13.5px;color:var(--muted);margin:0}
+
+/* poster */
+.poster{margin:22px 0 0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 40px -28px rgba(35,75,71,.55);background:var(--card)}
+.poster a{display:block}
+.poster img{display:block;width:100%;height:auto}
 
 /* class */
 .formats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:22px 0}
@@ -146,12 +167,13 @@ legend,.lbl{font-weight:600;font-size:15px;margin-bottom:10px;padding:0;display:
 .safety{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 18px}
 .safety ul{margin:10px 0 0;padding-left:1.1em;display:grid;gap:10px;font-size:15px}
 .safety li span{display:block;color:var(--muted);font-size:13.5px;font-family:"Outfit",system-ui,sans-serif}
+html[lang="en"] .safety li span, html[lang="en"] #h-safety .en{display:none}
 
 footer{padding-block:40px 20px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);text-align:center}
 footer a{color:var(--teal-deep)}
 
 /* sticky bar */
-.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(246,243,234,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--line);display:flex;gap:10px;justify-content:center;z-index:10}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(251,250,244,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--line);display:flex;gap:10px;justify-content:center;z-index:10}
 .sticky .btn{flex:1;max-width:300px;padding:12px 16px}
 .sticky .wa{flex:0 0 auto;width:50px;padding:0;height:48px}
 </style>
@@ -160,120 +182,126 @@ footer a{color:var(--teal-deep)}
 
 <header class="top">
   <a class="brand" href="/">此刻<span>The Present</span></a>
-  <a class="home" href="/">juliayuen.com →</a>
+  <div class="lang-switcher" role="group" aria-label="Language">
+    <button class="lang-btn active" type="button" data-lang="zh-Hant">繁</button>
+    <span class="lang-div">|</span>
+    <button class="lang-btn" type="button" data-lang="zh-Hans">簡</button>
+    <span class="lang-div">|</span>
+    <button class="lang-btn" type="button" data-lang="en">EN</button>
+  </div>
 </header>
 
 <main class="wrap">
 
   <!-- 1. HERO -->
   <section class="hero" aria-labelledby="h-hero">
-    <div class="tag" aria-label="禮物標籤">
-      <div class="k">Gift · 心意編號</div>
-      <div class="code" id="giftCode">此刻手作</div>
+    <div class="tag">
+      <div class="k" data-i18n="tag-k">Gift · 心意編號</div>
+      <div class="code" id="giftCode" data-i18n="tag-code">此刻手作</div>
       <dl>
-        <dt>製作</dt><dd>Julia 親手倒模</dd>
-        <dt>地點</dt><dd>香港 · 小批量手作</dd>
-        <dt>原料</dt><dd>4 類天然原料，全部公開</dd>
+        <dt data-i18n="tag-dt1">製作</dt><dd data-i18n="tag-dd1">Julia 親手倒模</dd>
+        <dt data-i18n="tag-dt2">地點</dt><dd data-i18n="tag-dd2">香港 · 小批量手作</dd>
+        <dt data-i18n="tag-dt3">原料</dt><dd data-i18n="tag-dd3">4 類天然原料，全部公開</dd>
       </dl>
     </div>
     <p class="eyebrow">Handmade lip balm</p>
-    <h1 id="h-hero">你手上呢支潤唇膏，<br>係<em>朋友嘅心意</em>。</h1>
-    <p class="lead">每一支都係我喺工作枱上秤料、溶蠟、倒模，再一支一支貼上你啱啱掃過嘅標籤。想知道入面有啲咩、點樣做出嚟？全部寫晒喺下面。</p>
+    <h1 id="h-hero" data-i18n="hero-h1">你手上呢支潤唇膏，<br>係<em>朋友嘅心意</em>。</h1>
+    <p class="lead" data-i18n="hero-lead">每一支都係我喺工作枱上秤料、溶蠟、倒模，再一支一支貼上你啱啱掃過嘅標籤。想知道入面有啲咩、點樣做出嚟？全部寫晒喺下面。</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="#order">我都想訂製送禮</a>
-      <a class="btn btn-ghost" href="#making">睇製作過程</a>
+      <a class="btn btn-primary" href="#order" data-i18n="btn-order">我都想訂製送禮</a>
+      <a class="btn btn-ghost" href="#making" data-i18n="btn-making">睇製作過程</a>
     </div>
   </section>
 
   <!-- 2. INGREDIENTS -->
   <section id="ingredients" aria-labelledby="h-ing">
-    <p class="eyebrow">Ingredients · 全部成分</p>
-    <h2 id="h-ing">四類原料，全部寫出嚟</h2>
-    <p class="lead">塗喺嘴唇上面嘅嘢，你有權知道每一樣係咩。</p>
+    <p class="eyebrow" data-i18n="ing-eyebrow">Ingredients · 全部成分</p>
+    <h2 id="h-ing" data-i18n="ing-h2">四類原料，全部寫出嚟</h2>
+    <p class="lead" data-i18n="ing-lead">塗喺嘴唇上面嘅嘢，你有權知道每一樣係咩。</p>
     <ul class="ing">
       <li>
-        <div class="name"><b>乳木果脂</b><i>Shea Butter</i></div>
-        <div class="what">質地綿密，一接觸體溫就慢慢溶開，令雙唇感覺柔軟滋潤。</div>
-        <div class="fact">遇體溫即溶</div>
+        <div class="name"><b data-i18n="ing1-n">乳木果脂</b><i data-i18n="ing1-i">Shea Butter</i></div>
+        <div class="what" data-i18n="ing1-w">質地綿密，一接觸體溫就慢慢溶開，令雙唇感覺柔軟滋潤。</div>
+        <div class="fact" data-i18n="ing1-f">遇體溫即溶</div>
       </li>
       <li>
-        <div class="name"><b>天然蜂蠟</b><i>Beeswax</i></div>
-        <div class="what">令潤唇膏成形嘅關鍵，喺唇面形成一層薄薄保護膜，減少水分流失。</div>
-        <div class="fact">約 62–64°C 先溶化</div>
+        <div class="name"><b data-i18n="ing2-n">天然蜂蠟</b><i data-i18n="ing2-i">Beeswax</i></div>
+        <div class="what" data-i18n="ing2-w">令潤唇膏成形嘅關鍵，喺唇面形成一層薄薄保護膜，減少水分流失。</div>
+        <div class="fact" data-i18n="ing2-f">約 62–64°C 先溶化</div>
       </li>
       <li>
-        <div class="name"><b>植物基底油</b><i>Plant Oil Blend</i></div>
-        <div class="what">分餾椰子油、芝麻油、葡萄籽油、甜杏仁油、小麥胚芽油、葵花籽油、橄欖油。質地輕盈、易推開、唔黏膩。</div>
-        <div class="fact">7 種植物油</div>
+        <div class="name"><b data-i18n="ing3-n">植物基底油</b><i data-i18n="ing3-i">Plant Oil Blend</i></div>
+        <div class="what" data-i18n="ing3-w">分餾椰子油、芝麻油、葡萄籽油、甜杏仁油、小麥胚芽油、葵花籽油、橄欖油。質地輕盈、易推開、唔黏膩。</div>
+        <div class="fact" data-i18n="ing3-f">7 種植物油</div>
       </li>
       <li>
-        <div class="name"><b>純精油</b><i>Essential Oils</i></div>
-        <div class="what">按你揀嘅香味加入：薄荷、薰衣草、甜橙或檸檬。只用少量，帶出天然香氣。</div>
-        <div class="fact">冇人工香精</div>
+        <div class="name"><b data-i18n="ing4-n">純精油</b><i data-i18n="ing4-i">Essential Oils</i></div>
+        <div class="what" data-i18n="ing4-w">按你揀嘅香味加入：薄荷、薰衣草、甜橙或檸檬。只用少量，帶出天然香氣。</div>
+        <div class="fact" data-i18n="ing4-f">冇人工香精</div>
       </li>
     </ul>
-    <p class="note"><b>成分就係以上呢啲，冇其他。</b> 含甜杏仁（堅果）、芝麻、小麥來源油分及蜂蠟 —— 有相關過敏嘅朋友，請先睇下面嘅<a href="#safety">使用須知</a>。</p>
+    <p class="note" data-i18n="ing-note"><b>成分就係以上呢啲，冇其他。</b> 含甜杏仁（堅果）、芝麻、小麥來源油分及蜂蠟 —— 有相關過敏嘅朋友，請先睇下面嘅<a href="#safety">使用須知</a>。</p>
   </section>
 
   <!-- 3. PROCESS -->
   <section id="making" aria-labelledby="h-making">
-    <p class="eyebrow">The making · 製作過程</p>
-    <h2 id="h-making">一支潤唇膏嘅誕生</h2>
-    <p class="lead">冇機器生產線，每一步都係人手。</p>
+    <p class="eyebrow" data-i18n="mk-eyebrow">The making · 製作過程</p>
+    <h2 id="h-making" data-i18n="mk-h2">一支潤唇膏嘅誕生</h2>
+    <p class="lead" data-i18n="mk-lead">冇機器生產線，每一步都係人手。</p>
     <ol class="steps">
-      <li><div><h3>秤料</h3><p>按配方用電子磅逐樣秤，以克計，每一批份量一致。</p></div></li>
-      <li><div><h3>隔水慢慢溶</h3><p>蜂蠟要去到約 63°C 先溶，再加入乳木果脂同植物油，慢慢攪勻，唔會直接明火加熱。</p></div></li>
-      <li><div><h3>離火，滴精油</h3><p>稍為降溫之後先滴入精油，香氣先留得住。</p></div></li>
-      <li><div><h3>倒入立體模</h3><p>趁暖倒入唇形模具，靜置冷卻定形。</p></div></li>
-      <li><div><h3>脫模、入管、貼標</h3><p>每支人手檢查，再貼上你見到嘅 QR 標籤，交到送禮嘅朋友手上。</p></div></li>
+      <li><div><h3 data-i18n="mk1-h">秤料</h3><p data-i18n="mk1-p">按配方用電子磅逐樣秤，以克計，每一批份量一致。</p></div></li>
+      <li><div><h3 data-i18n="mk2-h">隔水慢慢溶</h3><p data-i18n="mk2-p">蜂蠟要去到約 63°C 先溶，再加入乳木果脂同植物油，慢慢攪勻，唔會直接明火加熱。</p></div></li>
+      <li><div><h3 data-i18n="mk3-h">離火，滴精油</h3><p data-i18n="mk3-p">稍為降溫之後先滴入精油，香氣先留得住。</p></div></li>
+      <li><div><h3 data-i18n="mk4-h">倒入立體模</h3><p data-i18n="mk4-p">趁暖倒入唇形模具，靜置冷卻定形。</p></div></li>
+      <li><div><h3 data-i18n="mk5-h">脫模、入管、貼標</h3><p data-i18n="mk5-p">每支人手檢查，再貼上你見到嘅 QR 標籤，交到送禮嘅朋友手上。</p></div></li>
     </ol>
     <div class="video" id="videoBox" hidden></div>
   </section>
 
   <!-- 4. SCENTS -->
   <section id="scents" aria-labelledby="h-scents">
-    <p class="eyebrow">Scents · 香味</p>
-    <h2 id="h-scents">七種香味，揀一支似你嘅</h2>
-    <p class="sub-h">單一香氣</p>
+    <p class="eyebrow" data-i18n="sc-eyebrow">Scents · 香味</p>
+    <h2 id="h-scents" data-i18n="sc-h2">七種香味，揀一支似你嘅</h2>
+    <p class="sub-h" data-i18n="sc-single">單一香氣</p>
     <div class="scents">
-      <div class="scent"><div class="dots"><i style="background:#6FB39B"></i></div><b>薄荷</b><small>Peppermint</small><p>清涼醒神，塗落即刻有清新感。帶清涼感，除咗嘴唇，手指、手肘等乾燥位置都可以塗。</p></div>
-      <div class="scent"><div class="dots"><i style="background:#9A8CC6"></i></div><b>薰衣草</b><small>Lavender</small><p>柔和花香，令人放鬆。</p></div>
-      <div class="scent"><div class="dots"><i style="background:#E4973A"></i></div><b>甜橙</b><small>Orange</small><p>甜美果香，好心情嘅味道。</p></div>
-      <div class="scent"><div class="dots"><i style="background:#E3C43F"></i></div><b>檸檬</b><small>Lemon</small><p>清新果香，爽朗乾淨。</p></div>
+      <div class="scent"><div class="dots"><i style="background:#6FB39B"></i></div><b data-i18n="sc-pep">薄荷</b><small data-i18n="sc-pep-s">Peppermint</small><p data-i18n="sc-pep-p">清涼醒神，塗落即刻有清新感；除咗嘴唇，手指、手肘等乾燥位置都可以塗。</p></div>
+      <div class="scent"><div class="dots"><i style="background:#9A8CC6"></i></div><b data-i18n="sc-lav">薰衣草</b><small data-i18n="sc-lav-s">Lavender</small><p data-i18n="sc-lav-p">柔和花香，令人放鬆。</p></div>
+      <div class="scent"><div class="dots"><i style="background:#E4973A"></i></div><b data-i18n="sc-or">甜橙</b><small data-i18n="sc-or-s">Orange</small><p data-i18n="sc-or-p">甜美果香，好心情嘅味道。</p></div>
+      <div class="scent"><div class="dots"><i style="background:#E3C43F"></i></div><b data-i18n="sc-le">檸檬</b><small data-i18n="sc-le-s">Lemon</small><p data-i18n="sc-le-p">清新果香，爽朗乾淨。</p></div>
     </div>
-    <p class="sub-h">雙重特調</p>
+    <p class="sub-h" data-i18n="sc-duo">雙重特調</p>
     <div class="scents">
-      <div class="scent star"><div class="dots"><i style="background:#E4973A"></i><i style="background:#6FB39B"></i></div><b>甜橙薄荷</b><small>OrangeMint</small><p>陽光果香加一點清涼。</p><span class="pill">人氣 No.1</span></div>
-      <div class="scent"><div class="dots"><i style="background:#9A8CC6"></i><i style="background:#6FB39B"></i></div><b>薰衣草薄荷</b><small>LavenderMint</small><p>放鬆之中帶點清新。</p></div>
-      <div class="scent"><div class="dots"><i style="background:#E3C43F"></i><i style="background:#6FB39B"></i></div><b>檸檬薄荷</b><small>LemonMint</small><p>清爽提神，一整日好精神。</p></div>
+      <div class="scent star"><div class="dots"><i style="background:#E4973A"></i><i style="background:#6FB39B"></i></div><b data-i18n="sc-om">甜橙薄荷</b><small data-i18n="sc-om-s">OrangeMint</small><p data-i18n="sc-om-p">陽光果香加一點清涼。</p><span class="pill" data-i18n="sc-no1">人氣 No.1</span></div>
+      <div class="scent"><div class="dots"><i style="background:#9A8CC6"></i><i style="background:#6FB39B"></i></div><b data-i18n="sc-lm">薰衣草薄荷</b><small data-i18n="sc-lm-s">LavenderMint</small><p data-i18n="sc-lm-p">放鬆之中帶點清新。</p></div>
+      <div class="scent"><div class="dots"><i style="background:#E3C43F"></i><i style="background:#6FB39B"></i></div><b data-i18n="sc-lem">檸檬薄荷</b><small data-i18n="sc-lem-s">LemonMint</small><p data-i18n="sc-lem-p">清爽提神，一整日好精神。</p></div>
     </div>
   </section>
 
   <!-- 5. ORDER BUILDER -->
   <section id="order" aria-labelledby="h-order">
-    <p class="eyebrow">Custom gifts · 訂製送禮</p>
-    <h2 id="h-order">將呢份心意，送俾你嘅朋友</h2>
-    <p class="lead">生日、節日、婚禮回禮、公司活動 —— 揀好下面幾項，一撳就會用 WhatsApp 傳俾我，我會親自回覆報價同日期。</p>
+    <p class="eyebrow" data-i18n="od-eyebrow">Custom gifts · 訂製送禮</p>
+    <h2 id="h-order" data-i18n="od-h2">將呢份心意，送俾你嘅朋友</h2>
+    <p class="lead" data-i18n="od-lead">生日、節日、婚禮回禮、公司活動 —— 揀好下面幾項，一撳就會用 WhatsApp 傳俾我，我會親自回覆報價同日期。</p>
 
     <form class="builder" id="builder" onsubmit="return false">
       <fieldset>
-        <legend>1. 送俾邊個場合？</legend>
-        <div class="chips" id="occasion">
-          <label class="chip"><input type="radio" name="occ" id="occ-bday" value="生日" checked><span>生日</span></label>
-          <label class="chip"><input type="radio" name="occ" id="occ-fest" value="節日禮物"><span>節日禮物</span></label>
-          <label class="chip"><input type="radio" name="occ" id="occ-wed" value="婚禮回禮"><span>婚禮回禮</span></label>
-          <label class="chip"><input type="radio" name="occ" id="occ-corp" value="公司活動"><span>公司活動</span></label>
-          <label class="chip"><input type="radio" name="occ" id="occ-thx" value="謝師／答謝"><span>謝師／答謝</span></label>
-          <label class="chip"><input type="radio" name="occ" id="occ-other" value="其他"><span>其他</span></label>
+        <legend data-i18n="od-q1">1. 送俾邊個場合？</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="occ" id="occ-bday" value="occ-bday" checked><span data-i18n="occ-bday">生日</span></label>
+          <label class="chip"><input type="radio" name="occ" id="occ-fest" value="occ-fest"><span data-i18n="occ-fest">節日禮物</span></label>
+          <label class="chip"><input type="radio" name="occ" id="occ-wed" value="occ-wed"><span data-i18n="occ-wed">婚禮回禮</span></label>
+          <label class="chip"><input type="radio" name="occ" id="occ-corp" value="occ-corp"><span data-i18n="occ-corp">公司活動</span></label>
+          <label class="chip"><input type="radio" name="occ" id="occ-thx" value="occ-thx"><span data-i18n="occ-thx">謝師／答謝</span></label>
+          <label class="chip"><input type="radio" name="occ" id="occ-other" value="occ-other"><span data-i18n="occ-other">其他</span></label>
         </div>
       </fieldset>
 
       <fieldset>
-        <legend>2. 要幾多支？</legend>
+        <legend data-i18n="od-q2">2. 要幾多支？</legend>
         <div class="qty">
-          <button type="button" id="minus" aria-label="減少數量">−</button>
-          <input type="number" id="qty" inputmode="numeric" min="1" max="2000" value="20" aria-label="數量">
-          <button type="button" id="plus" aria-label="增加數量">+</button>
+          <button type="button" id="minus" aria-label="−">−</button>
+          <input type="number" id="qty" inputmode="numeric" min="1" max="2000" value="20" aria-label="Qty">
+          <button type="button" id="plus" aria-label="+">+</button>
           <div class="presets">
             <button type="button" data-q="10">10</button>
             <button type="button" data-q="20">20</button>
@@ -285,107 +313,110 @@ footer a{color:var(--teal-deep)}
       </fieldset>
 
       <fieldset>
-        <legend>3. 揀香味 <span style="font-weight:400;color:var(--muted);font-size:13.5px">（可揀多款）</span></legend>
+        <legend><span data-i18n="od-q3">3. 揀香味</span> <span class="hint" data-i18n="od-q3h">（可揀多款）</span></legend>
         <div class="chips" id="scentChips">
-          <label class="chip"><input type="checkbox" id="s-om" value="甜橙薄荷 OrangeMint" checked><span><i style="background:#E4973A"></i>甜橙薄荷</span></label>
-          <label class="chip"><input type="checkbox" id="s-lm" value="薰衣草薄荷 LavenderMint"><span><i style="background:#9A8CC6"></i>薰衣草薄荷</span></label>
-          <label class="chip"><input type="checkbox" id="s-lem" value="檸檬薄荷 LemonMint"><span><i style="background:#E3C43F"></i>檸檬薄荷</span></label>
-          <label class="chip"><input type="checkbox" id="s-pep" value="薄荷 Peppermint"><span><i style="background:#6FB39B"></i>薄荷</span></label>
-          <label class="chip"><input type="checkbox" id="s-lav" value="薰衣草 Lavender"><span><i style="background:#9A8CC6"></i>薰衣草</span></label>
-          <label class="chip"><input type="checkbox" id="s-or" value="甜橙 Orange"><span><i style="background:#E4973A"></i>甜橙</span></label>
-          <label class="chip"><input type="checkbox" id="s-le" value="檸檬 Lemon"><span><i style="background:#E3C43F"></i>檸檬</span></label>
+          <label class="chip"><input type="checkbox" id="s-om" value="sc-om" checked><span><i style="background:#E4973A"></i><b data-i18n="sc-om">甜橙薄荷</b></span></label>
+          <label class="chip"><input type="checkbox" id="s-lm" value="sc-lm"><span><i style="background:#9A8CC6"></i><b data-i18n="sc-lm">薰衣草薄荷</b></span></label>
+          <label class="chip"><input type="checkbox" id="s-lem" value="sc-lem"><span><i style="background:#E3C43F"></i><b data-i18n="sc-lem">檸檬薄荷</b></span></label>
+          <label class="chip"><input type="checkbox" id="s-pep" value="sc-pep"><span><i style="background:#6FB39B"></i><b data-i18n="sc-pep">薄荷</b></span></label>
+          <label class="chip"><input type="checkbox" id="s-lav" value="sc-lav"><span><i style="background:#9A8CC6"></i><b data-i18n="sc-lav">薰衣草</b></span></label>
+          <label class="chip"><input type="checkbox" id="s-or" value="sc-or"><span><i style="background:#E4973A"></i><b data-i18n="sc-or">甜橙</b></span></label>
+          <label class="chip"><input type="checkbox" id="s-le" value="sc-le"><span><i style="background:#E3C43F"></i><b data-i18n="sc-le">檸檬</b></span></label>
         </div>
       </fieldset>
 
       <div class="field" id="cardField">
-        <label class="lbl" for="cardMsg">4. 心意小卡想寫咩？<span style="font-weight:400;color:var(--muted);font-size:13.5px">（20 支或以上可印上專屬祝福語）</span></label>
-        <textarea id="cardMsg" maxlength="60" placeholder="例如：Happy Birthday Mandy！願你每日都笑住過"></textarea>
+        <label class="lbl" for="cardMsg"><span data-i18n="od-q4">4. 心意小卡想寫咩？</span> <span class="hint" id="cardHint"></span></label>
+        <textarea id="cardMsg" maxlength="60" data-i18n-ph="od-q4ph" placeholder="例如：Happy Birthday Mandy！願你每日都笑住過"></textarea>
       </div>
 
       <div class="grid2">
         <div class="field">
-          <label class="lbl" for="needBy">幾時要？</label>
+          <label class="lbl" for="needBy" data-i18n="od-date">幾時要？</label>
           <input type="date" id="needBy">
         </div>
         <div class="field">
-          <label class="lbl" for="who">點稱呼你？</label>
-          <input type="text" id="who" maxlength="30" placeholder="例如：陳太">
+          <label class="lbl" for="who" data-i18n="od-name">點稱呼你？</label>
+          <input type="text" id="who" maxlength="30" data-i18n-ph="od-nameph" placeholder="例如：陳太">
         </div>
       </div>
 
       <div>
-        <div class="preview-h">WhatsApp 訊息預覽</div>
+        <div class="preview-h" data-i18n="od-prev">WhatsApp 訊息預覽</div>
         <div class="preview" id="preview" aria-live="polite"></div>
       </div>
 
       <a class="btn btn-primary" id="waOrder" href="#" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
-        用 WhatsApp 傳送訂單
+        <span data-i18n="od-send">用 WhatsApp 傳送訂單</span>
       </a>
-      <p class="price-note" id="priceNote">報價會按數量、香味同包裝計算，由 Julia 親自回覆。全人手製作，產量有限，大量訂單建議預早 2–3 星期。</p>
+      <p class="price-note" data-i18n="od-note">報價會按數量、香味同包裝計算，由 Julia 親自回覆。全人手製作，產量有限，大量訂單建議預早 2–3 星期。</p>
     </form>
   </section>
 
   <!-- 6. DIY CLASS -->
   <section id="class" aria-labelledby="h-class">
-    <p class="eyebrow">DIY workshop · 潤唇膏班</p>
-    <h2 id="h-class">親手做一支屬於自己嘅潤唇膏</h2>
-    <p class="lead">由溶蠟、調香到倒模，一個下晝就可以帶走自己調配嘅潤唇膏。適合想同朋友、屋企人一齊玩下手作嘅你。</p>
+    <p class="eyebrow" data-i18n="cl-eyebrow">DIY workshop · 潤唇膏班</p>
+    <h2 id="h-class" data-i18n="cl-h2">親手做一支屬於自己嘅潤唇膏</h2>
+    <p class="lead" data-i18n="cl-lead">由溶蠟、調香到倒模，一個下晝就可以帶走自己調配嘅潤唇膏。適合想同朋友、屋企人一齊玩下手作嘅你。</p>
+    <figure class="poster">
+      <a href="poster.jpg" target="_blank" rel="noopener"><img src="poster.jpg" width="1600" height="1195" loading="lazy" data-i18n-alt="cl-poster" alt="Julia's Nature Balm 貓頭潤唇膏 · 親子 DIY 首選"></a>
+    </figure>
     <div class="formats">
-      <div class="format"><b>朋友小聚</b><p>約埋三五知己，一齊調出各自鍾意嘅香味。</p></div>
-      <div class="format"><b>親子手作</b><p>同小朋友一齊秤料、倒模，學識睇成分。</p></div>
-      <div class="format"><b>公司／生日包場</b><p>團隊活動或派對，做完即場帶走做紀念。</p></div>
+      <div class="format"><b data-i18n="cl1-h">朋友小聚</b><p data-i18n="cl1-p">約埋三五知己，一齊調出各自鍾意嘅香味。</p></div>
+      <div class="format"><b data-i18n="cl2-h">親子手作</b><p data-i18n="cl2-p">同小朋友一齊秤料、倒模，學識睇成分。</p></div>
+      <div class="format"><b data-i18n="cl3-h">公司／生日包場</b><p data-i18n="cl3-p">團隊活動或派對，做完即場帶走做紀念。</p></div>
     </div>
-    <a class="btn btn-ghost" id="waClass" href="#" target="_blank" rel="noopener">WhatsApp 問下開班詳情</a>
+    <a class="btn btn-ghost" id="waClass" href="#" target="_blank" rel="noopener" data-i18n="cl-btn">WhatsApp 問下開班詳情</a>
   </section>
 
   <!-- 7. TIPS -->
   <section id="tips" aria-labelledby="h-tips">
-    <p class="eyebrow">Care · 秋冬護唇</p>
-    <h2 id="h-tips">秋冬護唇 5 個小習慣</h2>
+    <p class="eyebrow" data-i18n="tp-eyebrow">Care · 秋冬護唇</p>
+    <h2 id="h-tips" data-i18n="tp-h2">秋冬護唇 5 個小習慣</h2>
     <ul class="tips">
-      <li><b>唔好舔嘴唇。</b><span>口水蒸發時會帶走水分，越舔越乾。</span></li>
-      <li><b>瞓前塗厚一層。</b><span>夜晚唔食嘢唔講嘢，潤唇膏停留得最耐。</span></li>
-      <li><b>唔好撕死皮。</b><span>先塗潤唇膏軟化，等佢自然脫落。</span></li>
-      <li><b>室內加濕、飲夠水。</b><span>冷氣同暖氣都會令空氣變乾。</span></li>
-      <li><b>戶外記得防曬。</b><span>嘴唇都會曬傷。呢支潤唇膏冇防曬指數，長時間喺戶外請另加有 SPF 嘅唇部產品。</span></li>
+      <li data-i18n="tp1"><b>唔好舔嘴唇。</b><span>口水蒸發時會帶走水分，越舔越乾。</span></li>
+      <li data-i18n="tp2"><b>瞓前塗厚一層。</b><span>夜晚唔食嘢唔講嘢，潤唇膏停留得最耐。</span></li>
+      <li data-i18n="tp3"><b>唔好撕死皮。</b><span>先塗潤唇膏軟化，等佢自然脫落。</span></li>
+      <li data-i18n="tp4"><b>室內加濕、飲夠水。</b><span>冷氣同暖氣都會令空氣變乾。</span></li>
+      <li data-i18n="tp5"><b>戶外記得防曬。</b><span>嘴唇都會曬傷。呢支潤唇膏冇防曬指數，長時間喺戶外請另加有 SPF 嘅唇部產品。</span></li>
     </ul>
   </section>
 
   <!-- 8. ABOUT -->
   <section id="about" aria-labelledby="h-about">
-    <p class="eyebrow">About · 關於我</p>
+    <p class="eyebrow" data-i18n="ab-eyebrow">About · 關於我</p>
     <div class="about">
       <div class="mono" aria-hidden="true">J</div>
       <div>
         <h2 id="h-about" style="font-size:26px;margin-bottom:6px">Julia Yuen</h2>
-        <p class="lead" style="margin-bottom:0">整合身心諮詢顧問 · 此刻 The Present 創辦人</p>
+        <p class="lead" style="margin-bottom:0" data-i18n="ab-role">整合身心諮詢顧問 · 此刻 The Present 創辦人</p>
       </div>
     </div>
     <ul class="creds">
-      <li>20 年註冊教師</li>
-      <li>Brain Gym 導師</li>
-      <li>HKIIMA 嬰兒按摩導師</li>
-      <li>TimeWaver 資訊場顧問</li>
+      <li data-i18n="ab-c1">20 年註冊教師</li>
+      <li data-i18n="ab-c2">Brain Gym 導師</li>
+      <li data-i18n="ab-c3">HKIIMA 嬰兒按摩導師</li>
+      <li data-i18n="ab-c4">TimeWaver 資訊場顧問</li>
     </ul>
-    <p>做咗 20 年老師，我相信最好嘅學習係親手做。潤唇膏係一個好簡單嘅開始 —— 由睇清楚成分、揀自己鍾意嘅香味，到慢慢留意身邊每樣用落身體嘅嘢。</p>
-    <p>除咗手作，我亦都有做身心諮詢、芳香生活分享同證書課程。</p>
-    <div class="cta-row"><a class="btn btn-ghost" href="/">探索此刻 · The Present →</a></div>
+    <p data-i18n="ab-p1">做咗 20 年老師，我相信最好嘅學習係親手做。潤唇膏係一個好簡單嘅開始 —— 由睇清楚成分、揀自己鍾意嘅香味，到慢慢留意身邊每樣用落身體嘅嘢。</p>
+    <p data-i18n="ab-p2">除咗手作，我亦都有做身心諮詢、芳香生活分享同證書課程。</p>
+    <div class="cta-row"><a class="btn btn-ghost" href="/" data-i18n="ab-btn">探索此刻 · The Present →</a></div>
   </section>
 
-  <!-- 9. SAFETY -->
+  <!-- 9. SAFETY（中文版本保留英文對照）-->
   <section id="safety" aria-labelledby="h-safety">
     <div class="safety">
-      <h2 id="h-safety" style="font-size:22px;margin-bottom:2px">使用須知 <span class="en" style="font-size:18px;color:var(--muted)">Cautions</span></h2>
+      <h2 id="h-safety" style="font-size:22px;margin-bottom:2px"><span data-i18n="sf-h2">使用須知</span> <span class="en" style="font-size:18px;color:var(--muted)">Cautions</span></h2>
       <ul>
-        <li>只供外用。<span>For external use only.</span></li>
-        <li>含甜杏仁油（堅果）、芝麻油、小麥胚芽油及蜂蠟；對以上成分過敏者請勿使用。<span>Contains sweet almond (tree nut), sesame and wheat germ oils, and beeswax. Do not use if allergic to any ingredient.</span></li>
-        <li>首次使用前，請先喺手腕內側塗少量測試。<span>Patch test on the inner wrist before first use.</span></li>
-        <li>如出現紅腫、痕癢或不適，請立即停用。<span>Discontinue use if redness, itching or irritation occurs.</span></li>
-        <li>薄荷配方不建議 6 歲以下兒童使用，小朋友可以揀薰衣草或甜橙配方。<span>Mint blends are not recommended for children under 6 — choose Lavender or Orange instead.</span></li>
-        <li>孕婦或有特殊健康狀況人士，使用前請先諮詢醫護人員。<span>If pregnant or under medical care, consult a healthcare professional before use.</span></li>
-        <li>檸檬香味含柑橘精油，日間長時間戶外活動請注意防曬。<span>Lemon blends contain citrus oil; use sun protection for prolonged outdoor exposure.</span></li>
-        <li>請存放於陰涼處，避免高溫及陽光直射（例如車廂內）。<span>Store in a cool place away from heat and direct sunlight.</span></li>
+        <li><b style="font-weight:400" data-i18n="sf1">只供外用。</b><span>For external use only.</span></li>
+        <li><b style="font-weight:400" data-i18n="sf2">含甜杏仁油（堅果）、芝麻油、小麥胚芽油及蜂蠟；對以上成分過敏者請勿使用。</b><span>Contains sweet almond (tree nut), sesame and wheat germ oils, and beeswax. Do not use if allergic to any ingredient.</span></li>
+        <li><b style="font-weight:400" data-i18n="sf3">首次使用前，請先喺手腕內側塗少量測試。</b><span>Patch test on the inner wrist before first use.</span></li>
+        <li><b style="font-weight:400" data-i18n="sf4">如出現紅腫、痕癢或不適，請立即停用。</b><span>Discontinue use if redness, itching or irritation occurs.</span></li>
+        <li><b style="font-weight:400" data-i18n="sf5">薄荷配方不建議 6 歲以下兒童使用，小朋友可以揀薰衣草或甜橙配方。</b><span>Mint blends are not recommended for children under 6 — choose Lavender or Orange instead.</span></li>
+        <li><b style="font-weight:400" data-i18n="sf6">孕婦或有特殊健康狀況人士，使用前請先諮詢醫護人員。</b><span>If pregnant or under medical care, consult a healthcare professional before use.</span></li>
+        <li><b style="font-weight:400" data-i18n="sf7">檸檬香味含柑橘精油，日間長時間戶外活動請注意防曬。</b><span>Lemon blends contain citrus oil; use sun protection for prolonged outdoor exposure.</span></li>
+        <li><b style="font-weight:400" data-i18n="sf8">請存放於陰涼處，避免高溫及陽光直射（例如車廂內）。</b><span>Store in a cool place away from heat and direct sunlight.</span></li>
       </ul>
     </div>
   </section>
@@ -393,13 +424,13 @@ footer a{color:var(--teal-deep)}
 </main>
 
 <footer class="wrap">
-  <p>此刻 · The Present · 香港手作</p>
+  <p data-i18n="ft-1">此刻 · The Present · 香港手作</p>
   <p><a id="waFooter" href="#" target="_blank" rel="noopener">WhatsApp +852 9621 5876</a> · <a href="mailto:juliayuen.qfc@gmail.com">juliayuen.qfc@gmail.com</a></p>
   <p><a href="/">juliayuen.com</a></p>
 </footer>
 
 <div class="sticky">
-  <a class="btn btn-primary" href="#order">我都想訂製送禮</a>
+  <a class="btn btn-primary" href="#order" data-i18n="btn-order">我都想訂製送禮</a>
   <a class="btn btn-ghost wa" id="waSticky" href="#" target="_blank" rel="noopener" aria-label="WhatsApp Julia">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
   </a>
@@ -415,24 +446,208 @@ var CONFIG = {
 };
 /* ================================== */
 
+/* ===== 三語文字：繁 zh-Hant ／ 簡 zh-Hans ／ EN（同主頁用同一套方法）===== */
+var T = {
+  "doc-title":{"zh-Hant":"此刻手作潤唇膏｜Julia Yuen","zh-Hans":"此刻手作润唇膏｜Julia Yuen","en":"Handmade Lip Balm | Julia Yuen"},
+  // HERO
+  "tag-k":{"zh-Hant":"Gift · 心意編號","zh-Hans":"Gift · 心意编号","en":"Gift · No."},
+  "tag-code":{"zh-Hant":"此刻手作","zh-Hans":"此刻手作","en":"Handmade"},
+  "tag-dt1":{"zh-Hant":"製作","zh-Hans":"制作","en":"Made by"},
+  "tag-dd1":{"zh-Hant":"Julia 親手倒模","zh-Hans":"Julia 亲手倒模","en":"Hand-poured by Julia"},
+  "tag-dt2":{"zh-Hant":"地點","zh-Hans":"地点","en":"Where"},
+  "tag-dd2":{"zh-Hant":"香港 · 小批量手作","zh-Hans":"香港 · 小批量手作","en":"Hong Kong · small batches"},
+  "tag-dt3":{"zh-Hant":"原料","zh-Hans":"原料","en":"Ingredients"},
+  "tag-dd3":{"zh-Hant":"4 類天然原料，全部公開","zh-Hans":"4 类天然原料，全部公开","en":"4 natural ingredients, all listed"},
+  "hero-h1":{"zh-Hant":"你手上呢支潤唇膏，<br>係<em>朋友嘅心意</em>。","zh-Hans":"你手中的这支润唇膏，<br>是<em>朋友的心意</em>。","en":"The lip balm in your hand<br>is <em>a gift from a friend</em>."},
+  "hero-lead":{"zh-Hant":"每一支都係我喺工作枱上秤料、溶蠟、倒模，再一支一支貼上你啱啱掃過嘅標籤。想知道入面有啲咩、點樣做出嚟？全部寫晒喺下面。",
+    "zh-Hans":"每一支都是我在工作台上称料、熔蜡、倒模，再一支一支贴上你刚刚扫过的标签。想知道里面有什么、是怎样做出来的？全部写在下面。",
+    "en":"I weigh, melt and pour every single one at my worktable, then hand-apply the label you just scanned. Curious what's inside and how it's made? It's all below."},
+  "hero-h1-p":{"zh-Hant":"一支潤唇膏，<br>一份<em>親手做嘅心意</em>。","zh-Hans":"一支润唇膏，<br>一份<em>亲手做的心意</em>。","en":"One lip balm,<br><em>made by hand, with care</em>."},
+  "hero-lead-p":{"zh-Hant":"每一支都係我喺工作枱上秤料、溶蠟、倒模，再一支一支貼上標籤。想知道入面有啲咩、點樣做出嚟？全部寫晒喺下面。",
+    "zh-Hans":"每一支都是我在工作台上称料、熔蜡、倒模，再一支一支贴上标签。想知道里面有什么、是怎样做出来的？全部写在下面。",
+    "en":"I weigh, melt and pour every single one at my worktable, then label each by hand. Curious what's inside and how it's made? It's all below."},
+  "btn-order":{"zh-Hant":"我都想訂製送禮","zh-Hans":"我也想定制送礼","en":"Order gifts like this"},
+  "btn-making":{"zh-Hant":"睇製作過程","zh-Hans":"看制作过程","en":"See how it's made"},
+  // INGREDIENTS
+  "ing-eyebrow":{"zh-Hant":"Ingredients · 全部成分","zh-Hans":"Ingredients · 全部成分","en":"Ingredients"},
+  "ing-h2":{"zh-Hant":"四類原料，全部寫出嚟","zh-Hans":"四类原料，全部公开","en":"Four ingredients, nothing hidden"},
+  "ing-lead":{"zh-Hant":"塗喺嘴唇上面嘅嘢，你有權知道每一樣係咩。","zh-Hans":"涂在嘴唇上的东西，你有权知道每一样是什么。","en":"You have every right to know what goes on your lips."},
+  "ing1-n":{"zh-Hant":"乳木果脂","zh-Hans":"乳木果脂","en":"Shea Butter"},
+  "ing1-i":{"zh-Hant":"Shea Butter","zh-Hans":"Shea Butter","en":"Butyrospermum parkii"},
+  "ing1-w":{"zh-Hant":"質地綿密，一接觸體溫就慢慢溶開，令雙唇感覺柔軟滋潤。","zh-Hans":"质地绵密，一接触体温就慢慢融化，让双唇感觉柔软滋润。","en":"Rich and creamy; it melts slowly at body temperature, leaving lips feeling soft and nourished."},
+  "ing1-f":{"zh-Hant":"遇體溫即溶","zh-Hans":"遇体温即融","en":"Melts at body temperature"},
+  "ing2-n":{"zh-Hant":"天然蜂蠟","zh-Hans":"天然蜂蜡","en":"Beeswax"},
+  "ing2-i":{"zh-Hant":"Beeswax","zh-Hans":"Beeswax","en":"Cera alba"},
+  "ing2-w":{"zh-Hant":"令潤唇膏成形嘅關鍵，喺唇面形成一層薄薄保護膜，減少水分流失。","zh-Hans":"让润唇膏成形的关键，在唇面形成一层薄薄的保护膜，减少水分流失。","en":"What gives the balm its shape — it forms a thin protective layer on the lips that helps reduce moisture loss."},
+  "ing2-f":{"zh-Hant":"約 62–64°C 先溶化","zh-Hans":"约 62–64°C 才熔化","en":"Melts at about 62–64°C"},
+  "ing3-n":{"zh-Hant":"植物基底油","zh-Hans":"植物基底油","en":"Plant Oil Blend"},
+  "ing3-i":{"zh-Hant":"Plant Oil Blend","zh-Hans":"Plant Oil Blend","en":"7 carrier oils"},
+  "ing3-w":{"zh-Hant":"分餾椰子油、芝麻油、葡萄籽油、甜杏仁油、小麥胚芽油、葵花籽油、橄欖油。質地輕盈、易推開、唔黏膩。",
+    "zh-Hans":"分馏椰子油、芝麻油、葡萄籽油、甜杏仁油、小麦胚芽油、葵花籽油、橄榄油。质地轻盈、易推开、不黏腻。",
+    "en":"Fractionated coconut, sesame, grape seed, sweet almond, wheat germ, sunflower and olive oils. Light, easy to glide on, never sticky."},
+  "ing3-f":{"zh-Hant":"7 種植物油","zh-Hans":"7 种植物油","en":"7 plant oils"},
+  "ing4-n":{"zh-Hant":"純精油","zh-Hans":"纯精油","en":"Essential Oils"},
+  "ing4-i":{"zh-Hant":"Essential Oils","zh-Hans":"Essential Oils","en":"Pure essential oils"},
+  "ing4-w":{"zh-Hant":"按你揀嘅香味加入：薄荷、薰衣草、甜橙或檸檬。只用少量，帶出天然香氣。","zh-Hans":"按你选择的香味加入：薄荷、薰衣草、甜橙或柠檬。只用少量，带出天然香气。","en":"Added according to your chosen scent — peppermint, lavender, sweet orange or lemon. Just a little, for a natural fragrance."},
+  "ing4-f":{"zh-Hant":"冇人工香精","zh-Hans":"无人工香精","en":"No synthetic fragrance"},
+  "ing-note":{"zh-Hant":"<b>成分就係以上呢啲，冇其他。</b> 含甜杏仁（堅果）、芝麻、小麥來源油分及蜂蠟 —— 有相關過敏嘅朋友，請先睇下面嘅<a href='#safety'>使用須知</a>。",
+    "zh-Hans":"<b>成分就是以上这些，没有其他。</b> 含甜杏仁（坚果）、芝麻、小麦来源油分及蜂蜡 —— 有相关过敏的朋友，请先看下面的<a href='#safety'>使用须知</a>。",
+    "en":"<b>That's the full list — nothing else.</b> Contains sweet almond (tree nut), sesame and wheat-derived oils, and beeswax. If you have related allergies, please read the <a href='#safety'>cautions</a> below first."},
+  // PROCESS
+  "mk-eyebrow":{"zh-Hant":"The making · 製作過程","zh-Hans":"The making · 制作过程","en":"The making"},
+  "mk-h2":{"zh-Hant":"一支潤唇膏嘅誕生","zh-Hans":"一支润唇膏的诞生","en":"How a lip balm is born"},
+  "mk-lead":{"zh-Hant":"冇機器生產線，每一步都係人手。","zh-Hans":"没有机器生产线，每一步都是人手完成。","en":"No production line — every step is done by hand."},
+  "mk1-h":{"zh-Hant":"秤料","zh-Hans":"称料","en":"Weigh"},
+  "mk1-p":{"zh-Hant":"按配方用電子磅逐樣秤，以克計，每一批份量一致。","zh-Hans":"按配方用电子秤逐样称量，以克计，每一批份量一致。","en":"Each ingredient is weighed in grams on a digital scale, so every batch is consistent."},
+  "mk2-h":{"zh-Hant":"隔水慢慢溶","zh-Hans":"隔水慢慢融化","en":"Melt gently"},
+  "mk2-p":{"zh-Hant":"蜂蠟要去到約 63°C 先溶，再加入乳木果脂同植物油，慢慢攪勻，唔會直接明火加熱。","zh-Hans":"蜂蜡要到约 63°C 才熔化，再加入乳木果脂和植物油，慢慢搅匀，不会直接明火加热。","en":"Beeswax only melts at about 63°C. Shea butter and plant oils are then stirred in slowly over a water bath — never a direct flame."},
+  "mk3-h":{"zh-Hant":"離火，滴精油","zh-Hans":"离火，滴精油","en":"Off the heat, add oils"},
+  "mk3-p":{"zh-Hant":"稍為降溫之後先滴入精油，香氣先留得住。","zh-Hans":"稍微降温之后才滴入精油，香气才能保留。","en":"Essential oils go in once it has cooled slightly, so the fragrance stays."},
+  "mk4-h":{"zh-Hant":"倒入立體模","zh-Hans":"倒入立体模具","en":"Pour into moulds"},
+  "mk4-p":{"zh-Hant":"趁暖倒入唇形模具，靜置冷卻定形。","zh-Hans":"趁温热倒入唇形模具，静置冷却定形。","en":"Poured warm into lip-shaped moulds and left to cool and set."},
+  "mk5-h":{"zh-Hant":"脫模、入管、貼標","zh-Hans":"脱模、入管、贴标","en":"Unmould, fill, label"},
+  "mk5-p":{"zh-Hant":"每支人手檢查，再貼上你見到嘅 QR 標籤，交到送禮嘅朋友手上。","zh-Hans":"每支人手检查，再贴上你看到的 QR 标签，交到送礼的朋友手上。","en":"Each one is checked by hand and labelled with the QR code you just scanned, then passed to the friend who gifted it."},
+  // SCENTS
+  "sc-eyebrow":{"zh-Hant":"Scents · 香味","zh-Hans":"Scents · 香味","en":"Scents"},
+  "sc-h2":{"zh-Hant":"七種香味，揀一支似你嘅","zh-Hans":"七种香味，选一支像你的","en":"Seven scents — pick the one that's you"},
+  "sc-single":{"zh-Hant":"單一香氣","zh-Hans":"单一香气","en":"Single scents"},
+  "sc-duo":{"zh-Hant":"雙重特調","zh-Hans":"双重特调","en":"Duo blends"},
+  "sc-pep":{"zh-Hant":"薄荷","zh-Hans":"薄荷","en":"Peppermint"},
+  "sc-pep-s":{"zh-Hant":"Peppermint","zh-Hans":"Peppermint","en":"薄荷"},
+  "sc-pep-p":{"zh-Hant":"清涼醒神，塗落即刻有清新感；除咗嘴唇，手指、手肘等乾燥位置都可以塗。","zh-Hans":"清凉醒神，涂上立刻有清新感；除了嘴唇，手指、手肘等干燥部位也可以涂。","en":"Cool and refreshing the moment it goes on. Besides lips, it's lovely on dry fingers and elbows too."},
+  "sc-lav":{"zh-Hant":"薰衣草","zh-Hans":"薰衣草","en":"Lavender"},
+  "sc-lav-s":{"zh-Hant":"Lavender","zh-Hans":"Lavender","en":"薰衣草"},
+  "sc-lav-p":{"zh-Hant":"柔和花香，令人放鬆。","zh-Hans":"柔和花香，令人放松。","en":"Soft floral notes that help you unwind."},
+  "sc-or":{"zh-Hant":"甜橙","zh-Hans":"甜橙","en":"Sweet Orange"},
+  "sc-or-s":{"zh-Hant":"Orange","zh-Hans":"Orange","en":"甜橙"},
+  "sc-or-p":{"zh-Hant":"甜美果香，好心情嘅味道。","zh-Hans":"甜美果香，好心情的味道。","en":"Sweet and fruity — the scent of a good mood."},
+  "sc-le":{"zh-Hant":"檸檬","zh-Hans":"柠檬","en":"Lemon"},
+  "sc-le-s":{"zh-Hant":"Lemon","zh-Hans":"Lemon","en":"檸檬"},
+  "sc-le-p":{"zh-Hant":"清新果香，爽朗乾淨。","zh-Hans":"清新果香，爽朗干净。","en":"Bright, clean citrus."},
+  "sc-om":{"zh-Hant":"甜橙薄荷","zh-Hans":"甜橙薄荷","en":"OrangeMint"},
+  "sc-om-s":{"zh-Hant":"OrangeMint","zh-Hans":"OrangeMint","en":"甜橙薄荷"},
+  "sc-om-p":{"zh-Hant":"陽光果香加一點清涼。","zh-Hans":"阳光果香加一点清凉。","en":"Sunny citrus with a cool touch."},
+  "sc-no1":{"zh-Hant":"人氣 No.1","zh-Hans":"人气 No.1","en":"No.1 favourite"},
+  "sc-lm":{"zh-Hant":"薰衣草薄荷","zh-Hans":"薰衣草薄荷","en":"LavenderMint"},
+  "sc-lm-s":{"zh-Hant":"LavenderMint","zh-Hans":"LavenderMint","en":"薰衣草薄荷"},
+  "sc-lm-p":{"zh-Hant":"放鬆之中帶點清新。","zh-Hans":"放松之中带点清新。","en":"Relaxing, with a fresh lift."},
+  "sc-lem":{"zh-Hant":"檸檬薄荷","zh-Hans":"柠檬薄荷","en":"LemonMint"},
+  "sc-lem-s":{"zh-Hant":"LemonMint","zh-Hans":"LemonMint","en":"檸檬薄荷"},
+  "sc-lem-p":{"zh-Hant":"清爽提神，一整日好精神。","zh-Hans":"清爽提神，一整天好精神。","en":"Crisp and uplifting, all day long."},
+  // ORDER
+  "od-eyebrow":{"zh-Hant":"Custom gifts · 訂製送禮","zh-Hans":"Custom gifts · 定制送礼","en":"Custom gifts"},
+  "od-h2":{"zh-Hant":"將呢份心意，送俾你嘅朋友","zh-Hans":"把这份心意，送给你的朋友","en":"Pass the kindness on to your friends"},
+  "od-lead":{"zh-Hant":"生日、節日、婚禮回禮、公司活動 —— 揀好下面幾項，一撳就會用 WhatsApp 傳俾我，我會親自回覆報價同日期。",
+    "zh-Hans":"生日、节日、婚礼回礼、公司活动 —— 选好下面几项，一按就会用 WhatsApp 发给我，我会亲自回复报价和日期。",
+    "en":"Birthdays, festivals, wedding favours, corporate events — choose below and tap once to send it to me on WhatsApp. I'll reply personally with a quote and timing."},
+  "od-q1":{"zh-Hant":"1. 送俾邊個場合？","zh-Hans":"1. 送礼场合？","en":"1. What's the occasion?"},
+  "occ-bday":{"zh-Hant":"生日","zh-Hans":"生日","en":"Birthday"},
+  "occ-fest":{"zh-Hant":"節日禮物","zh-Hans":"节日礼物","en":"Festive gift"},
+  "occ-wed":{"zh-Hant":"婚禮回禮","zh-Hans":"婚礼回礼","en":"Wedding favours"},
+  "occ-corp":{"zh-Hant":"公司活動","zh-Hans":"公司活动","en":"Corporate event"},
+  "occ-thx":{"zh-Hant":"謝師／答謝","zh-Hans":"谢师／答谢","en":"Thank-you gift"},
+  "occ-other":{"zh-Hant":"其他","zh-Hans":"其他","en":"Other"},
+  "od-q2":{"zh-Hant":"2. 要幾多支？","zh-Hans":"2. 需要多少支？","en":"2. How many?"},
+  "od-q3":{"zh-Hant":"3. 揀香味","zh-Hans":"3. 选香味","en":"3. Choose scents"},
+  "od-q3h":{"zh-Hant":"（可揀多款）","zh-Hans":"（可多选）","en":"(pick several)"},
+  "od-q4":{"zh-Hant":"4. 心意小卡想寫咩？","zh-Hans":"4. 心意小卡想写什么？","en":"4. Gift card message"},
+  "od-q4h":{"zh-Hant":"（{n} 支或以上可印上專屬祝福語）","zh-Hans":"（{n} 支或以上可印上专属祝福语）","en":"(printed for orders of {n}+)"},
+  "od-q4ph":{"zh-Hant":"例如：Happy Birthday Mandy！願你每日都笑住過","zh-Hans":"例如：Happy Birthday Mandy！愿你每天都开开心心","en":"e.g. Happy Birthday Mandy — wishing you a year full of smiles"},
+  "od-date":{"zh-Hant":"幾時要？","zh-Hans":"什么时候需要？","en":"Needed by"},
+  "od-name":{"zh-Hant":"點稱呼你？","zh-Hans":"怎么称呼你？","en":"Your name"},
+  "od-nameph":{"zh-Hant":"例如：陳太","zh-Hans":"例如：陈小姐","en":"e.g. Mrs Chan"},
+  "od-prev":{"zh-Hant":"WhatsApp 訊息預覽","zh-Hans":"WhatsApp 消息预览","en":"WhatsApp message preview"},
+  "od-send":{"zh-Hant":"用 WhatsApp 傳送訂單","zh-Hans":"用 WhatsApp 发送订单","en":"Send order on WhatsApp"},
+  "od-note":{"zh-Hant":"報價會按數量、香味同包裝計算，由 Julia 親自回覆。全人手製作，產量有限，大量訂單建議預早 2–3 星期。",
+    "zh-Hans":"报价会按数量、香味和包装计算，由 Julia 亲自回复。全人手制作，产量有限，大量订单建议提前 2–3 星期。",
+    "en":"Quotes depend on quantity, scents and packaging — Julia replies personally. Everything is handmade in small batches, so please allow 2–3 weeks for large orders."},
+  // CLASS
+  "cl-eyebrow":{"zh-Hant":"DIY workshop · 潤唇膏班","zh-Hans":"DIY workshop · 润唇膏课程","en":"DIY workshop"},
+  "cl-h2":{"zh-Hant":"親手做一支屬於自己嘅潤唇膏","zh-Hans":"亲手做一支属于自己的润唇膏","en":"Make your own lip balm"},
+  "cl-lead":{"zh-Hant":"由溶蠟、調香到倒模，一個下晝就可以帶走自己調配嘅潤唇膏。適合想同朋友、屋企人一齊玩下手作嘅你。",
+    "zh-Hans":"从熔蜡、调香到倒模，一个下午就可以带走自己调配的润唇膏。适合想和朋友、家人一起玩手作的你。",
+    "en":"From melting wax to blending scents and pouring, you'll leave with a lip balm you made yourself — all in one afternoon. Perfect with friends or family."},
+  "cl-poster":{"zh-Hant":"Julia's Nature Balm 貓頭潤唇膏 · 親子 DIY 首選","zh-Hans":"Julia's Nature Balm 猫头润唇膏 · 亲子 DIY 首选","en":"Julia's Nature Balm cat-head lip balm · a parent-child DIY favourite"},
+  "cl1-h":{"zh-Hant":"朋友小聚","zh-Hans":"朋友小聚","en":"Friends' get-together"},
+  "cl1-p":{"zh-Hant":"約埋三五知己，一齊調出各自鍾意嘅香味。","zh-Hans":"约上三五知己，一起调出各自喜欢的香味。","en":"Gather a few friends and blend your own favourite scents."},
+  "cl2-h":{"zh-Hant":"親子手作","zh-Hans":"亲子手作","en":"Parent & child"},
+  "cl2-p":{"zh-Hant":"同小朋友一齊秤料、倒模，學識睇成分。","zh-Hans":"和小朋友一起称料、倒模，学会看成分。","en":"Weigh and pour together, and learn to read ingredient lists."},
+  "cl3-h":{"zh-Hant":"公司／生日包場","zh-Hans":"公司／生日包场","en":"Private & corporate"},
+  "cl3-p":{"zh-Hant":"團隊活動或派對，做完即場帶走做紀念。","zh-Hans":"团队活动或派对，做完当场带走作纪念。","en":"Team events or parties — everyone takes home what they made."},
+  "cl-btn":{"zh-Hant":"WhatsApp 問下開班詳情","zh-Hans":"WhatsApp 咨询开班详情","en":"Ask about workshops on WhatsApp"},
+  // TIPS
+  "tp-eyebrow":{"zh-Hant":"Care · 秋冬護唇","zh-Hans":"Care · 秋冬护唇","en":"Care"},
+  "tp-h2":{"zh-Hant":"秋冬護唇 5 個小習慣","zh-Hans":"秋冬护唇 5 个小习惯","en":"5 habits for autumn–winter lips"},
+  "tp1":{"zh-Hant":"<b>唔好舔嘴唇。</b><span>口水蒸發時會帶走水分，越舔越乾。</span>","zh-Hans":"<b>不要舔嘴唇。</b><span>口水蒸发时会带走水分，越舔越干。</span>","en":"<b>Don't lick your lips.</b> <span>Saliva evaporates and takes moisture with it — the more you lick, the drier they get.</span>"},
+  "tp2":{"zh-Hant":"<b>瞓前塗厚一層。</b><span>夜晚唔食嘢唔講嘢，潤唇膏停留得最耐。</span>","zh-Hans":"<b>睡前涂厚一层。</b><span>晚上不吃东西不说话，润唇膏停留得最久。</span>","en":"<b>Apply a thick layer at bedtime.</b> <span>With no eating or talking overnight, balm stays on longest.</span>"},
+  "tp3":{"zh-Hant":"<b>唔好撕死皮。</b><span>先塗潤唇膏軟化，等佢自然脫落。</span>","zh-Hans":"<b>不要撕死皮。</b><span>先涂润唇膏软化，让它自然脱落。</span>","en":"<b>Don't peel flaky skin.</b> <span>Soften it with balm and let it come away naturally.</span>"},
+  "tp4":{"zh-Hant":"<b>室內加濕、飲夠水。</b><span>冷氣同暖氣都會令空氣變乾。</span>","zh-Hans":"<b>室内加湿、多喝水。</b><span>空调和暖气都会让空气变干。</span>","en":"<b>Humidify indoors and drink enough water.</b> <span>Air-conditioning and heating both dry out the air.</span>"},
+  "tp5":{"zh-Hant":"<b>戶外記得防曬。</b><span>嘴唇都會曬傷。呢支潤唇膏冇防曬指數，長時間喺戶外請另加有 SPF 嘅唇部產品。</span>","zh-Hans":"<b>户外记得防晒。</b><span>嘴唇也会晒伤。这支润唇膏没有防晒指数，长时间在户外请另加含 SPF 的唇部产品。</span>","en":"<b>Protect from the sun outdoors.</b> <span>Lips can burn too. This balm has no SPF, so add an SPF lip product for long periods outside.</span>"},
+  // ABOUT
+  "ab-eyebrow":{"zh-Hant":"About · 關於我","zh-Hans":"About · 关于我","en":"About"},
+  "ab-role":{"zh-Hant":"整合身心諮詢顧問 · 此刻 The Present 創辦人","zh-Hans":"整合身心咨询顾问 · 此刻 The Present 创办人","en":"Integrative mind-body consultant · Founder of The Present"},
+  "ab-c1":{"zh-Hant":"20 年註冊教師","zh-Hans":"20 年注册教师","en":"Registered teacher, 20 years"},
+  "ab-c2":{"zh-Hant":"Brain Gym 導師","zh-Hans":"Brain Gym 导师","en":"Brain Gym instructor"},
+  "ab-c3":{"zh-Hant":"HKIIMA 嬰兒按摩導師","zh-Hans":"HKIIMA 婴儿按摩导师","en":"HKIIMA infant massage instructor"},
+  "ab-c4":{"zh-Hant":"TimeWaver 資訊場顧問","zh-Hans":"TimeWaver 信息场顾问","en":"TimeWaver information field consultant"},
+  "ab-p1":{"zh-Hant":"做咗 20 年老師，我相信最好嘅學習係親手做。潤唇膏係一個好簡單嘅開始 —— 由睇清楚成分、揀自己鍾意嘅香味，到慢慢留意身邊每樣用落身體嘅嘢。",
+    "zh-Hans":"当了 20 年老师，我相信最好的学习是亲手去做。润唇膏是一个很简单的开始 —— 从看清楚成分、选自己喜欢的香味，到慢慢留意身边每样用在身体上的东西。",
+    "en":"After 20 years as a teacher, I believe the best learning is hands-on. A lip balm is a simple place to start — reading the ingredients, choosing a scent you love, and slowly paying attention to everything you put on your body."},
+  "ab-p2":{"zh-Hant":"除咗手作，我亦都有做身心諮詢、芳香生活分享同證書課程。","zh-Hans":"除了手作，我也提供身心咨询、芳香生活分享和证书课程。","en":"Beyond handmade balms, I offer mind-body consultations, aromatic-living sessions and certificate courses."},
+  "ab-btn":{"zh-Hant":"探索此刻 · The Present →","zh-Hans":"探索此刻 · The Present →","en":"Explore The Present →"},
+  // SAFETY
+  "sf-h2":{"zh-Hant":"使用須知","zh-Hans":"使用须知","en":"Cautions"},
+  "sf1":{"zh-Hant":"只供外用。","zh-Hans":"只供外用。","en":"For external use only."},
+  "sf2":{"zh-Hant":"含甜杏仁油（堅果）、芝麻油、小麥胚芽油及蜂蠟；對以上成分過敏者請勿使用。","zh-Hans":"含甜杏仁油（坚果）、芝麻油、小麦胚芽油及蜂蜡；对以上成分过敏者请勿使用。","en":"Contains sweet almond (tree nut), sesame and wheat germ oils, and beeswax. Do not use if allergic to any ingredient."},
+  "sf3":{"zh-Hant":"首次使用前，請先喺手腕內側塗少量測試。","zh-Hans":"首次使用前，请先在手腕内侧涂少量测试。","en":"Patch test on the inner wrist before first use."},
+  "sf4":{"zh-Hant":"如出現紅腫、痕癢或不適，請立即停用。","zh-Hans":"如出现红肿、瘙痒或不适，请立即停用。","en":"Discontinue use if redness, itching or irritation occurs."},
+  "sf5":{"zh-Hant":"薄荷配方不建議 6 歲以下兒童使用，小朋友可以揀薰衣草或甜橙配方。","zh-Hans":"薄荷配方不建议 6 岁以下儿童使用，小朋友可以选薰衣草或甜橙配方。","en":"Mint blends are not recommended for children under 6 — choose Lavender or Orange instead."},
+  "sf6":{"zh-Hant":"孕婦或有特殊健康狀況人士，使用前請先諮詢醫護人員。","zh-Hans":"孕妇或有特殊健康状况人士，使用前请先咨询医护人员。","en":"If pregnant or under medical care, consult a healthcare professional before use."},
+  "sf7":{"zh-Hant":"檸檬香味含柑橘精油，日間長時間戶外活動請注意防曬。","zh-Hans":"柠檬香味含柑橘精油，日间长时间户外活动请注意防晒。","en":"Lemon blends contain citrus oil; use sun protection for prolonged outdoor exposure."},
+  "sf8":{"zh-Hant":"請存放於陰涼處，避免高溫及陽光直射（例如車廂內）。","zh-Hans":"请存放于阴凉处，避免高温及阳光直射（例如车厢内）。","en":"Store in a cool place away from heat and direct sunlight (e.g. a parked car)."},
+  "ft-1":{"zh-Hant":"此刻 · The Present · 香港手作","zh-Hans":"此刻 · The Present · 香港手作","en":"The Present · Handmade in Hong Kong"}
+};
+
+/* 動態文字（WhatsApp 訊息、數量提示）*/
+var M = {
+  "tier1":{"zh-Hant":"<b>{n} 支</b>：以人氣款 <b>甜橙薄荷</b> 為主，其他香味視乎現貨。","zh-Hans":"<b>{n} 支</b>：以人气款 <b>甜橙薄荷</b> 为主，其他香味视乎现货。","en":"<b>{n} {u}</b>: mainly our favourite <b>OrangeMint</b>; other scents depend on stock."},
+  "tier2":{"zh-Hant":"<b>{n} 支</b>：可以<b>自選香味</b>。再加 {m} 支就可以印專屬祝福語小卡。","zh-Hans":"<b>{n} 支</b>：可以<b>自选香味</b>。再加 {m} 支就可以印专属祝福语小卡。","en":"<b>{n} {u}</b>: <b>choose your scents</b>. Add {m} more for a personalised gift card."},
+  "tier3":{"zh-Hant":"<b>{n} 支</b>：可以<b>自選香味</b>，再加<b>專屬祝福語心意小卡</b>。","zh-Hans":"<b>{n} 支</b>：可以<b>自选香味</b>，再加<b>专属祝福语心意小卡</b>。","en":"<b>{n} {u}</b>: <b>choose your scents</b> plus a <b>personalised gift card</b>."},
+  "hi":{"zh-Hant":"你好 Julia！我想訂製潤唇膏送禮 🎁","zh-Hans":"你好 Julia！我想定制润唇膏送礼 🎁","en":"Hi Julia! I'd like to order lip balms as gifts 🎁"},
+  "l-occ":{"zh-Hant":"・用途：","zh-Hans":"・用途：","en":"• Occasion: "},
+  "l-qty":{"zh-Hant":"・數量：{n} 支","zh-Hans":"・数量：{n} 支","en":"• Quantity: {n}"},
+  "l-sc":{"zh-Hant":"・香味：","zh-Hans":"・香味：","en":"• Scents: "},
+  "l-sc0":{"zh-Hant":"想聽下你建議","zh-Hans":"想听听你的建议","en":"I'd love your suggestion"},
+  "l-date":{"zh-Hant":"・需要日期：","zh-Hans":"・需要日期：","en":"• Needed by: "},
+  "l-card":{"zh-Hant":"・小卡祝福語：","zh-Hans":"・小卡祝福语：","en":"• Card message: "},
+  "l-who":{"zh-Hant":"・稱呼：","zh-Hans":"・称呼：","en":"• Name: "},
+  "src":{"zh-Hant":"（來源：{c}）","zh-Hans":"（来源：{c}）","en":"(Ref: {c})"},
+  "src0":{"zh-Hant":"（來源：潤唇膏 QR）","zh-Hans":"（来源：润唇膏 QR）","en":"(Ref: lip balm QR)"},
+  "wa-class":{"zh-Hant":"你好 Julia！我想了解 DIY 潤唇膏班 😊","zh-Hans":"你好 Julia！我想了解 DIY 润唇膏课程 😊","en":"Hi Julia! I'd like to know more about the DIY lip balm workshop 😊"},
+  "wa-hello":{"zh-Hant":"你好 Julia！我收到朋友送嘅潤唇膏，想了解多啲 😊","zh-Hans":"你好 Julia！我收到朋友送的润唇膏，想多了解一些 😊","en":"Hi Julia! A friend gave me one of your lip balms and I'd love to know more 😊"}
+};
+
 (function(){
+  var LANGS = ["zh-Hant","zh-Hans","en"];
+  var lang = "zh-Hant";
   var $ = function(id){ return document.getElementById(id); };
+  function t(obj, vars){ var s = obj[lang] != null ? obj[lang] : obj["zh-Hant"]; for (var k in (vars||{})) s = s.split("{"+k+"}").join(vars[k]); return s; }
 
   // 來源追蹤：juliayuen.com/lip/?from=G01
-  var raw = new URLSearchParams(location.search).get("from") || "";
+  var params = new URLSearchParams(location.search);
+  var raw = params.get("from") || "";
   var from = /^[A-Za-z0-9-]{1,12}$/.test(raw) ? raw.toUpperCase() : "";
-  if (from) $("giftCode").textContent = from;
+  // P 開頭 = 海報／宣傳品（對方未收到唇膏）：用另一句標題，唔顯示心意編號
+  var isPromo = /^P/.test(from);
+  if (from && !isPromo) { $("giftCode").textContent = from; $("giftCode").removeAttribute("data-i18n"); }
+  if (isPromo) { document.getElementById("h-hero").setAttribute("data-i18n","hero-h1-p"); document.querySelector("[data-i18n='hero-lead']").setAttribute("data-i18n","hero-lead-p"); }
 
   function wa(text){ return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(text); }
-  var src = from ? "（來源：" + from + "）" : "（來源：潤唇膏 QR）";
-
-  $("waClass").href  = wa("你好 Julia！我想了解 DIY 潤唇膏班 😊\n" + src);
-  $("waFooter").href = wa("你好 Julia！我收到朋友送嘅潤唇膏，想了解多啲 😊\n" + src);
-  $("waSticky").href = $("waFooter").href;
+  function src(){ return from ? t(M.src,{c:from}) : t(M.src0); }
 
   if (CONFIG.youtubeId) {
     var box = $("videoBox");
-    box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + CONFIG.youtubeId + '" title="潤唇膏製作過程" loading="lazy" allowfullscreen></iframe>';
+    box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + CONFIG.youtubeId + '" title="Lip balm making" loading="lazy" allowfullscreen></iframe>';
     box.hidden = false;
   }
 
@@ -443,12 +658,10 @@ var CONFIG = {
   document.querySelectorAll(".presets button").forEach(function(b){ b.onclick = function(){ qty.value = b.dataset.q; update(); }; });
 
   function update(){
-    var n = clampQty();
-    var tier;
-    if (n < CONFIG.chooseScentFrom) tier = "<b>" + n + " 支</b>：以人氣款 <b>甜橙薄荷</b> 為主，其他香味視乎現貨。";
-    else if (n < CONFIG.customFrom) tier = "<b>" + n + " 支</b>：可以<b>自選香味</b>。再加 " + (CONFIG.customFrom - n) + " 支就可以印專屬祝福語小卡。";
-    else tier = "<b>" + n + " 支</b>：可以<b>自選香味</b>，再加<b>專屬祝福語心意小卡</b>。";
-    $("tier").innerHTML = tier;
+    var n = clampQty(), u = n === 1 ? "balm" : "balms";
+    var key = n < CONFIG.chooseScentFrom ? "tier1" : (n < CONFIG.customFrom ? "tier2" : "tier3");
+    $("tier").innerHTML = t(M[key], {n:n, u:u, m:CONFIG.customFrom - n});
+    $("cardHint").textContent = t(T["od-q4h"], {n:CONFIG.customFrom});
 
     var canChoose = n >= CONFIG.chooseScentFrom;
     document.querySelectorAll("#scentChips input").forEach(function(c){
@@ -460,23 +673,48 @@ var CONFIG = {
     $("cardMsg").disabled = !canCard;
     $("cardField").style.opacity = canCard ? 1 : .5;
 
-    var occ = (document.querySelector('input[name="occ"]:checked') || {}).value || "";
-    var scents = Array.prototype.map.call(document.querySelectorAll("#scentChips input:checked"), function(c){ return c.value; });
-    var lines = ["你好 Julia！我想訂製潤唇膏送禮 🎁",
-      "・用途：" + occ,
-      "・數量：" + n + " 支",
-      "・香味：" + (scents.length ? scents.join("、") : "想聽下你建議")];
-    var need = $("needBy").value; if (need) lines.push("・需要日期：" + need);
-    var msg = $("cardMsg").value.trim(); if (canCard && msg) lines.push("・小卡祝福語：" + msg);
-    var who = $("who").value.trim(); if (who) lines.push("・稱呼：" + who);
-    lines.push(src);
+    var occEl = document.querySelector('input[name="occ"]:checked');
+    var occ = occEl ? t(T[occEl.value]) : "";
+    var scents = Array.prototype.map.call(document.querySelectorAll("#scentChips input:checked"), function(c){
+      var name = t(T[c.value]);
+      return lang === "en" ? name : name + " " + T[c.value]["en"];
+    });
+    var lines = [t(M.hi), t(M["l-occ"]) + occ, t(M["l-qty"],{n:n}),
+      t(M["l-sc"]) + (scents.length ? scents.join(lang === "en" ? ", " : "、") : t(M["l-sc0"]))];
+    var need = $("needBy").value; if (need) lines.push(t(M["l-date"]) + need);
+    var msg = $("cardMsg").value.trim(); if (canCard && msg) lines.push(t(M["l-card"]) + msg);
+    var who = $("who").value.trim(); if (who) lines.push(t(M["l-who"]) + who);
+    lines.push(src());
     var text = lines.join("\n");
     $("preview").textContent = text;
     $("waOrder").href = wa(text);
+    $("waClass").href  = wa(t(M["wa-class"]) + "\n" + src());
+    $("waFooter").href = wa(t(M["wa-hello"]) + "\n" + src());
+    $("waSticky").href = $("waFooter").href;
   }
+
+  function setLang(l){
+    if (LANGS.indexOf(l) < 0) l = "zh-Hant";
+    lang = l;
+    document.documentElement.lang = l;
+    document.title = t(T["doc-title"]);
+    document.querySelectorAll(".lang-btn").forEach(function(b){ b.classList.toggle("active", b.dataset.lang === l); });
+    document.querySelectorAll("[data-i18n]").forEach(function(el){ var v = T[el.getAttribute("data-i18n")]; if (v && v[l] != null) el.innerHTML = v[l]; });
+    document.querySelectorAll("[data-i18n-alt]").forEach(function(el){ var v = T[el.getAttribute("data-i18n-alt")]; if (v) el.alt = v[l]; });
+    document.querySelectorAll("[data-i18n-ph]").forEach(function(el){ var v = T[el.getAttribute("data-i18n-ph")]; if (v) el.placeholder = v[l]; });
+    try { localStorage.setItem("tp-lang", l); } catch(e) {}
+    update();
+  }
+  document.querySelectorAll(".lang-btn").forEach(function(b){ b.addEventListener("click", function(){ setLang(b.dataset.lang); }); });
+
   ["qty","needBy","who","cardMsg"].forEach(function(id){ $(id).addEventListener("input", update); });
   document.querySelectorAll("#builder input[type=radio], #scentChips input").forEach(function(el){ el.addEventListener("change", update); });
-  update();
+
+  // 語言次序：網址 ?lang= → 上次揀嘅（同主頁共用）→ 簡體中文手機自動用簡 → 預設繁
+  var start = params.get("lang");
+  if (LANGS.indexOf(start) < 0) { try { start = localStorage.getItem("tp-lang"); } catch(e) { start = null; } }
+  if (LANGS.indexOf(start) < 0) { start = /^zh-(CN|SG|Hans)/i.test(navigator.language || "") ? "zh-Hans" : "zh-Hant"; }
+  setLang(start);
 })();
 </script>
 
