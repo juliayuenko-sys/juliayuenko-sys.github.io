@@ -330,6 +330,26 @@
   .vid-label{padding:20px 22px}
   .vid-label h3{color:#fff;font-size:1.1rem;margin-bottom:6px}
   .vid-label p{color:#9fc2bf;font-size:.9rem}
+
+  /* ---------- DIY lip balm feature ---------- */
+  .lipband{background:linear-gradient(160deg,#fdf6e6 0%,#f4f8ee 55%,#eaf7ef 100%)}
+  .lip-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,64px);align-items:center}
+  .lipband h2 em{font-style:italic;color:var(--gold-deep)}
+  .lipband p{color:#44605C;margin-top:16px;max-width:48ch}
+  .lip-points{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .lip-points li{border:1px solid var(--line);border-radius:999px;padding:.45em 1em;font-size:.85rem;color:var(--teal);background:rgba(255,255,255,.7)}
+  .lipband .cta{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap}
+  .lip-tag{position:relative;display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px 30px 26px 76px;
+    transform:rotate(-2deg);box-shadow:0 24px 50px -30px rgba(35,75,71,.55);max-width:400px;justify-self:center;transition:transform .3s ease}
+  .lip-tag:hover{transform:rotate(0deg) translateY(-4px)}
+  .lip-tag::before{content:"";position:absolute;left:26px;top:50%;width:20px;height:20px;margin-top:-10px;border-radius:50%;background:var(--paper);border:1.5px solid var(--gold)}
+  .lip-tag::after{content:"";position:absolute;left:58px;top:16px;bottom:16px;border-left:1px dashed var(--line)}
+  .lip-tag .k{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep);font-weight:500}
+  .lip-tag .t{font-family:var(--display);font-size:clamp(1.9rem,4vw,2.4rem);font-weight:600;color:var(--ink);line-height:1.15;margin-top:4px}
+  .lip-tag ul{list-style:none;margin-top:16px;display:grid;gap:6px;font-size:.92rem;color:var(--muted)}
+  .lip-tag ul li::before{content:"✦ ";color:var(--gold)}
+  .lip-tag .go{display:inline-block;margin-top:18px;color:var(--teal);font-weight:500;font-size:.9rem}
+  @media(max-width:860px){.lip-grid{grid-template-columns:1fr}.lip-tag{justify-self:start}}
 </style>
 </head>
 <body>
@@ -345,6 +365,7 @@
     <ul class="menu">
       <li><a href="#services" data-i18n="nav-services">服務</a></li>
       <li><a href="#products" data-i18n="nav-products">產品</a></li>
+      <li><a href="/lip/" data-i18n="nav-lip">手作潤唇膏</a></li>
       <li><a href="#courses" data-i18n="nav-courses">課程</a></li>
       <li><a href="#articles" data-i18n="nav-articles">文章</a>
       <li><a href="#pricing">收費方案</a></li></li>
@@ -661,6 +682,37 @@ function switchTab(btn, panelId) {
       <p>為日常的身心照顧而選。從睡眠、放鬆到專注，讓自然的香氣陪你回到平衡，把諮詢室裡的安定帶回家。</p>
       <div class="cta" style="margin-top:26px"><a href="https://wa.me/85296215876" target="_blank" class="btn btn-gold">WhatsApp 查詢 →</a></div>
     </div>
+  </div>
+</section>
+
+
+<!-- ===== DIY LIP BALM ===== -->
+<section class="lipband" id="lipbalm">
+  <div class="wrap lip-grid">
+    <div>
+      <span class="kicker" data-i18n="lip-kicker">新推出 · 手作系列</span>
+      <h2 style="margin-top:12px" data-i18n="lip-h2">親手倒模的<em>天然潤唇膏</em></h2>
+      <p data-i18n="lip-p">乳木果脂、蜂蠟、植物油與純精油，每一支都由 Julia 親手倒模，成分全部公開。可訂製作生日、節日或婚禮回禮，亦可報名 DIY 班親手製作。</p>
+      <ul class="lip-points">
+        <li data-i18n="lip-pt1">7 種香味</li>
+        <li data-i18n="lip-pt2">訂製送禮</li>
+        <li data-i18n="lip-pt3">DIY 潤唇膏班</li>
+      </ul>
+      <div class="cta">
+        <a href="/lip/" class="btn btn-gold" data-i18n="lip-btn1">看製作過程 · 訂製送禮 →</a>
+        <a href="/lip/#class" class="btn btn-ghost" data-i18n="lip-btn2">DIY 潤唇膏班</a>
+      </div>
+    </div>
+    <a class="lip-tag" href="/lip/" aria-label="手作潤唇膏">
+      <span class="k" data-i18n="lip-tag-k">Gift · 心意</span>
+      <div class="t" data-i18n="lip-tag-t">此刻手作</div>
+      <ul>
+        <li data-i18n="lip-tag-1">全人手倒模 · 小批量</li>
+        <li data-i18n="lip-tag-2">4 類天然原料，全部公開</li>
+        <li data-i18n="lip-tag-3">可印專屬祝福小卡</li>
+      </ul>
+      <span class="go" data-i18n="lip-tag-go">打開潤唇膏頁 →</span>
+    </a>
   </div>
 </section>
 
@@ -1150,6 +1202,24 @@ const T = {
   'ft-disc':{'zh-Hant':'聲明：TimeWaver 信息場分析與和諧屬整全身心調理範疇，並非醫療診斷、治療或藥物，不能取代專業醫療意見。如有健康問題，請諮詢註冊醫療人員。',
     'zh-Hans':'声明：TimeWaver 信息场分析与和谐属整全身心调理范畴，并非医疗诊断、治疗或药物，不能取代专业医疗意见。如有健康问题，请咨询注册医疗人员。',
     'en':'Disclaimer: TimeWaver information field analysis and harmonisation falls within holistic wellness and does not constitute medical diagnosis, treatment or medication, and cannot replace professional medical advice.'},
+  // DIY LIP BALM
+  'nav-lip':{'zh-Hant':'手作潤唇膏','zh-Hans':'手作润唇膏','en':'Lip Balm'},
+  'lip-kicker':{'zh-Hant':'新推出 · 手作系列','zh-Hans':'新推出 · 手作系列','en':'New · Handmade'},
+  'lip-h2':{'zh-Hant':'親手倒模的<em>天然潤唇膏</em>','zh-Hans':'亲手倒模的<em>天然润唇膏</em>','en':'Hand-poured <em>natural lip balm</em>'},
+  'lip-p':{'zh-Hant':'乳木果脂、蜂蠟、植物油與純精油，每一支都由 Julia 親手倒模，成分全部公開。可訂製作生日、節日或婚禮回禮，亦可報名 DIY 班親手製作。',
+    'zh-Hans':'乳木果脂、蜂蜡、植物油与纯精油，每一支都由 Julia 亲手倒模，成分全部公开。可定制作生日、节日或婚礼回礼，也可报名 DIY 课程亲手制作。',
+    'en':'Shea butter, beeswax, plant oils and pure essential oils — every balm is hand-poured by Julia, with every ingredient listed. Order them as birthday, festive or wedding gifts, or join a DIY workshop and make your own.'},
+  'lip-pt1':{'zh-Hant':'7 種香味','zh-Hans':'7 种香味','en':'7 scents'},
+  'lip-pt2':{'zh-Hant':'訂製送禮','zh-Hans':'定制送礼','en':'Custom gifts'},
+  'lip-pt3':{'zh-Hant':'DIY 潤唇膏班','zh-Hans':'DIY 润唇膏课程','en':'DIY workshops'},
+  'lip-btn1':{'zh-Hant':'看製作過程 · 訂製送禮 →','zh-Hans':'看制作过程 · 定制送礼 →','en':'See how it\'s made · Order →'},
+  'lip-btn2':{'zh-Hant':'DIY 潤唇膏班','zh-Hans':'DIY 润唇膏课程','en':'DIY workshop'},
+  'lip-tag-k':{'zh-Hant':'Gift · 心意','zh-Hans':'Gift · 心意','en':'Gift'},
+  'lip-tag-t':{'zh-Hant':'此刻手作','zh-Hans':'此刻手作','en':'Handmade'},
+  'lip-tag-1':{'zh-Hant':'全人手倒模 · 小批量','zh-Hans':'全人手倒模 · 小批量','en':'Hand-poured in small batches'},
+  'lip-tag-2':{'zh-Hant':'4 類天然原料，全部公開','zh-Hans':'4 类天然原料，全部公开','en':'4 natural ingredients, all listed'},
+  'lip-tag-3':{'zh-Hant':'可印專屬祝福小卡','zh-Hans':'可印专属祝福小卡','en':'Personalised gift cards'},
+  'lip-tag-go':{'zh-Hant':'打開潤唇膏頁 →','zh-Hans':'打开润唇膏页 →','en':'Open the lip balm page →'},
   'ft-copy':{'zh-Hant':'© 2026 此刻 The Present · Julia Yuen. 版權所有。','zh-Hans':'© 2026 此刻 The Present · Julia Yuen. 版权所有。','en':'© 2026 The Present · Julia Yuen. All rights reserved.'},
 };
 
@@ -1169,7 +1239,15 @@ function setLang(lang) {
   // update html lang attr
   const langMap = {'zh-Hant':'zh-Hant','zh-Hans':'zh-Hans','en':'en'};
   document.documentElement.lang = langMap[lang];
+  try { localStorage.setItem('tp-lang', lang); } catch(e) {}
 }
+
+// 記住上次揀嘅語言（同 /lip/ 潤唇膏頁共用）
+(function(){
+  let saved = new URLSearchParams(location.search).get('lang');
+  if (!['zh-Hant','zh-Hans','en'].includes(saved)) { try { saved = localStorage.getItem('tp-lang'); } catch(e) { saved = null; } }
+  if (saved && saved !== 'zh-Hant' && ['zh-Hans','en'].includes(saved)) setLang(saved);
+})();
 
 function openCourseModal(e) {
   e.preventDefault();
