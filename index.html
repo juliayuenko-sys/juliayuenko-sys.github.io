@@ -339,17 +339,11 @@
   .lip-points{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
   .lip-points li{border:1px solid var(--line);border-radius:999px;padding:.45em 1em;font-size:.85rem;color:var(--teal);background:rgba(255,255,255,.7)}
   .lipband .cta{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap}
-  .lip-tag{position:relative;display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px 30px 26px 76px;
-    transform:rotate(-2deg);box-shadow:0 24px 50px -30px rgba(35,75,71,.55);max-width:400px;justify-self:center;transition:transform .3s ease}
-  .lip-tag:hover{transform:rotate(0deg) translateY(-4px)}
-  .lip-tag::before{content:"";position:absolute;left:26px;top:50%;width:20px;height:20px;margin-top:-10px;border-radius:50%;background:var(--paper);border:1.5px solid var(--gold)}
-  .lip-tag::after{content:"";position:absolute;left:58px;top:16px;bottom:16px;border-left:1px dashed var(--line)}
-  .lip-tag .k{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep);font-weight:500}
-  .lip-tag .t{font-family:var(--display);font-size:clamp(1.9rem,4vw,2.4rem);font-weight:600;color:var(--ink);line-height:1.15;margin-top:4px}
-  .lip-tag ul{list-style:none;margin-top:16px;display:grid;gap:6px;font-size:.92rem;color:var(--muted)}
-  .lip-tag ul li::before{content:"✦ ";color:var(--gold)}
-  .lip-tag .go{display:inline-block;margin-top:18px;color:var(--teal);font-weight:500;font-size:.9rem}
-  @media(max-width:860px){.lip-grid{grid-template-columns:1fr}.lip-tag{justify-self:start}}
+  .lip-poster{display:block;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 30px 60px -34px rgba(35,75,71,.6);transition:transform .3s ease,box-shadow .3s ease}
+  .lip-poster:hover{transform:translateY(-4px);box-shadow:0 36px 70px -34px rgba(35,75,71,.7)}
+  .lip-poster img{width:100%;height:auto}
+  @media(max-width:860px){.lip-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -703,15 +697,8 @@ function switchTab(btn, panelId) {
         <a href="/lip/#class" class="btn btn-ghost" data-i18n="lip-btn2">DIY 潤唇膏班</a>
       </div>
     </div>
-    <a class="lip-tag" href="/lip/" aria-label="手作潤唇膏">
-      <span class="k" data-i18n="lip-tag-k">Gift · 心意</span>
-      <div class="t" data-i18n="lip-tag-t">此刻手作</div>
-      <ul>
-        <li data-i18n="lip-tag-1">全人手倒模 · 小批量</li>
-        <li data-i18n="lip-tag-2">4 類天然原料，全部公開</li>
-        <li data-i18n="lip-tag-3">可印專屬祝福小卡</li>
-      </ul>
-      <span class="go" data-i18n="lip-tag-go">打開潤唇膏頁 →</span>
+    <a class="lip-poster" href="/lip/" aria-label="手作潤唇膏">
+      <img src="/lip/poster.jpg" width="1600" height="1195" loading="lazy" alt="Julia's Nature Balm 貓頭潤唇膏 · 親子 DIY 首選">
     </a>
   </div>
 </section>
@@ -1214,12 +1201,6 @@ const T = {
   'lip-pt3':{'zh-Hant':'DIY 潤唇膏班','zh-Hans':'DIY 润唇膏课程','en':'DIY workshops'},
   'lip-btn1':{'zh-Hant':'看製作過程 · 訂製送禮 →','zh-Hans':'看制作过程 · 定制送礼 →','en':'See how it\'s made · Order →'},
   'lip-btn2':{'zh-Hant':'DIY 潤唇膏班','zh-Hans':'DIY 润唇膏课程','en':'DIY workshop'},
-  'lip-tag-k':{'zh-Hant':'Gift · 心意','zh-Hans':'Gift · 心意','en':'Gift'},
-  'lip-tag-t':{'zh-Hant':'此刻手作','zh-Hans':'此刻手作','en':'Handmade'},
-  'lip-tag-1':{'zh-Hant':'全人手倒模 · 小批量','zh-Hans':'全人手倒模 · 小批量','en':'Hand-poured in small batches'},
-  'lip-tag-2':{'zh-Hant':'4 類天然原料，全部公開','zh-Hans':'4 类天然原料，全部公开','en':'4 natural ingredients, all listed'},
-  'lip-tag-3':{'zh-Hant':'可印專屬祝福小卡','zh-Hans':'可印专属祝福小卡','en':'Personalised gift cards'},
-  'lip-tag-go':{'zh-Hant':'打開潤唇膏頁 →','zh-Hans':'打开润唇膏页 →','en':'Open the lip balm page →'},
   'ft-copy':{'zh-Hant':'© 2026 此刻 The Present · Julia Yuen. 版權所有。','zh-Hans':'© 2026 此刻 The Present · Julia Yuen. 版权所有。','en':'© 2026 The Present · Julia Yuen. All rights reserved.'},
 };
 

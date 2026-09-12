@@ -1,6 +1,9 @@
 <!doctype html>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>此刻手作潤唇膏</title>
-<meta http-equiv="refresh" content="0; url=/lip/?from=P01">
-<script>location.replace("/lip/?from=P01");</script>
-<a href="/lip/?from=P01">打開潤唇膏頁面</a>
+<script>
+/* 呢個檔案只可以放喺 /P01/ folder 入面。放錯位置都唔會自動轉走，避免主頁出事。 */
+if (/^\/P01\/?(index\.html)?$/.test(location.pathname)) location.replace("/lip/?from=P01");
+</script>
+<p style="font-family:system-ui,sans-serif;padding:24px"><a href="/lip/?from=P01">打開潤唇膏頁面 →</a> · <a href="/">此刻 The Present 主頁</a></p>

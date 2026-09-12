@@ -50,6 +50,11 @@ p{margin:0 0 14px}
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:18px;max-width:640px;margin-inline:auto}
 .brand{font-family:"Noto Serif TC",var(--serif-tc);font-weight:700;font-size:18px;text-decoration:none;color:var(--ink);letter-spacing:.06em;white-space:nowrap}
 .brand span{font-family:"Fraunces",serif;font-weight:400;font-style:italic;letter-spacing:0;color:var(--teal);margin-left:6px;font-size:16px}
+.top-right{display:flex;align-items:center;gap:10px}
+.home{font-size:13.5px;color:var(--muted);text-decoration:none;white-space:nowrap}
+.home:hover{color:var(--teal-deep)}
+.code-chip{position:absolute;top:14px;right:16px;font:500 11px/1 ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;letter-spacing:.08em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 8px;background:var(--paper)}
+.code-chip b{font-weight:600;color:var(--ink)}
 .lang-switcher{display:flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:999px;padding:.25em .6em;background:rgba(255,255,255,.7)}
 .lang-btn{font-size:13px;color:var(--muted);cursor:pointer;background:none;border:0;font-family:var(--body);padding:.2em .45em;border-radius:999px;transition:.2s}
 .lang-btn:hover{color:var(--teal)}
@@ -145,6 +150,9 @@ legend,.lbl{font-weight:600;font-size:15px;margin-bottom:10px;padding:0;display:
 .poster img{display:block;width:100%;height:auto}
 
 /* class */
+.cl-facts{list-style:none;margin:18px 0 0;display:grid;gap:8px;background:var(--wax);border-radius:12px;padding:14px 16px;font-size:15px}
+.cl-facts li{display:grid;grid-template-columns:64px 1fr;gap:10px}
+.cl-facts b{color:var(--teal-deep)}
 .formats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:22px 0}
 .format{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--card)}
 .format b{font-family:var(--serif-tc);display:block;font-size:17px;margin-bottom:4px}
@@ -182,12 +190,15 @@ footer a{color:var(--teal-deep)}
 
 <header class="top">
   <a class="brand" href="/">此刻<span>The Present</span></a>
+  <div class="top-right">
+  <a class="home" href="/" data-i18n="nav-home">← 主頁</a>
   <div class="lang-switcher" role="group" aria-label="Language">
     <button class="lang-btn active" type="button" data-lang="zh-Hant">繁</button>
     <span class="lang-div">|</span>
     <button class="lang-btn" type="button" data-lang="zh-Hans">簡</button>
     <span class="lang-div">|</span>
     <button class="lang-btn" type="button" data-lang="en">EN</button>
+  </div>
   </div>
 </header>
 
@@ -196,9 +207,10 @@ footer a{color:var(--teal-deep)}
   <!-- 1. HERO -->
   <section class="hero" aria-labelledby="h-hero">
     <div class="tag">
-      <div class="k" data-i18n="tag-k">Gift · 心意編號</div>
-      <div class="code" id="giftCode" data-i18n="tag-code">此刻手作</div>
-      <dl>
+      <span class="code-chip" id="codeChip" hidden><span id="chipLabel">No.</span> <b id="giftCode"></b></span>
+      <div class="k" data-i18n="tag-k">Gift · 心意</div>
+      <div class="code" data-i18n="tag-code">此刻手作</div>
+      <dl id="tagRows">
         <dt data-i18n="tag-dt1">製作</dt><dd data-i18n="tag-dd1">Julia 親手倒模</dd>
         <dt data-i18n="tag-dt2">地點</dt><dd data-i18n="tag-dd2">香港 · 小批量手作</dd>
         <dt data-i18n="tag-dt3">原料</dt><dd data-i18n="tag-dd3">4 類天然原料，全部公開</dd>
@@ -227,7 +239,7 @@ footer a{color:var(--teal-deep)}
       <li>
         <div class="name"><b data-i18n="ing2-n">天然蜂蠟</b><i data-i18n="ing2-i">Beeswax</i></div>
         <div class="what" data-i18n="ing2-w">令潤唇膏成形嘅關鍵，喺唇面形成一層薄薄保護膜，減少水分流失。</div>
-        <div class="fact" data-i18n="ing2-f">約 62–64°C 先溶化</div>
+        <div class="fact" data-i18n="ing2-f">低溫慢慢溶化</div>
       </li>
       <li>
         <div class="name"><b data-i18n="ing3-n">植物基底油</b><i data-i18n="ing3-i">Plant Oil Blend</i></div>
@@ -250,7 +262,7 @@ footer a{color:var(--teal-deep)}
     <p class="lead" data-i18n="mk-lead">冇機器生產線，每一步都係人手。</p>
     <ol class="steps">
       <li><div><h3 data-i18n="mk1-h">秤料</h3><p data-i18n="mk1-p">按配方用電子磅逐樣秤，以克計，每一批份量一致。</p></div></li>
-      <li><div><h3 data-i18n="mk2-h">隔水慢慢溶</h3><p data-i18n="mk2-p">蜂蠟要去到約 63°C 先溶，再加入乳木果脂同植物油，慢慢攪勻，唔會直接明火加熱。</p></div></li>
+      <li><div><h3 data-i18n="mk2-h">隔水慢慢溶</h3><p data-i18n="mk2-p">隔水加熱到約 60°C，蜂蠟慢慢溶開，再加入乳木果脂同植物油攪勻，全程唔會直接明火加熱。</p></div></li>
       <li><div><h3 data-i18n="mk3-h">離火，滴精油</h3><p data-i18n="mk3-p">稍為降溫之後先滴入精油，香氣先留得住。</p></div></li>
       <li><div><h3 data-i18n="mk4-h">倒入立體模</h3><p data-i18n="mk4-p">趁暖倒入唇形模具，靜置冷卻定形。</p></div></li>
       <li><div><h3 data-i18n="mk5-h">脫模、入管、貼標</h3><p data-i18n="mk5-p">每支人手檢查，再貼上你見到嘅 QR 標籤，交到送禮嘅朋友手上。</p></div></li>
@@ -358,14 +370,21 @@ footer a{color:var(--teal-deep)}
   <section id="class" aria-labelledby="h-class">
     <p class="eyebrow" data-i18n="cl-eyebrow">DIY workshop · 潤唇膏班</p>
     <h2 id="h-class" data-i18n="cl-h2">親手做一支屬於自己嘅潤唇膏</h2>
-    <p class="lead" data-i18n="cl-lead">由溶蠟、調香到倒模，一個下晝就可以帶走自己調配嘅潤唇膏。適合想同朋友、屋企人一齊玩下手作嘅你。</p>
+    <p class="lead" data-i18n="cl-lead">由溶蠟、調香到倒模，親手完成一支屬於自己嘅潤唇膏，即場帶走。</p>
+    <ul class="cl-facts">
+      <li><b data-i18n="cl-f1t">費用</b><span data-i18n="cl-f1">$280／位（2 位起）</span></li>
+      <li><b data-i18n="cl-f2t">包班</b><span data-i18n="cl-f2">最多 12 人</span></li>
+      <li><b data-i18n="cl-f3t">地點</b><span data-i18n="cl-f3">銅鑼灣；包班可安排喺你嘅場地</span></li>
+    </ul>
     <figure class="poster">
       <a href="poster.jpg" target="_blank" rel="noopener"><img src="poster.jpg" width="1600" height="1195" loading="lazy" data-i18n-alt="cl-poster" alt="Julia's Nature Balm 貓頭潤唇膏 · 親子 DIY 首選"></a>
     </figure>
     <div class="formats">
-      <div class="format"><b data-i18n="cl1-h">朋友小聚</b><p data-i18n="cl1-p">約埋三五知己，一齊調出各自鍾意嘅香味。</p></div>
-      <div class="format"><b data-i18n="cl2-h">親子手作</b><p data-i18n="cl2-p">同小朋友一齊秤料、倒模，學識睇成分。</p></div>
-      <div class="format"><b data-i18n="cl3-h">公司／生日包場</b><p data-i18n="cl3-p">團隊活動或派對，做完即場帶走做紀念。</p></div>
+      <div class="format"><b data-i18n="cl1-h">親子班</b><p data-i18n="cl1-p">同小朋友一齊秤料、倒模，學識睇成分。</p></div>
+      <div class="format"><b data-i18n="cl2-h">公司培訓</b><p data-i18n="cl2-p">團隊一齊手作，減壓之餘拉近距離。</p></div>
+      <div class="format"><b data-i18n="cl3-h">企業活動</b><p data-i18n="cl3-p">攤位或客戶答謝日，做完即場帶走。</p></div>
+      <div class="format"><b data-i18n="cl4-h">生日派對</b><p data-i18n="cl4-p">同朋友一齊調香，一份自己做嘅手信。</p></div>
+      <div class="format"><b data-i18n="cl5-h">個別規劃</b><p data-i18n="cl5-p">想要特別主題或時間？WhatsApp 傾下。</p></div>
     </div>
     <a class="btn btn-ghost" id="waClass" href="#" target="_blank" rel="noopener" data-i18n="cl-btn">WhatsApp 問下開班詳情</a>
   </section>
@@ -417,6 +436,7 @@ footer a{color:var(--teal-deep)}
         <li><b style="font-weight:400" data-i18n="sf6">孕婦或有特殊健康狀況人士，使用前請先諮詢醫護人員。</b><span>If pregnant or under medical care, consult a healthcare professional before use.</span></li>
         <li><b style="font-weight:400" data-i18n="sf7">檸檬香味含柑橘精油，日間長時間戶外活動請注意防曬。</b><span>Lemon blends contain citrus oil; use sun protection for prolonged outdoor exposure.</span></li>
         <li><b style="font-weight:400" data-i18n="sf8">請存放於陰涼處，避免高溫及陽光直射（例如車廂內）。</b><span>Store in a cool place away from heat and direct sunlight.</span></li>
+        <li><b style="font-weight:400" data-i18n="sf9">建議製造日起 12 個月內用完；開封後建議 6 個月內用完。</b><span>Best used within 12 months of production, and within 6 months after opening.</span></li>
       </ul>
     </div>
   </section>
@@ -441,8 +461,16 @@ footer a{color:var(--teal-deep)}
 var CONFIG = {
   whatsapp: "85296215876",   // WhatsApp 號碼（國家碼＋號碼，唔好有空格）
   youtubeId: "",             // 製作過程影片 YouTube ID，例如 "UZ7X8gIVHO8"；留空就唔會顯示
-  customFrom: 20,            // 幾多支起可以印專屬祝福語小卡
-  chooseScentFrom: 10        // 幾多支起可以自選香味
+  customFrom: 50,            // 幾多支起可以印專屬祝福語小卡
+  chooseScentFrom: 20        // 幾多支起可以自選香味
+};
+
+/* ===== 批次資料：每做一批新嘅就喺下面加一行 =====
+   格式： "批次碼": { scent:"香味 key", made:"製造日期 YYYY-MM-DD", months:保存月數, pao:開封後月數 }
+   香味 key： sc-om 甜橙薄荷 / sc-lm 薰衣草薄荷 / sc-lem 檸檬薄荷 / sc-pep 薄荷 / sc-lav 薰衣草 / sc-or 甜橙 / sc-le 檸檬
+   加咗之後，掃呢個批次 QR 嘅人就會喺頂部標籤見到香味、製造日期同用至日期。 */
+var BATCHES = {
+  "G01": { scent:"sc-om", made:"2026-09-16", months:12, pao:6 }
 };
 /* ================================== */
 
@@ -450,7 +478,14 @@ var CONFIG = {
 var T = {
   "doc-title":{"zh-Hant":"此刻手作潤唇膏｜Julia Yuen","zh-Hans":"此刻手作润唇膏｜Julia Yuen","en":"Handmade Lip Balm | Julia Yuen"},
   // HERO
-  "tag-k":{"zh-Hant":"Gift · 心意編號","zh-Hans":"Gift · 心意编号","en":"Gift · No."},
+  "tag-k":{"zh-Hant":"Gift · 心意","zh-Hans":"Gift · 心意","en":"Gift"},
+  "b-scent":{"zh-Hant":"香味","zh-Hans":"香味","en":"Scent"},
+  "b-made":{"zh-Hant":"製造","zh-Hans":"制造","en":"Made"},
+  "b-bb":{"zh-Hant":"用至","zh-Hans":"用至","en":"Best before"},
+  "b-pao":{"zh-Hant":"開封後","zh-Hans":"开封后","en":"After opening"},
+  "b-pao-v":{"zh-Hant":"{n} 個月內用完","zh-Hans":"{n} 个月内用完","en":"use within {n} months"},
+  "b-batch":{"zh-Hant":"批次","zh-Hans":"批次","en":"Batch"},
+  "nav-home":{"zh-Hant":"← 主頁","zh-Hans":"← 主页","en":"← Home"},
   "tag-code":{"zh-Hant":"此刻手作","zh-Hans":"此刻手作","en":"Handmade"},
   "tag-dt1":{"zh-Hant":"製作","zh-Hans":"制作","en":"Made by"},
   "tag-dd1":{"zh-Hant":"Julia 親手倒模","zh-Hans":"Julia 亲手倒模","en":"Hand-poured by Julia"},
@@ -479,7 +514,7 @@ var T = {
   "ing2-n":{"zh-Hant":"天然蜂蠟","zh-Hans":"天然蜂蜡","en":"Beeswax"},
   "ing2-i":{"zh-Hant":"Beeswax","zh-Hans":"Beeswax","en":"Cera alba"},
   "ing2-w":{"zh-Hant":"令潤唇膏成形嘅關鍵，喺唇面形成一層薄薄保護膜，減少水分流失。","zh-Hans":"让润唇膏成形的关键，在唇面形成一层薄薄的保护膜，减少水分流失。","en":"What gives the balm its shape — it forms a thin protective layer on the lips that helps reduce moisture loss."},
-  "ing2-f":{"zh-Hant":"約 62–64°C 先溶化","zh-Hans":"约 62–64°C 才熔化","en":"Melts at about 62–64°C"},
+  "ing2-f":{"zh-Hant":"低溫慢慢溶化","zh-Hans":"低温慢慢融化","en":"Melted low and slow"},
   "ing3-n":{"zh-Hant":"植物基底油","zh-Hans":"植物基底油","en":"Plant Oil Blend"},
   "ing3-i":{"zh-Hant":"Plant Oil Blend","zh-Hans":"Plant Oil Blend","en":"7 carrier oils"},
   "ing3-w":{"zh-Hant":"分餾椰子油、芝麻油、葡萄籽油、甜杏仁油、小麥胚芽油、葵花籽油、橄欖油。質地輕盈、易推開、唔黏膩。",
@@ -500,7 +535,7 @@ var T = {
   "mk1-h":{"zh-Hant":"秤料","zh-Hans":"称料","en":"Weigh"},
   "mk1-p":{"zh-Hant":"按配方用電子磅逐樣秤，以克計，每一批份量一致。","zh-Hans":"按配方用电子秤逐样称量，以克计，每一批份量一致。","en":"Each ingredient is weighed in grams on a digital scale, so every batch is consistent."},
   "mk2-h":{"zh-Hant":"隔水慢慢溶","zh-Hans":"隔水慢慢融化","en":"Melt gently"},
-  "mk2-p":{"zh-Hant":"蜂蠟要去到約 63°C 先溶，再加入乳木果脂同植物油，慢慢攪勻，唔會直接明火加熱。","zh-Hans":"蜂蜡要到约 63°C 才熔化，再加入乳木果脂和植物油，慢慢搅匀，不会直接明火加热。","en":"Beeswax only melts at about 63°C. Shea butter and plant oils are then stirred in slowly over a water bath — never a direct flame."},
+  "mk2-p":{"zh-Hant":"隔水加熱到約 60°C，蜂蠟慢慢溶開，再加入乳木果脂同植物油攪勻，全程唔會直接明火加熱。","zh-Hans":"隔水加热到约 60°C，蜂蜡慢慢融化，再加入乳木果脂和植物油搅匀，全程不会直接明火加热。","en":"Warmed to about 60°C over a water bath until the beeswax melts, then shea butter and plant oils are stirred in — never over a direct flame."},
   "mk3-h":{"zh-Hant":"離火，滴精油","zh-Hans":"离火，滴精油","en":"Off the heat, add oils"},
   "mk3-p":{"zh-Hant":"稍為降溫之後先滴入精油，香氣先留得住。","zh-Hans":"稍微降温之后才滴入精油，香气才能保留。","en":"Essential oils go in once it has cooled slightly, so the fragrance stays."},
   "mk4-h":{"zh-Hant":"倒入立體模","zh-Hans":"倒入立体模具","en":"Pour into moulds"},
@@ -564,16 +599,26 @@ var T = {
   // CLASS
   "cl-eyebrow":{"zh-Hant":"DIY workshop · 潤唇膏班","zh-Hans":"DIY workshop · 润唇膏课程","en":"DIY workshop"},
   "cl-h2":{"zh-Hant":"親手做一支屬於自己嘅潤唇膏","zh-Hans":"亲手做一支属于自己的润唇膏","en":"Make your own lip balm"},
-  "cl-lead":{"zh-Hant":"由溶蠟、調香到倒模，一個下晝就可以帶走自己調配嘅潤唇膏。適合想同朋友、屋企人一齊玩下手作嘅你。",
-    "zh-Hans":"从熔蜡、调香到倒模，一个下午就可以带走自己调配的润唇膏。适合想和朋友、家人一起玩手作的你。",
-    "en":"From melting wax to blending scents and pouring, you'll leave with a lip balm you made yourself — all in one afternoon. Perfect with friends or family."},
+  "cl-lead":{"zh-Hant":"由溶蠟、調香到倒模，親手完成一支屬於自己嘅潤唇膏，即場帶走。",
+    "zh-Hans":"从熔蜡、调香到倒模，亲手完成一支属于自己的润唇膏，当场带走。",
+    "en":"From melting wax to blending scents and pouring — make your own lip balm by hand and take it home the same day."},
+  "cl-f1t":{"zh-Hant":"費用","zh-Hans":"费用","en":"Fee"},
+  "cl-f1":{"zh-Hant":"$280／位（2 位起）","zh-Hans":"$280／位（2 位起）","en":"HK$280 per person (minimum 2)"},
+  "cl-f2t":{"zh-Hant":"包班","zh-Hans":"包班","en":"Private group"},
+  "cl-f2":{"zh-Hant":"最多 12 人","zh-Hans":"最多 12 人","en":"Up to 12 people"},
+  "cl-f3t":{"zh-Hant":"地點","zh-Hans":"地点","en":"Where"},
+  "cl-f3":{"zh-Hant":"銅鑼灣；包班可安排喺你嘅場地","zh-Hans":"铜锣湾；包班可安排在你的场地","en":"Causeway Bay, or your own venue for private groups"},
   "cl-poster":{"zh-Hant":"Julia's Nature Balm 貓頭潤唇膏 · 親子 DIY 首選","zh-Hans":"Julia's Nature Balm 猫头润唇膏 · 亲子 DIY 首选","en":"Julia's Nature Balm cat-head lip balm · a parent-child DIY favourite"},
-  "cl1-h":{"zh-Hant":"朋友小聚","zh-Hans":"朋友小聚","en":"Friends' get-together"},
-  "cl1-p":{"zh-Hant":"約埋三五知己，一齊調出各自鍾意嘅香味。","zh-Hans":"约上三五知己，一起调出各自喜欢的香味。","en":"Gather a few friends and blend your own favourite scents."},
-  "cl2-h":{"zh-Hant":"親子手作","zh-Hans":"亲子手作","en":"Parent & child"},
-  "cl2-p":{"zh-Hant":"同小朋友一齊秤料、倒模，學識睇成分。","zh-Hans":"和小朋友一起称料、倒模，学会看成分。","en":"Weigh and pour together, and learn to read ingredient lists."},
-  "cl3-h":{"zh-Hant":"公司／生日包場","zh-Hans":"公司／生日包场","en":"Private & corporate"},
-  "cl3-p":{"zh-Hant":"團隊活動或派對，做完即場帶走做紀念。","zh-Hans":"团队活动或派对，做完当场带走作纪念。","en":"Team events or parties — everyone takes home what they made."},
+  "cl1-h":{"zh-Hant":"親子班","zh-Hans":"亲子班","en":"Parent & child"},
+  "cl1-p":{"zh-Hant":"同小朋友一齊秤料、倒模，學識睇成分。","zh-Hans":"和小朋友一起称料、倒模，学会看成分。","en":"Weigh and pour together, and learn to read ingredient lists."},
+  "cl2-h":{"zh-Hant":"公司培訓","zh-Hans":"公司培训","en":"Team workshop"},
+  "cl2-p":{"zh-Hant":"團隊一齊手作，減壓之餘拉近距離。","zh-Hans":"团队一起手作，减压之余拉近距离。","en":"A hands-on session that lets a team slow down and connect."},
+  "cl3-h":{"zh-Hant":"企業活動","zh-Hans":"企业活动","en":"Corporate event"},
+  "cl3-p":{"zh-Hant":"攤位或客戶答謝日，做完即場帶走。","zh-Hans":"摊位或客户答谢日，做完当场带走。","en":"A booth or client appreciation day — guests take home what they make."},
+  "cl4-h":{"zh-Hant":"生日派對","zh-Hans":"生日派对","en":"Birthday party"},
+  "cl4-p":{"zh-Hant":"同朋友一齊調香，一份自己做嘅手信。","zh-Hans":"和朋友一起调香，一份自己做的手信。","en":"Blend scents with friends and leave with your own party favour."},
+  "cl5-h":{"zh-Hant":"個別規劃","zh-Hans":"个别规划","en":"Something else"},
+  "cl5-p":{"zh-Hant":"想要特別主題或時間？WhatsApp 傾下。","zh-Hans":"想要特别主题或时间？WhatsApp 聊聊。","en":"Want a different theme or time? Message me on WhatsApp."},
   "cl-btn":{"zh-Hant":"WhatsApp 問下開班詳情","zh-Hans":"WhatsApp 咨询开班详情","en":"Ask about workshops on WhatsApp"},
   // TIPS
   "tp-eyebrow":{"zh-Hant":"Care · 秋冬護唇","zh-Hans":"Care · 秋冬护唇","en":"Care"},
@@ -605,6 +650,7 @@ var T = {
   "sf6":{"zh-Hant":"孕婦或有特殊健康狀況人士，使用前請先諮詢醫護人員。","zh-Hans":"孕妇或有特殊健康状况人士，使用前请先咨询医护人员。","en":"If pregnant or under medical care, consult a healthcare professional before use."},
   "sf7":{"zh-Hant":"檸檬香味含柑橘精油，日間長時間戶外活動請注意防曬。","zh-Hans":"柠檬香味含柑橘精油，日间长时间户外活动请注意防晒。","en":"Lemon blends contain citrus oil; use sun protection for prolonged outdoor exposure."},
   "sf8":{"zh-Hant":"請存放於陰涼處，避免高溫及陽光直射（例如車廂內）。","zh-Hans":"请存放于阴凉处，避免高温及阳光直射（例如车厢内）。","en":"Store in a cool place away from heat and direct sunlight (e.g. a parked car)."},
+  "sf9":{"zh-Hant":"建議製造日起 12 個月內用完；開封後建議 6 個月內用完。","zh-Hans":"建议制造日起 12 个月内用完；开封后建议 6 个月内用完。","en":"Best used within 12 months of production, and within 6 months after opening."},
   "ft-1":{"zh-Hant":"此刻 · The Present · 香港手作","zh-Hans":"此刻 · The Present · 香港手作","en":"The Present · Handmade in Hong Kong"}
 };
 
@@ -637,9 +683,10 @@ var M = {
   var params = new URLSearchParams(location.search);
   var raw = params.get("from") || "";
   var from = /^[A-Za-z0-9-]{1,12}$/.test(raw) ? raw.toUpperCase() : "";
-  // P 開頭 = 海報／宣傳品（對方未收到唇膏）：用另一句標題，唔顯示心意編號
+  // P 開頭 = 海報／宣傳品（對方未收到唇膏）：用另一句標題；追蹤碼只喺標籤右上角細細顯示
   var isPromo = /^P/.test(from);
-  if (from && !isPromo) { $("giftCode").textContent = from; $("giftCode").removeAttribute("data-i18n"); }
+  if (from) { $("giftCode").textContent = from; $("codeChip").hidden = false; }
+  function chipLabel(){ $("chipLabel").textContent = (from && BATCHES[from]) ? t(T["b-batch"]) : "No."; }
   if (isPromo) { document.getElementById("h-hero").setAttribute("data-i18n","hero-h1-p"); document.querySelector("[data-i18n='hero-lead']").setAttribute("data-i18n","hero-lead-p"); }
 
   function wa(text){ return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(text); }
@@ -693,6 +740,25 @@ var M = {
     $("waSticky").href = $("waFooter").href;
   }
 
+  function fmtDate(iso){ var d=iso.split("-"); return d[0]+"."+d[1]+"."+d[2]; }
+  function addMonths(iso, m){
+    var d=new Date(iso+"T00:00:00"), day=d.getDate();
+    d.setMonth(d.getMonth()+m);
+    if (d.getDate()<day) d.setDate(0);
+    var p=function(n){ return (n<10?"0":"")+n; };
+    return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate());
+  }
+  function renderTag(){
+    var b = from && BATCHES[from];
+    if (!b) return;                      // 冇批次資料就用預設三行
+    var scent = t(T[b.scent]) + (lang === "en" ? "" : " " + T[b.scent]["en"]);
+    var rows = [[t(T["b-scent"]), scent],
+                [t(T["b-made"]), fmtDate(b.made)],
+                [t(T["b-bb"]), fmtDate(addMonths(b.made, b.months))],
+                [t(T["b-pao"]), t(T["b-pao-v"], {n:b.pao})]];
+    $("tagRows").innerHTML = rows.map(function(r){ return "<dt>"+r[0]+"</dt><dd>"+r[1]+"</dd>"; }).join("");
+  }
+
   function setLang(l){
     if (LANGS.indexOf(l) < 0) l = "zh-Hant";
     lang = l;
@@ -703,6 +769,8 @@ var M = {
     document.querySelectorAll("[data-i18n-alt]").forEach(function(el){ var v = T[el.getAttribute("data-i18n-alt")]; if (v) el.alt = v[l]; });
     document.querySelectorAll("[data-i18n-ph]").forEach(function(el){ var v = T[el.getAttribute("data-i18n-ph")]; if (v) el.placeholder = v[l]; });
     try { localStorage.setItem("tp-lang", l); } catch(e) {}
+    chipLabel();
+    renderTag();
     update();
   }
   document.querySelectorAll(".lang-btn").forEach(function(b){ b.addEventListener("click", function(){ setLang(b.dataset.lang); }); });
