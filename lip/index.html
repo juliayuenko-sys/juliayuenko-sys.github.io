@@ -700,8 +700,8 @@ var M = {
   var params = new URLSearchParams(location.search);
   var raw = params.get("from") || "";
   var from = /^[A-Za-z0-9-]{1,12}$/.test(raw) ? raw.toUpperCase() : "";
-  // P 開頭 = 海報／宣傳品（對方未收到唇膏）：用另一句標題；追蹤碼只喺標籤右上角細細顯示
-  var isPromo = /^P/.test(from);
+  // P／W 開頭 = 宣傳用（對方未收到唇膏）：用另一句標題；追蹤碼只喺標籤右上角細細顯示
+  var isPromo = /^[PW]/.test(from);   // P = 海報／宣傳品，W = WhatsApp 群組
   if (from) { $("giftCode").textContent = from; $("codeChip").hidden = false; }
   function chipLabel(){ $("chipLabel").textContent = (from && BATCHES[from]) ? t(T["b-batch"]) : "No."; }
   if (isPromo) { document.getElementById("h-hero").setAttribute("data-i18n","hero-h1-p"); document.querySelector("[data-i18n='hero-lead']").setAttribute("data-i18n","hero-lead-p"); }
