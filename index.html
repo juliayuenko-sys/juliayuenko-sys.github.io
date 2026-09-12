@@ -331,6 +331,13 @@
   .vid-label h3{color:#fff;font-size:1.1rem;margin-bottom:6px}
   .vid-label p{color:#9fc2bf;font-size:.9rem}
 
+  /* ---------- about Julia ---------- */
+  .julia{background:var(--cloud)}
+  .julia-col{max-width:62ch}
+  .julia-col p{margin-top:16px;color:#44605C}
+  .julia-col .en{margin-top:6px}
+  .julia-col .more{margin-top:22px}
+
   /* ---------- DIY lip balm feature ---------- */
   .lipband{background:linear-gradient(160deg,#fdf6e6 0%,#f4f8ee 55%,#eaf7ef 100%)}
   .lip-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,64px);align-items:center}
@@ -624,6 +631,22 @@ function switchTab(btn, panelId) {
 }
 </script>
 <!-- ===== END TIMEWAVER SECTION ===== -->
+
+
+<!-- ===== ABOUT JULIA ===== -->
+<section class="julia" id="julia">
+  <div class="wrap">
+    <div class="julia-col">
+      <span class="kicker" data-i18n="ab2-kicker">關於 Julia</span>
+      <h2 style="margin-top:12px" data-i18n="ab2-h2">由課室走到諮詢室</h2>
+      <p class="en">About Julia</p>
+      <p data-i18n="ab2-p1">我是 Julia Yuen，整合身心諮詢顧問、此刻 The Present 創辦人，TimeWaver 13 模組認證顧問、Brain Gym® 認證導師、香港國際嬰兒按摩協會認證導師。</p>
+      <p data-i18n="ab2-p2">二十年的教學生涯裡，我做得最多的不是講課，而是留意 —— 誰今天安靜了，誰需要多一點時間。今天在諮詢室，我做的仍然是同一件事，只是換了工具。</p>
+      <p data-i18n="ab2-p3">我也是兩個孩子的媽媽。孩子讓我明白，照顧不是靠急，而是日常裡每一個微小的選擇 —— 由一支親手做的潤唇膏，到一次深呼吸。</p>
+      <a class="more" href="/lip/" data-i18n="ab2-link">看看我親手做的潤唇膏 →</a>
+    </div>
+  </div>
+</section>
 
 <!-- services -->
 <section id="services">
@@ -1189,6 +1212,19 @@ const T = {
   'ft-disc':{'zh-Hant':'聲明：TimeWaver 信息場分析與和諧屬整全身心調理範疇，並非醫療診斷、治療或藥物，不能取代專業醫療意見。如有健康問題，請諮詢註冊醫療人員。',
     'zh-Hans':'声明：TimeWaver 信息场分析与和谐属整全身心调理范畴，并非医疗诊断、治疗或药物，不能取代专业医疗意见。如有健康问题，请咨询注册医疗人员。',
     'en':'Disclaimer: TimeWaver information field analysis and harmonisation falls within holistic wellness and does not constitute medical diagnosis, treatment or medication, and cannot replace professional medical advice.'},
+  // ABOUT JULIA
+  'ab2-kicker':{'zh-Hant':'關於 Julia','zh-Hans':'关于 Julia','en':'About Julia'},
+  'ab2-h2':{'zh-Hant':'由課室走到諮詢室','zh-Hans':'从课室走到咨询室','en':'From the classroom to the consultation room'},
+  'ab2-p1':{'zh-Hant':'我是 Julia Yuen，整合身心諮詢顧問、此刻 The Present 創辦人，TimeWaver 13 模組認證顧問、Brain Gym® 認證導師、香港國際嬰兒按摩協會認證導師。',
+    'zh-Hans':'我是 Julia Yuen，整合身心咨询顾问、此刻 The Present 创办人，TimeWaver 13 模组认证顾问、Brain Gym® 认证导师、香港国际婴儿按摩协会认证导师。',
+    'en':"I'm Julia Yuen — integrative mind-body consultant and founder of The Present. Certified TimeWaver consultant (13 modules), certified Brain Gym® instructor, and certified infant massage instructor with HKIIMA."},
+  'ab2-p2':{'zh-Hant':'二十年的教學生涯裡，我做得最多的不是講課，而是留意 —— 誰今天安靜了，誰需要多一點時間。今天在諮詢室，我做的仍然是同一件事，只是換了工具。',
+    'zh-Hans':'二十年的教学生涯里，我做得最多的不是讲课，而是留意 —— 谁今天安静了，谁需要多一点时间。今天在咨询室，我做的仍然是同一件事，只是换了工具。',
+    'en':"In twenty years of teaching, most of my work wasn't lecturing — it was noticing. Who had gone quiet today, who needed a little more time. In the consultation room I'm still doing the same thing; only the tools have changed."},
+  'ab2-p3':{'zh-Hant':'我也是兩個孩子的媽媽。孩子讓我明白，照顧不是靠急，而是日常裡每一個微小的選擇 —— 由一支親手做的潤唇膏，到一次深呼吸。',
+    'zh-Hans':'我也是两个孩子的妈妈。孩子让我明白，照顾不是靠急，而是日常里每一个微小的选择 —— 从一支亲手做的润唇膏，到一次深呼吸。',
+    'en':"I'm also a mother of two. My children taught me that care isn't about urgency — it's the small daily choices, from a hand-poured lip balm to a single deep breath."},
+  'ab2-link':{'zh-Hant':'看看我親手做的潤唇膏 →','zh-Hans':'看看我亲手做的润唇膏 →','en':'See the lip balms I make by hand →'},
   // DIY LIP BALM
   'nav-lip':{'zh-Hant':'手作潤唇膏','zh-Hans':'手作润唇膏','en':'Lip Balm'},
   'lip-kicker':{'zh-Hant':'新推出 · 手作系列','zh-Hans':'新推出 · 手作系列','en':'New · Handmade'},

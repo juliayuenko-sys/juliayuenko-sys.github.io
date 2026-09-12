@@ -166,8 +166,12 @@ legend,.lbl{font-weight:600;font-size:15px;margin-bottom:10px;padding:0;display:
 .tips span{color:var(--muted)}
 
 /* about */
-.about{display:grid;grid-template-columns:84px 1fr;gap:18px;align-items:start}
-.mono{width:84px;height:84px;border-radius:50%;background:var(--teal-deep);color:#fff;display:grid;place-items:center;font-family:"Fraunces",serif;font-size:34px;font-style:italic}
+.about{display:grid;gap:20px;align-items:center}
+@media (min-width:560px){.about{grid-template-columns:230px 1fr}}
+.about-photo{margin:0;width:100%;max-width:340px;aspect-ratio:3/4;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 44px -28px rgba(35,75,71,.6);background:var(--card)}
+.about-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.mono[hidden]{display:none}
+.mono{width:72px;height:72px;margin-bottom:10px;font-size:28px;border-radius:50%;background:var(--teal-deep);color:#fff;display:grid;place-items:center;font-family:"Fraunces",serif;font-size:34px;font-style:italic}
 .creds{list-style:none;padding:0;margin:12px 0 18px;display:flex;flex-wrap:wrap;gap:8px}
 .creds li{font-size:13.5px;border:1px solid var(--line);border-radius:999px;padding:4px 12px;background:var(--card)}
 
@@ -406,10 +410,13 @@ footer a{color:var(--teal-deep)}
   <section id="about" aria-labelledby="h-about">
     <p class="eyebrow" data-i18n="ab-eyebrow">About · 關於我</p>
     <div class="about">
-      <div class="mono" aria-hidden="true">J</div>
+      <figure class="about-photo" id="aboutPhoto">
+        <img id="portrait" src="portrait.jpg" alt="Julia Yuen" width="800" height="1067">
+      </figure>
       <div>
+        <div class="mono" id="mono" aria-hidden="true" hidden>J</div>
         <h2 id="h-about" style="font-size:26px;margin-bottom:6px">Julia Yuen</h2>
-        <p class="lead" style="margin-bottom:0" data-i18n="ab-role">整合身心諮詢顧問 · 此刻 The Present 創辦人</p>
+        <p class="lead" style="margin-bottom:0" data-i18n="ab-role">兩個孩子嘅媽媽 · 二十年老師 · 整合身心諮詢顧問</p>
       </div>
     </div>
     <ul class="creds">
@@ -418,8 +425,10 @@ footer a{color:var(--teal-deep)}
       <li data-i18n="ab-c3">HKIIMA 嬰兒按摩導師</li>
       <li data-i18n="ab-c4">TimeWaver 資訊場顧問</li>
     </ul>
-    <p data-i18n="ab-p1">做咗 20 年老師，我相信最好嘅學習係親手做。潤唇膏係一個好簡單嘅開始 —— 由睇清楚成分、揀自己鍾意嘅香味，到慢慢留意身邊每樣用落身體嘅嘢。</p>
-    <p data-i18n="ab-p2">除咗手作，我亦都有做身心諮詢、芳香生活分享同證書課程。</p>
+    <p data-i18n="ab-p1">我係 Julia，兩個孩子嘅媽媽，亦都做咗二十年老師。</p>
+    <p data-i18n="ab-p2">喺學校嘅二十年，我做得最多嘅唔係講書，而係留意 —— 邊個今日靜咗、邊個需要多一點時間。做咗媽媽之後，呢份留意就搬咗返屋企：孩子嘅皮膚、飲食、情緒，慢慢令我學識揭轉樽身，睇清楚成分表。</p>
+    <p data-i18n="ab-p3">潤唇膏就係由呢度開始。屋企人用嘅嘢，我想親手做，亦想知道入面每一樣係咩。後來朋友話佢都想要，先慢慢變成一支一支送出去嘅心意。</p>
+    <p data-i18n="ab-p4">除咗手作，我亦都做身心諮詢同證書課程，陪唔同嘅人慢慢搵返自己嘅節奏。如果呢支潤唇膏去到你手上，希望你都感受到嗰份用心。</p>
     <div class="cta-row"><a class="btn btn-ghost" href="/" data-i18n="ab-btn">探索此刻 · The Present →</a></div>
   </section>
 
@@ -630,15 +639,23 @@ var T = {
   "tp5":{"zh-Hant":"<b>戶外記得防曬。</b><span>嘴唇都會曬傷。呢支潤唇膏冇防曬指數，長時間喺戶外請另加有 SPF 嘅唇部產品。</span>","zh-Hans":"<b>户外记得防晒。</b><span>嘴唇也会晒伤。这支润唇膏没有防晒指数，长时间在户外请另加含 SPF 的唇部产品。</span>","en":"<b>Protect from the sun outdoors.</b> <span>Lips can burn too. This balm has no SPF, so add an SPF lip product for long periods outside.</span>"},
   // ABOUT
   "ab-eyebrow":{"zh-Hant":"About · 關於我","zh-Hans":"About · 关于我","en":"About"},
-  "ab-role":{"zh-Hant":"整合身心諮詢顧問 · 此刻 The Present 創辦人","zh-Hans":"整合身心咨询顾问 · 此刻 The Present 创办人","en":"Integrative mind-body consultant · Founder of The Present"},
+  "ab-role":{"zh-Hant":"兩個孩子嘅媽媽 · 二十年老師 · 整合身心諮詢顧問","zh-Hans":"两个孩子的妈妈 · 二十年老师 · 整合身心咨询顾问","en":"Mother of two · Teacher for twenty years · Integrative mind-body consultant"},
   "ab-c1":{"zh-Hant":"20 年註冊教師","zh-Hans":"20 年注册教师","en":"Registered teacher, 20 years"},
   "ab-c2":{"zh-Hant":"Brain Gym 導師","zh-Hans":"Brain Gym 导师","en":"Brain Gym instructor"},
   "ab-c3":{"zh-Hant":"HKIIMA 嬰兒按摩導師","zh-Hans":"HKIIMA 婴儿按摩导师","en":"HKIIMA infant massage instructor"},
   "ab-c4":{"zh-Hant":"TimeWaver 資訊場顧問","zh-Hans":"TimeWaver 信息场顾问","en":"TimeWaver information field consultant"},
-  "ab-p1":{"zh-Hant":"做咗 20 年老師，我相信最好嘅學習係親手做。潤唇膏係一個好簡單嘅開始 —— 由睇清楚成分、揀自己鍾意嘅香味，到慢慢留意身邊每樣用落身體嘅嘢。",
-    "zh-Hans":"当了 20 年老师，我相信最好的学习是亲手去做。润唇膏是一个很简单的开始 —— 从看清楚成分、选自己喜欢的香味，到慢慢留意身边每样用在身体上的东西。",
-    "en":"After 20 years as a teacher, I believe the best learning is hands-on. A lip balm is a simple place to start — reading the ingredients, choosing a scent you love, and slowly paying attention to everything you put on your body."},
-  "ab-p2":{"zh-Hant":"除咗手作，我亦都有做身心諮詢、芳香生活分享同證書課程。","zh-Hans":"除了手作，我也提供身心咨询、芳香生活分享和证书课程。","en":"Beyond handmade balms, I offer mind-body consultations, aromatic-living sessions and certificate courses."},
+  "ab-p1":{"zh-Hant":"我係 Julia，兩個孩子嘅媽媽，亦都做咗二十年老師。",
+    "zh-Hans":"我是 Julia，两个孩子的妈妈，也当了二十年老师。",
+    "en":"I'm Julia — a mother of two, and a teacher for twenty years."},
+  "ab-p2":{"zh-Hant":"喺學校嘅二十年，我做得最多嘅唔係講書，而係留意 —— 邊個今日靜咗、邊個需要多一點時間。做咗媽媽之後，呢份留意就搬咗返屋企：孩子嘅皮膚、飲食、情緒，慢慢令我學識揭轉樽身，睇清楚成分表。",
+    "zh-Hans":"在学校的二十年，我做得最多的不是讲课，而是留意 —— 谁今天安静了、谁需要多一点时间。当了妈妈之后，这份留意就搬回了家：孩子的皮肤、饮食、情绪，慢慢让我学会翻过瓶身，看清楚成分表。",
+    "en":"In those twenty years, most of my work wasn't teaching — it was noticing. Who had gone quiet today, who needed a little more time. When I became a mother, that noticing came home with me: my children's skin, their food, their moods. Slowly I learned to turn the bottle around and read the label properly."},
+  "ab-p3":{"zh-Hant":"潤唇膏就係由呢度開始。屋企人用嘅嘢，我想親手做，亦想知道入面每一樣係咩。後來朋友話佢都想要，先慢慢變成一支一支送出去嘅心意。",
+    "zh-Hans":"润唇膏就是从这里开始的。家里人用的东西，我想亲手做，也想知道里面每一样是什么。后来朋友说他也想要，才慢慢变成一支一支送出去的心意。",
+    "en":"That's where these lip balms began. I wanted to make the things my family uses with my own hands, and to know exactly what goes into them. Then friends began asking for one, and it grew into something I now make to be given away."},
+  "ab-p4":{"zh-Hant":"除咗手作，我亦都做身心諮詢同證書課程，陪唔同嘅人慢慢搵返自己嘅節奏。如果呢支潤唇膏去到你手上，希望你都感受到嗰份用心。",
+    "zh-Hans":"除了手作，我也做身心咨询和证书课程，陪不同的人慢慢找回自己的节奏。如果这支润唇膏来到你手上，希望你也感受到那份用心。",
+    "en":"Alongside the handmade work, I offer mind-body consultations and certificate courses, walking with people as they find their own pace again. If one of these balms has found its way to you, I hope you can feel the care in it."},
   "ab-btn":{"zh-Hant":"探索此刻 · The Present →","zh-Hans":"探索此刻 · The Present →","en":"Explore The Present →"},
   // SAFETY
   "sf-h2":{"zh-Hant":"使用須知","zh-Hans":"使用须知","en":"Cautions"},
@@ -691,6 +708,12 @@ var M = {
 
   function wa(text){ return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(text); }
   function src(){ return from ? t(M.src,{c:from}) : t(M.src0); }
+
+  // 未上載相片時，自動改用「J」圓形標誌
+  var pt = $("portrait");
+  function noPhoto(){ var f = $("aboutPhoto"); if (f) f.remove(); $("mono").hidden = false; }
+  pt.addEventListener("error", noPhoto);
+  if (pt.complete && pt.naturalWidth === 0) noPhoto();
 
   if (CONFIG.youtubeId) {
     var box = $("videoBox");
