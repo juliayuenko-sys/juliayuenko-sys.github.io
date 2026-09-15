@@ -83,6 +83,23 @@ html[lang="en"] .hero h1 em{font-style:italic}
 .btn-ghost{background:transparent;color:var(--teal-deep)}
 .btn svg{width:18px;height:18px;flex:none}
 
+/* 心意卡 + 心意牆 */
+.note-card{background:linear-gradient(180deg,#FFFDF5,var(--card));border:1px solid var(--gold);border-radius:var(--r);padding:18px 20px;margin:0 0 26px;box-shadow:0 16px 36px -28px rgba(35,75,71,.6)}
+.note-card p{margin:0 0 10px;font-size:15.5px;line-height:1.75}
+.note-card p:last-of-type{margin-bottom:0}
+.nc-k{display:block;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
+.nc-sign{font-family:var(--serif-tc);text-align:right;color:var(--teal-deep)}
+.wl-bar{height:8px;border-radius:99px;background:var(--wax);overflow:hidden;margin-top:20px}
+.wl-fill{height:100%;background:var(--teal);border-radius:99px;width:0}
+.wl-count{font-size:14px;color:var(--muted);margin:8px 0 0}
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:20px}
+.wl-card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.wl-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:var(--wax)}
+.wl-card .t{padding:10px 12px 12px}
+.wl-card b{display:block;font-family:var(--serif-tc);font-size:15.5px}
+.wl-card small{display:block;color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums;margin-top:2px}
+.wl-card p{margin:6px 0 0;font-size:13.5px;color:var(--muted);line-height:1.5}
+
 /* ingredients */
 .ing{list-style:none;margin:22px 0 0;padding:0;display:grid;border-top:1px solid var(--line)}
 .ing li{display:grid;gap:4px;padding:16px 0;border-bottom:1px solid var(--line)}
@@ -220,6 +237,12 @@ footer a{color:var(--teal-deep)}
         <dt data-i18n="tag-dt3">原料</dt><dd data-i18n="tag-dd3">4 類天然原料，全部公開</dd>
       </dl>
     </div>
+    <div class="note-card" id="friendNote" hidden>
+      <span class="nc-k" data-i18n="fn-k">給朋友的一封短信</span>
+      <p data-i18n="fn-p1">如果你收到呢支潤唇膏，唔係因為你買咗啲咩，而係因為我諗起你。</p>
+      <p data-i18n="fn-p2">每支都係我親手倒模，一日送一位朋友。順便見返面、傾兩句 —— 其實見面先係重點，潤唇膏只係藉口 😊</p>
+      <p class="nc-sign" data-i18n="fn-sign">—— Julia</p>
+    </div>
     <p class="eyebrow">Handmade lip balm</p>
     <h1 id="h-hero" data-i18n="hero-h1">你手上呢支潤唇膏，<br>係<em>朋友嘅心意</em>。</h1>
     <p class="lead" data-i18n="hero-lead">每一支都係我喺工作枱上秤料、溶蠟、倒模，再一支一支貼上你啱啱掃過嘅標籤。想知道入面有啲咩、點樣做出嚟？全部寫晒喺下面。</p>
@@ -291,6 +314,16 @@ footer a{color:var(--teal-deep)}
       <div class="scent"><div class="dots"><i style="background:#9A8CC6"></i><i style="background:#6FB39B"></i></div><b data-i18n="sc-lm">薰衣草薄荷</b><small data-i18n="sc-lm-s">LavenderMint</small><p data-i18n="sc-lm-p">放鬆之中帶點清新。</p></div>
       <div class="scent"><div class="dots"><i style="background:#E3C43F"></i><i style="background:#6FB39B"></i></div><b data-i18n="sc-lem">檸檬薄荷</b><small data-i18n="sc-lem-s">LemonMint</small><p data-i18n="sc-lem-p">清爽提神，一整日好精神。</p></div>
     </div>
+  </section>
+
+  <!-- 4b. 心意牆（有相先會顯示）-->
+  <section id="wall" aria-labelledby="h-wall" hidden>
+    <p class="eyebrow" data-i18n="wl-eyebrow">Friends · 心意牆</p>
+    <h2 id="h-wall" data-i18n="wl-h2">40 位朋友，40 次見面</h2>
+    <p class="lead" data-i18n="wl-lead">由今個秋天開始，我每日送一支潤唇膏俾一位朋友，順便見返面、傾兩句。</p>
+    <div class="wl-bar"><div class="wl-fill" id="wlFill"></div></div>
+    <p class="wl-count" id="wlCount"></p>
+    <div class="wall" id="wallGrid"></div>
   </section>
 
   <!-- 5. ORDER BUILDER -->
@@ -478,6 +511,14 @@ var CONFIG = {
    格式： "批次碼": { scent:"香味 key", made:"製造日期 YYYY-MM-DD", months:保存月數, pao:開封後月數 }
    香味 key： sc-om 甜橙薄荷 / sc-lm 薰衣草薄荷 / sc-lem 檸檬薄荷 / sc-pep 薄荷 / sc-lav 薰衣草 / sc-or 甜橙 / sc-le 檸檬
    加咗之後，掃呢個批次 QR 嘅人就會喺頂部標籤見到香味、製造日期同用至日期。 */
+/* ===== 心意牆：每送出一位朋友就加一行（相放喺 lip/friends/ folder）=====
+   img 留空 = 只顯示名同日期，唔會爛圖；note 可以留空
+   ⚠️ 影相之前記得問朋友同唔同意放上網 */
+var WALL_TOTAL = 40;
+var FRIENDS = [
+  // { img:"friends/01.jpg", name:"Anne", date:"2026-09-16", note:"傾咗成個鐘，好耐冇試過" },
+];
+
 var BATCHES = {
   "G01": { scent:"sc-om", made:"2026-09-16", months:12, pao:6 }
 };
@@ -510,6 +551,20 @@ var T = {
   "hero-lead-p":{"zh-Hant":"每一支都係我喺工作枱上秤料、溶蠟、倒模，再一支一支貼上標籤。想知道入面有啲咩、點樣做出嚟？全部寫晒喺下面。",
     "zh-Hans":"每一支都是我在工作台上称料、熔蜡、倒模，再一支一支贴上标签。想知道里面有什么、是怎样做出来的？全部写在下面。",
     "en":"I weigh, melt and pour every single one at my worktable, then label each by hand. Curious what's inside and how it's made? It's all below."},
+  "fn-k":{"zh-Hant":"給朋友的一封短信","zh-Hans":"给朋友的一封短信","en":"A note for a friend"},
+  "fn-p1":{"zh-Hant":"如果你收到呢支潤唇膏，唔係因為你買咗啲咩，而係因為我諗起你。",
+    "zh-Hans":"如果你收到这支润唇膏，不是因为你买了什么，而是因为我想起你。",
+    "en":"If one of these found its way to you, it isn't because you bought anything — it's because I thought of you."},
+  "fn-p2":{"zh-Hant":"每支都係我親手倒模，一日送一位朋友。順便見返面、傾兩句 —— 其實見面先係重點，潤唇膏只係藉口 😊",
+    "zh-Hans":"每支都是我亲手倒模，一天送一位朋友。顺便见见面、聊两句 —— 其实见面才是重点，润唇膏只是借口 😊",
+    "en":"I hand-pour every one, and give one to a friend each day. The balm is really just an excuse to see you 😊"},
+  "fn-sign":{"zh-Hant":"—— Julia","zh-Hans":"—— Julia","en":"— Julia"},
+  "wl-eyebrow":{"zh-Hant":"Friends · 心意牆","zh-Hans":"Friends · 心意墙","en":"Friends"},
+  "wl-h2":{"zh-Hant":"40 位朋友，40 次見面","zh-Hans":"40 位朋友，40 次见面","en":"40 friends, 40 visits"},
+  "wl-lead":{"zh-Hant":"由今個秋天開始，我每日送一支潤唇膏俾一位朋友，順便見返面、傾兩句。",
+    "zh-Hans":"从这个秋天开始，我每天送一支润唇膏给一位朋友，顺便见见面、聊两句。",
+    "en":"Starting this autumn, I give one lip balm to one friend each day — and get to see them again."},
+  "wl-count":{"zh-Hant":"已送出 {n} / {t} 支","zh-Hans":"已送出 {n} / {t} 支","en":"{n} of {t} given"},
   "btn-order":{"zh-Hant":"我都想訂製送禮","zh-Hans":"我也想定制送礼","en":"Order gifts like this"},
   "btn-making":{"zh-Hant":"睇製作過程","zh-Hans":"看制作过程","en":"See how it's made"},
   // INGREDIENTS
@@ -701,7 +756,8 @@ var M = {
   var raw = params.get("from") || "";
   var from = /^[A-Za-z0-9-]{1,12}$/.test(raw) ? raw.toUpperCase() : "";
   // P／W 開頭 = 宣傳用（對方未收到唇膏）：用另一句標題；追蹤碼只喺標籤右上角細細顯示
-  var isPromo = /^[PW]/.test(from);   // P = 海報／宣傳品，W = WhatsApp 群組
+  var isPromo = /^[PW]/.test(from);
+  if (/^F/.test(from)) $("friendNote").hidden = false;   // F = 送朋友   // P = 海報／宣傳品，W = WhatsApp 群組
   if (from) { $("giftCode").textContent = from; $("codeChip").hidden = false; }
   function chipLabel(){ $("chipLabel").textContent = (from && BATCHES[from]) ? t(T["b-batch"]) : "No."; }
   if (isPromo) { document.getElementById("h-hero").setAttribute("data-i18n","hero-h1-p"); document.querySelector("[data-i18n='hero-lead']").setAttribute("data-i18n","hero-lead-p"); }
@@ -782,6 +838,20 @@ var M = {
     $("tagRows").innerHTML = rows.map(function(r){ return "<dt>"+r[0]+"</dt><dd>"+r[1]+"</dd>"; }).join("");
   }
 
+  function renderWall(){
+    var sec = $("wall");
+    if (!FRIENDS.length) { sec.hidden = true; return; }
+    sec.hidden = false;
+    $("wlFill").style.width = Math.min(100, FRIENDS.length / WALL_TOTAL * 100) + "%";
+    $("wlCount").textContent = t(T["wl-count"], {n:FRIENDS.length, t:WALL_TOTAL});
+    $("wallGrid").innerHTML = FRIENDS.map(function(f){
+      var img = f.img ? '<img src="' + f.img + '" alt="' + (f.name||"") + '" loading="lazy" onerror="this.remove()">' : "";
+      return '<figure class="wl-card">' + img + '<figcaption class="t"><b>' + (f.name||"") + '</b>' +
+             (f.date ? '<small>' + f.date + '</small>' : "") +
+             (f.note ? '<p>' + f.note + '</p>' : "") + '</figcaption></figure>';
+    }).join("");
+  }
+
   function setLang(l){
     if (LANGS.indexOf(l) < 0) l = "zh-Hant";
     lang = l;
@@ -794,6 +864,7 @@ var M = {
     try { localStorage.setItem("tp-lang", l); } catch(e) {}
     chipLabel();
     renderTag();
+    renderWall();
     update();
   }
   document.querySelectorAll(".lang-btn").forEach(function(b){ b.addEventListener("click", function(){ setLang(b.dataset.lang); }); });
