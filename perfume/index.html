@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>此刻 · 香頻 Scent of Now｜香港個人化天然精油香水訂製｜Julia Yuen</title>
 <meta name="description" content="此刻 · 香頻是香港 TimeWaver 顧問 Julia Yuen 的遙距個人化天然精油香水訂製服務。了解你的意圖，以 TimeWaver 配對香氣，手工調配只屬於你的香水，7–10 個工作天寄到，香港及海外均可。">
+<link rel="alternate" hreflang="zh-Hant" href="https://juliayuen.com/perfume/">
+<link rel="alternate" hreflang="zh-Hans" href="https://juliayuen.com/perfume/sc/">
+<link rel="alternate" hreflang="en" href="https://juliayuen.com/perfume/en/">
+<link rel="alternate" hreflang="x-default" href="https://juliayuen.com/perfume/">
 <link rel="canonical" href="https://juliayuen.com/perfume/">
 <meta property="og:title" content="此刻 · 香頻 Scent of Now｜你的香氣先到，世界便記住你">
 <meta property="og:description" content="以 TimeWaver 聆聽你此刻的頻率，為你調一支只屬於你的天然精油香水。">
@@ -98,9 +102,10 @@ nav{position:sticky;top:0;background:rgba(250,246,239,.92);backdrop-filter:blur(
 nav .wrap{display:flex;justify-content:space-between;align-items:center;height:56px;font-size:14px}
 nav .brand{font-family:"Noto Serif TC",serif;text-decoration:none}
 nav .links a{margin-left:18px;text-decoration:none;color:var(--soft)}
-@media(max-width:600px){nav .links a:not(.cta-mini){display:none}}
+@media(max-width:600px){nav .links > a:not(.cta-mini){display:none}}
 .cta-mini{background:var(--ink);color:#fff!important;padding:6px 14px;border-radius:999px}
 
+nav .lg{margin-left:10px;font-size:13px;color:var(--soft)}nav .lg a{margin-left:6px}nav .lg a.on{color:var(--gold-deep);font-weight:500}
 /* hero */
 .sig{background:#e9dcc9}
 .sig img{display:block;width:100%;max-width:1200px;height:auto;margin:0 auto}
@@ -121,9 +126,9 @@ nav .links a{margin-left:18px;text-decoration:none;color:var(--soft)}
 .story .poem{font-family:"Noto Serif TC",serif;font-size:18px;line-height:2.1}
 .story .sign{text-align:right;color:var(--gold-deep);font-family:"Noto Serif TC",serif}
 
-.fam{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.fam{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}@media(max-width:600px){.fam{grid-template-columns:1fr}}
 .fam figure{background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.fam img{display:block;width:100%;height:220px;object-fit:cover}
+.fam img{display:block;width:100%;height:260px;object-fit:cover}
 .fam figcaption{padding:14px 16px;font-size:14px;color:var(--soft)}
 .fam figcaption strong{color:var(--ink);font-family:"Noto Serif TC",serif}
 .fam .ph{height:220px;display:flex;align-items:center;justify-content:center;background:#efe6d8;color:var(--gold-deep);font-family:"Noto Serif TC",serif;letter-spacing:.2em}
@@ -184,6 +189,7 @@ footer a{color:var(--gold-deep)}
       <a href="#packages">套餐</a>
       <a href="#faq">常見問題</a>
       <a class="cta-mini" href="#packages">開始訂製</a>
+      <span class="lg"><a href="/perfume/" class="on">繁</a><a href="/perfume/sc/">简</a><a href="/perfume/en/">EN</a></span>
     </div>
   </div>
 </nav>
@@ -191,7 +197,7 @@ footer a{color:var(--gold-deep)}
 <!-- 1. HERO -->
 <div class="sig">
   <img src="signature.jpg" width="1200" height="896"
-       alt="此刻 · 香頻 Scent of Now：Julia Yuen 親手調配的天然精油香水 Inner Radiance · Julia-Signature，木蓋方瓶旁放一枝乾薰衣草，瓶口升起七彩香氣">
+       alt="此刻 · 香頻 Scent of Now：Julia Yuen 親手調配的天然精油香水 Inner Radiance · Julia-Signature，木蓋方瓶旁放一枝乾薰衣草，瓶口升起輕煙">
 </div>
 <header class="hero">
   <div class="wrap">
@@ -272,11 +278,15 @@ footer a{color:var(--gold-deep)}
         <figcaption><strong>Inner Radiance · Julia-Signature</strong><br>為自己 · 回到本來的我</figcaption>
       </figure>
       <figure>
-        <img src="v-signature.jpg" loading="lazy" width="1000" height="750" alt="Teen Cologne · V-Signature：Julia 為青少年兒子調配的天然精油香水，放在藍白色模型跑車上">
+        <img src="j-signature.jpg" loading="lazy" width="1200" height="670" alt="Men Cologne · J-Signature：Julia 為丈夫調配的天然精油香水，放在灰色西裝布料上，旁邊有手錶與皮手套">
+        <figcaption><strong>Men Cologne · J-Signature</strong><br>為丈夫 · 沉穩從容的氣場</figcaption>
+      </figure>
+      <figure>
+        <img src="v-signature.jpg" loading="lazy" width="1200" height="896" alt="Teen Cologne · V-Signature：Julia 為青少年兒子調配的天然精油香水，放在藍白色模型跑車上">
         <figcaption><strong>Teen Cologne · V-Signature</strong><br>為兒子 · 青少年的專注與自信</figcaption>
       </figure>
       <figure>
-        <img src="bloom-signature.jpg" loading="lazy" width="1000" height="750" alt="Born to Bloom · D-Signature：Julia 為女兒調配的天然精油香水，放在粉紅瓷碟上，旁邊有薰衣草與洋甘菊">
+        <img src="bloom-signature.jpg" loading="lazy" width="1200" height="896" alt="Born to Bloom · D-Signature：Julia 為女兒調配的天然精油香水，放在粉紅瓷碟上，旁邊有薰衣草與洋甘菊">
         <figcaption><strong>Born to Bloom · D-Signature</strong><br>為女兒 · 溫柔地綻放</figcaption>
       </figure>
     </div>
