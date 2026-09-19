@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>此刻手作潤唇膏｜Julia Yuen</title>
+<title>此刻 · 唇語 Balm of Now｜Julia 手作天然潤唇膏</title>
 <meta name="description" content="Julia 親手倒模嘅天然潤唇膏：乳木果脂、蜂蠟、植物油同純精油。睇製作過程、全部成分，仲可以訂製送禮或者報名 DIY 潤唇膏班。">
-<meta property="og:title" content="此刻手作潤唇膏｜Julia Yuen">
+<meta property="og:title" content="此刻 · 唇語 Balm of Now｜Julia 手作天然潤唇膏">
 <meta property="og:description" content="你手上呢支潤唇膏，係朋友嘅心意。睇下佢點樣誕生。">
 <meta property="og:url" content="https://juliayuen.com/lip/">
 <meta name="theme-color" content="#FBFAF4">
@@ -62,14 +62,24 @@ p{margin:0 0 14px}
 .lang-div{color:var(--line);font-size:12px;user-select:none}
 
 /* hero */
-.hero{padding-block:18px 48px;border-top:0}
+.hero{padding-block:8px 48px;border-top:0}
+.showcase{margin:4px 0 18px}
+.tag.has-photo{display:grid;grid-template-columns:1fr minmax(100px,33%);align-items:stretch;overflow:hidden;padding:0;margin:0;border-radius:16px;transform:none;max-width:none;box-shadow:0 20px 46px -26px rgba(35,75,71,.5)}
+.tag.has-photo .tag-body{padding:20px 10px 18px 40px;min-width:0}
+.tag.has-photo .code{font-size:clamp(28px,7.6vw,40px)}
+.tag.has-photo dl{font-size:12px;gap:3px 7px;margin-top:10px}
+.tag.has-photo .code-chip{position:static;display:inline-block;margin-top:12px}
+.tag.has-photo .code-chip[hidden]{display:none}
+.tag-photo{margin:0;position:relative;background:var(--wax);overflow:hidden}
+.tag-photo img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 56%}
+@media (min-width:520px){.tag.has-photo{grid-template-columns:1fr minmax(120px,40%);min-height:272px}.tag-photo img{object-position:50% 46%}.tag.has-photo .tag-body{padding:24px 18px 22px 56px}.tag.has-photo dl{font-size:14px;gap:4px 12px}}
 .hero h1{font-size:clamp(32px,8.6vw,46px);line-height:1.25;margin:6px 0 16px}
 html[lang="en"] .hero h1{font-weight:600;letter-spacing:-.01em}
 .hero h1 em{font-style:normal;color:var(--teal-deep);background:linear-gradient(transparent 62%,var(--wax) 62%)}
 html[lang="en"] .hero h1 em{font-style:italic}
 .tag{position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 22px 18px 58px;margin:8px 0 28px;transform:rotate(-1.6deg);box-shadow:0 10px 30px -18px rgba(35,75,71,.45);max-width:420px}
-.tag::before{content:"";position:absolute;left:20px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;background:var(--paper);border:1.5px solid var(--gold)}
-.tag::after{content:"";position:absolute;left:44px;top:12px;bottom:12px;border-left:1px dashed var(--line)}
+.tag::before{content:"";position:absolute;left:11px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;background:var(--paper);border:1.5px solid var(--gold)}
+.tag::after{content:"";position:absolute;left:33px;top:12px;bottom:12px;border-left:1px dashed var(--line)}
 .tag .k{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600}
 .tag .code{font-family:"Fraunces","Noto Serif TC",Georgia,serif;font-size:40px;line-height:1.1;font-weight:600;color:var(--ink);letter-spacing:.02em;font-variant-numeric:tabular-nums}
 .tag dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:12px 0 0;font-size:14px}
@@ -227,23 +237,30 @@ footer a{color:var(--teal-deep)}
 
   <!-- 1. HERO -->
   <section class="hero" aria-labelledby="h-hero">
-    <div class="tag">
-      <span class="code-chip" id="codeChip" hidden><span id="chipLabel">No.</span> <b id="giftCode"></b></span>
-      <div class="k" data-i18n="tag-k">Gift · 心意</div>
-      <div class="code" data-i18n="tag-code">此刻手作</div>
-      <dl id="tagRows">
-        <dt data-i18n="tag-dt1">製作</dt><dd data-i18n="tag-dd1">Julia 親手倒模</dd>
-        <dt data-i18n="tag-dt2">地點</dt><dd data-i18n="tag-dd2">香港 · 小批量手作</dd>
-        <dt data-i18n="tag-dt3">原料</dt><dd data-i18n="tag-dd3">4 類天然原料，全部公開</dd>
-      </dl>
+   <div class="showcase">
+    <div class="tag has-photo" id="giftTag">
+      <div class="tag-body">
+        <div class="k" data-i18n="tag-k">Gift · 心意</div>
+        <div class="code" data-i18n="tag-code">此刻手作</div>
+        <dl id="tagRows">
+          <dt data-i18n="tag-dt1">製作</dt><dd data-i18n="tag-dd1">Julia 親手倒模</dd>
+          <dt data-i18n="tag-dt2">地點</dt><dd data-i18n="tag-dd2">香港 · 小批量手作</dd>
+          <dt data-i18n="tag-dt3">原料</dt><dd data-i18n="tag-dd3">4 類天然原料，全部公開</dd>
+        </dl>
+        <span class="code-chip" id="codeChip" hidden><span id="chipLabel">No.</span> <b id="giftCode"></b></span>
+      </div>
+      <figure class="tag-photo" id="heroShot">
+        <img id="heroImg" src="hero.jpg" width="635" height="735" alt="此刻 · 唇語 手作潤唇膏" data-i18n-alt="hero-alt" fetchpriority="high" decoding="async">
+      </figure>
     </div>
+   </div>
     <div class="note-card" id="friendNote" hidden>
       <span class="nc-k" data-i18n="fn-k">給朋友的一封短信</span>
       <p data-i18n="fn-p1">如果你收到呢支潤唇膏，唔係因為你買咗啲咩，而係因為我諗起你。</p>
       <p data-i18n="fn-p2">每支都係我親手倒模，一日送一位朋友。順便見返面、傾兩句 —— 其實見面先係重點，潤唇膏只係藉口 😊</p>
       <p class="nc-sign" data-i18n="fn-sign">—— Julia</p>
     </div>
-    <p class="eyebrow">Handmade lip balm</p>
+    <p class="eyebrow" data-i18n="brand-line">此刻 · 唇語　Balm of Now</p>
     <h1 id="h-hero" data-i18n="hero-h1">你手上呢支潤唇膏，<br>係<em>朋友嘅心意</em>。</h1>
     <p class="lead" data-i18n="hero-lead">每一支都係我喺工作枱上秤料、溶蠟、倒模，再一支一支貼上你啱啱掃過嘅標籤。想知道入面有啲咩、點樣做出嚟？全部寫晒喺下面。</p>
     <div class="cta-row">
@@ -414,7 +431,7 @@ footer a{color:var(--teal-deep)}
       <li><b data-i18n="cl-f3t">地點</b><span data-i18n="cl-f3">銅鑼灣；包班可安排喺你嘅場地</span></li>
     </ul>
     <figure class="poster">
-      <a href="poster.jpg" target="_blank" rel="noopener"><img src="poster.jpg" width="1600" height="1195" loading="lazy" data-i18n-alt="cl-poster" alt="Julia's Nature Balm 貓頭潤唇膏 · 親子 DIY 首選"></a>
+      <a href="poster.jpg" target="_blank" rel="noopener"><img src="poster.jpg" width="1400" height="1867" loading="lazy" data-i18n-alt="cl-poster" alt="此刻 · 唇語 手作潤唇膏海報 · 掃碼睇製作過程"></a>
     </figure>
     <div class="formats">
       <div class="format"><b data-i18n="cl1-h">親子班</b><p data-i18n="cl1-p">同小朋友一齊秤料、倒模，學識睇成分。</p></div>
@@ -486,9 +503,9 @@ footer a{color:var(--teal-deep)}
 </main>
 
 <footer class="wrap">
-  <p data-i18n="ft-1">此刻 · The Present · 香港手作</p>
-  <p><a id="waFooter" href="#" target="_blank" rel="noopener">WhatsApp +852 9621 5876</a> · <a href="mailto:juliayuen.qfc@gmail.com">juliayuen.qfc@gmail.com</a></p>
-  <p><a href="/">juliayuen.com</a></p>
+  <p data-i18n="ft-1">此刻 · 唇語 Balm of Now · 香港手作</p>
+  <p><a id="waFooter" href="#" target="_blank" rel="noopener">WhatsApp +852 9621 5876</a> · <a href="mailto:lip@juliayuen.com">lip@juliayuen.com</a></p>
+  <p><a href="/">juliayuen.com</a> · © 2026 Wellness Path · 此刻 The Present</p>
 </footer>
 
 <div class="sticky">
@@ -526,7 +543,7 @@ var BATCHES = {
 
 /* ===== 三語文字：繁 zh-Hant ／ 簡 zh-Hans ／ EN（同主頁用同一套方法）===== */
 var T = {
-  "doc-title":{"zh-Hant":"此刻手作潤唇膏｜Julia Yuen","zh-Hans":"此刻手作润唇膏｜Julia Yuen","en":"Handmade Lip Balm | Julia Yuen"},
+  "doc-title":{"zh-Hant":"此刻 · 唇語 Balm of Now｜Julia 手作天然潤唇膏","zh-Hans":"此刻 · 唇语 Balm of Now｜Julia 手作天然润唇膏","en":"Balm of Now | Handmade Natural Lip Balm by Julia Yuen"},
   // HERO
   "tag-k":{"zh-Hant":"Gift · 心意","zh-Hans":"Gift · 心意","en":"Gift"},
   "b-scent":{"zh-Hant":"香味","zh-Hans":"香味","en":"Scent"},
@@ -535,6 +552,8 @@ var T = {
   "b-pao":{"zh-Hant":"開封後","zh-Hans":"开封后","en":"After opening"},
   "b-pao-v":{"zh-Hant":"{n} 個月內用完","zh-Hans":"{n} 个月内用完","en":"use within {n} months"},
   "b-batch":{"zh-Hant":"批次","zh-Hans":"批次","en":"Batch"},
+  "hero-alt":{"zh-Hant":"此刻 · 唇語 手作潤唇膏","zh-Hans":"此刻 · 唇语 手作润唇膏","en":"Balm of Now — handmade lip balm"},
+  "brand-line":{"zh-Hant":"此刻 · 唇語　Balm of Now","zh-Hans":"此刻 · 唇语　Balm of Now","en":"Balm of Now · 此刻 · 唇語"},
   "nav-home":{"zh-Hant":"← 主頁","zh-Hans":"← 主页","en":"← Home"},
   "tag-code":{"zh-Hant":"此刻手作","zh-Hans":"此刻手作","en":"Handmade"},
   "tag-dt1":{"zh-Hant":"製作","zh-Hans":"制作","en":"Made by"},
@@ -672,7 +691,7 @@ var T = {
   "cl-f2":{"zh-Hant":"最多 12 人","zh-Hans":"最多 12 人","en":"Up to 12 people"},
   "cl-f3t":{"zh-Hant":"地點","zh-Hans":"地点","en":"Where"},
   "cl-f3":{"zh-Hant":"銅鑼灣；包班可安排喺你嘅場地","zh-Hans":"铜锣湾；包班可安排在你的场地","en":"Causeway Bay, or your own venue for private groups"},
-  "cl-poster":{"zh-Hant":"Julia's Nature Balm 貓頭潤唇膏 · 親子 DIY 首選","zh-Hans":"Julia's Nature Balm 猫头润唇膏 · 亲子 DIY 首选","en":"Julia's Nature Balm cat-head lip balm · a parent-child DIY favourite"},
+  "cl-poster":{"zh-Hant":"此刻 · 唇語 手作潤唇膏海報 · 掃碼睇製作過程","zh-Hans":"此刻 · 唇语 手作润唇膏海报 · 扫码看制作过程","en":"Balm of Now handmade lip balm poster · scan to see how it's made"},
   "cl1-h":{"zh-Hant":"親子班","zh-Hans":"亲子班","en":"Parent & child"},
   "cl1-p":{"zh-Hant":"同小朋友一齊秤料、倒模，學識睇成分。","zh-Hans":"和小朋友一起称料、倒模，学会看成分。","en":"Weigh and pour together, and learn to read ingredient lists."},
   "cl2-h":{"zh-Hant":"公司培訓","zh-Hans":"公司培训","en":"Team workshop"},
@@ -723,7 +742,7 @@ var T = {
   "sf7":{"zh-Hant":"檸檬香味含柑橘精油，日間長時間戶外活動請注意防曬。","zh-Hans":"柠檬香味含柑橘精油，日间长时间户外活动请注意防晒。","en":"Lemon blends contain citrus oil; use sun protection for prolonged outdoor exposure."},
   "sf8":{"zh-Hant":"請存放於陰涼處，避免高溫及陽光直射（例如車廂內）。","zh-Hans":"请存放于阴凉处，避免高温及阳光直射（例如车厢内）。","en":"Store in a cool place away from heat and direct sunlight (e.g. a parked car)."},
   "sf9":{"zh-Hant":"建議製造日起 12 個月內用完；開封後建議 6 個月內用完。","zh-Hans":"建议制造日起 12 个月内用完；开封后建议 6 个月内用完。","en":"Best used within 12 months of production, and within 6 months after opening."},
-  "ft-1":{"zh-Hant":"此刻 · The Present · 香港手作","zh-Hans":"此刻 · The Present · 香港手作","en":"The Present · Handmade in Hong Kong"}
+  "ft-1":{"zh-Hant":"此刻 · 唇語 Balm of Now · 香港手作","zh-Hans":"此刻 · 唇语 Balm of Now · 香港手作","en":"Balm of Now by The Present · Handmade in Hong Kong"}
 };
 
 /* 動態文字（WhatsApp 訊息、數量提示）*/
@@ -764,6 +783,12 @@ var M = {
 
   function wa(text){ return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(text); }
   function src(){ return from ? t(M.src,{c:from}) : t(M.src0); }
+
+  // 未上載產品相時，自動隱藏首圖，唇膏卡回復原本樣式
+  var hi = $("heroImg");
+  function noHero(){ var s = $("heroShot"); if (s) s.remove(); var tg = $("giftTag"); if (tg) tg.classList.remove("has-photo"); }
+  hi.addEventListener("error", noHero);
+  if (hi.complete && hi.naturalWidth === 0) noHero();
 
   // 未上載相片時，自動改用「J」圓形標誌
   var pt = $("portrait");
