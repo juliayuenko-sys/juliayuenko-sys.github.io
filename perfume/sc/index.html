@@ -125,6 +125,29 @@ nav .lg{margin-left:10px;font-size:13px;color:var(--soft)}nav .lg a{margin-left:
 .story p{margin-bottom:18px}
 .story .poem{font-family:"Noto Serif SC",serif;font-size:18px;line-height:2.1}
 .story .sign{text-align:right;color:var(--gold-deep);font-family:"Noto Serif SC",serif}
+/* story card (2026-09-19) */
+.story-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px 26px 26px;box-shadow:0 22px 48px -32px rgba(59,53,48,.55)}
+.beats{counter-reset:beat;list-style:none;margin:0;padding:0;position:relative}
+.beats::before{content:"";position:absolute;left:13px;top:14px;bottom:18px;width:1px;background:linear-gradient(var(--line),var(--gold),var(--line))}
+.beats li{counter-increment:beat;position:relative;padding:0 0 24px 46px}
+.beats li:last-child{padding-bottom:2px}
+.beats li::before{content:counter(beat);position:absolute;left:0;top:1px;width:27px;height:27px;border-radius:50%;background:var(--paper);border:1px solid var(--gold);color:var(--gold-deep);font-family:"Noto Serif TC",serif;font-size:14px;display:grid;place-items:center;line-height:1}
+.beats b{display:block;font-family:"Noto Serif TC",serif;font-weight:600;font-size:19px;letter-spacing:.08em;margin-bottom:5px;color:var(--ink)}
+.beats span{display:block;color:var(--soft);font-size:15.5px;line-height:1.85}
+.pull{margin:24px 0 0;padding:24px 4px 0;border-top:1px solid var(--line);font-family:"Noto Serif TC",serif;font-size:clamp(19px,4.4vw,25px);line-height:1.75;color:var(--gold-deep);text-align:center;letter-spacing:.03em}
+.story-card .close{margin:20px 0 0;text-align:center;font-size:16px;line-height:1.95;text-wrap:balance}
+.scent-name{display:inline-block;margin:4px 0;font-family:"Noto Serif TC",serif;font-size:19px;letter-spacing:.12em;color:var(--gold-deep)}
+.story-card .sign{margin-top:14px;text-align:center}
+.pull,.story-card .close,.story-card .sign{max-width:32em;margin-left:auto;margin-right:auto}
+.full{margin-top:24px}
+.full summary{cursor:pointer;color:var(--gold-deep);font-size:14.5px;letter-spacing:.12em;list-style:none;display:inline-block}
+.full summary::-webkit-details-marker{display:none}
+.full summary::after{content:"  ＋"}
+.full[open] summary::after{content:"  －"}
+.full .poem{margin-top:18px;font-size:16.5px}
+.full .sign{margin-top:8px}
+@media(max-width:600px){.story-card{padding:24px 18px 22px}.beats li{padding-left:42px}}
+
 
 .fam{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}@media(max-width:600px){.fam{grid-template-columns:1fr}}
 .fam figure{background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
@@ -222,46 +245,62 @@ footer a{color:var(--gold-deep)}
 <!-- 3. 品牌故事 -->
 <section id="story" class="story">
   <div class="wrap">
-    <div class="eyebrow">Our story</div>
+    <div class="eyebrow">My story</div>
     <h2>在所有身份之间，我忘了自己的气味</h2>
-    <p class="poem">
+
+    <div class="story-card">
+      <ol class="beats">
+        <li><b>迷失</b><span>我是母亲、是妻子、是女儿。照顾了每一个人，却在镜前认不出自己。</span></li>
+        <li><b>陪伴</b><span>累的时候一滴精油，乱的时候一阵香气。那是我留给自己的，小小一刻。</span></li>
+        <li><b>对频</b><span>两年前遇见 TimeWaver，我开始寻找与我对频的香气。对的香，让我重新有了动力。</span></li>
+        <li><b>改变</b><span>见到我的第一句，常常变成「哇，你好香啊！」笑容多了，连孩子也更愿意靠近。</span></li>
+      </ol>
+      <p class="pull">香气看不见、摸不到，<br>却最先抵达别人的心。</p>
+      <p class="close">于是，我为自己调了第一支香<br><span class="scent-name">「此刻」</span><br>现在，我想把这一刻，交给你。</p>
+      <p class="sign">—— Julia Yuen</p>
+    </div>
+
+    <details class="full">
+      <summary>读我完整的故事</summary>
+      <p class="poem">
       我曾经是一位全职妈妈。<br>
       每天，我是母亲、是妻子、是女儿。<br>
       我照顾著每一个人，却在镜子前，认不出自己。<br>
       「我是谁？」——我找不到答案。
     </p>
-    <p class="poem">
+      <p class="poem">
       一直陪著我的，是香气。<br>
       累的时候，一滴精油让我清醒；<br>
       乱的时候，一阵香味让我安定。<br>
       那是我留给自己的，小小一刻。
     </p>
-    <p class="poem">
+      <p class="poem">
       两年前，我遇见 TimeWaver。<br>
       我开始用它，寻找与我「对频」的香气。<br>
       原来香气不只是好闻——<br>
       对的香气，让我更投入、更有热情，重新找回前进的动力。
     </p>
-    <p class="poem">
+      <p class="poem">
       然后，身边的人开始不一样。<br>
       见到我的第一句，常常是：「哇，你好香啊！」<br>
       笑容多了，接纳多了，爱也多了。<br>
       连孩子，也更愿意靠近我、听我说话。
     </p>
-    <p class="poem">
+      <p class="poem">
       我明白了：<br>
       香气看不见、摸不到，却最先抵达别人的心。<br>
       一个人香香的，你自然会走近两步，多说两句。<br>
       当你的气味对了，好人好事，自然被吸引回来。
     </p>
-    <p class="poem">
+      <p class="poem">
       于是，我为自己调了第一支香——「此刻」。<br>
       每次喷上，我都回到本来的自己。安乐，而且完整。
     </p>
-    <p class="poem">
+      <p class="poem">
       现在，我想把这一刻，交给你。
     </p>
-    <p class="sign">—— Julia Yuen</p>
+      <p class="sign">—— Julia Yuen</p>
+    </details>
   </div>
 </section>
 

@@ -127,6 +127,29 @@ nav .lg{margin-left:10px;font-size:13px;color:var(--soft)}nav .lg a{margin-left:
 .story p{margin-bottom:18px}
 .story .poem{font-family:"Noto Serif TC",serif;font-size:18px;line-height:2.1}
 .story .sign{text-align:right;color:var(--gold-deep);font-family:"Noto Serif TC",serif}
+/* story card (2026-09-19) */
+.story-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px 26px 26px;box-shadow:0 22px 48px -32px rgba(59,53,48,.55)}
+.beats{counter-reset:beat;list-style:none;margin:0;padding:0;position:relative}
+.beats::before{content:"";position:absolute;left:13px;top:14px;bottom:18px;width:1px;background:linear-gradient(var(--line),var(--gold),var(--line))}
+.beats li{counter-increment:beat;position:relative;padding:0 0 24px 46px}
+.beats li:last-child{padding-bottom:2px}
+.beats li::before{content:counter(beat);position:absolute;left:0;top:1px;width:27px;height:27px;border-radius:50%;background:var(--paper);border:1px solid var(--gold);color:var(--gold-deep);font-family:"Noto Serif TC",serif;font-size:14px;display:grid;place-items:center;line-height:1}
+.beats b{display:block;font-family:"Noto Serif TC",serif;font-weight:600;font-size:19px;letter-spacing:.08em;margin-bottom:5px;color:var(--ink)}
+.beats span{display:block;color:var(--soft);font-size:15.5px;line-height:1.85}
+.pull{margin:24px 0 0;padding:24px 4px 0;border-top:1px solid var(--line);font-family:"Noto Serif TC",serif;font-size:clamp(19px,4.4vw,25px);line-height:1.75;color:var(--gold-deep);text-align:center;letter-spacing:.03em}
+.story-card .close{margin:20px 0 0;text-align:center;font-size:16px;line-height:1.95;text-wrap:balance}
+.scent-name{display:inline-block;margin:4px 0;font-family:"Noto Serif TC",serif;font-size:19px;letter-spacing:.12em;color:var(--gold-deep)}
+.story-card .sign{margin-top:14px;text-align:center}
+.pull,.story-card .close,.story-card .sign{max-width:32em;margin-left:auto;margin-right:auto}
+.full{margin-top:24px}
+.full summary{cursor:pointer;color:var(--gold-deep);font-size:14.5px;letter-spacing:.12em;list-style:none;display:inline-block}
+.full summary::-webkit-details-marker{display:none}
+.full summary::after{content:"  ＋"}
+.full[open] summary::after{content:"  －"}
+.full .poem{margin-top:18px;font-size:16.5px}
+.full .sign{margin-top:8px}
+@media(max-width:600px){.story-card{padding:24px 18px 22px}.beats li{padding-left:42px}}
+
 
 .fam{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}@media(max-width:600px){.fam{grid-template-columns:1fr}}
 .fam figure{background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
@@ -231,46 +254,62 @@ h2{font-size:30px;letter-spacing:.01em}
 <!-- 3. Story -->
 <section id="story" class="story">
   <div class="wrap">
-    <div class="eyebrow">Our story</div>
+    <div class="eyebrow">My story</div>
     <h2>Somewhere between all my roles, I lost my own scent</h2>
-    <p class="poem">
+
+    <div class="story-card">
+      <ol class="beats">
+        <li><b>Lost</b><span>Mother, wife, daughter. I looked after everyone — and stopped recognising myself in the mirror.</span></li>
+        <li><b>Anchor</b><span>A drop of oil when I was tired, a breath of scent when life was loud. The one moment I kept for myself.</span></li>
+        <li><b>In tune</b><span>Two years ago I met TimeWaver and began looking for the scents in tune with me. The right one gave me back my drive.</span></li>
+        <li><b>Shift</b><span>People started greeting me with &ldquo;Wow, you smell lovely!&rdquo; More smiles — even my children came closer.</span></li>
+      </ol>
+      <p class="pull">Scent cannot be seen or touched,<br>yet it reaches the heart first.</p>
+      <p class="close">So I blended my first perfume and called it<br><span class="scent-name">The Present</span><br>Now I would like to hand this moment to you.</p>
+      <p class="sign">— Julia Yuen</p>
+    </div>
+
+    <details class="full">
+      <summary>Read my full story</summary>
+      <p class="poem">
       I was once a full-time mother.<br>
       Every day I was a mother, a wife, a daughter.<br>
       I cared for everyone — yet in the mirror, I no longer recognised myself.<br>
       “Who am I?” I couldn’t find the answer.
     </p>
-    <p class="poem">
+      <p class="poem">
       What stayed with me through it all was scent.<br>
       When I was tired, a drop of essential oil cleared my mind;<br>
       when life was chaotic, a breath of fragrance steadied me.<br>
       It was the one small moment I kept for myself.
     </p>
-    <p class="poem">
+      <p class="poem">
       Two years ago, I met TimeWaver.<br>
       I began using it to find the scents that were “in tune” with me.<br>
       Scent, I realised, is more than something pleasant —<br>
       the right scent made me more present, more passionate, and gave me back my drive.
     </p>
-    <p class="poem">
+      <p class="poem">
       Then the people around me began to change.<br>
       The first thing they said when they saw me was often, “Wow, you smell lovely!”<br>
       More smiles, more acceptance, more love.<br>
       Even my children wanted to come closer and listen.
     </p>
-    <p class="poem">
+      <p class="poem">
       I understood then:<br>
       scent cannot be seen or touched, yet it reaches the heart first.<br>
       When someone smells lovely, you naturally step a little closer and stay a little longer.<br>
       When your scent is right, good people and good things find their way to you.
     </p>
-    <p class="poem">
+      <p class="poem">
       So I blended my first perfume for myself — I called it “The Present”.<br>
       Each time I wear it, I return to who I really am. At ease, and whole.
     </p>
-    <p class="poem">
+      <p class="poem">
       Now, I would like to hand this moment to you.
     </p>
-    <p class="sign">— Julia Yuen</p>
+      <p class="sign">— Julia Yuen</p>
+    </details>
   </div>
 </section>
 
