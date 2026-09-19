@@ -1,0 +1,160 @@
+{
+  "$schema": "https://juliayuen.com/services.json",
+  "updated": "2026-09-19",
+  "business": {
+    "name": "此刻 · The Present",
+    "name_en": "The Present",
+    "owner": "Julia Yuen",
+    "location": "Hong Kong (Causeway Bay); consultations delivered remotely",
+    "languages": [
+      "Cantonese",
+      "Mandarin",
+      "English"
+    ],
+    "whatsapp": "+852 9621 5876",
+    "email": "lip@juliayuen.com",
+    "website": "https://juliayuen.com/",
+    "faq": "https://juliayuen.com/faq.html",
+    "currency": "HKD"
+  },
+  "disclaimer": "TimeWaver is not a medical device. Nothing offered here diagnoses, treats or replaces medical or professional care.",
+  "services": [
+    {
+      "id": "timewaver-consultation",
+      "name": "TimeWaver 資訊場諮詢",
+      "name_en": "TimeWaver information field consultation",
+      "url": "https://juliayuen.com/faq.html#tw",
+      "delivery": "remote",
+      "includes": [
+        "30-minute Zoom or phone consultation",
+        "written report",
+        "2 weeks of field balancing",
+        "review report after 2 weeks"
+      ],
+      "pricing": [
+        {
+          "tier": "first session",
+          "price": 1280,
+          "unit": "per session (2 weeks)"
+        },
+        {
+          "tier": "continuing (no break)",
+          "price": 980,
+          "unit": "per session (2 weeks)"
+        },
+        {
+          "tier": "3 months / 6 sessions",
+          "price": 4980,
+          "unit": "package",
+          "effective_per_session": 830
+        }
+      ],
+      "typical_commitment": "1–3 months, or a few sessions a year",
+      "notes": [
+        "Families running sessions at the same time receive a complimentary family-relationship session.",
+        "Frequency can be carried into a physical item (spray, water, lip balm, card) or a music frequency file."
+      ]
+    },
+    {
+      "id": "scent-of-now",
+      "name": "此刻 · 香頻 個人化天然精油香水",
+      "name_en": "Scent of Now — personalised natural essential-oil perfume",
+      "url": "https://juliayuen.com/perfume/",
+      "delivery": "remote; ships 7–10 working days after the blend is confirmed",
+      "pricing": [
+        {
+          "tier": "對頻",
+          "price": 980,
+          "description": "find the scent that fits you now"
+        },
+        {
+          "tier": "調和",
+          "price": 1980,
+          "description": "tuned perfume — frequency carried in the bottle"
+        },
+        {
+          "tier": "顯化",
+          "price": 3800,
+          "description": "tuned perfume + 30 days of personal remote frequency balancing"
+        }
+      ]
+    },
+    {
+      "id": "balm-of-now",
+      "name": "此刻 · 唇語 手作潤唇膏",
+      "name_en": "Balm of Now — handmade natural lip balm",
+      "url": "https://juliayuen.com/lip/",
+      "type": "product",
+      "ingredients": [
+        "shea butter",
+        "beeswax",
+        "plant oils (incl. sesame oil)",
+        "pure essential oils"
+      ],
+      "minimum_order": 2,
+      "scent_choice_from": 20,
+      "lead_time": "10–14 working days; same-day pickup if in stock",
+      "shelf_life": "12 months; use within 6 months of opening",
+      "safety": [
+        "Contains sesame oil — avoid if allergic to sesame.",
+        "Mint formula not recommended for children under 6.",
+        "Patch-test on the inner arm before first use."
+      ],
+      "pricing": [
+        {
+          "qty": "1-10",
+          "price": 78
+        },
+        {
+          "qty": "11-30",
+          "price": 75
+        },
+        {
+          "qty": "31-50",
+          "price": 70
+        },
+        {
+          "qty": "51-100",
+          "price": 65
+        },
+        {
+          "qty": "100+",
+          "price": null,
+          "note": "WhatsApp for a quote"
+        }
+      ]
+    },
+    {
+      "id": "diy-lip-balm-workshop",
+      "name": "DIY 手作潤唇膏班",
+      "name_en": "DIY lip balm workshop",
+      "url": "https://juliayuen.com/lip/#class",
+      "delivery": "in person",
+      "location": "Causeway Bay, Hong Kong; private groups can be hosted at your venue",
+      "duration_minutes": 60,
+      "minimum_attendees": 2,
+      "maximum_attendees": 12,
+      "pricing": [
+        {
+          "tier": "per person",
+          "price": 280
+        }
+      ],
+      "formats": [
+        "parent-and-child",
+        "company training",
+        "corporate event",
+        "birthday party",
+        "custom"
+      ]
+    }
+  ],
+  "booking": {
+    "primary": {
+      "channel": "WhatsApp",
+      "value": "+852 9621 5876",
+      "link": "https://wa.me/85296215876"
+    },
+    "email": "lip@juliayuen.com"
+  }
+}

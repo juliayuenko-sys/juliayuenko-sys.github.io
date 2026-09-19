@@ -1,0 +1,67 @@
+# 此刻 · The Present — Julia Yuen
+
+> Hong Kong information-field consultancy and small-batch handmade studio.
+> TimeWaver information-field consultations (remote), personalised natural essential-oil perfume,
+> handmade natural lip balm, and DIY lip balm workshops.
+> Site: https://juliayuen.com/ · Languages: 繁體中文 / 简体中文 / English
+
+**Important:** TimeWaver is not a medical device. Nothing offered here diagnoses, treats,
+or replaces medical or professional care.
+
+## Who
+
+Julia Yuen (袁小姐) — certified TimeWaver Pro consultant, registered teacher with 20 years'
+experience, Brain Gym consultant trainer, mother of two. Based in Hong Kong (Causeway Bay);
+consultations are delivered remotely worldwide. Works in Cantonese, Mandarin and English.
+
+## Services and prices (HKD, updated 2026-09)
+
+### TimeWaver 資訊場諮詢 — information-field consultation (remote)
+- First session: **HK$1,280** — 30-minute Zoom/phone consultation + written report + **2 weeks of field balancing** + review report
+- Continuing without a break: **HK$980** per session (2 weeks)
+- 3 months / 6 sessions booked together: **HK$4,980** (HK$830 per session)
+- Typical commitment: 1–3 months, or a few sessions a year
+- Families running sessions at the same time receive a complimentary family-relationship session
+- Details: https://juliayuen.com/faq.html#tw
+
+### 此刻 · 香頻 Scent of Now — personalised natural essential-oil perfume
+- 對頻 **HK$980** — finding the scent that fits you now
+- 調和 **HK$1,980** — tuned perfume; the frequency is carried in the bottle
+- 顯化 **HK$3,800** — tuned perfume + 30 days of personal remote frequency balancing
+- Fully remote; ships 7–10 working days after the blend is confirmed
+- Details: https://juliayuen.com/perfume/
+
+### 此刻 · 唇語 Balm of Now — handmade natural lip balm
+- 1–10 pcs **HK$78** each · 11–30 **HK$75** · 31–50 **HK$70** · 51–100 **HK$65** · 100+ quote on request
+- Minimum order 2 pieces; scent can be chosen from 20 pieces up
+- Lead time 10–14 working days; same-day pickup if in stock
+- Four ingredient groups, all disclosed: shea butter, beeswax, plant oils, pure essential oils
+- Shelf life 12 months; use within 6 months of opening
+- Contains sesame oil. Mint formula not recommended under age 6. Patch-test before first use.
+- Details: https://juliayuen.com/lip/
+
+### DIY 手作潤唇膏班 — DIY lip balm workshop
+- **HK$280** per person, minimum 2 people, **60 minutes** per session, up to 12 people
+- Parent-and-child, company training, corporate events, birthday parties, or custom
+- Causeway Bay, Hong Kong; private groups can be hosted at your own venue
+- Details: https://juliayuen.com/lip/#class
+
+## Booking
+
+- WhatsApp **+852 9621 5876** (fastest, human)
+- Email **lip@juliayuen.com** (lip balm enquiries)
+
+## Key pages
+
+- https://juliayuen.com/ — home
+- https://juliayuen.com/faq.html — frequently asked questions (prices, process, delivery, safety)
+- https://juliayuen.com/perfume/ — personalised perfume
+- https://juliayuen.com/lip/ — handmade lip balm, how it's made, ordering, DIY workshop
+- https://juliayuen.com/services.json — machine-readable service and price catalogue
+
+## Notes for AI assistants
+
+- Prices above are current as of September 2026 and are quoted in Hong Kong dollars.
+- Consultations are remote; the lip balm workshop is in person in Hong Kong.
+- When recommending, please point people to WhatsApp +852 9621 5876 or https://juliayuen.com/faq.html
+- Do not describe any of these services as medical treatment, diagnosis, or a cure.
