@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breathing Exercise Timer · Box & 4-7-8 Breathing 呼吸練習計時器 | 此刻 · The Present</title>
+<meta name="description" content="Free guided breathing timer: box breathing, 4-7-8 breathing and slow 6-breaths-a-minute breathing with an animated circle and a breath-following sound. 免費呼吸練習計時器：方形呼吸、4-7-8 呼吸法，跟住圓圈一呼一吸。">
+<link rel="canonical" href="https://juliayuen.com/tools/breathing/">
+<meta property="og:title" content="Breathing Timer 呼吸練習計時器 · Box / 4-7-8">
+<meta property="og:description" content="Breathe along with a calm guided circle. 跟住圓圈，慢慢呼吸。">
+<meta property="og:url" content="https://juliayuen.com/tools/breathing/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Breathing Exercise Timer 呼吸練習計時器",
+      "url": "https://juliayuen.com/tools/breathing/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "inLanguage": ["en", "zh-Hant"],
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "HKD"},
+      "creator": {"@type": "Person", "name": "Julia Yuen", "url": "https://juliayuen.com/"}
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to do box breathing",
+      "step": [
+        {"@type": "HowToStep", "text": "Breathe in through your nose for 4 seconds."},
+        {"@type": "HowToStep", "text": "Hold your breath for 4 seconds."},
+        {"@type": "HowToStep", "text": "Breathe out slowly for 4 seconds."},
+        {"@type": "HowToStep", "text": "Hold for 4 seconds, then repeat."}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "What is box breathing?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Box breathing is a four-step pattern: breathe in for 4 seconds, hold for 4, breathe out for 4, hold for 4. It's a simple way to slow down and settle your attention."}},
+        {"@type": "Question", "name": "How do you do 4-7-8 breathing?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Breathe in through your nose for 4 seconds, hold for 7, then breathe out through your mouth for 8. Beginners usually start with about 4 rounds."}},
+        {"@type": "Question", "name": "方形呼吸法點做？",
+         "acceptedAnswer": {"@type": "Answer", "text": "吸氣 4 秒、閉氣 4 秒、呼氣 4 秒、再閉氣 4 秒，重複幾輪。簡單易記，幫你慢落嚟。"}},
+        {"@type": "Question", "name": "4-7-8 呼吸法點做？",
+         "acceptedAnswer": {"@type": "Answer", "text": "用鼻吸氣 4 秒，閉氣 7 秒，用口慢慢呼氣 8 秒。初學者建議做 4 輪左右。"}}
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --mint:#e6f2ec; --cream:#faf6ee; --paper:#ffffff;
+    --ink:#23332d; --ink-soft:#5b6b64; --line:#dfe6e1;
+    --green:#2f5d50; --green-soft:#d5e8de; --gold:#b89b5e; --gold-soft:#f3ecdc;
+    --warn:#8a5a2b; --radius:16px;
+    --serif:"Noto Serif TC","Songti TC",Georgia,serif;
+    --sans:"Noto Sans TC",-apple-system,"Segoe UI","PingFang TC",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;font-family:var(--sans);color:var(--ink);line-height:1.65;
+       background:linear-gradient(180deg,var(--mint) 0%,var(--cream) 42%,var(--cream) 100%);min-height:100vh}
+  a{color:var(--green)}
+  html[data-lang="zh"] [lang="en"]{display:none!important}
+  html[data-lang="en"] [lang="zh-Hant"]{display:none!important}
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px}
+  header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .brand{font-family:var(--serif);font-size:18px;color:var(--green);text-decoration:none;letter-spacing:.04em}
+  .langs{display:flex;gap:4px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:3px}
+  .langs button{border:0;background:none;font:inherit;font-size:13px;padding:5px 12px;border-radius:999px;cursor:pointer;color:var(--ink-soft)}
+  .langs button[aria-pressed="true"]{background:var(--green);color:#fff}
+  .hero{text-align:center;padding:28px 0 22px}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,5.5vw,38px);line-height:1.25;margin:8px 0 10px;color:var(--green)}
+  .hero p{margin:0 auto;max-width:520px;color:var(--ink-soft)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 2px rgba(35,51,45,.04),0 8px 28px rgba(47,93,80,.06)}
+  .field{margin-bottom:22px}
+  .label{display:block;font-weight:500;margin-bottom:10px;font-size:15px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;font-size:14px;
+        padding:8px 14px;border-radius:999px;cursor:pointer;transition:background .15s,border-color .15s;min-height:40px}
+  .chip:hover{border-color:var(--green)}
+  .chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+  .chip .sub{opacity:.7;font-size:12px;margin-left:4px}
+  input[type=number]{font:inherit;font-size:16px;width:64px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;color:var(--ink);background:var(--cream);text-align:center}
+  input:focus,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .muted{color:var(--ink-soft);font-size:13px}
+  section{margin-top:40px}
+  h2{font-family:var(--serif);font-weight:600;color:var(--green);font-size:22px;margin:0 0 14px}
+  .cta{background:linear-gradient(135deg,var(--green) 0%,#3f7565 100%);color:#fff;border-radius:var(--radius);padding:26px 22px;text-align:center}
+  .cta h2{color:#fff}
+  .cta p{margin:0 auto 18px;max-width:480px;opacity:.92}
+  .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:500;font-size:15px}
+  .btn.primary{background:var(--gold-soft);color:var(--green)}
+  .btn.ghost{border:1px solid rgba(255,255,255,.6);color:#fff}
+  details{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:8px}
+  summary{cursor:pointer;font-weight:500}
+  details p{margin:8px 0 2px;color:var(--ink-soft)}
+  .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+  .tools a{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--ink)}
+  .tools a:hover{border-color:var(--green)}
+  .tools b{display:block;color:var(--green);font-family:var(--serif)}
+  .tools span{font-size:13px;color:var(--ink-soft)}
+  footer{margin:48px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--ink-soft)}
+  footer a{color:var(--ink-soft)}
+
+  /* breathing stage */
+  .stage{position:relative;height:280px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+  .guide-ring{position:absolute;width:240px;height:240px;border-radius:50%;border:1.5px dashed var(--line)}
+  .orb{position:absolute;width:240px;height:240px;border-radius:50%;
+       background:radial-gradient(circle at 38% 32%,#ffffff 0%,var(--gold-soft) 40%,var(--green-soft) 100%);
+       box-shadow:0 12px 40px rgba(47,93,80,.18);transform:scale(.45);transition-property:transform;transition-timing-function:ease-in-out}
+  .readout{position:relative;text-align:center;pointer-events:none}
+  .phase{font-family:var(--serif);font-size:24px;color:var(--green)}
+  .count{font-size:42px;line-height:1.1;color:var(--green);font-variant-numeric:tabular-nums;font-family:var(--serif)}
+  .play{display:flex;align-items:center;justify-content:center;margin:0 auto 10px;border:0;background:var(--green);color:#fff;
+        font:inherit;font-size:16px;font-weight:500;padding:14px 32px;border-radius:999px;cursor:pointer;min-width:180px}
+  .play:hover{filter:brightness(1.08)}
+  .status{text-align:center;font-size:14px;color:var(--ink-soft);min-height:22px;font-variant-numeric:tabular-nums;margin-bottom:18px}
+  .custom{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+  .custom label{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--ink-soft);background:var(--cream);border-radius:12px;padding:10px 4px}
+  .toggles{display:flex;gap:18px;flex-wrap:wrap}
+  .toggles label{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+  .toggles input{width:18px;height:18px;accent-color:var(--green)}
+  .patterns{display:grid;gap:10px}
+  .patterns div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .patterns b{color:var(--green)}
+  .patterns p{margin:4px 0 0;font-size:14px;color:var(--ink-soft)}
+  @media (prefers-reduced-motion: reduce){ .orb{transition-duration:0s!important} }
+  @media (max-width:420px){ .stage{height:250px} .orb,.guide-ring{width:210px;height:210px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <a class="brand" href="/">此刻 · The Present</a>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-set-lang="zh" aria-pressed="true">繁</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">Free Tool · 免費工具</div>
+    <h1><span lang="zh-Hant">呼吸練習計時器</span><span lang="en">Breathing Exercise Timer</span></h1>
+    <p>
+      <span lang="zh-Hant">跟住圓圈，圓圈變大就吸氣，縮細就呼氣。幾分鐘，返嚟此刻。</span>
+      <span lang="en">Breathe in as the circle grows, out as it shrinks. A few minutes to come back to the present.</span>
+    </p>
+  </div>
+
+  <main class="card">
+    <div class="stage">
+      <div class="guide-ring"></div>
+      <div class="orb" id="orb"></div>
+      <div class="readout" aria-live="polite">
+        <div class="phase" id="phase"></div>
+        <div class="count" id="count"></div>
+      </div>
+    </div>
+
+    <button type="button" class="play" id="play"><span id="playLabel"></span></button>
+    <div class="status" id="status"></div>
+
+    <div class="field">
+      <span class="label"><span lang="zh-Hant">① 呼吸方法</span><span lang="en">① Breathing pattern</span></span>
+      <div class="chips" id="patChips">
+        <button type="button" class="chip" data-p="4,4,4,4"><span lang="zh-Hant">方形呼吸</span><span lang="en">Box</span><span class="sub">4-4-4-4</span></button>
+        <button type="button" class="chip" data-p="4,7,8,0">4-7-8<span class="sub" lang="zh-Hant">助眠</span><span class="sub" lang="en">sleep</span></button>
+        <button type="button" class="chip" data-p="5,0,5,0"><span lang="zh-Hant">平衡呼吸</span><span lang="en">Coherent</span><span class="sub">5-5</span></button>
+        <button type="button" class="chip" data-p="4,0,6,0"><span lang="zh-Hant">放鬆呼吸</span><span lang="en">Calming</span><span class="sub">4-6</span></button>
+      </div>
+      <div class="custom">
+        <label><span lang="zh-Hant">吸氣</span><span lang="en">In</span><input type="number" id="s0" min="1" max="15" inputmode="numeric"></label>
+        <label><span lang="zh-Hant">閉氣</span><span lang="en">Hold</span><input type="number" id="s1" min="0" max="15" inputmode="numeric"></label>
+        <label><span lang="zh-Hant">呼氣</span><span lang="en">Out</span><input type="number" id="s2" min="1" max="15" inputmode="numeric"></label>
+        <label><span lang="zh-Hant">閉氣</span><span lang="en">Hold</span><input type="number" id="s3" min="0" max="15" inputmode="numeric"></label>
+      </div>
+      <p class="muted" style="margin:8px 0 0"><span lang="zh-Hant">單位：秒，可以自己調。</span><span lang="en">Seconds. Adjust to suit you.</span></p>
+    </div>
+
+    <div class="field">
+      <span class="label"><span lang="zh-Hant">② 練習時間</span><span lang="en">② Session length</span></span>
+      <div class="chips" id="timeChips">
+        <button type="button" class="chip" data-min="1">1 min</button>
+        <button type="button" class="chip" data-min="3">3 min</button>
+        <button type="button" class="chip" data-min="5">5 min</button>
+        <button type="button" class="chip" data-min="10">10 min</button>
+        <button type="button" class="chip" data-min="0"><span lang="zh-Hant">不限</span><span lang="en">No limit</span></button>
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="label"><span lang="zh-Hant">③ 聲音</span><span lang="en">③ Sound</span></span>
+      <div class="chips" id="sndChips">
+        <button type="button" class="chip" data-snd="flow"><span lang="zh-Hant">呼吸韻律</span><span lang="en">Breath flow</span></button>
+        <button type="button" class="chip" data-snd="chime"><span lang="zh-Hant">輕聲提示</span><span lang="en">Soft chime</span></button>
+        <button type="button" class="chip" data-snd="off"><span lang="zh-Hant">靜音</span><span lang="en">Silent</span></button>
+      </div>
+      <p class="muted" style="margin:8px 0 0" id="sndHint">
+        <span lang="zh-Hant">呼吸韻律：吸氣時聲音慢慢升高變亮，呼氣時慢慢降低變柔，閉氣時輕輕停留。</span>
+        <span lang="en">Breath flow: the sound rises and brightens as you breathe in, softens and falls as you breathe out, and rests while you hold.</span>
+      </p>
+      <div style="display:flex;align-items:center;gap:10px;margin-top:10px">
+        <span class="muted"><span lang="zh-Hant">音量</span><span lang="en">Volume</span></span>
+        <input type="range" id="bvol" min="0" max="100" value="60" style="flex:1;accent-color:var(--green)" aria-label="Volume">
+      </div>
+    </div>
+
+    <div class="field" style="margin-bottom:0">
+      <div class="toggles">
+        <label><input type="checkbox" id="vibe"><span lang="zh-Hant">震動提示（手機）</span><span lang="en">Vibrate (phone)</span></label>
+      </div>
+    </div>
+  </main>
+
+  <section>
+    <h2><span lang="zh-Hant">四種呼吸法</span><span lang="en">Four breathing patterns</span></h2>
+    <div class="patterns">
+      <div><b><span lang="zh-Hant">方形呼吸 4-4-4-4</span><span lang="en">Box breathing 4-4-4-4</span></b>
+        <p><span lang="zh-Hant">吸 4、停 4、呼 4、停 4。節奏穩定，開會前、考試前用嚟定神。</span><span lang="en">In 4, hold 4, out 4, hold 4. A steady rhythm for settling before a meeting or exam.</span></p></div>
+      <div><b><span lang="zh-Hant">4-7-8 呼吸</span><span lang="en">4-7-8 breathing</span></b>
+        <p><span lang="zh-Hant">鼻吸 4 秒、閉氣 7 秒、口呼 8 秒。好多人瞓覺前用，初學做 4 輪就夠。</span><span lang="en">Nose in for 4, hold 7, mouth out for 8. Popular at bedtime; beginners can start with 4 rounds.</span></p></div>
+      <div><b><span lang="zh-Hant">平衡呼吸 5-5</span><span lang="en">Coherent breathing 5-5</span></b>
+        <p><span lang="zh-Hant">吸 5 秒、呼 5 秒，大約每分鐘 6 次。溫和、容易持續。</span><span lang="en">In 5, out 5, about six breaths a minute. Gentle and easy to keep going.</span></p></div>
+      <div><b><span lang="zh-Hant">放鬆呼吸 4-6</span><span lang="en">Calming breath 4-6</span></b>
+        <p><span lang="zh-Hant">呼氣比吸氣長，幫身體慢慢鬆落嚟。</span><span lang="en">A longer out-breath than in-breath helps the body slow down.</span></p></div>
+    </div>
+    <p class="muted" style="margin-top:12px">
+      <span lang="zh-Hant">如果覺得頭暈或唔舒服，請停低、恢復自然呼吸。懷孕、有心肺或其他健康狀況，閉氣前請先諮詢醫生。此工具唔能取代醫療。</span>
+      <span lang="en">If you feel dizzy or uncomfortable, stop and breathe normally. If you're pregnant or have a heart, lung or other health condition, check with your doctor before breath-holding. This tool is not a substitute for medical care.</span>
+    </p>
+  </section>
+
+  <section class="cta">
+    <h2><span lang="zh-Hant">加一滴香氣，呼吸更易入心。</span><span lang="en">Add a scent, and every breath goes deeper.</span></h2>
+    <p>
+      <span lang="zh-Hant">此刻 · 香頻：Julia 為你調配專屬精油香水，每次深呼吸都聞到屬於你嘅此刻。</span>
+      <span lang="en">Scent of Now: Julia blends a personal essential oil perfume, so each deep breath carries a scent that's yours.</span>
+    </p>
+    <div class="btns">
+      <a class="btn primary" id="ctaPerfume" href="/perfume/"><span lang="zh-Hant">了解客製香水</span><span lang="en">Explore custom perfume</span></a>
+      <a class="btn ghost" id="ctaWA" href="#" target="_blank" rel="noopener"><span lang="zh-Hant">WhatsApp Julia</span><span lang="en">WhatsApp Julia</span></a>
+    </div>
+  </section>
+
+  <section>
+    <h2><span lang="zh-Hant">常見問題</span><span lang="en">FAQ</span></h2>
+    <div lang="zh-Hant">
+      <details><summary>方形呼吸法點做？</summary><p>吸氣 4 秒、閉氣 4 秒、呼氣 4 秒、再閉氣 4 秒，重複幾輪。</p></details>
+      <details><summary>4-7-8 呼吸法點做？</summary><p>用鼻吸氣 4 秒，閉氣 7 秒，用口慢慢呼氣 8 秒。初學建議做 4 輪左右。</p></details>
+      <details><summary>每日做幾耐好？</summary><p>每次 3–5 分鐘已經好好。重要係恆常，唔係做得耐。</p></details>
+      <details><summary>小朋友可以做嗎？</summary><p>可以試短啲嘅節奏，例如吸 3 秒、呼 4 秒，唔好閉氣，由大人陪住做。</p></details>
+    </div>
+    <div lang="en">
+      <details><summary>What is box breathing?</summary><p>Breathe in for 4 seconds, hold for 4, out for 4, hold for 4, and repeat.</p></details>
+      <details><summary>How do you do 4-7-8 breathing?</summary><p>Breathe in through your nose for 4, hold for 7, breathe out through your mouth for 8. Start with about 4 rounds.</p></details>
+      <details><summary>How long should I practise?</summary><p>3–5 minutes a day works well. Doing it regularly matters more than doing it for long.</p></details>
+      <details><summary>Can children do this?</summary><p>Yes, with a shorter rhythm such as in 3, out 4, no breath-holding, and an adult alongside.</p></details>
+    </div>
+  </section>
+
+  <section>
+    <h2><span lang="zh-Hant">更多免費工具</span><span lang="en">More free tools</span></h2>
+    <div class="tools">
+      <a href="/tools/focus/"><b><span lang="zh-Hant">專注溫習計時器</span><span lang="en">Study Timer with Music</span></b><span lang="zh-Hant">番茄鐘＋雨聲、琴音</span><span lang="en">Pomodoro with rain or soft piano</span></a>
+      <a href="/tools/frequency/"><b><span lang="zh-Hant">頻率聲音播放器</span><span lang="en">Frequency Sound Player</span></b><span lang="zh-Hant">528Hz、432Hz、雙耳節拍</span><span lang="en">528 Hz, 432 Hz, binaural beats</span></a>
+      <a href="/tools/dilution/"><b><span lang="zh-Hant">精油稀釋計算器</span><span lang="en">Essential Oil Dilution Calculator</span></b><span lang="zh-Hant">幾多滴精油？一秒計到</span><span lang="en">How many drops for your bottle</span></a>
+    </div>
+  </section>
+
+  <footer>
+    <div><a href="/">此刻 · The Present</a> · Julia Yuen</div>
+    <div>WhatsApp <a href="https://wa.me/85296215876">+852 9621 5876</a> · <a href="mailto:hello@juliayuen.com">hello@juliayuen.com</a></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var WA = "https://wa.me/85296215876?text=";
+  var $ = function(id){return document.getElementById(id)};
+  var lang="zh", pat=[4,4,4,4], minutes=3, snd="flow", flow=null;
+  var running=false, phaseIdx=0, phaseEnd=0, sessionEnd=0, raf=null, ctx=null, wake=null, rounds=0, lastSec=-1;
+  var NAMES = { zh:["吸氣","閉氣","呼氣","閉氣"], en:["Breathe in","Hold","Breathe out","Hold"] };
+
+  function t(zh,en){return lang==="zh"?zh:en}
+  function patKey(){ return pat.join(","); }
+
+  function render(){
+    document.querySelectorAll("#patChips .chip").forEach(function(c){ c.setAttribute("aria-pressed", c.dataset.p===patKey()?"true":"false"); });
+    document.querySelectorAll("#timeChips .chip").forEach(function(c){ c.setAttribute("aria-pressed", parseFloat(c.dataset.min)===minutes?"true":"false"); });
+    document.querySelectorAll("#sndChips .chip").forEach(function(c){ c.setAttribute("aria-pressed", c.dataset.snd===snd?"true":"false"); });
+    $("sndHint").hidden = snd!=="flow";
+    for(var i=0;i<4;i++) if(document.activeElement!==$("s"+i)) $("s"+i).value = pat[i];
+    $("playLabel").textContent = running ? t("■ 停止","■ Stop") : t("▶ 開始","▶ Start");
+    if(!running){
+      $("phase").textContent = t("準備好","Ready");
+      $("count").textContent = pat.filter(function(x){return x>0}).join("·");
+    }
+  }
+
+  function chime(freq){
+    if(snd!=="chime" || !ctx) return;
+    var o=ctx.createOscillator(), g=ctx.createGain();
+    o.type="sine"; o.frequency.value=freq;
+    g.gain.setValueAtTime(0, ctx.currentTime);
+    g.gain.linearRampToValueAtTime(0.2*volScale()+0.001, ctx.currentTime+0.03);
+    g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime+1.2);
+    o.connect(g); g.connect(ctx.destination); o.start(); o.stop(ctx.currentTime+1.3);
+  }
+
+  function volScale(){ return Math.pow(parseInt($("bvol").value,10)/100, 1.5); }
+
+  // Breath-flow sound: a soft two-note tone plus airy noise that rise on the in-breath and fall on the out-breath
+  var LOW=196, HIGH=293.66;   // G3 -> D4
+  function flowStart(){
+    if(!ctx || flow) return;
+    var out=ctx.createGain(); out.gain.value=volScale(); out.connect(ctx.destination);
+    var tg=ctx.createGain(); tg.gain.value=0; tg.connect(out);
+    var o1=ctx.createOscillator(); o1.type="sine"; o1.frequency.value=LOW; o1.connect(tg);
+    var g2=ctx.createGain(); g2.gain.value=.35; g2.connect(tg);
+    var o2=ctx.createOscillator(); o2.type="sine"; o2.frequency.value=LOW*1.5; o2.connect(g2);
+    var len=ctx.sampleRate*2, buf=ctx.createBuffer(1,len,ctx.sampleRate), d=buf.getChannelData(0);
+    for(var i=0;i<len;i++) d[i]=Math.random()*2-1;
+    var nz=ctx.createBufferSource(); nz.buffer=buf; nz.loop=true;
+    var lp=ctx.createBiquadFilter(); lp.type="lowpass"; lp.frequency.value=300; lp.Q.value=.7;
+    var ng=ctx.createGain(); ng.gain.value=0;
+    nz.connect(lp); lp.connect(ng); ng.connect(out);
+    o1.start(); o2.start(); nz.start();
+    flow={out:out,tg:tg,o1:o1,o2:o2,nz:nz,lp:lp,ng:ng};
+  }
+  function ramp(param, v, when, dur){
+    param.cancelScheduledValues(when);
+    param.setValueAtTime(param.value, when);
+    param.linearRampToValueAtTime(v, when+Math.max(.05,dur));
+  }
+  function flowPhase(i, dur){
+    if(snd!=="flow" || !flow) return;
+    var n=ctx.currentTime, f=flow;
+    if(i===0){        // breathe in: rise and brighten
+      ramp(f.o1.frequency, HIGH, n, dur); ramp(f.o2.frequency, HIGH*1.5, n, dur);
+      ramp(f.tg.gain, .16, n, dur*.9); ramp(f.ng.gain, .10, n, dur*.9); ramp(f.lp.frequency, 1800, n, dur);
+    } else if(i===2){ // breathe out: fall and soften
+      ramp(f.o1.frequency, LOW, n, dur); ramp(f.o2.frequency, LOW*1.5, n, dur);
+      ramp(f.tg.gain, .03, n, dur); ramp(f.ng.gain, .015, n, dur); ramp(f.lp.frequency, 300, n, dur);
+    } else if(i===1){ // hold after in: settle, keep pitch
+      ramp(f.tg.gain, .07, n, 1.2); ramp(f.ng.gain, .02, n, 1.2); ramp(f.lp.frequency, 900, n, 1.2);
+    } else {          // hold after out: near silence
+      ramp(f.tg.gain, .015, n, 1); ramp(f.ng.gain, .004, n, 1);
+    }
+  }
+  function flowStop(){
+    if(!flow) return;
+    var f=flow; flow=null; var n=ctx.currentTime;
+    f.out.gain.cancelScheduledValues(n); f.out.gain.setValueAtTime(f.out.gain.value,n); f.out.gain.linearRampToValueAtTime(0,n+1.5);
+    setTimeout(function(){ try{f.o1.stop();f.o2.stop();f.nz.stop();f.out.disconnect();}catch(e){} }, 1800);
+  }
+
+  function enterPhase(i){
+    // skip zero-length phases
+    var guard=0;
+    while(pat[i]===0 && guard<4){ i=(i+1)%4; guard++; }
+    if(i===0 && running) rounds++;
+    phaseIdx=i;
+    var dur=pat[i];
+    phaseEnd = performance.now() + dur*1000;
+    var orb=$("orb");
+    orb.style.transitionDuration = dur+"s";
+    if(i===0) orb.style.transform="scale(1)";
+    else if(i===2) orb.style.transform="scale(.45)";
+    $("phase").textContent = NAMES[lang][i];
+    chime([528,396,432,396][i]);
+    flowPhase(i, dur);
+    if($("vibe").checked && navigator.vibrate) navigator.vibrate(i===0?[60]:i===2?[30,60,30]:[20]);
+    lastSec=-1;
+  }
+
+  function loop(now){
+    if(!running) return;
+    if(sessionEnd && Date.now()>=sessionEnd && phaseIdx===2 && now>=phaseEnd){ finish(); return; }
+    if(now>=phaseEnd){
+      var next=(phaseIdx+1)%4;
+      if(sessionEnd && Date.now()>=sessionEnd && next===0){ finish(); return; }
+      enterPhase(next);
+    }
+    var left=Math.ceil((phaseEnd-now)/1000);
+    if(left!==lastSec){ $("count").textContent=left; lastSec=left; updateStatus(); }
+    raf=requestAnimationFrame(loop);
+  }
+
+  function updateStatus(){
+    var txt = t("第 "+rounds+" 輪","Round "+rounds);
+    if(sessionEnd){
+      var s=Math.max(0,Math.round((sessionEnd-Date.now())/1000));
+      txt += " · " + t("剩餘 ","") + Math.floor(s/60)+":"+("0"+(s%60)).slice(-2) + t(""," left");
+    }
+    $("status").textContent = txt;
+  }
+
+  function start(){
+    try{ ctx = ctx || new (window.AudioContext||window.webkitAudioContext)(); if(ctx.state==="suspended") ctx.resume(); }catch(e){}
+    try{ if(navigator.wakeLock) navigator.wakeLock.request("screen").then(function(w){wake=w}).catch(function(){}); }catch(e){}
+    running=true; rounds=0;
+    sessionEnd = minutes>0 ? Date.now()+minutes*60000 : 0;
+    if(snd==="flow") flowStart();
+    render();
+    enterPhase(0);
+    raf=requestAnimationFrame(loop);
+  }
+
+  function stopAll(){
+    running=false; cancelAnimationFrame(raf); flowStop();
+    var orb=$("orb"); orb.style.transitionDuration="1.2s"; orb.style.transform="scale(.45)";
+    try{ if(wake){ wake.release(); wake=null; } }catch(e){}
+    render();
+  }
+  function finish(){
+    var r=rounds; stopAll();
+    $("phase").textContent = t("完成","Well done");
+    $("count").textContent = "";
+    $("status").textContent = t("完成 "+r+" 輪。感受一下此刻嘅你。","You completed "+r+" round"+(r===1?"":"s")+". Notice how you feel right now.");
+    chime(528);
+  }
+
+  // events
+  $("play").addEventListener("click", function(){ if(running){ stopAll(); $("status").textContent=""; } else start(); });
+  document.querySelectorAll("#patChips .chip").forEach(function(c){
+    c.addEventListener("click", function(){ pat=c.dataset.p.split(",").map(Number); render(); });
+  });
+  for(var i=0;i<4;i++)(function(i){
+    $("s"+i).addEventListener("change", function(){
+      var v=parseInt($("s"+i).value,10), min=(i===0||i===2)?1:0;
+      if(isNaN(v)) v=pat[i]; v=Math.max(min,Math.min(15,v)); pat[i]=v; render();
+    });
+  })(i);
+  document.querySelectorAll("#timeChips .chip").forEach(function(c){
+    c.addEventListener("click", function(){
+      minutes=parseFloat(c.dataset.min);
+      if(running) sessionEnd = minutes>0 ? Date.now()+minutes*60000 : 0;
+      render(); if(running) updateStatus();
+    });
+  });
+  document.querySelectorAll("#sndChips .chip").forEach(function(c){
+    c.addEventListener("click", function(){
+      snd=c.dataset.snd;
+      if(running){
+        if(snd==="flow"){ flowStart(); flowPhase(phaseIdx, Math.max(.5,(phaseEnd-performance.now())/1000)); }
+        else flowStop();
+      }
+      render();
+    });
+  });
+  $("bvol").addEventListener("input", function(){
+    if(flow){ flow.out.gain.cancelScheduledValues(ctx.currentTime); flow.out.gain.setTargetAtTime(volScale(), ctx.currentTime, .05); }
+  });
+  document.addEventListener("visibilitychange", function(){
+    if(document.visibilityState==="visible" && running && navigator.wakeLock && !wake){
+      navigator.wakeLock.request("screen").then(function(w){wake=w}).catch(function(){});
+    }
+  });
+
+  function setLang(l){
+    lang=l;
+    document.documentElement.setAttribute("data-lang", l);
+    document.documentElement.lang = l==="zh"?"zh-Hant":"en";
+    document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.setLang===l?"true":"false"); });
+    $("ctaPerfume").href = l==="zh" ? "/perfume/" : "/perfume/en/";
+    $("ctaWA").href = WA + encodeURIComponent(t("你好 Julia，我用咗你嘅呼吸練習計時器，想了解多啲。","Hi Julia, I used your breathing timer and I'd like to know more."));
+    try{ localStorage.setItem("jy-lang", l); }catch(e){}
+    if(running){ $("phase").textContent = NAMES[lang][phaseIdx]; updateStatus(); } else render();
+  }
+  document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.addEventListener("click", function(){ setLang(b.dataset.setLang); }); });
+
+  var q=new URLSearchParams(location.search).get("lang"), saved=null;
+  try{ saved=localStorage.getItem("jy-lang"); }catch(e){}
+  var initial=(q==="en"||q==="zh")?q:(saved==="en"||saved==="zh")?saved:(/^zh/i.test(navigator.language||"")?"zh":"en");
+  setLang(initial);
+})();
+</script>
+</body>
+</html>

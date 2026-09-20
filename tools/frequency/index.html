@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>528 Hz & Solfeggio Frequency Player 頻率聲音播放器 | 此刻 · The Present</title>
+<meta name="description" content="Free online frequency tone player: 528 Hz, 432 Hz, 396 Hz and all Solfeggio frequencies, plus binaural beats and a sleep timer. 免費線上頻率播放器：528Hz、432Hz、索菲亞頻率、雙耳節拍，附計時器。">
+<link rel="canonical" href="https://juliayuen.com/tools/frequency/">
+<meta property="og:title" content="Frequency Player 頻率聲音播放器 · 528 Hz / 432 Hz / Solfeggio">
+<meta property="og:description" content="Play 528 Hz, 432 Hz and Solfeggio tones in your browser. 喺瀏覽器直接播放 528Hz、432Hz 等頻率。">
+<meta property="og:url" content="https://juliayuen.com/tools/frequency/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Frequency Player 頻率聲音播放器",
+      "url": "https://juliayuen.com/tools/frequency/",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any",
+      "inLanguage": ["en", "zh-Hant"],
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "HKD"},
+      "creator": {"@type": "Person", "name": "Julia Yuen", "url": "https://juliayuen.com/"}
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "What is 528 Hz?",
+         "acceptedAnswer": {"@type": "Answer", "text": "528 Hz is one of the Solfeggio frequencies, a set of tones popular in sound meditation. Many people use it as a calm background tone for relaxation or meditation. Scientific evidence for specific effects is limited, so treat it as a relaxation aid."}},
+        {"@type": "Question", "name": "What are binaural beats?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Binaural beats play a slightly different tone in each ear, for example 200 Hz and 210 Hz. Your brain perceives a gentle 10 Hz pulse. You need headphones for this to work."}},
+        {"@type": "Question", "name": "What is the difference between 432 Hz and 440 Hz?",
+         "acceptedAnswer": {"@type": "Answer", "text": "440 Hz is the standard tuning pitch for the note A. 432 Hz is a slightly lower alternative tuning that some listeners find softer."}},
+        {"@type": "Question", "name": "528Hz 係咩？",
+         "acceptedAnswer": {"@type": "Answer", "text": "528Hz 係索菲亞頻率（Solfeggio）其中一個，常用喺冥想同放鬆時作背景音。科學研究有限，建議當作放鬆輔助。"}},
+        {"@type": "Question", "name": "雙耳節拍要戴耳筒嗎？",
+         "acceptedAnswer": {"@type": "Answer", "text": "要。雙耳節拍係左右耳播放略有不同嘅頻率，一定要戴耳筒先有效果。"}}
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --mint:#e6f2ec; --cream:#faf6ee; --paper:#ffffff;
+    --ink:#23332d; --ink-soft:#5b6b64; --line:#dfe6e1;
+    --green:#2f5d50; --green-soft:#d5e8de; --gold:#b89b5e; --gold-soft:#f3ecdc;
+    --warn:#8a5a2b; --radius:16px;
+    --serif:"Noto Serif TC","Songti TC",Georgia,serif;
+    --sans:"Noto Sans TC",-apple-system,"Segoe UI","PingFang TC",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;font-family:var(--sans);color:var(--ink);line-height:1.65;
+       background:linear-gradient(180deg,var(--mint) 0%,var(--cream) 42%,var(--cream) 100%);min-height:100vh}
+  a{color:var(--green)}
+  html[data-lang="zh"] [lang="en"]{display:none!important}
+  html[data-lang="en"] [lang="zh-Hant"]{display:none!important}
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px}
+  header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .brand{font-family:var(--serif);font-size:18px;color:var(--green);text-decoration:none;letter-spacing:.04em}
+  .langs{display:flex;gap:4px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:3px}
+  .langs button{border:0;background:none;font:inherit;font-size:13px;padding:5px 12px;border-radius:999px;cursor:pointer;color:var(--ink-soft)}
+  .langs button[aria-pressed="true"]{background:var(--green);color:#fff}
+  .hero{text-align:center;padding:28px 0 22px}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,5.5vw,38px);line-height:1.25;margin:8px 0 10px;color:var(--green)}
+  .hero p{margin:0 auto;max-width:520px;color:var(--ink-soft)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 2px rgba(35,51,45,.04),0 8px 28px rgba(47,93,80,.06)}
+  .field{margin-bottom:22px}
+  .label{display:block;font-weight:500;margin-bottom:10px;font-size:15px}
+  .label small{font-weight:400;color:var(--ink-soft);margin-left:6px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;font-size:14px;
+        padding:8px 14px;border-radius:999px;cursor:pointer;transition:background .15s,border-color .15s;min-height:40px}
+  .chip:hover{border-color:var(--green)}
+  .chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+  .chip .sub{opacity:.7;font-size:12px;margin-left:4px}
+  .row{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
+  input[type=number]{font:inherit;font-size:16px;width:110px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;color:var(--ink);background:var(--cream)}
+  input[type=number]:focus,select:focus,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  select{font:inherit;font-size:15px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--cream);color:var(--ink)}
+  input[type=range]{flex:1;min-width:160px;accent-color:var(--green)}
+  .muted{color:var(--ink-soft);font-size:13px}
+  section{margin-top:40px}
+  h2{font-family:var(--serif);font-weight:600;color:var(--green);font-size:22px;margin:0 0 14px}
+  .cta{background:linear-gradient(135deg,var(--green) 0%,#3f7565 100%);color:#fff;border-radius:var(--radius);padding:26px 22px;text-align:center}
+  .cta h2{color:#fff}
+  .cta p{margin:0 auto 18px;max-width:480px;opacity:.92}
+  .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:500;font-size:15px}
+  .btn.primary{background:var(--gold-soft);color:var(--green)}
+  .btn.ghost{border:1px solid rgba(255,255,255,.6);color:#fff}
+  details{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:8px}
+  summary{cursor:pointer;font-weight:500}
+  details p{margin:8px 0 2px;color:var(--ink-soft)}
+  .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+  .tools a{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--ink)}
+  .tools a:hover{border-color:var(--green)}
+  .tools b{display:block;color:var(--green);font-family:var(--serif)}
+  .tools span{font-size:13px;color:var(--ink-soft)}
+  footer{margin:48px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--ink-soft)}
+  footer a{color:var(--ink-soft)}
+
+  /* player */
+  .stage{position:relative;height:220px;display:flex;align-items:center;justify-content:center;margin:-4px 0 12px}
+  .ring{position:absolute;width:150px;height:150px;border-radius:50%;border:1.5px solid var(--gold);opacity:0}
+  .playing .ring{animation:ripple 4s ease-out infinite}
+  .playing .ring:nth-child(2){animation-delay:1.33s}
+  .playing .ring:nth-child(3){animation-delay:2.66s}
+  @keyframes ripple{0%{transform:scale(.8);opacity:.7}100%{transform:scale(1.45);opacity:0}}
+  .core{position:relative;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0%,var(--gold-soft) 45%,var(--green-soft) 100%);
+        display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(47,93,80,.15)}
+  .hz{font-family:var(--serif);font-size:40px;line-height:1;color:var(--green);font-variant-numeric:tabular-nums}
+  .hz small{font-size:16px;margin-left:2px}
+  .hzname{font-size:12px;color:var(--ink-soft);margin-top:6px;text-align:center;padding:0 10px}
+  .play{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 auto 18px;border:0;background:var(--green);color:#fff;
+        font:inherit;font-size:16px;font-weight:500;padding:14px 32px;border-radius:999px;cursor:pointer;min-width:180px}
+  .play:hover{filter:brightness(1.08)}
+  .status{text-align:center;font-size:14px;color:var(--ink-soft);min-height:22px;font-variant-numeric:tabular-nums}
+  .seg{display:inline-flex;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+  .seg button{border:0;background:none;font:inherit;font-size:14px;padding:7px 14px;border-radius:999px;cursor:pointer;color:var(--ink-soft)}
+  .seg button[aria-pressed="true"]{background:var(--paper);color:var(--green);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  .note{margin-top:10px;font-size:13px;color:var(--warn);background:#fbf3e8;border-radius:10px;padding:10px 12px}
+  .freqlist{display:grid;gap:8px}
+  .freqlist div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;gap:14px;align-items:baseline}
+  .freqlist b{color:var(--green);min-width:62px;font-variant-numeric:tabular-nums}
+  .freqlist span{font-size:14px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <a class="brand" href="/">此刻 · The Present</a>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-set-lang="zh" aria-pressed="true">繁</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">Free Tool · 免費工具</div>
+    <h1><span lang="zh-Hant">頻率聲音播放器</span><span lang="en">Frequency Sound Player</span></h1>
+    <p>
+      <span lang="zh-Hant">528Hz、432Hz 同索菲亞頻率，一撳就播。可以設定時間，靜靜陪你冥想、休息。</span>
+      <span lang="en">Play 528 Hz, 432 Hz and the Solfeggio tones right in your browser. Set a timer and let it keep you company while you rest or meditate.</span>
+    </p>
+  </div>
+
+  <main class="card">
+    <div class="stage" id="stage">
+      <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+      <div class="core">
+        <div class="hz"><span id="hzNum">528</span><small>Hz</small></div>
+        <div class="hzname" id="hzName"></div>
+      </div>
+    </div>
+
+    <button type="button" class="play" id="play" aria-pressed="false">
+      <span id="playLabel"></span>
+    </button>
+    <div class="status" id="status" aria-live="polite"></div>
+
+    <div class="field" style="margin-top:18px">
+      <span class="label"><span lang="zh-Hant">① 揀頻率</span><span lang="en">① Choose a frequency</span></span>
+      <div class="chips" id="freqChips"></div>
+      <div class="row">
+        <label class="muted" for="hz"><span lang="zh-Hant">自訂：</span><span lang="en">Custom:</span></label>
+        <input type="number" id="hz" min="20" max="2000" step="1" value="528" inputmode="decimal">
+        <span>Hz</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="label"><span lang="zh-Hant">② 聲音模式</span><span lang="en">② Sound mode</span></span>
+      <div class="seg" role="group" id="modeSeg">
+        <button type="button" data-mode="pure" aria-pressed="true"><span lang="zh-Hant">純音</span><span lang="en">Pure tone</span></button>
+        <button type="button" data-mode="binaural" aria-pressed="false"><span lang="zh-Hant">雙耳節拍 🎧</span><span lang="en">Binaural 🎧</span></button>
+      </div>
+      <div id="beatRow" hidden>
+        <div class="chips" id="beatChips" style="margin-top:12px">
+          <button type="button" class="chip" data-beat="2"><span lang="zh-Hant">深睡 δ</span><span lang="en">Deep sleep δ</span><span class="sub">2 Hz</span></button>
+          <button type="button" class="chip" data-beat="6"><span lang="zh-Hant">冥想 θ</span><span lang="en">Meditation θ</span><span class="sub">6 Hz</span></button>
+          <button type="button" class="chip" data-beat="10" aria-pressed="true"><span lang="zh-Hant">放鬆 α</span><span lang="en">Relaxed α</span><span class="sub">10 Hz</span></button>
+          <button type="button" class="chip" data-beat="14"><span lang="zh-Hant">專注 β</span><span lang="en">Focus β</span><span class="sub">14 Hz</span></button>
+        </div>
+        <div class="note">
+          <span lang="zh-Hant">雙耳節拍要戴耳筒：左耳 <b id="lHz"></b> Hz，右耳 <b id="rHz"></b> Hz。</span>
+          <span lang="en">Use headphones: left ear <b id="lHzE"></b> Hz, right ear <b id="rHzE"></b> Hz.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="label"><span lang="zh-Hant">③ 播放時間</span><span lang="en">③ Timer</span></span>
+      <div class="chips" id="timeChips">
+        <button type="button" class="chip" data-min="5">5 min</button>
+        <button type="button" class="chip" data-min="10" aria-pressed="true">10 min</button>
+        <button type="button" class="chip" data-min="20">20 min</button>
+        <button type="button" class="chip" data-min="30">30 min</button>
+        <button type="button" class="chip" data-min="60">60 min</button>
+        <button type="button" class="chip" data-min="0"><span lang="zh-Hant">不限</span><span lang="en">No limit</span></button>
+      </div>
+    </div>
+
+    <div class="field" style="margin-bottom:0">
+      <label class="label" for="vol"><span lang="zh-Hant">④ 音量</span><span lang="en">④ Volume</span></label>
+      <div class="row" style="margin-top:0">
+        <input type="range" id="vol" min="0" max="100" value="35" aria-label="Volume">
+        <span class="muted" id="volPct">35%</span>
+      </div>
+      <p class="muted" style="margin:10px 0 0">
+        <span lang="zh-Hant">建議由細聲開始，以舒服為準。時間到會慢慢淡出。</span>
+        <span lang="en">Start quiet and keep it comfortable. The sound fades out gently when the timer ends.</span>
+      </p>
+    </div>
+  </main>
+
+  <section>
+    <h2><span lang="zh-Hant">常見頻率一覽</span><span lang="en">Frequency guide</span></h2>
+    <div class="freqlist" id="freqList"></div>
+    <p class="muted" style="margin-top:12px">
+      <span lang="zh-Hant">以上係冥想同聲音療癒圈子嘅傳統講法，科學研究仍然有限，請當作放鬆輔助，唔能取代醫療。駕駛或操作機器時請勿使用。</span>
+      <span lang="en">These are traditional associations from sound-meditation practice. Scientific evidence is limited, so use them as a relaxation aid, not a medical treatment. Don't listen while driving or operating machinery.</span>
+    </p>
+  </section>
+
+  <section class="cta">
+    <h2><span lang="zh-Hant">聲音係頻率，你都係。</span><span lang="en">Sound is frequency. So are you.</span></h2>
+    <p>
+      <span lang="zh-Hant">想了解你自己嘅資訊場而家處於咩狀態？Julia 用 TimeWaver 同你一齊睇見卡點、慢慢調和。</span>
+      <span lang="en">Curious about your own information field? Julia uses TimeWaver to help you see where you feel stuck and gently rebalance.</span>
+    </p>
+    <div class="btns">
+      <a class="btn primary" href="/"><span lang="zh-Hant">了解 TimeWaver 諮詢</span><span lang="en">Explore TimeWaver sessions</span></a>
+      <a class="btn ghost" id="ctaWA" href="#" target="_blank" rel="noopener"><span lang="zh-Hant">WhatsApp Julia</span><span lang="en">WhatsApp Julia</span></a>
+    </div>
+  </section>
+
+  <section>
+    <h2><span lang="zh-Hant">常見問題</span><span lang="en">FAQ</span></h2>
+    <div lang="zh-Hant">
+      <details><summary>528Hz 係咩？</summary><p>528Hz 係索菲亞頻率其中一個，常用喺冥想同放鬆時作背景音。科學研究有限，建議當作放鬆輔助。</p></details>
+      <details><summary>雙耳節拍要戴耳筒嗎？</summary><p>要。左右耳播放略有不同嘅頻率，例如 200Hz 同 210Hz，大腦會感受到 10Hz 嘅輕柔律動。冇耳筒就冇效果。</p></details>
+      <details><summary>432Hz 同 440Hz 有咩分別？</summary><p>440Hz 係 A 音嘅國際標準音高；432Hz 係稍低嘅另一種調音，有人覺得聽落較柔和。</p></details>
+      <details><summary>聽幾耐好？</summary><p>一般 10–20 分鐘已經足夠。以自己舒服為準，唔需要長時間播放。</p></details>
+    </div>
+    <div lang="en">
+      <details><summary>What is 528 Hz?</summary><p>It's one of the Solfeggio frequencies, often used as a calm background tone for meditation. Evidence for specific effects is limited, so think of it as a relaxation aid.</p></details>
+      <details><summary>Do binaural beats need headphones?</summary><p>Yes. Each ear hears a slightly different tone, such as 200 Hz and 210 Hz, and your brain perceives a gentle 10 Hz pulse. Speakers won't create the effect.</p></details>
+      <details><summary>What's the difference between 432 Hz and 440 Hz?</summary><p>440 Hz is the standard tuning pitch for the note A. 432 Hz is a slightly lower tuning that some listeners find softer.</p></details>
+      <details><summary>How long should I listen?</summary><p>10–20 minutes is plenty for most people. Go by what feels comfortable.</p></details>
+    </div>
+  </section>
+
+  <section>
+    <h2><span lang="zh-Hant">更多免費工具</span><span lang="en">More free tools</span></h2>
+    <div class="tools">
+      <a href="/tools/focus/"><b><span lang="zh-Hant">專注溫習計時器</span><span lang="en">Study Timer with Music</span></b><span lang="zh-Hant">番茄鐘＋雨聲、琴音</span><span lang="en">Pomodoro with rain or soft piano</span></a>
+      <a href="/tools/breathing/"><b><span lang="zh-Hant">呼吸練習計時器</span><span lang="en">Breathing Timer</span></b><span lang="zh-Hant">4-7-8、方形呼吸，跟住圓圈一呼一吸</span><span lang="en">4-7-8 and box breathing with a guided circle</span></a>
+      <a href="/tools/dilution/"><b><span lang="zh-Hant">精油稀釋計算器</span><span lang="en">Essential Oil Dilution Calculator</span></b><span lang="zh-Hant">幾多滴精油？一秒計到</span><span lang="en">How many drops for your bottle</span></a>
+    </div>
+  </section>
+
+  <footer>
+    <div><a href="/">此刻 · The Present</a> · Julia Yuen</div>
+    <div>WhatsApp <a href="https://wa.me/85296215876">+852 9621 5876</a> · <a href="mailto:hello@juliayuen.com">hello@juliayuen.com</a></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var FREQS = [
+    {hz:174, zh:"安穩・放下緊繃", en:"Grounding, easing tension"},
+    {hz:285, zh:"修復・回到平衡", en:"Restoring balance"},
+    {hz:396, zh:"釋放恐懼同內疚", en:"Releasing fear and guilt"},
+    {hz:417, zh:"轉化・迎接改變", en:"Welcoming change"},
+    {hz:432, zh:"自然調音・柔和", en:"Natural tuning, soft and warm"},
+    {hz:528, zh:"愛之頻率・轉化", en:"The 'love frequency'"},
+    {hz:639, zh:"關係・連結", en:"Connection and relationships"},
+    {hz:741, zh:"清理・表達", en:"Clearing and self-expression"},
+    {hz:852, zh:"直覺・回歸內在", en:"Intuition, turning inward"},
+    {hz:963, zh:"合一・寧靜", en:"Oneness and stillness"}
+  ];
+  var WA = "https://wa.me/85296215876?text=";
+  var $ = function(id){return document.getElementById(id)};
+  var lang="zh", mode="pure", beat=10, minutes=10, hz=528;
+  var ctx=null, master=null, oscs=[], endTimer=null, tick=null, endAt=0, playing=false;
+
+  function t(zh,en){return lang==="zh"?zh:en}
+  function info(h){ for(var i=0;i<FREQS.length;i++) if(FREQS[i].hz===h) return FREQS[i]; return null; }
+
+  // build chips + list
+  var chipHtml="", listHtml="";
+  FREQS.forEach(function(f){
+    chipHtml += '<button type="button" class="chip" data-hz="'+f.hz+'">'+f.hz+' Hz</button>';
+    listHtml += '<div><b>'+f.hz+' Hz</b><span><span lang="zh-Hant">'+f.zh+'</span><span lang="en">'+f.en+'</span></span></div>';
+  });
+  $("freqChips").innerHTML = chipHtml;
+  $("freqList").innerHTML = listHtml;
+
+  function vol(){ return Math.pow(parseInt($("vol").value,10)/100, 2) * 0.5; }
+
+  function render(){
+    $("hzNum").textContent = hz;
+    var f = info(hz);
+    $("hzName").textContent = f ? t(f.zh, f.en) : (mode==="binaural" ? t("自訂頻率","Custom") : t("自訂頻率","Custom tone"));
+    document.querySelectorAll("#freqChips .chip").forEach(function(c){ c.setAttribute("aria-pressed", parseFloat(c.dataset.hz)===hz ? "true":"false"); });
+    document.querySelectorAll("#modeSeg button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.mode===mode ? "true":"false"); });
+    document.querySelectorAll("#beatChips .chip").forEach(function(c){ c.setAttribute("aria-pressed", parseFloat(c.dataset.beat)===beat ? "true":"false"); });
+    document.querySelectorAll("#timeChips .chip").forEach(function(c){ c.setAttribute("aria-pressed", parseFloat(c.dataset.min)===minutes ? "true":"false"); });
+    $("beatRow").hidden = mode!=="binaural";
+    var l = hz - beat/2, r = hz + beat/2;
+    $("lHz").textContent = $("lHzE").textContent = +l.toFixed(1);
+    $("rHz").textContent = $("rHzE").textContent = +r.toFixed(1);
+    $("playLabel").textContent = playing ? t("■ 停止","■ Stop") : t("▶ 播放","▶ Play");
+    $("play").setAttribute("aria-pressed", playing?"true":"false");
+    $("stage").classList.toggle("playing", playing);
+    $("volPct").textContent = $("vol").value + "%";
+    if(!playing) $("status").textContent = "";
+  }
+
+  function buildVoices(){
+    oscs.forEach(function(o){ try{o.stop()}catch(e){} });
+    oscs = [];
+    if(mode==="pure"){
+      var o = ctx.createOscillator(); o.type="sine"; o.frequency.value=hz;
+      o.connect(master); o.start(); oscs.push(o);
+    } else {
+      [[hz-beat/2,-1],[hz+beat/2,1]].forEach(function(p){
+        var o = ctx.createOscillator(); o.type="sine"; o.frequency.value=p[0];
+        var pan = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
+        if(pan){ pan.pan.value=p[1]; o.connect(pan); pan.connect(master); } else { o.connect(master); }
+        o.start(); oscs.push(o);
+      });
+    }
+  }
+
+  function start(){
+    ctx = ctx || new (window.AudioContext||window.webkitAudioContext)();
+    if(ctx.state==="suspended") ctx.resume();
+    master = ctx.createGain(); master.gain.value = 0; master.connect(ctx.destination);
+    buildVoices();
+    master.gain.setTargetAtTime(vol(), ctx.currentTime, 0.4);   // soft fade in
+    playing = true;
+    clearTimeout(endTimer); clearInterval(tick);
+    if(minutes>0){
+      endAt = Date.now() + minutes*60000;
+      endTimer = setTimeout(function(){ stop(true); }, minutes*60000);
+    }
+    tick = setInterval(updateStatus, 1000); updateStatus();
+    render();
+  }
+
+  function stop(finished){
+    if(!playing) return;
+    playing = false;
+    clearTimeout(endTimer); clearInterval(tick);
+    var m = master, os = oscs; oscs = [];
+    m.gain.cancelScheduledValues(ctx.currentTime);
+    m.gain.setTargetAtTime(0, ctx.currentTime, finished ? 1.2 : 0.25);   // fade out
+    setTimeout(function(){ os.forEach(function(o){try{o.stop()}catch(e){}}); m.disconnect(); }, finished ? 6000 : 1500);
+    render();
+    if(finished) $("status").textContent = t("完成。慢慢張開眼，感受吓此刻。","Done. Take a moment before you move on.");
+  }
+
+  function updateStatus(){
+    if(!playing) return;
+    if(minutes===0){ $("status").textContent = t("播放中","Playing"); return; }
+    var s = Math.max(0, Math.round((endAt-Date.now())/1000));
+    $("status").textContent = t("剩餘 ","Time left ") + Math.floor(s/60) + ":" + ("0"+(s%60)).slice(-2);
+  }
+
+  function retune(){
+    if(!playing) return;
+    if(mode==="pure" && oscs.length===1){ oscs[0].frequency.setTargetAtTime(hz, ctx.currentTime, 0.05); }
+    else if(mode==="binaural" && oscs.length===2){
+      oscs[0].frequency.setTargetAtTime(hz-beat/2, ctx.currentTime, 0.05);
+      oscs[1].frequency.setTargetAtTime(hz+beat/2, ctx.currentTime, 0.05);
+    } else { buildVoices(); }
+  }
+
+  // events
+  $("play").addEventListener("click", function(){ playing ? stop(false) : start(); });
+  document.querySelectorAll("#freqChips .chip").forEach(function(c){
+    c.addEventListener("click", function(){ hz=parseFloat(c.dataset.hz); $("hz").value=hz; retune(); render(); });
+  });
+  $("hz").addEventListener("change", function(){
+    var v = parseFloat($("hz").value); if(!(v>=20&&v<=2000)){ $("hz").value=hz; return; }
+    hz=v; retune(); render();
+  });
+  document.querySelectorAll("#modeSeg button").forEach(function(b){
+    b.addEventListener("click", function(){ mode=b.dataset.mode; if(playing) buildVoices(); render(); });
+  });
+  document.querySelectorAll("#beatChips .chip").forEach(function(c){
+    c.addEventListener("click", function(){ beat=parseFloat(c.dataset.beat); retune(); render(); });
+  });
+  document.querySelectorAll("#timeChips .chip").forEach(function(c){
+    c.addEventListener("click", function(){
+      minutes=parseFloat(c.dataset.min);
+      if(playing){ clearTimeout(endTimer);
+        if(minutes>0){ endAt=Date.now()+minutes*60000; endTimer=setTimeout(function(){stop(true)}, minutes*60000); }
+        updateStatus(); }
+      render();
+    });
+  });
+  $("vol").addEventListener("input", function(){
+    if(playing) master.gain.setTargetAtTime(vol(), ctx.currentTime, 0.05);
+    render();
+  });
+
+  function setLang(l){
+    lang=l;
+    document.documentElement.setAttribute("data-lang", l);
+    document.documentElement.lang = l==="zh"?"zh-Hant":"en";
+    document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.setLang===l?"true":"false"); });
+    $("ctaWA").href = WA + encodeURIComponent(t("你好 Julia，我用咗你嘅頻率播放器，想了解 TimeWaver 諮詢。","Hi Julia, I used your frequency player and I'd like to know more about TimeWaver sessions."));
+    try{ localStorage.setItem("jy-lang", l); }catch(e){}
+    render(); updateStatus();
+  }
+  document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.addEventListener("click", function(){ setLang(b.dataset.setLang); }); });
+
+  var q = new URLSearchParams(location.search).get("lang"), saved=null;
+  try{ saved = localStorage.getItem("jy-lang"); }catch(e){}
+  var initial = (q==="en"||q==="zh") ? q : (saved==="en"||saved==="zh") ? saved : (/^zh/i.test(navigator.language||"") ? "zh" : "en");
+  setLang(initial);
+})();
+</script>
+</body>
+</html>

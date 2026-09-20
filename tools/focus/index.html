@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Timer with Music · Pomodoro Focus Timer 專注溫習計時器 | 此刻 · The Present</title>
+<meta name="description" content="Free study timer with calming background music: Pomodoro 25/5, 50/10 flow sessions and 90-minute deep study, with rain, brown noise, soft piano or focus binaural beats. 免費溫習計時器：番茄鐘、50/10 心流、90 分鐘深度溫習，配雨聲、棕噪音、琴音或專注頻率。">
+<link rel="canonical" href="https://juliayuen.com/tools/focus/">
+<meta property="og:title" content="Study Timer + Music 專注溫習計時器">
+<meta property="og:description" content="Pomodoro timer with rain, brown noise and soft piano. 番茄鐘＋溫習音樂，一頁搞掂。">
+<meta property="og:url" content="https://juliayuen.com/tools/focus/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Study Timer with Music 專注溫習計時器",
+      "url": "https://juliayuen.com/tools/focus/",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any",
+      "inLanguage": ["en", "zh-Hant"],
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "HKD"},
+      "creator": {"@type": "Person", "name": "Julia Yuen", "url": "https://juliayuen.com/"}
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "What is the Pomodoro technique?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Work with full focus for 25 minutes, then take a 5-minute break. Short, clear blocks make it easier to start and to keep going."}},
+        {"@type": "Question", "name": "What is the best background sound for studying?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Steady sounds without lyrics work best for most people: rain, brown noise or soft instrumental music. Keep the volume low so it masks distractions without pulling your attention."}},
+        {"@type": "Question", "name": "What is brown noise?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Brown noise is a deep, low rumble, like a waterfall or strong wind. It sounds softer than white noise and many people find it easier to focus with."}},
+        {"@type": "Question", "name": "番茄鐘溫習法係咩？",
+         "acceptedAnswer": {"@type": "Answer", "text": "專心溫習 25 分鐘，然後休息 5 分鐘，重複幾輪。時間短而清晰，較容易開始同堅持。"}},
+        {"@type": "Question", "name": "溫習聽咩音樂好？",
+         "acceptedAnswer": {"@type": "Answer", "text": "冇歌詞、穩定嘅聲音最適合，例如雨聲、棕噪音或輕柔琴音。音量要細，蓋過雜音就夠。"}}
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --mint:#e6f2ec; --cream:#faf6ee; --paper:#ffffff;
+    --ink:#23332d; --ink-soft:#5b6b64; --line:#dfe6e1;
+    --green:#2f5d50; --green-soft:#d5e8de; --gold:#b89b5e; --gold-soft:#f3ecdc;
+    --warn:#8a5a2b; --radius:16px;
+    --serif:"Noto Serif TC","Songti TC",Georgia,serif;
+    --sans:"Noto Sans TC",-apple-system,"Segoe UI","PingFang TC",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;font-family:var(--sans);color:var(--ink);line-height:1.65;
+       background:linear-gradient(180deg,var(--mint) 0%,var(--cream) 42%,var(--cream) 100%);min-height:100vh}
+  a{color:var(--green)}
+  html[data-lang="zh"] [lang="en"]{display:none!important}
+  html[data-lang="en"] [lang="zh-Hant"]{display:none!important}
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px}
+  header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .brand{font-family:var(--serif);font-size:18px;color:var(--green);text-decoration:none;letter-spacing:.04em}
+  .langs{display:flex;gap:4px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:3px}
+  .langs button{border:0;background:none;font:inherit;font-size:13px;padding:5px 12px;border-radius:999px;cursor:pointer;color:var(--ink-soft)}
+  .langs button[aria-pressed="true"]{background:var(--green);color:#fff}
+  .hero{text-align:center;padding:28px 0 22px}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,5.5vw,38px);line-height:1.25;margin:8px 0 10px;color:var(--green)}
+  .hero p{margin:0 auto;max-width:520px;color:var(--ink-soft)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 2px rgba(35,51,45,.04),0 8px 28px rgba(47,93,80,.06)}
+  .field{margin-bottom:22px}
+  .label{display:block;font-weight:500;margin-bottom:10px;font-size:15px}
+  .label small{font-weight:400;color:var(--ink-soft);margin-left:6px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;font-size:14px;
+        padding:8px 14px;border-radius:999px;cursor:pointer;transition:background .15s,border-color .15s;min-height:40px}
+  .chip:hover{border-color:var(--green)}
+  .chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+  .chip .sub{opacity:.7;font-size:12px;margin-left:4px}
+  .row{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
+  input[type=number]{font:inherit;font-size:16px;width:110px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;color:var(--ink);background:var(--cream)}
+  input[type=number]:focus,select:focus,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  select{font:inherit;font-size:15px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--cream);color:var(--ink)}
+  input[type=range]{flex:1;min-width:160px;accent-color:var(--green)}
+  .muted{color:var(--ink-soft);font-size:13px}
+  section{margin-top:40px}
+  h2{font-family:var(--serif);font-weight:600;color:var(--green);font-size:22px;margin:0 0 14px}
+  .cta{background:linear-gradient(135deg,var(--green) 0%,#3f7565 100%);color:#fff;border-radius:var(--radius);padding:26px 22px;text-align:center}
+  .cta h2{color:#fff}
+  .cta p{margin:0 auto 18px;max-width:480px;opacity:.92}
+  .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:500;font-size:15px}
+  .btn.primary{background:var(--gold-soft);color:var(--green)}
+  .btn.ghost{border:1px solid rgba(255,255,255,.6);color:#fff}
+  details{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:8px}
+  summary{cursor:pointer;font-weight:500}
+  details p{margin:8px 0 2px;color:var(--ink-soft)}
+  .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+  .tools a{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--ink)}
+  .tools a:hover{border-color:var(--green)}
+  .tools b{display:block;color:var(--green);font-family:var(--serif)}
+  .tools span{font-size:13px;color:var(--ink-soft)}
+  footer{margin:48px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--ink-soft)}
+  footer a{color:var(--ink-soft)}
+
+
+  /* focus timer */
+  .dial{position:relative;width:260px;height:260px;margin:0 auto 14px}
+  .dial svg{width:100%;height:100%;transform:rotate(-90deg)}
+  .dial .track{fill:none;stroke:var(--mint);stroke-width:10}
+  .dial .prog{fill:none;stroke:var(--green);stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset .3s linear,stroke .4s}
+  .dial.break .prog{stroke:var(--gold)}
+  .dial .center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .phase{font-size:14px;letter-spacing:.12em;color:var(--ink-soft)}
+  .time{font-family:var(--serif);font-size:56px;line-height:1.1;color:var(--green);font-variant-numeric:tabular-nums}
+  .dial.break .time{color:var(--gold)}
+  .round{font-size:13px;color:var(--ink-soft)}
+  .controls{display:flex;gap:10px;justify-content:center;align-items:center;margin-bottom:8px}
+  .play{border:0;background:var(--green);color:#fff;font:inherit;font-size:16px;font-weight:500;padding:14px 32px;border-radius:999px;cursor:pointer;min-width:150px}
+  .play:hover{filter:brightness(1.08)}
+  .ghostbtn{border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);font:inherit;font-size:14px;padding:12px 16px;border-radius:999px;cursor:pointer}
+  .ghostbtn:hover{border-color:var(--green);color:var(--green)}
+  .status{text-align:center;font-size:14px;color:var(--ink-soft);min-height:22px;margin-bottom:18px}
+  .custom{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .custom label{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-soft);background:var(--cream);border-radius:12px;padding:6px 12px}
+  .custom input{width:64px;text-align:center;background:var(--paper)}
+  .toggles{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px}
+  .toggles label{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+  .toggles input{width:18px;height:18px;accent-color:var(--green)}
+  .tips{display:grid;gap:10px}
+  .tips div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .tips b{color:var(--green)}
+  .tips p{margin:4px 0 0;font-size:14px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <a class="brand" href="/">此刻 · The Present</a>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-set-lang="zh" aria-pressed="true">繁</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">Free Tool · 免費工具</div>
+    <h1><span lang="zh-Hant">專注溫習計時器</span><span lang="en">Study Timer with Music</span></h1>
+    <p>
+      <span lang="zh-Hant">揀節奏、揀背景聲，撳開始就專心。時間到會輕聲提你休息。</span>
+      <span lang="en">Pick a rhythm and a background sound, press start and focus. A gentle chime tells you when to rest.</span>
+    </p>
+  </div>
+
+  <main class="card">
+    <div class="dial" id="dial">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <circle class="track" cx="60" cy="60" r="52"/>
+        <circle class="prog" id="prog" cx="60" cy="60" r="52"/>
+      </svg>
+      <div class="center" aria-live="polite">
+        <div class="phase" id="phase"></div>
+        <div class="time" id="time">25:00</div>
+        <div class="round" id="round"></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button type="button" class="ghostbtn" id="reset" aria-label="Reset">↺</button>
+      <button type="button" class="play" id="play"></button>
+      <button type="button" class="ghostbtn" id="skip"><span lang="zh-Hant">跳過 ›</span><span lang="en">Skip ›</span></button>
+    </div>
+    <div class="status" id="status"></div>
+
+    <div class="field">
+      <span class="label"><span lang="zh-Hant">① 溫習節奏</span><span lang="en">① Study rhythm</span></span>
+      <div class="chips" id="preChips">
+        <button type="button" class="chip" data-f="25" data-b="5"><span lang="zh-Hant">番茄鐘</span><span lang="en">Pomodoro</span><span class="sub">25/5</span></button>
+        <button type="button" class="chip" data-f="50" data-b="10"><span lang="zh-Hant">心流</span><span lang="en">Flow</span><span class="sub">50/10</span></button>
+        <button type="button" class="chip" data-f="90" data-b="15"><span lang="zh-Hant">深度溫習</span><span lang="en">Deep study</span><span class="sub">90/15</span></button>
+        <button type="button" class="chip" data-f="15" data-b="3"><span lang="zh-Hant">熱身</span><span lang="en">Warm-up</span><span class="sub">15/3</span></button>
+      </div>
+      <div class="custom">
+        <label><span lang="zh-Hant">專注</span><span lang="en">Focus</span><input type="number" id="fMin" min="1" max="180" inputmode="numeric"><span lang="zh-Hant">分鐘</span><span lang="en">min</span></label>
+        <label><span lang="zh-Hant">休息</span><span lang="en">Break</span><input type="number" id="bMin" min="1" max="60" inputmode="numeric"><span lang="zh-Hant">分鐘</span><span lang="en">min</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="label"><span lang="zh-Hant">② 背景聲音</span><span lang="en">② Background sound</span></span>
+      <div class="chips" id="musChips">
+        <button type="button" class="chip" data-mus="rain"><span lang="zh-Hant">雨聲</span><span lang="en">Rain</span></button>
+        <button type="button" class="chip" data-mus="brown"><span lang="zh-Hant">棕噪音</span><span lang="en">Brown noise</span></button>
+        <button type="button" class="chip" data-mus="pink"><span lang="zh-Hant">粉紅噪音</span><span lang="en">Pink noise</span></button>
+        <button type="button" class="chip" data-mus="piano"><span lang="zh-Hant">輕柔琴音</span><span lang="en">Soft piano</span></button>
+        <button type="button" class="chip" data-mus="beta"><span lang="zh-Hant">專注頻率 🎧</span><span lang="en">Focus beats 🎧</span></button>
+        <button type="button" class="chip" data-mus="off"><span lang="zh-Hant">靜音</span><span lang="en">Silent</span></button>
+      </div>
+      <p class="muted" id="musHint" style="margin:8px 0 0"></p>
+      <div style="display:flex;align-items:center;gap:10px;margin-top:10px">
+        <span class="muted"><span lang="zh-Hant">音量</span><span lang="en">Volume</span></span>
+        <input type="range" id="vol" min="0" max="100" value="40" style="flex:1" aria-label="Volume">
+        <button type="button" class="ghostbtn" id="preview" style="padding:6px 12px"><span lang="zh-Hant">試聽</span><span lang="en">Preview</span></button>
+      </div>
+      <div class="toggles">
+        <label><input type="checkbox" id="breakMusic"><span lang="zh-Hant">休息時都播</span><span lang="en">Keep playing on breaks</span></label>
+        <label><input type="checkbox" id="auto" checked><span lang="zh-Hant">自動開始下一段</span><span lang="en">Auto-start next block</span></label>
+      </div>
+    </div>
+  </main>
+
+  <section>
+    <h2><span lang="zh-Hant">溫習小貼士</span><span lang="en">Study tips</span></h2>
+    <div class="tips">
+      <div><b><span lang="zh-Hant">一段時間，只做一件事</span><span lang="en">One block, one task</span></b>
+        <p><span lang="zh-Hant">開始前寫低今段要完成咩，例如「做完第 3 章練習」。</span><span lang="en">Before you start, write down the one thing this block is for, like "finish chapter 3 exercises".</span></p></div>
+      <div><b><span lang="zh-Hant">休息要真係離開書枱</span><span lang="en">Make breaks real breaks</span></b>
+        <p><span lang="zh-Hant">起身飲水、望遠、伸展，唔好碌手機。可以試吓做一分鐘呼吸練習。</span><span lang="en">Stand up, drink water, look into the distance, stretch. Skip the phone. Try a one-minute breathing exercise.</span></p></div>
+      <div><b><span lang="zh-Hant">背景聲要細聲</span><span lang="en">Keep the sound low</span></b>
+        <p><span lang="zh-Hant">啱啱好蓋過雜音就夠，太大聲反而分心。</span><span lang="en">Just loud enough to cover distractions. Louder pulls your attention.</span></p></div>
+      <div><b><span lang="zh-Hant">揀啱節奏</span><span lang="en">Match the rhythm to the task</span></b>
+        <p><span lang="zh-Hant">番茄鐘適合難開始嘅日子；50/10 適合溫長篇；90 分鐘留俾考前深度衝刺。</span><span lang="en">Pomodoro for days when starting is hard, 50/10 for longer reading, 90 minutes for deep pre-exam work.</span></p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2><span lang="zh-Hant">陪讀，唔使一個人撐。</span><span lang="en">Studying is easier with company.</span></h2>
+    <p>
+      <span lang="zh-Hant">「伴讀媽媽」YouTube 有更長嘅溫習音樂陪你專心；想幫小朋友提升專注力，可以了解 Brain Gym 健腦操。</span>
+      <span lang="en">The 伴讀媽媽 YouTube channel has longer study-music sessions. To help a child focus better, ask Julia about Brain Gym.</span>
+    </p>
+    <div class="btns">
+      <a class="btn primary" id="ctaYT" href="https://www.youtube.com/results?search_query=%E4%BC%B4%E8%AE%80%E5%AA%BD%E5%AA%BD" target="_blank" rel="noopener"><span lang="zh-Hant">▶ 伴讀媽媽 溫習音樂</span><span lang="en">▶ Study music on YouTube</span></a>
+      <a class="btn ghost" id="ctaWA" href="#" target="_blank" rel="noopener"><span lang="zh-Hant">問 Julia 關於 Brain Gym</span><span lang="en">Ask Julia about Brain Gym</span></a>
+    </div>
+  </section>
+
+  <section>
+    <h2><span lang="zh-Hant">常見問題</span><span lang="en">FAQ</span></h2>
+    <div lang="zh-Hant">
+      <details><summary>番茄鐘溫習法係咩？</summary><p>專心 25 分鐘，休息 5 分鐘，重複幾輪。時間短而清晰，較容易開始同堅持。</p></details>
+      <details><summary>溫習聽咩音樂好？</summary><p>冇歌詞、穩定嘅聲音最適合，例如雨聲、棕噪音或輕柔琴音。音量要細。</p></details>
+      <details><summary>棕噪音、粉紅噪音有咩分別？</summary><p>棕噪音低沉，好似瀑布或者大風；粉紅噪音較平均，好似穩定嘅雨聲。兩種都比白噪音柔和。</p></details>
+      <details><summary>專注頻率係咩？</summary><p>係雙耳節拍：左右耳播放略有不同嘅音，大腦感受到約 14Hz 嘅律動。要戴耳筒；效果因人而異。</p></details>
+    </div>
+    <div lang="en">
+      <details><summary>What is the Pomodoro technique?</summary><p>Focus for 25 minutes, break for 5, and repeat. Short, clear blocks make it easier to start and keep going.</p></details>
+      <details><summary>What's the best background sound for studying?</summary><p>Steady sounds without lyrics, like rain, brown noise or soft piano. Keep the volume low.</p></details>
+      <details><summary>Brown noise vs pink noise?</summary><p>Brown noise is a deep rumble, like a waterfall. Pink noise is more even, like steady rain. Both are softer than white noise.</p></details>
+      <details><summary>What are focus beats?</summary><p>Binaural beats: each ear hears a slightly different tone and your brain perceives a pulse of about 14 Hz. Use headphones. Effects vary from person to person.</p></details>
+    </div>
+  </section>
+
+  <section>
+    <h2><span lang="zh-Hant">更多免費工具</span><span lang="en">More free tools</span></h2>
+    <div class="tools">
+      <a href="/tools/breathing/"><b><span lang="zh-Hant">呼吸練習計時器</span><span lang="en">Breathing Timer</span></b><span lang="zh-Hant">休息時做一分鐘，返嚟此刻</span><span lang="en">One minute on your break</span></a>
+      <a href="/tools/frequency/"><b><span lang="zh-Hant">頻率聲音播放器</span><span lang="en">Frequency Sound Player</span></b><span lang="zh-Hant">528Hz、432Hz、雙耳節拍</span><span lang="en">528 Hz, 432 Hz, binaural beats</span></a>
+      <a href="/tools/dilution/"><b><span lang="zh-Hant">精油稀釋計算器</span><span lang="en">Essential Oil Dilution Calculator</span></b><span lang="zh-Hant">幾多滴精油？一秒計到</span><span lang="en">How many drops for your bottle</span></a>
+    </div>
+  </section>
+
+  <footer>
+    <div><a href="/">此刻 · The Present</a> · Julia Yuen</div>
+    <div>WhatsApp <a href="https://wa.me/85296215876">+852 9621 5876</a> · <a href="mailto:hello@juliayuen.com">hello@juliayuen.com</a></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var WA="https://wa.me/85296215876?text=";
+  var $=function(id){return document.getElementById(id)};
+  var lang="zh", focusMin=25, breakMin=5, mus="rain";
+  var phase="focus", running=false, remaining=25*60000, total=25*60000, endAt=0, tickT=null, round=1, focusedMs=0, lastTick=0;
+  var ctx=null, bus=null, voice=null, wake=null, previewing=false, baseTitle=document.title;
+  var C=2*Math.PI*52;
+  $("prog").style.strokeDasharray=C;
+
+  var HINTS={
+    rain:["穩定嘅雨聲，蓋過身邊雜音。","Steady rain to cover background noise."],
+    brown:["低沉好似瀑布，好多人覺得最易專心。","A deep, waterfall-like rumble many people find easiest to focus with."],
+    pink:["比白噪音柔和，平均又穩定。","Softer than white noise, smooth and even."],
+    piano:["慢慢隨機嘅輕柔琴音，唔會重複到悶。","Slow, gently changing piano notes that never loop the same way."],
+    beta:["雙耳節拍約 14Hz，一定要戴耳筒。","Binaural beats at about 14 Hz. Headphones needed."],
+    off:["",""]
+  };
+  function t(zh,en){return lang==="zh"?zh:en}
+  function fmt(ms){ var s=Math.max(0,Math.ceil(ms/1000)); return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2); }
+
+  /* ---------- sound engine (all generated in the browser, no audio files) ---------- */
+  function ensureCtx(){
+    if(!ctx){ ctx=new (window.AudioContext||window.webkitAudioContext)(); bus=ctx.createGain(); bus.gain.value=0; bus.connect(ctx.destination); }
+    if(ctx.state==="suspended") ctx.resume();
+  }
+  function level(){ return Math.pow(parseInt($("vol").value,10)/100,2); }
+  function noiseBuffer(type){
+    var len=ctx.sampleRate*4, buf=ctx.createBuffer(2,len,ctx.sampleRate);
+    for(var ch=0;ch<2;ch++){
+      var d=buf.getChannelData(ch), b0=0,b1=0,b2=0,b3=0,b4=0,b5=0,b6=0,last=0;
+      for(var i=0;i<len;i++){
+        var w=Math.random()*2-1;
+        if(type==="pink"){ b0=.99886*b0+w*.0555179; b1=.99332*b1+w*.0750759; b2=.969*b2+w*.153852; b3=.8665*b3+w*.3104856; b4=.55*b4+w*.5329522; b5=-.7616*b5-w*.016898; d[i]=(b0+b1+b2+b3+b4+b5+b6+w*.5362)*.11; b6=w*.115926; }
+        else if(type==="brown"){ last=(last+.02*w)/1.02; d[i]=last*3.5; }
+        else d[i]=w;
+      }
+    }
+    return buf;
+  }
+  function loopNoise(type, dest){
+    var s=ctx.createBufferSource(); s.buffer=noiseBuffer(type); s.loop=true; s.connect(dest); s.start(); return s;
+  }
+  function makeVoice(kind){
+    var out=ctx.createGain(); out.connect(bus);
+    var nodes=[], timers=[];
+    if(kind==="brown"||kind==="pink"){
+      out.gain.value = kind==="brown"?.9:.6;
+      nodes.push(loopNoise(kind,out));
+    } else if(kind==="rain"){
+      var hp=ctx.createBiquadFilter(); hp.type="highpass"; hp.frequency.value=700;
+      var lp=ctx.createBiquadFilter(); lp.type="lowpass"; lp.frequency.value=7000;
+      var g=ctx.createGain(); g.gain.value=.35; hp.connect(lp); lp.connect(g); g.connect(out);
+      nodes.push(loopNoise("white",hp));
+      var bed=ctx.createGain(); bed.gain.value=.5; bed.connect(out); nodes.push(loopNoise("pink",bed));
+      // slow swell so the rain breathes
+      var lfo=ctx.createOscillator(), lg=ctx.createGain(); lfo.frequency.value=.07; lg.gain.value=.12; lfo.connect(lg); lg.connect(g.gain); lfo.start(); nodes.push(lfo);
+      // occasional droplets
+      (function drop(){
+        var o=ctx.createOscillator(), dg=ctx.createGain(), n=ctx.currentTime;
+        o.type="sine"; o.frequency.setValueAtTime(1800+Math.random()*2200,n); o.frequency.exponentialRampToValueAtTime(600,n+.06);
+        dg.gain.setValueAtTime(.0001,n); dg.gain.exponentialRampToValueAtTime(.025,n+.005); dg.gain.exponentialRampToValueAtTime(.0001,n+.08);
+        o.connect(dg); dg.connect(out); o.start(n); o.stop(n+.1);
+        timers.push(setTimeout(drop, 80+Math.random()*420));
+      })();
+      out.gain.value=1;
+    } else if(kind==="piano"){
+      out.gain.value=1;
+      var dl=ctx.createDelay(); dl.delayTime.value=.42; var fb=ctx.createGain(); fb.gain.value=.32; var wet=ctx.createGain(); wet.gain.value=.35;
+      dl.connect(fb); fb.connect(dl); dl.connect(wet); wet.connect(out);
+      // soft pad
+      [130.81,196].forEach(function(f){ var o=ctx.createOscillator(), pg=ctx.createGain(); o.type="sine"; o.frequency.value=f; pg.gain.value=.035; o.connect(pg); pg.connect(out); o.start(); nodes.push(o); });
+      var scale=[261.63,293.66,329.63,392,440,523.25,587.33,659.25];
+      var prev=3;
+      (function note(){
+        var step=[-2,-1,-1,1,1,2,0][Math.floor(Math.random()*7)];
+        prev=Math.max(0,Math.min(scale.length-1,prev+step));
+        var f=scale[prev], n=ctx.currentTime;
+        [[f,"triangle",.09],[f*2,"sine",.025]].forEach(function(v){
+          var o=ctx.createOscillator(), ng=ctx.createGain();
+          o.type=v[1]; o.frequency.value=v[0];
+          ng.gain.setValueAtTime(.0001,n); ng.gain.exponentialRampToValueAtTime(v[2],n+.02); ng.gain.exponentialRampToValueAtTime(.0001,n+3.2);
+          o.connect(ng); ng.connect(out); ng.connect(dl); o.start(n); o.stop(n+3.3);
+        });
+        timers.push(setTimeout(note, 900+Math.random()*1900));
+      })();
+    } else if(kind==="beta"){
+      out.gain.value=1;
+      [[200,-1],[214,1]].forEach(function(p){
+        var o=ctx.createOscillator(), og=ctx.createGain(); o.type="sine"; o.frequency.value=p[0]; og.gain.value=.12;
+        var pan=ctx.createStereoPanner?ctx.createStereoPanner():null;
+        if(pan){ pan.pan.value=p[1]; o.connect(og); og.connect(pan); pan.connect(out); } else { o.connect(og); og.connect(out); }
+        o.start(); nodes.push(o);
+      });
+      var bg=ctx.createGain(); bg.gain.value=.25; bg.connect(out); nodes.push(loopNoise("pink",bg));
+    }
+    return {out:out,nodes:nodes,timers:timers};
+  }
+  function killVoice(v){
+    if(!v) return;
+    v.timers.forEach(clearTimeout);
+    v.out.gain.setTargetAtTime(0,ctx.currentTime,.3);
+    setTimeout(function(){ v.nodes.forEach(function(n){try{n.stop()}catch(e){}}); v.out.disconnect(); },1500);
+  }
+  function soundOn(){
+    ensureCtx();
+    if(mus==="off"){ soundOff(); return; }
+    if(voice && voice.kind===mus){ bus.gain.setTargetAtTime(level(),ctx.currentTime,.4); return; }
+    killVoice(voice); voice=makeVoice(mus); voice.kind=mus;
+    bus.gain.cancelScheduledValues(ctx.currentTime);
+    bus.gain.setTargetAtTime(level(),ctx.currentTime,.6);
+  }
+  function soundOff(){
+    if(!ctx) return;
+    bus.gain.cancelScheduledValues(ctx.currentTime);
+    bus.gain.setTargetAtTime(0,ctx.currentTime,.5);
+    var v=voice; voice=null; setTimeout(function(){ killVoice(v); },2000);
+  }
+  function wantSound(){ return previewing || (running && (phase==="focus" || $("breakMusic").checked)); }
+  function syncSound(){ wantSound() ? soundOn() : soundOff(); }
+
+  function chime(up){
+    ensureCtx();
+    var notes = up ? [523.25,659.25,783.99] : [783.99,659.25,523.25];
+    notes.forEach(function(f,i){
+      var o=ctx.createOscillator(), g=ctx.createGain(), n=ctx.currentTime+i*.28;
+      o.type="sine"; o.frequency.value=f;
+      g.gain.setValueAtTime(.0001,n); g.gain.exponentialRampToValueAtTime(.18,n+.02); g.gain.exponentialRampToValueAtTime(.0001,n+1.6);
+      o.connect(g); g.connect(ctx.destination); o.start(n); o.stop(n+1.7);
+    });
+    if(navigator.vibrate) navigator.vibrate([80,60,80]);
+  }
+
+  /* ---------- timer ---------- */
+  function render(){
+    var frac = total>0 ? remaining/total : 0;
+    $("prog").style.strokeDashoffset = C*(1-frac);
+    $("time").textContent = fmt(remaining);
+    $("dial").classList.toggle("break", phase==="break");
+    $("phase").textContent = !running && remaining===total && phase==="focus" && round===1 && focusedMs===0 ? t("準備好","READY")
+                           : phase==="focus" ? t("專注中","FOCUS") : t("休息中","BREAK");
+    $("round").textContent = t("第 "+round+" 輪","Round "+round);
+    $("play").textContent = running ? t("❚❚ 暫停","❚❚ Pause") : t("▶ 開始","▶ Start");
+    var mins=Math.floor(focusedMs/60000);
+    $("status").textContent = mins>0 ? t("今次已專注 "+mins+" 分鐘","Focused "+mins+" min so far") : "";
+    document.querySelectorAll("#preChips .chip").forEach(function(c){ c.setAttribute("aria-pressed", (+c.dataset.f===focusMin && +c.dataset.b===breakMin)?"true":"false"); });
+    document.querySelectorAll("#musChips .chip").forEach(function(c){ c.setAttribute("aria-pressed", c.dataset.mus===mus?"true":"false"); });
+    if(document.activeElement!==$("fMin")) $("fMin").value=focusMin;
+    if(document.activeElement!==$("bMin")) $("bMin").value=breakMin;
+    $("musHint").textContent = t(HINTS[mus][0],HINTS[mus][1]);
+    $("preview").hidden = running || mus==="off";
+    $("preview").querySelector('[lang="zh-Hant"]').textContent = previewing?"停止試聽":"試聽";
+    $("preview").querySelector('[lang="en"]').textContent = previewing?"Stop":"Preview";
+    document.title = running ? fmt(remaining)+" "+(phase==="focus"?t("專注","Focus"):t("休息","Break"))+" · 此刻" : baseTitle;
+  }
+
+  function tick(){
+    var now=Date.now();
+    if(phase==="focus") focusedMs += now-lastTick;
+    lastTick=now;
+    remaining = endAt-now;
+    if(remaining<=0){ nextPhase(true); return; }
+    render();
+  }
+  function start(){
+    ensureCtx(); previewing=false;
+    running=true; endAt=Date.now()+remaining; lastTick=Date.now();
+    clearInterval(tickT); tickT=setInterval(tick,250);
+    try{ if(navigator.wakeLock) navigator.wakeLock.request("screen").then(function(w){wake=w}).catch(function(){}); }catch(e){}
+    syncSound(); render();
+  }
+  function pause(){
+    running=false; clearInterval(tickT); remaining=Math.max(0,endAt-Date.now());
+    try{ if(wake){wake.release(); wake=null;} }catch(e){}
+    syncSound(); render();
+  }
+  function nextPhase(natural){
+    if(phase==="focus"){ phase="break"; total=breakMin*60000; }
+    else { phase="focus"; total=focusMin*60000; round++; }
+    remaining=total;
+    if(natural) chime(phase==="focus");
+    if(running && natural && !$("auto").checked){
+      running=false; clearInterval(tickT);
+      try{ if(wake){wake.release(); wake=null;} }catch(e){}
+      syncSound(); render();
+      $("status").textContent = phase==="break" ? t("做得好！撳開始休息。","Nice work! Press start for your break.") : t("休息完，準備好就撳開始。","Break's over. Press start when ready.");
+      return;
+    }
+    if(running){ endAt=Date.now()+remaining; lastTick=Date.now(); syncSound(); }
+    render();
+  }
+  function resetAll(){
+    running=false; clearInterval(tickT); phase="focus"; round=1; focusedMs=0;
+    total=remaining=focusMin*60000; previewing=false; syncSound();
+    try{ if(wake){wake.release(); wake=null;} }catch(e){}
+    render();
+  }
+  function setDurations(f,b){
+    focusMin=f; breakMin=b;
+    if(!running && remaining===total){ total=remaining=(phase==="focus"?focusMin:breakMin)*60000; }
+    render();
+  }
+
+  $("play").addEventListener("click", function(){ running?pause():start(); });
+  $("reset").addEventListener("click", resetAll);
+  $("skip").addEventListener("click", function(){ nextPhase(false); });
+  document.querySelectorAll("#preChips .chip").forEach(function(c){
+    c.addEventListener("click", function(){ if(running) resetAll(); focusMin=+c.dataset.f; breakMin=+c.dataset.b; resetAll(); });
+  });
+  $("fMin").addEventListener("change", function(){ var v=Math.max(1,Math.min(180,parseInt($("fMin").value,10)||focusMin)); setDurations(v,breakMin); });
+  $("bMin").addEventListener("change", function(){ var v=Math.max(1,Math.min(60,parseInt($("bMin").value,10)||breakMin)); setDurations(focusMin,v); });
+  document.querySelectorAll("#musChips .chip").forEach(function(c){
+    c.addEventListener("click", function(){
+      mus=c.dataset.mus;
+      if(mus==="off") previewing=false;
+      if(wantSound()) soundOn(); else if(mus==="off") soundOff();
+      render();
+    });
+  });
+  $("vol").addEventListener("input", function(){ if(ctx && voice && wantSound()){ bus.gain.cancelScheduledValues(ctx.currentTime); bus.gain.setTargetAtTime(level(),ctx.currentTime,.05); } });
+  $("preview").addEventListener("click", function(){ previewing=!previewing; syncSound(); render(); });
+  $("breakMusic").addEventListener("change", syncSound);
+  document.addEventListener("visibilitychange", function(){
+    if(document.visibilityState==="visible" && running && navigator.wakeLock && !wake) navigator.wakeLock.request("screen").then(function(w){wake=w}).catch(function(){});
+  });
+
+  function setLang(l){
+    lang=l;
+    document.documentElement.setAttribute("data-lang",l);
+    document.documentElement.lang = l==="zh"?"zh-Hant":"en";
+    document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.setLang===l?"true":"false"); });
+    $("ctaWA").href = WA+encodeURIComponent(t("你好 Julia，我用咗你嘅溫習計時器，想了解 Brain Gym 健腦操。","Hi Julia, I used your study timer and I'd like to know more about Brain Gym."));
+    try{ localStorage.setItem("jy-lang",l); }catch(e){}
+    render();
+  }
+  document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.addEventListener("click", function(){ setLang(b.dataset.setLang); }); });
+  var q=new URLSearchParams(location.search).get("lang"), saved=null;
+  try{ saved=localStorage.getItem("jy-lang"); }catch(e){}
+  setLang((q==="en"||q==="zh")?q:(saved==="en"||saved==="zh")?saved:(/^zh/i.test(navigator.language||"")?"zh":"en"));
+})();
+</script>
+</body>
+</html>
