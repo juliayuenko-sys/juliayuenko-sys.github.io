@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -24,7 +24,7 @@
       "url": "https://juliayuen.com/tools/focus/",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Any",
-      "inLanguage": ["en", "zh-Hant"],
+      "inLanguage": ["en", "zh-Hant", "zh-Hans"],
       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "HKD"},
       "creator": {"@type": "Person", "name": "Julia Yuen", "url": "https://juliayuen.com/"}
     },
@@ -49,11 +49,11 @@
 
 <style>
   :root{
-    --mint:#e6f2ec; --cream:#faf6ee; --paper:#ffffff;
-    --ink:#23332d; --ink-soft:#5b6b64; --line:#dfe6e1;
-    --green:#2f5d50; --green-soft:#d5e8de; --gold:#b89b5e; --gold-soft:#f3ecdc;
+    --mint:#EBF6F1; --cream:#FBFAF4; --paper:#ffffff;
+    --ink:#234B47; --ink-soft:#5C7370; --line:rgba(35,75,71,.13);
+    --green:#157F74; --green-soft:#DDF1EC; --gold:#C28A2E; --gold-soft:#F7EDD6;
     --warn:#8a5a2b; --radius:16px;
-    --serif:"Noto Serif TC","Songti TC",Georgia,serif;
+    --serif:"Fraunces","Noto Serif TC","Songti TC",Georgia,serif;
     --sans:"Noto Sans TC",-apple-system,"Segoe UI","PingFang TC",sans-serif;
   }
   *{box-sizing:border-box}
@@ -61,8 +61,9 @@
   body{margin:0;font-family:var(--sans);color:var(--ink);line-height:1.65;
        background:linear-gradient(180deg,var(--mint) 0%,var(--cream) 42%,var(--cream) 100%);min-height:100vh}
   a{color:var(--green)}
-  html[data-lang="zh"] [lang="en"]{display:none!important}
-  html[data-lang="en"] [lang="zh-Hant"]{display:none!important}
+  html[data-lang="zh"] [lang="en"],html[data-lang="zh"] [lang="zh-Hans"],
+  html[data-lang="zhs"] [lang="en"],html[data-lang="zhs"] [lang="zh-Hant"],
+  html[data-lang="en"] [lang="zh-Hant"],html[data-lang="en"] [lang="zh-Hans"]{display:none!important}
   .wrap{max-width:760px;margin:0 auto;padding:0 16px}
   header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
   .brand{font-family:var(--serif);font-size:18px;color:var(--green);text-decoration:none;letter-spacing:.04em}
@@ -71,9 +72,9 @@
   .langs button[aria-pressed="true"]{background:var(--green);color:#fff}
   .hero{text-align:center;padding:28px 0 22px}
   .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-  h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,5.5vw,38px);line-height:1.25;margin:8px 0 10px;color:var(--green)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,5.5vw,38px);line-height:1.25;margin:8px 0 10px;color:var(--ink)}
   .hero p{margin:0 auto;max-width:520px;color:var(--ink-soft)}
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 2px rgba(35,51,45,.04),0 8px 28px rgba(47,93,80,.06)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 2px rgba(35,75,71,.04),0 8px 28px rgba(35,75,71,.06)}
   .field{margin-bottom:22px}
   .label{display:block;font-weight:500;margin-bottom:10px;font-size:15px}
   .label small{font-weight:400;color:var(--ink-soft);margin-left:6px}
@@ -90,8 +91,8 @@
   input[type=range]{flex:1;min-width:160px;accent-color:var(--green)}
   .muted{color:var(--ink-soft);font-size:13px}
   section{margin-top:40px}
-  h2{font-family:var(--serif);font-weight:600;color:var(--green);font-size:22px;margin:0 0 14px}
-  .cta{background:linear-gradient(135deg,var(--green) 0%,#3f7565 100%);color:#fff;border-radius:var(--radius);padding:26px 22px;text-align:center}
+  h2{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:22px;margin:0 0 14px}
+  .cta{background:linear-gradient(135deg,var(--green) 0%,#199E91 100%);color:#fff;border-radius:var(--radius);padding:26px 22px;text-align:center}
   .cta h2{color:#fff}
   .cta p{margin:0 auto 18px;max-width:480px;opacity:.92}
   .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
@@ -106,6 +107,10 @@
   .tools a:hover{border-color:var(--green)}
   .tools b{display:block;color:var(--green);font-family:var(--serif)}
   .tools span{font-size:13px;color:var(--ink-soft)}
+  .crumbs{font-size:13px;color:var(--ink-soft);margin:-4px 0 0}
+  .crumbs a{color:var(--ink-soft);text-decoration:none}
+  .crumbs a:hover{color:var(--green)}
+  .alltools{display:inline-block;margin-top:14px;font-weight:500;text-decoration:none}
   footer{margin:48px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--ink-soft)}
   footer a{color:var(--ink-soft)}
 
@@ -128,8 +133,8 @@
   .ghostbtn:hover{border-color:var(--green);color:var(--green)}
   .status{text-align:center;font-size:14px;color:var(--ink-soft);min-height:22px;margin-bottom:18px}
   .custom{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
-  .custom label{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-soft);background:var(--cream);border-radius:12px;padding:6px 12px}
-  .custom input{width:64px;text-align:center;background:var(--paper)}
+  .custom label{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--ink-soft);background:var(--cream);border-radius:12px;padding:6px 10px}
+  .custom input{width:52px;padding:6px 4px;text-align:center;background:var(--paper)}
   .toggles{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px}
   .toggles label{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
   .toggles input{width:18px;height:18px;accent-color:var(--green)}
@@ -146,15 +151,17 @@
     <a class="brand" href="/">此刻 · The Present</a>
     <div class="langs" role="group" aria-label="Language">
       <button type="button" data-set-lang="zh" aria-pressed="true">繁</button>
+      <button type="button" data-set-lang="zhs" aria-pressed="false">简</button>
       <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
     </div>
   </header>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">此刻</a> › <a href="/tools/"><span lang="zh-Hant">免費工具</span><span lang="zh-Hans">免费工具</span><span lang="en">Free tools</span></a> › <span lang="zh-Hant">專注溫習計時器</span><span lang="zh-Hans">专注复习计时器</span><span lang="en">Study Timer</span></nav>
 
   <div class="hero">
     <div class="eyebrow">Free Tool · 免費工具</div>
-    <h1><span lang="zh-Hant">專注溫習計時器</span><span lang="en">Study Timer with Music</span></h1>
+    <h1><span lang="zh-Hant">專注溫習計時器</span><span lang="zh-Hans">专注复习计时器</span><span lang="en">Study Timer with Music</span></h1>
     <p>
-      <span lang="zh-Hant">揀節奏、揀背景聲，撳開始就專心。時間到會輕聲提你休息。</span>
+      <span lang="zh-Hant">揀節奏、揀背景聲，撳開始就專心。時間到會輕聲提你休息。</span><span lang="zh-Hans">选节奏、选背景声，按开始就专心。时间到会轻声提醒你休息。</span>
       <span lang="en">Pick a rhythm and a background sound, press start and focus. A gentle chime tells you when to rest.</span>
     </p>
   </div>
@@ -175,80 +182,85 @@
     <div class="controls">
       <button type="button" class="ghostbtn" id="reset" aria-label="Reset">↺</button>
       <button type="button" class="play" id="play"></button>
-      <button type="button" class="ghostbtn" id="skip"><span lang="zh-Hant">跳過 ›</span><span lang="en">Skip ›</span></button>
+      <button type="button" class="ghostbtn" id="skip"><span lang="zh-Hant">跳過 ›</span><span lang="zh-Hans">跳过 ›</span><span lang="en">Skip ›</span></button>
     </div>
     <div class="status" id="status"></div>
 
     <div class="field">
-      <span class="label"><span lang="zh-Hant">① 溫習節奏</span><span lang="en">① Study rhythm</span></span>
+      <span class="label"><span lang="zh-Hant">① 溫習節奏</span><span lang="zh-Hans">① 复习节奏</span><span lang="en">① Study rhythm</span></span>
       <div class="chips" id="preChips">
-        <button type="button" class="chip" data-f="25" data-b="5"><span lang="zh-Hant">番茄鐘</span><span lang="en">Pomodoro</span><span class="sub">25/5</span></button>
-        <button type="button" class="chip" data-f="50" data-b="10"><span lang="zh-Hant">心流</span><span lang="en">Flow</span><span class="sub">50/10</span></button>
-        <button type="button" class="chip" data-f="90" data-b="15"><span lang="zh-Hant">深度溫習</span><span lang="en">Deep study</span><span class="sub">90/15</span></button>
-        <button type="button" class="chip" data-f="15" data-b="3"><span lang="zh-Hant">熱身</span><span lang="en">Warm-up</span><span class="sub">15/3</span></button>
+        <button type="button" class="chip" data-f="25" data-b="5"><span lang="zh-Hant">番茄鐘</span><span lang="zh-Hans">番茄钟</span><span lang="en">Pomodoro</span><span class="sub">25/5</span></button>
+        <button type="button" class="chip" data-f="50" data-b="10"><span lang="zh-Hant">心流</span><span lang="zh-Hans">心流</span><span lang="en">Flow</span><span class="sub">50/10</span></button>
+        <button type="button" class="chip" data-f="90" data-b="15"><span lang="zh-Hant">深度溫習</span><span lang="zh-Hans">深度复习</span><span lang="en">Deep study</span><span class="sub">90/15</span></button>
+        <button type="button" class="chip" data-f="15" data-b="3"><span lang="zh-Hant">熱身</span><span lang="zh-Hans">热身</span><span lang="en">Warm-up</span><span class="sub">15/3</span></button>
       </div>
       <div class="custom">
-        <label><span lang="zh-Hant">專注</span><span lang="en">Focus</span><input type="number" id="fMin" min="1" max="180" inputmode="numeric"><span lang="zh-Hant">分鐘</span><span lang="en">min</span></label>
-        <label><span lang="zh-Hant">休息</span><span lang="en">Break</span><input type="number" id="bMin" min="1" max="60" inputmode="numeric"><span lang="zh-Hant">分鐘</span><span lang="en">min</span></label>
+        <label><span lang="zh-Hant">專注</span><span lang="zh-Hans">专注</span><span lang="en">Focus</span><input type="number" id="fMin" min="1" max="180" inputmode="numeric"><span lang="zh-Hant">分鐘</span><span lang="zh-Hans">分钟</span><span lang="en">min</span></label>
+        <label><span lang="zh-Hant">休息</span><span lang="zh-Hans">休息</span><span lang="en">Break</span><input type="number" id="bMin" min="1" max="60" inputmode="numeric"><span lang="zh-Hant">分鐘</span><span lang="zh-Hans">分钟</span><span lang="en">min</span></label>
       </div>
     </div>
 
     <div class="field">
-      <span class="label"><span lang="zh-Hant">② 背景聲音</span><span lang="en">② Background sound</span></span>
+      <span class="label"><span lang="zh-Hant">② 背景聲音</span><span lang="zh-Hans">② 背景声音</span><span lang="en">② Background sound</span></span>
       <div class="chips" id="musChips">
-        <button type="button" class="chip" data-mus="rain"><span lang="zh-Hant">雨聲</span><span lang="en">Rain</span></button>
-        <button type="button" class="chip" data-mus="brown"><span lang="zh-Hant">棕噪音</span><span lang="en">Brown noise</span></button>
-        <button type="button" class="chip" data-mus="pink"><span lang="zh-Hant">粉紅噪音</span><span lang="en">Pink noise</span></button>
-        <button type="button" class="chip" data-mus="piano"><span lang="zh-Hant">輕柔琴音</span><span lang="en">Soft piano</span></button>
-        <button type="button" class="chip" data-mus="beta"><span lang="zh-Hant">專注頻率 🎧</span><span lang="en">Focus beats 🎧</span></button>
-        <button type="button" class="chip" data-mus="off"><span lang="zh-Hant">靜音</span><span lang="en">Silent</span></button>
+        <button type="button" class="chip" data-mus="rain"><span lang="zh-Hant">雨聲</span><span lang="zh-Hans">雨声</span><span lang="en">Rain</span></button>
+        <button type="button" class="chip" data-mus="brown"><span lang="zh-Hant">棕噪音</span><span lang="zh-Hans">棕噪音</span><span lang="en">Brown noise</span></button>
+        <button type="button" class="chip" data-mus="pink"><span lang="zh-Hant">粉紅噪音</span><span lang="zh-Hans">粉红噪音</span><span lang="en">Pink noise</span></button>
+        <button type="button" class="chip" data-mus="piano"><span lang="zh-Hant">輕柔琴音</span><span lang="zh-Hans">轻柔琴音</span><span lang="en">Soft piano</span></button>
+        <button type="button" class="chip" data-mus="beta"><span lang="zh-Hant">專注頻率 🎧</span><span lang="zh-Hans">专注频率 🎧</span><span lang="en">Focus beats 🎧</span></button>
+        <button type="button" class="chip" data-mus="off"><span lang="zh-Hant">靜音</span><span lang="zh-Hans">静音</span><span lang="en">Silent</span></button>
       </div>
       <p class="muted" id="musHint" style="margin:8px 0 0"></p>
       <div style="display:flex;align-items:center;gap:10px;margin-top:10px">
-        <span class="muted"><span lang="zh-Hant">音量</span><span lang="en">Volume</span></span>
+        <span class="muted"><span lang="zh-Hant">音量</span><span lang="zh-Hans">音量</span><span lang="en">Volume</span></span>
         <input type="range" id="vol" min="0" max="100" value="40" style="flex:1" aria-label="Volume">
-        <button type="button" class="ghostbtn" id="preview" style="padding:6px 12px"><span lang="zh-Hant">試聽</span><span lang="en">Preview</span></button>
+        <button type="button" class="ghostbtn" id="preview" style="padding:6px 12px"><span lang="zh-Hant">試聽</span><span lang="zh-Hans">试听</span><span lang="en">Preview</span></button>
       </div>
       <div class="toggles">
-        <label><input type="checkbox" id="breakMusic"><span lang="zh-Hant">休息時都播</span><span lang="en">Keep playing on breaks</span></label>
-        <label><input type="checkbox" id="auto" checked><span lang="zh-Hant">自動開始下一段</span><span lang="en">Auto-start next block</span></label>
+        <label><input type="checkbox" id="breakMusic"><span lang="zh-Hant">休息時都播</span><span lang="zh-Hans">休息时都播</span><span lang="en">Keep playing on breaks</span></label>
+        <label><input type="checkbox" id="auto" checked><span lang="zh-Hant">自動開始下一段</span><span lang="zh-Hans">自动开始下一段</span><span lang="en">Auto-start next block</span></label>
       </div>
     </div>
   </main>
 
   <section>
-    <h2><span lang="zh-Hant">溫習小貼士</span><span lang="en">Study tips</span></h2>
+    <h2><span lang="zh-Hant">溫習小貼士</span><span lang="zh-Hans">复习小贴士</span><span lang="en">Study tips</span></h2>
     <div class="tips">
-      <div><b><span lang="zh-Hant">一段時間，只做一件事</span><span lang="en">One block, one task</span></b>
-        <p><span lang="zh-Hant">開始前寫低今段要完成咩，例如「做完第 3 章練習」。</span><span lang="en">Before you start, write down the one thing this block is for, like "finish chapter 3 exercises".</span></p></div>
-      <div><b><span lang="zh-Hant">休息要真係離開書枱</span><span lang="en">Make breaks real breaks</span></b>
-        <p><span lang="zh-Hant">起身飲水、望遠、伸展，唔好碌手機。可以試吓做一分鐘呼吸練習。</span><span lang="en">Stand up, drink water, look into the distance, stretch. Skip the phone. Try a one-minute breathing exercise.</span></p></div>
-      <div><b><span lang="zh-Hant">背景聲要細聲</span><span lang="en">Keep the sound low</span></b>
-        <p><span lang="zh-Hant">啱啱好蓋過雜音就夠，太大聲反而分心。</span><span lang="en">Just loud enough to cover distractions. Louder pulls your attention.</span></p></div>
-      <div><b><span lang="zh-Hant">揀啱節奏</span><span lang="en">Match the rhythm to the task</span></b>
-        <p><span lang="zh-Hant">番茄鐘適合難開始嘅日子；50/10 適合溫長篇；90 分鐘留俾考前深度衝刺。</span><span lang="en">Pomodoro for days when starting is hard, 50/10 for longer reading, 90 minutes for deep pre-exam work.</span></p></div>
+      <div><b><span lang="zh-Hant">一段時間，只做一件事</span><span lang="zh-Hans">一段时间，只做一件事</span><span lang="en">One block, one task</span></b>
+        <p><span lang="zh-Hant">開始前寫低今段要完成咩，例如「做完第 3 章練習」。</span><span lang="zh-Hans">开始前写下这一段要完成什么，例如「做完第 3 章练习」。</span><span lang="en">Before you start, write down the one thing this block is for, like "finish chapter 3 exercises".</span></p></div>
+      <div><b><span lang="zh-Hant">休息要真係離開書枱</span><span lang="zh-Hans">休息要真正离开书桌</span><span lang="en">Make breaks real breaks</span></b>
+        <p><span lang="zh-Hant">起身飲水、望遠、伸展，唔好碌手機。可以試吓做一分鐘呼吸練習。</span><span lang="zh-Hans">起身喝水、远眺、伸展，不要刷手机。可以试试做一分钟呼吸练习。</span><span lang="en">Stand up, drink water, look into the distance, stretch. Skip the phone. Try a one-minute breathing exercise.</span></p></div>
+      <div><b><span lang="zh-Hant">背景聲要細聲</span><span lang="zh-Hans">背景声要小声</span><span lang="en">Keep the sound low</span></b>
+        <p><span lang="zh-Hant">啱啱好蓋過雜音就夠，太大聲反而分心。</span><span lang="zh-Hans">刚好盖过杂音就够，太大声反而分心。</span><span lang="en">Just loud enough to cover distractions. Louder pulls your attention.</span></p></div>
+      <div><b><span lang="zh-Hant">揀啱節奏</span><span lang="zh-Hans">选合适节奏</span><span lang="en">Match the rhythm to the task</span></b>
+        <p><span lang="zh-Hant">番茄鐘適合難開始嘅日子；50/10 適合溫長篇；90 分鐘留俾考前深度衝刺。</span><span lang="zh-Hans">番茄钟适合难开始的日子；50/10 适合读长篇；90 分钟留给考前深度冲刺。</span><span lang="en">Pomodoro for days when starting is hard, 50/10 for longer reading, 90 minutes for deep pre-exam work.</span></p></div>
     </div>
   </section>
 
   <section class="cta">
-    <h2><span lang="zh-Hant">陪讀，唔使一個人撐。</span><span lang="en">Studying is easier with company.</span></h2>
+    <h2><span lang="zh-Hant">陪讀，唔使一個人撐。</span><span lang="zh-Hans">陪读，不用一个人撑。</span><span lang="en">Studying is easier with company.</span></h2>
     <p>
-      <span lang="zh-Hant">「伴讀媽媽」YouTube 有更長嘅溫習音樂陪你專心；想幫小朋友提升專注力，可以了解 Brain Gym 健腦操。</span>
+      <span lang="zh-Hant">「伴讀媽媽」YouTube 有更長嘅溫習音樂陪你專心；想幫小朋友提升專注力，可以了解 Brain Gym 健腦操。</span><span lang="zh-Hans">「伴读妈妈」YouTube 有更长的复习音乐陪你专心；想帮小朋友提升专注力，可以了解 Brain Gym 健脑操。</span>
       <span lang="en">The 伴讀媽媽 YouTube channel has longer study-music sessions. To help a child focus better, ask Julia about Brain Gym.</span>
     </p>
     <div class="btns">
-      <a class="btn primary" id="ctaYT" href="https://www.youtube.com/results?search_query=%E4%BC%B4%E8%AE%80%E5%AA%BD%E5%AA%BD" target="_blank" rel="noopener"><span lang="zh-Hant">▶ 伴讀媽媽 溫習音樂</span><span lang="en">▶ Study music on YouTube</span></a>
-      <a class="btn ghost" id="ctaWA" href="#" target="_blank" rel="noopener"><span lang="zh-Hant">問 Julia 關於 Brain Gym</span><span lang="en">Ask Julia about Brain Gym</span></a>
+      <a class="btn primary" id="ctaYT" href="https://www.youtube.com/@%E4%BC%B4%E8%AE%80%E5%AA%BD%E5%AA%BDJulia" target="_blank" rel="noopener"><span lang="zh-Hant">▶ 伴讀媽媽 溫習音樂</span><span lang="zh-Hans">▶ 伴读妈妈 复习音乐</span><span lang="en">▶ Study music on YouTube</span></a>
+      <a class="btn ghost" id="ctaWA" href="#" target="_blank" rel="noopener"><span lang="zh-Hant">問 Julia 關於 Brain Gym</span><span lang="zh-Hans">问 Julia 关于 Brain Gym</span><span lang="en">Ask Julia about Brain Gym</span></a>
     </div>
   </section>
 
   <section>
-    <h2><span lang="zh-Hant">常見問題</span><span lang="en">FAQ</span></h2>
+    <h2><span lang="zh-Hant">常見問題</span><span lang="zh-Hans">常见问题</span><span lang="en">FAQ</span></h2>
     <div lang="zh-Hant">
       <details><summary>番茄鐘溫習法係咩？</summary><p>專心 25 分鐘，休息 5 分鐘，重複幾輪。時間短而清晰，較容易開始同堅持。</p></details>
       <details><summary>溫習聽咩音樂好？</summary><p>冇歌詞、穩定嘅聲音最適合，例如雨聲、棕噪音或輕柔琴音。音量要細。</p></details>
       <details><summary>棕噪音、粉紅噪音有咩分別？</summary><p>棕噪音低沉，好似瀑布或者大風；粉紅噪音較平均，好似穩定嘅雨聲。兩種都比白噪音柔和。</p></details>
       <details><summary>專注頻率係咩？</summary><p>係雙耳節拍：左右耳播放略有不同嘅音，大腦感受到約 14Hz 嘅律動。要戴耳筒；效果因人而異。</p></details>
+    </div><div lang="zh-Hans">
+      <details><summary>番茄钟复习法是什么？</summary><p>专心 25 分钟，休息 5 分钟，重复几轮。时间短而清晰，较容易开始和坚持。</p></details>
+      <details><summary>复习听什么音乐好？</summary><p>没有歌词、稳定的声音最适合，例如雨声、棕噪音或轻柔琴音。音量要小。</p></details>
+      <details><summary>棕噪音、粉红噪音有什么分别？</summary><p>棕噪音低沉，好像瀑布或者大风；粉红噪音较平均，好像稳定的雨声。两种都比白噪音柔和。</p></details>
+      <details><summary>专注频率是什么？</summary><p>是双耳节拍：左右耳播放略有不同的音，大脑感受到约 14Hz 的律动。要戴耳机；效果因人而异。</p></details>
     </div>
     <div lang="en">
       <details><summary>What is the Pomodoro technique?</summary><p>Focus for 25 minutes, break for 5, and repeat. Short, clear blocks make it easier to start and keep going.</p></details>
@@ -259,12 +271,13 @@
   </section>
 
   <section>
-    <h2><span lang="zh-Hant">更多免費工具</span><span lang="en">More free tools</span></h2>
+    <h2><span lang="zh-Hant">更多免費工具</span><span lang="zh-Hans">更多免费工具</span><span lang="en">More free tools</span></h2>
     <div class="tools">
-      <a href="/tools/breathing/"><b><span lang="zh-Hant">呼吸練習計時器</span><span lang="en">Breathing Timer</span></b><span lang="zh-Hant">休息時做一分鐘，返嚟此刻</span><span lang="en">One minute on your break</span></a>
-      <a href="/tools/frequency/"><b><span lang="zh-Hant">頻率聲音播放器</span><span lang="en">Frequency Sound Player</span></b><span lang="zh-Hant">528Hz、432Hz、雙耳節拍</span><span lang="en">528 Hz, 432 Hz, binaural beats</span></a>
-      <a href="/tools/dilution/"><b><span lang="zh-Hant">精油稀釋計算器</span><span lang="en">Essential Oil Dilution Calculator</span></b><span lang="zh-Hant">幾多滴精油？一秒計到</span><span lang="en">How many drops for your bottle</span></a>
+      <a href="/tools/breathing/"><b><span lang="zh-Hant">呼吸練習計時器</span><span lang="zh-Hans">呼吸练习计时器</span><span lang="en">Breathing Timer</span></b><span lang="zh-Hant">休息時做一分鐘，返嚟此刻</span><span lang="zh-Hans">休息时做一分钟，回到此刻</span><span lang="en">One minute on your break</span></a>
+      <a href="/tools/frequency/"><b><span lang="zh-Hant">頻率聲音播放器</span><span lang="zh-Hans">频率声音播放器</span><span lang="en">Frequency Sound Player</span></b><span lang="zh-Hant">528Hz、432Hz、雙耳節拍</span><span lang="zh-Hans">528Hz、432Hz、双耳节拍</span><span lang="en">528 Hz, 432 Hz, binaural beats</span></a>
+      <a href="/tools/dilution/"><b><span lang="zh-Hant">精油稀釋計算器</span><span lang="zh-Hans">精油稀释计算器</span><span lang="en">Essential Oil Dilution Calculator</span></b><span lang="zh-Hant">幾多滴精油？一秒計到</span><span lang="zh-Hans">多少滴精油？一秒算出</span><span lang="en">How many drops for your bottle</span></a>
     </div>
+    <a class="alltools" href="/tools/"><span lang="zh-Hant">查看全部免費工具 →</span><span lang="zh-Hans">查看全部免费工具 →</span><span lang="en">See all free tools →</span></a>
   </section>
 
   <footer>
@@ -275,6 +288,11 @@
 
 <script>
 (function(){
+  var hans=false;
+  var ZP=[["最易專心", "最容易专心"], ["唔會重複到悶", "不会单调重复"], ["身邊", "身边"], ["溫習", "复习"], ["今次", "本次"], ["唔會", "不会"], ["唔", "不"], ["嘅", "的"], ["咗", "了"], ["撳", "按"], ["好多人", "很多人"], ["好似", "好像"], ["耳筒", "耳机"]];
+  var ZC={"輪": "轮", "會": "会", "準": "准", "複": "复", "過": "过", "暫": "暂", "悶": "闷", "溫": "温", "聽": "听", "試": "试", "腦": "脑", "聲": "声", "撳": "揿", "習": "习", "專": "专", "備": "备", "雜": "杂", "隨": "随", "蓋": "盖", "邊": "边", "約": "约", "機": "机", "輕": "轻", "穩": "稳", "計": "计", "開": "开", "節": "节", "時": "时", "雙": "双", "鐘": "钟", "覺": "觉"};
+  function S(x){ x=String(x); ZP.forEach(function(p){ x=x.split(p[0]).join(p[1]); }); x=x.replace(/(^|[^不相一])同(?![樣步時意])/g,"$1和"); return x.replace(/[\u4e00-\u9fff]/g,function(c){return ZC[c]||c}); }
+
   var WA="https://wa.me/85296215876?text=";
   var $=function(id){return document.getElementById(id)};
   var lang="zh", focusMin=25, breakMin=5, mus="rain";
@@ -291,7 +309,7 @@
     beta:["雙耳節拍約 14Hz，一定要戴耳筒。","Binaural beats at about 14 Hz. Headphones needed."],
     off:["",""]
   };
-  function t(zh,en){return lang==="zh"?zh:en}
+  function t(zh,en){ return lang==="zh"?(hans?S(zh):zh):en; }
   function fmt(ms){ var s=Math.max(0,Math.ceil(ms/1000)); return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2); }
 
   /* ---------- sound engine (all generated in the browser, no audio files) ---------- */
@@ -425,6 +443,7 @@
     $("musHint").textContent = t(HINTS[mus][0],HINTS[mus][1]);
     $("preview").hidden = running || mus==="off";
     $("preview").querySelector('[lang="zh-Hant"]').textContent = previewing?"停止試聽":"試聽";
+    $("preview").querySelector('[lang="zh-Hans"]').textContent = previewing?"停止试听":"试听";
     $("preview").querySelector('[lang="en"]').textContent = previewing?"Stop":"Preview";
     document.title = running ? fmt(remaining)+" "+(phase==="focus"?t("專注","Focus"):t("休息","Break"))+" · 此刻" : baseTitle;
   }
@@ -500,18 +519,19 @@
   });
 
   function setLang(l){
+    hans=(l==="zhs"); if(hans) l="zh";
     lang=l;
     document.documentElement.setAttribute("data-lang",l);
-    document.documentElement.lang = l==="zh"?"zh-Hant":"en";
-    document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.setLang===l?"true":"false"); });
+    document.documentElement.lang = hans?"zh-Hans":(l==="zh"?"zh-Hant":"en"); if(hans) document.documentElement.setAttribute("data-lang","zhs");
+    document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.setLang===(hans?"zhs":l)?"true":"false"); });
     $("ctaWA").href = WA+encodeURIComponent(t("你好 Julia，我用咗你嘅溫習計時器，想了解 Brain Gym 健腦操。","Hi Julia, I used your study timer and I'd like to know more about Brain Gym."));
-    try{ localStorage.setItem("jy-lang",l); }catch(e){}
+    try{ localStorage.setItem("tp-lang", l==="en"?"en":(hans?"zh-Hans":"zh-Hant")); }catch(e){}
     render();
   }
   document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.addEventListener("click", function(){ setLang(b.dataset.setLang); }); });
   var q=new URLSearchParams(location.search).get("lang"), saved=null;
-  try{ saved=localStorage.getItem("jy-lang"); }catch(e){}
-  setLang((q==="en"||q==="zh")?q:(saved==="en"||saved==="zh")?saved:(/^zh/i.test(navigator.language||"")?"zh":"en"));
+  try{ var tp=localStorage.getItem("tp-lang"); saved = tp==="en"?"en":(tp==="zh-Hans"?"zhs":(tp?"zh":null)); }catch(e){}
+  setLang((q==="en"||q==="zh"||q==="zhs")?q:(saved==="en"||saved==="zh"||saved==="zhs")?saved:(/^zh-(cn|sg|hans)/i.test(navigator.language||"")?"zhs":(/^zh/i.test(navigator.language||"")?"zh":"en")));
 })();
 </script>
 </body>

@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -24,7 +24,7 @@
       "url": "https://juliayuen.com/tools/dilution/",
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Any",
-      "inLanguage": ["en", "zh-Hant"],
+      "inLanguage": ["en", "zh-Hant", "zh-Hans"],
       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "HKD"},
       "creator": {"@type": "Person", "name": "Julia Yuen", "url": "https://juliayuen.com/"}
     },
@@ -49,12 +49,12 @@
 
 <style>
   :root{
-    --mint:#e6f2ec; --cream:#faf6ee; --paper:#ffffff;
-    --ink:#23332d; --ink-soft:#5b6b64; --line:#dfe6e1;
-    --green:#2f5d50; --green-soft:#d5e8de; --gold:#b89b5e; --gold-soft:#f3ecdc;
+    --mint:#EBF6F1; --cream:#FBFAF4; --paper:#ffffff;
+    --ink:#234B47; --ink-soft:#5C7370; --line:rgba(35,75,71,.13);
+    --green:#157F74; --green-soft:#DDF1EC; --gold:#C28A2E; --gold-soft:#F7EDD6;
     --warn:#8a5a2b;
     --radius:16px;
-    --serif:"Noto Serif TC", "Songti TC", Georgia, serif;
+    --serif:"Fraunces","Noto Serif TC","Songti TC",Georgia,serif;
     --sans:"Noto Sans TC", -apple-system, "Segoe UI", "PingFang TC", sans-serif;
   }
   *{box-sizing:border-box}
@@ -63,8 +63,9 @@
        background:linear-gradient(180deg,var(--mint) 0%,var(--cream) 42%,var(--cream) 100%);min-height:100vh}
   a{color:var(--green)}
   /* language switching: both languages live in the page so Google indexes both */
-  html[data-lang="zh"] [lang="en"]{display:none!important}
-  html[data-lang="en"] [lang="zh-Hant"]{display:none!important}
+  html[data-lang="zh"] [lang="en"],html[data-lang="zh"] [lang="zh-Hans"],
+  html[data-lang="zhs"] [lang="en"],html[data-lang="zhs"] [lang="zh-Hant"],
+  html[data-lang="en"] [lang="zh-Hant"],html[data-lang="en"] [lang="zh-Hans"]{display:none!important}
 
   .wrap{max-width:760px;margin:0 auto;padding:0 16px}
   header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
@@ -75,10 +76,10 @@
 
   .hero{text-align:center;padding:28px 0 22px}
   .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-  h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,5.5vw,38px);line-height:1.25;margin:8px 0 10px;color:var(--green)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,5.5vw,38px);line-height:1.25;margin:8px 0 10px;color:var(--ink)}
   .hero p{margin:0 auto;max-width:520px;color:var(--ink-soft)}
 
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 2px rgba(35,51,45,.04),0 8px 28px rgba(47,93,80,.06)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 2px rgba(35,75,71,.04),0 8px 28px rgba(35,75,71,.06)}
   .field{margin-bottom:22px}
   .label{display:block;font-weight:500;margin-bottom:10px;font-size:15px}
   .label small{font-weight:400;color:var(--ink-soft);margin-left:6px}
@@ -115,7 +116,7 @@
   .tools b{display:block;color:var(--green);font-family:var(--serif)}
   .tools span{font-size:13px;color:var(--ink-soft)}
   section{margin-top:40px}
-  h2{font-family:var(--serif);font-weight:600;color:var(--green);font-size:22px;margin:0 0 14px}
+  h2{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:22px;margin:0 0 14px}
   .table-wrap{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius)}
   table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
   th,td{padding:10px 8px;text-align:center;border-bottom:1px solid var(--line)}
@@ -127,7 +128,7 @@
   .guide div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;gap:12px}
   .guide b{color:var(--green);white-space:nowrap}
 
-  .cta{background:linear-gradient(135deg,var(--green) 0%,#3f7565 100%);color:#fff;border-radius:var(--radius);padding:26px 22px;text-align:center}
+  .cta{background:linear-gradient(135deg,var(--green) 0%,#199E91 100%);color:#fff;border-radius:var(--radius);padding:26px 22px;text-align:center}
   .cta h2{color:#fff}
   .cta p{margin:0 auto 18px;max-width:480px;opacity:.92}
   .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
@@ -140,6 +141,10 @@
   summary{cursor:pointer;font-weight:500}
   details p{margin:8px 0 2px;color:var(--ink-soft)}
 
+  .crumbs{font-size:13px;color:var(--ink-soft);margin:-4px 0 0}
+  .crumbs a{color:var(--ink-soft);text-decoration:none}
+  .crumbs a:hover{color:var(--green)}
+  .alltools{display:inline-block;margin-top:14px;font-weight:500;text-decoration:none}
   footer{margin:48px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--ink-soft)}
   footer a{color:var(--ink-soft)}
   @media (max-width:480px){ .card,.result{padding:18px} .stats{gap:6px} .stat b{font-size:15px} }
@@ -152,18 +157,20 @@
     <a class="brand" href="/">此刻 · The Present</a>
     <div class="langs" role="group" aria-label="Language">
       <button type="button" data-set-lang="zh" aria-pressed="true">繁</button>
+      <button type="button" data-set-lang="zhs" aria-pressed="false">简</button>
       <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
     </div>
   </header>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">此刻</a> › <a href="/tools/"><span lang="zh-Hant">免費工具</span><span lang="zh-Hans">免费工具</span><span lang="en">Free tools</span></a> › <span lang="zh-Hant">精油稀釋計算器</span><span lang="zh-Hans">精油稀释计算器</span><span lang="en">Dilution Calculator</span></nav>
 
   <div class="hero">
     <div class="eyebrow">Free Tool · 免費工具</div>
     <h1>
-      <span lang="zh-Hant">精油稀釋計算器</span>
+      <span lang="zh-Hant">精油稀釋計算器</span><span lang="zh-Hans">精油稀释计算器</span>
       <span lang="en">Essential Oil Dilution Calculator</span>
     </h1>
     <p>
-      <span lang="zh-Hant">揀容量、揀用途，即刻知道要滴幾多滴精油。</span>
+      <span lang="zh-Hant">揀容量、揀用途，即刻知道要滴幾多滴精油。</span><span lang="zh-Hans">选容量、选用途，立刻知道要滴多少滴精油。</span>
       <span lang="en">Pick your bottle size and how you'll use it. See exactly how many drops to add.</span>
     </p>
   </div>
@@ -172,18 +179,18 @@
     <!-- 1. bottle size -->
     <div class="field">
       <span class="label">
-        <span lang="zh-Hant">① 瓶子容量</span><span lang="en">① Bottle size</span>
+        <span lang="zh-Hant">① 瓶子容量</span><span lang="zh-Hans">① 瓶子容量</span><span lang="en">① Bottle size</span>
       </span>
       <div class="chips" id="volChips">
         <button type="button" class="chip" data-vol="5">5 ml</button>
-        <button type="button" class="chip" data-vol="10">10 ml<span class="sub" lang="zh-Hant">滾珠瓶</span><span class="sub" lang="en">roller</span></button>
+        <button type="button" class="chip" data-vol="10">10 ml<span class="sub" lang="zh-Hant">滾珠瓶</span><span class="sub" lang="zh-Hans">滚珠瓶</span><span class="sub" lang="en">roller</span></button>
         <button type="button" class="chip" data-vol="15">15 ml</button>
         <button type="button" class="chip" data-vol="30">30 ml</button>
         <button type="button" class="chip" data-vol="50">50 ml</button>
         <button type="button" class="chip" data-vol="100">100 ml</button>
       </div>
       <div class="row">
-        <label class="muted" for="vol"><span lang="zh-Hant">自訂：</span><span lang="en">Custom:</span></label>
+        <label class="muted" for="vol"><span lang="zh-Hant">自訂：</span><span lang="zh-Hans">自定义：</span><span lang="en">Custom:</span></label>
         <input type="number" id="vol" min="1" max="1000" step="1" value="10" inputmode="decimal">
         <select id="unit" aria-label="Unit">
           <option value="ml">ml</option>
@@ -197,15 +204,15 @@
     <!-- 2. use / dilution -->
     <div class="field">
       <span class="label">
-        <span lang="zh-Hant">② 用途／稀釋比例</span><span lang="en">② How you'll use it</span>
+        <span lang="zh-Hant">② 用途／稀釋比例</span><span lang="zh-Hans">② 用途／稀释比例</span><span lang="en">② How you'll use it</span>
       </span>
       <div class="chips" id="useChips">
-        <button type="button" class="chip" data-pct="1"><span lang="zh-Hant">面部</span><span lang="en">Face</span><span class="sub">1%</span></button>
-        <button type="button" class="chip" data-pct="1" data-kids="1"><span lang="zh-Hant">小朋友／敏感肌</span><span lang="en">Kids / sensitive</span><span class="sub">1%</span></button>
-        <button type="button" class="chip" data-pct="2"><span lang="zh-Hant">日常身體</span><span lang="en">Daily body</span><span class="sub">2%</span></button>
-        <button type="button" class="chip" data-pct="3"><span lang="zh-Hant">按摩</span><span lang="en">Massage</span><span class="sub">3%</span></button>
-        <button type="button" class="chip" data-pct="5"><span lang="zh-Hant">短期局部</span><span lang="en">Short-term spot</span><span class="sub">5%</span></button>
-        <button type="button" class="chip" data-pct="15" data-perfume="1"><span lang="zh-Hant">滾珠香水</span><span lang="en">Roll-on perfume</span><span class="sub">15%</span></button>
+        <button type="button" class="chip" data-pct="1"><span lang="zh-Hant">面部</span><span lang="zh-Hans">面部</span><span lang="en">Face</span><span class="sub">1%</span></button>
+        <button type="button" class="chip" data-pct="1" data-kids="1"><span lang="zh-Hant">小朋友／敏感肌</span><span lang="zh-Hans">小朋友／敏感肌</span><span lang="en">Kids / sensitive</span><span class="sub">1%</span></button>
+        <button type="button" class="chip" data-pct="2"><span lang="zh-Hant">日常身體</span><span lang="zh-Hans">日常身体</span><span lang="en">Daily body</span><span class="sub">2%</span></button>
+        <button type="button" class="chip" data-pct="3"><span lang="zh-Hant">按摩</span><span lang="zh-Hans">按摩</span><span lang="en">Massage</span><span class="sub">3%</span></button>
+        <button type="button" class="chip" data-pct="5"><span lang="zh-Hant">短期局部</span><span lang="zh-Hans">短期局部</span><span lang="en">Short-term spot</span><span class="sub">5%</span></button>
+        <button type="button" class="chip" data-pct="15" data-perfume="1"><span lang="zh-Hant">滾珠香水</span><span lang="zh-Hans">滚珠香水</span><span lang="en">Roll-on perfume</span><span class="sub">15%</span></button>
       </div>
       <div class="row">
         <input type="range" id="pctRange" min="0.5" max="20" step="0.5" value="2" aria-label="Dilution percent">
@@ -217,8 +224,8 @@
     <!-- 3. number of oils -->
     <div class="field" style="margin-bottom:18px">
       <label class="label" for="oils">
-        <span lang="zh-Hant">③ 用幾多款精油？</span><span lang="en">③ How many oils in the blend?</span>
-        <small lang="zh-Hant">（可選）</small><small lang="en">(optional)</small>
+        <span lang="zh-Hant">③ 用幾多款精油？</span><span lang="zh-Hans">③ 用多少款精油？</span><span lang="en">③ How many oils in the blend?</span>
+        <small lang="zh-Hant">（可選）</small><small lang="zh-Hans">（可选）</small><small lang="en">(optional)</small>
       </label>
       <select id="oils">
         <option value="1">1</option><option value="2">2</option><option value="3">3</option>
@@ -228,82 +235,91 @@
 
     <!-- result -->
     <div class="result">
-      <div><span class="big" id="drops">4</span><span class="big-unit"><span lang="zh-Hant">滴精油</span><span lang="en">drops</span></span></div>
+      <div><span class="big" id="drops">4</span><span class="big-unit"><span lang="zh-Hant">滴精油</span><span lang="zh-Hans">滴精油</span><span lang="en">drops</span></span></div>
       <div class="caption" id="caption"></div>
       <div class="stats">
-        <div class="stat"><b id="sEo">0.2 ml</b><span lang="zh-Hant">精油</span><span lang="en">essential oil</span></div>
-        <div class="stat"><b id="sCarrier">9.8 ml</b><span lang="zh-Hant">基底油</span><span lang="en">carrier oil</span></div>
-        <div class="stat"><b id="sPct">2%</b><span lang="zh-Hant">稀釋比例</span><span lang="en">dilution</span></div>
+        <div class="stat"><b id="sEo">0.2 ml</b><span lang="zh-Hant">精油</span><span lang="zh-Hans">精油</span><span lang="en">essential oil</span></div>
+        <div class="stat"><b id="sCarrier">9.8 ml</b><span lang="zh-Hant">基底油</span><span lang="zh-Hans">基底油</span><span lang="en">carrier oil</span></div>
+        <div class="stat"><b id="sPct">2%</b><span lang="zh-Hant">稀釋比例</span><span lang="zh-Hans">稀释比例</span><span lang="en">dilution</span></div>
       </div>
       <div class="split" id="split"></div>
       <div class="note" id="note" hidden></div>
       <div class="consult" id="consult" hidden>
-        <p><span lang="zh-Hant">超過 20% 屬高濃度，唔建議自行調配。想做高濃度配方，歡迎先同 Julia 傾吓。</span><span lang="en">Above 20% is a high concentration and not recommended for DIY. Chat with Julia before making a strong blend.</span></p>
-        <a class="btn wa" id="consultBtn" href="#" target="_blank" rel="noopener"><span lang="zh-Hant">WhatsApp 諮詢 Julia</span><span lang="en">Ask Julia on WhatsApp</span></a>
+        <p><span lang="zh-Hant">超過 20% 屬高濃度，唔建議自行調配。想做高濃度配方，歡迎先同 Julia 傾吓。</span><span lang="zh-Hans">超过 20% 属高浓度，不建议自行调配。想做高浓度配方，欢迎先和 Julia 聊聊。</span><span lang="en">Above 20% is a high concentration and not recommended for DIY. Chat with Julia before making a strong blend.</span></p>
+        <a class="btn wa" id="consultBtn" href="#" target="_blank" rel="noopener"><span lang="zh-Hant">WhatsApp 諮詢 Julia</span><span lang="zh-Hans">WhatsApp 咨询 Julia</span><span lang="en">Ask Julia on WhatsApp</span></a>
       </div>
     </div>
     <p class="muted" style="margin:12px 0 0">
-      <span lang="zh-Hant">以每 ml 約 20 滴計算；滴數會因瓶口同精油稠度略有不同。</span>
+      <span lang="zh-Hant">以每 ml 約 20 滴計算；滴數會因瓶口同精油稠度略有不同。</span><span lang="zh-Hans">以每 ml 约 20 滴计算；滴数会因瓶口和精油稠度略有不同。</span>
       <span lang="en">Based on about 20 drops per ml. Drop size varies with the bottle and the oil's thickness.</span>
     </p>
   </main>
 
   <!-- quick chart -->
   <section>
-    <h2><span lang="zh-Hant">常用速查表</span><span lang="en">Quick reference chart</span></h2>
+    <h2><span lang="zh-Hant">常用速查表</span><span lang="zh-Hans">常用速查表</span><span lang="en">Quick reference chart</span></h2>
     <div class="table-wrap">
       <table>
         <thead><tr>
-          <th><span lang="zh-Hant">容量</span><span lang="en">Bottle</span></th>
+          <th><span lang="zh-Hant">容量</span><span lang="zh-Hans">容量</span><span lang="en">Bottle</span></th>
           <th>1%</th><th>2%</th><th>3%</th><th>5%</th>
         </tr></thead>
         <tbody id="chart"></tbody>
       </table>
     </div>
-    <p class="muted"><span lang="zh-Hant">單位：滴</span><span lang="en">Figures are drops of essential oil.</span></p>
+    <p class="muted"><span lang="zh-Hant">單位：滴</span><span lang="zh-Hans">单位：滴</span><span lang="en">Figures are drops of essential oil.</span></p>
   </section>
 
   <!-- guide -->
   <section>
-    <h2><span lang="zh-Hant">點揀稀釋比例？</span><span lang="en">Which dilution should I use?</span></h2>
+    <h2><span lang="zh-Hant">點揀稀釋比例？</span><span lang="zh-Hans">怎么选稀释比例？</span><span lang="en">Which dilution should I use?</span></h2>
     <div class="guide">
-      <div><span><span lang="zh-Hant">面部、小朋友、長者、敏感肌</span><span lang="en">Face, children, older adults, sensitive skin</span></span><b>0.5 – 1%</b></div>
-      <div><span><span lang="zh-Hant">日常身體護理、滾珠瓶</span><span lang="en">Everyday body care, roller blends</span></span><b>2%</b></div>
-      <div><span><span lang="zh-Hant">全身按摩</span><span lang="en">Full-body massage</span></span><b>2 – 3%</b></div>
-      <div><span><span lang="zh-Hant">短期、細範圍使用</span><span lang="en">Short-term, small area</span></span><b>3 – 5%</b></div>
-      <div><span><span lang="zh-Hant">滾珠香水（手腕、耳後少量）</span><span lang="en">Roll-on perfume (a dab on wrists)</span></span><b>10 – 15%</b></div>
+      <div><span><span lang="zh-Hant">面部、小朋友、長者、敏感肌</span><span lang="zh-Hans">面部、小朋友、长者、敏感肌</span><span lang="en">Face, children, older adults, sensitive skin</span></span><b>0.5 – 1%</b></div>
+      <div><span><span lang="zh-Hant">日常身體護理、滾珠瓶</span><span lang="zh-Hans">日常身体护理、滚珠瓶</span><span lang="en">Everyday body care, roller blends</span></span><b>2%</b></div>
+      <div><span><span lang="zh-Hant">全身按摩</span><span lang="zh-Hans">全身按摩</span><span lang="en">Full-body massage</span></span><b>2 – 3%</b></div>
+      <div><span><span lang="zh-Hant">短期、細範圍使用</span><span lang="zh-Hans">短期、小范围使用</span><span lang="en">Short-term, small area</span></span><b>3 – 5%</b></div>
+      <div><span><span lang="zh-Hant">滾珠香水（手腕、耳後少量）</span><span lang="zh-Hans">滚珠香水（手腕、耳后少量）</span><span lang="en">Roll-on perfume (a dab on wrists)</span></span><b>10 – 15%</b></div>
     </div>
     <p class="muted" style="margin-top:12px">
-      <span lang="zh-Hant">以上係一般參考，唔係醫療建議。首次使用請先做皮膚測試；懷孕、兩歲以下幼兒或有健康狀況，請先諮詢專業人士，並按精油標籤指示使用。</span>
+      <span lang="zh-Hant">以上係一般參考，唔係醫療建議。首次使用請先做皮膚測試；懷孕、兩歲以下幼兒或有健康狀況，請先諮詢專業人士，並按精油標籤指示使用。</span><span lang="zh-Hans">以上是一般参考，不是医疗建议。首次使用请先做皮肤测试；怀孕、两岁以下幼儿或有健康状况，请先咨询专业人士，并按精油标签指示使用。</span>
       <span lang="en">General guidance only, not medical advice. Patch test before first use. If pregnant, using on children under 2, or managing a health condition, check with a qualified professional and follow your oil's label.</span>
     </p>
   </section>
 
   <!-- CTA -->
   <section class="cta">
-    <h2><span lang="zh-Hant">想要一支只屬於你嘅香味？</span><span lang="en">Want a scent made just for you?</span></h2>
+    <h2><span lang="zh-Hant">想要一支只屬於你嘅香味？</span><span lang="zh-Hans">想要一支只属于你的香味？</span><span lang="en">Want a scent made just for you?</span></h2>
     <p>
-      <span lang="zh-Hant">此刻 · 香頻：Julia 按你當下嘅狀態同心意，為你配搭專屬精油香水。</span>
+      <span lang="zh-Hant">此刻 · 香頻：Julia 按你當下嘅狀態同心意，為你配搭專屬精油香水。</span><span lang="zh-Hans">此刻 · 香频：Julia 按你当下的状态和心意，为你配搭专属精油香水。</span>
       <span lang="en">Scent of Now: Julia blends a personal essential oil perfume around where you are right now and what you want to carry with you.</span>
     </p>
     <div class="btns">
       <a class="btn primary" id="ctaPerfume" href="/perfume/">
-        <span lang="zh-Hant">了解客製香水</span><span lang="en">Explore custom perfume</span>
+        <span lang="zh-Hant">了解客製香水</span><span lang="zh-Hans">了解定制香水</span><span lang="en">Explore custom perfume</span>
       </a>
-      <a class="btn ghost" id="ctaYL" href="#" target="_blank" rel="noopener">
-        <span lang="zh-Hant">購買 Young Living 精油</span><span lang="en">Buy Young Living oils</span>
+      <a class="btn ghost" id="ctaYL" href="https://www.youngliving.com/vo/#/signup/new-start?sponsorid=2794289&amp;enrollerid=2794289&amp;isocountrycode=HK&amp;culture=en-HK&amp;type=member" target="_blank" rel="noopener sponsored">
+        <span lang="zh-Hant">購買 Young Living 精油</span><span lang="zh-Hans">购买 Young Living 精油</span><span lang="en">Buy Young Living oils</span>
       </a>
     </div>
+    <p style="margin:14px 0 0;font-size:12px;opacity:.8">
+      <span lang="zh-Hant">Julia 係 Young Living 獨立分銷商，經此連結登記購買，Julia 會收到推薦。有問題歡迎 WhatsApp 問佢。</span><span lang="zh-Hans">Julia 是 Young Living 独立分销商，经此连结登记购买，Julia 会收到推荐。有问题欢迎 WhatsApp 问她。</span>
+      <span lang="en">Julia is an independent Young Living distributor and receives a referral when you sign up through this link. Questions are welcome on WhatsApp.</span>
+    </p>
   </section>
 
   <!-- FAQ -->
   <section>
-    <h2><span lang="zh-Hant">常見問題</span><span lang="en">FAQ</span></h2>
+    <h2><span lang="zh-Hant">常見問題</span><span lang="zh-Hans">常见问题</span><span lang="en">FAQ</span></h2>
     <div lang="zh-Hant">
       <details><summary>10ml 滾珠瓶要滴幾多滴精油？</summary><p>以 2% 計約 4 滴，其餘加滿基底油。1% 約 2 滴，3% 約 6 滴。</p></details>
       <details><summary>稀釋比例點計？</summary><p>精油滴數 = 容量 (ml) × 比例 % × 20。例如 30ml × 2% × 20 = 12 滴。</p></details>
       <details><summary>用咩做基底油？</summary><p>常用有分餾椰子油、荷荷巴油、甜杏仁油。滾珠香水亦可用荷荷巴油，質地清爽又耐放。</p></details>
       <details><summary>幾款精油混合點分？</summary><p>先計總滴數，再按你鍾意嘅比例分。最簡單係平均分；想某種香味突出，就俾佢多一兩滴。</p></details>
+    </div><div lang="zh-Hans">
+      <details><summary>10ml 滚珠瓶要滴多少滴精油？</summary><p>以 2% 计约 4 滴，其余加满基底油。1% 约 2 滴，3% 约 6 滴。</p></details>
+      <details><summary>稀释比例怎么算？</summary><p>精油滴数 = 容量 (ml) × 比例 % × 20。例如 30ml × 2% × 20 = 12 滴。</p></details>
+      <details><summary>用什么做基底油？</summary><p>常用有分馏椰子油、荷荷巴油、甜杏仁油。滚珠香水亦可用荷荷巴油，质地清爽又耐放。</p></details>
+      <details><summary>几款精油混合怎么分？</summary><p>先算出总滴数，再按你喜欢的比例分。最简单是平均分；想某种香味突出，就给它多一两滴。</p></details>
     </div>
     <div lang="en">
       <details><summary>How many drops of essential oil in a 10ml roller bottle?</summary><p>About 4 drops at 2%, topped up with carrier oil. Around 2 drops at 1% and 6 drops at 3%.</p></details>
@@ -314,12 +330,13 @@
   </section>
 
   <section>
-    <h2><span lang="zh-Hant">更多免費工具</span><span lang="en">More free tools</span></h2>
+    <h2><span lang="zh-Hant">更多免費工具</span><span lang="zh-Hans">更多免费工具</span><span lang="en">More free tools</span></h2>
     <div class="tools">
-      <a href="/tools/focus/"><b><span lang="zh-Hant">專注溫習計時器</span><span lang="en">Study Timer with Music</span></b><span lang="zh-Hant">番茄鐘＋雨聲、琴音</span><span lang="en">Pomodoro with rain or soft piano</span></a>
-      <a href="/tools/breathing/"><b><span lang="zh-Hant">呼吸練習計時器</span><span lang="en">Breathing Timer</span></b><span lang="zh-Hant">4-7-8、方形呼吸，跟住圓圈一呼一吸</span><span lang="en">4-7-8 and box breathing with a guided circle</span></a>
-      <a href="/tools/frequency/"><b><span lang="zh-Hant">頻率聲音播放器</span><span lang="en">Frequency Sound Player</span></b><span lang="zh-Hant">528Hz、432Hz、雙耳節拍</span><span lang="en">528 Hz, 432 Hz, binaural beats</span></a>
+      <a href="/tools/focus/"><b><span lang="zh-Hant">專注溫習計時器</span><span lang="zh-Hans">专注复习计时器</span><span lang="en">Study Timer with Music</span></b><span lang="zh-Hant">番茄鐘＋雨聲、琴音</span><span lang="zh-Hans">番茄钟＋雨声、琴音</span><span lang="en">Pomodoro with rain or soft piano</span></a>
+      <a href="/tools/breathing/"><b><span lang="zh-Hant">呼吸練習計時器</span><span lang="zh-Hans">呼吸练习计时器</span><span lang="en">Breathing Timer</span></b><span lang="zh-Hant">4-7-8、方形呼吸，跟住圓圈一呼一吸</span><span lang="zh-Hans">4-7-8、方形呼吸，跟着圆圈一呼一吸</span><span lang="en">4-7-8 and box breathing with a guided circle</span></a>
+      <a href="/tools/frequency/"><b><span lang="zh-Hant">頻率聲音播放器</span><span lang="zh-Hans">频率声音播放器</span><span lang="en">Frequency Sound Player</span></b><span lang="zh-Hant">528Hz、432Hz、雙耳節拍</span><span lang="zh-Hans">528Hz、432Hz、双耳节拍</span><span lang="en">528 Hz, 432 Hz, binaural beats</span></a>
     </div>
+    <a class="alltools" href="/tools/"><span lang="zh-Hant">查看全部免費工具 →</span><span lang="zh-Hans">查看全部免费工具 →</span><span lang="en">See all free tools →</span></a>
   </section>
 
   <footer>
@@ -330,6 +347,11 @@
 
 <script>
 (function(){
+  var hans=false;
+  var ZP=[["瓶入面","瓶里"],["細範圍", "小范围"], ["嘅", "的"], ["咗", "了"], ["喺", "在"]];
+  var ZC={"兒": "儿", "議": "议", "測": "测", "細": "细", "濃": "浓", "滿": "满", "試": "试", "適": "适", "塗": "涂", "圍": "围", "後": "后", "膚": "肤", "專": "专", "釋": "释", "詢": "询", "內": "内", "曬": "晒", "兩": "两", "類": "类", "請": "请", "較": "较", "選": "选", "業": "业", "歲": "岁", "陽": "阳", "諮": "咨", "檸": "柠", "計": "计", "時": "时", "並": "并", "範": "范"};
+  function S(x){ x=String(x); ZP.forEach(function(p){ x=x.split(p[0]).join(p[1]); }); x=x.replace(/(^|[^不相一])同(?![樣步時意])/g,"$1和"); return x.replace(/[\u4e00-\u9fff]/g,function(c){return ZC[c]||c}); }
+
   var DROPS_PER_ML = 20;
   var TO_ML = {ml:1, oz:29.5735, tsp:4.92892, tbsp:14.7868};
   var WA = "https://wa.me/85296215876?text=";
@@ -338,20 +360,18 @@
   var lang = "zh";
 
   function fmt(n, d){ return (Math.round(n*Math.pow(10,d))/Math.pow(10,d)).toString(); }
-  function t(zh,en){ return lang==="zh"?zh:en; }
+  function t(zh,en){ return lang==="zh"?(hans?S(zh):zh):en; }
 
   function setLang(l){
+    hans=(l==="zhs"); if(hans) l="zh";
     lang = l;
     document.documentElement.setAttribute("data-lang", l);
-    document.documentElement.lang = l==="zh" ? "zh-Hant" : "en";
+    document.documentElement.lang = hans?"zh-Hans":(l==="zh"?"zh-Hant":"en"); if(hans) document.documentElement.setAttribute("data-lang","zhs");
     document.querySelectorAll("[data-set-lang]").forEach(function(b){
       b.setAttribute("aria-pressed", b.dataset.setLang===l ? "true":"false");
     });
-    $("ctaPerfume").href = l==="zh" ? "/perfume/" : "/perfume/en/";
-    $("ctaYL").href = WA + encodeURIComponent(l==="zh"
-      ? "你好 Julia，我用咗精油稀釋計算器，想了解購買 Young Living 精油。"
-      : "Hi Julia, I used your dilution calculator and I'd like to buy Young Living essential oils.");
-    try{ localStorage.setItem("jy-lang", l); }catch(e){}
+    $("ctaPerfume").href = (hans?"/perfume/sc/":(l==="zh"?"/perfume/":"/perfume/en/"));
+    try{ localStorage.setItem("tp-lang", l==="en"?"en":(hans?"zh-Hans":"zh-Hant")); }catch(e){}
     calc();
   }
 
@@ -459,9 +479,10 @@
   // initial language: ?lang=en, saved choice, or browser language
   var initial = "zh";
   var q = new URLSearchParams(location.search).get("lang");
-  var saved = null; try{ saved = localStorage.getItem("jy-lang"); }catch(e){}
-  if(q==="en"||q==="zh") initial=q;
-  else if(saved==="en"||saved==="zh") initial=saved;
+  var saved = null; try{ var tp=localStorage.getItem("tp-lang"); saved = tp==="en"?"en":(tp==="zh-Hans"?"zhs":(tp?"zh":null)); }catch(e){}
+  if(q==="en"||q==="zh"||q==="zhs") initial=q;
+  else if(saved==="en"||saved==="zh"||saved==="zhs") initial=saved;
+  else if(/^zh-(cn|sg|hans)/i.test(navigator.language||"")) initial="zhs";
   else if(!/^zh/i.test(navigator.language||"")) initial="en";
 
   // default: 10ml roller, daily body 2%

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Wellness Tools 免費身心小工具 | 此刻 · The Present</title>
+<meta name="description" content="Free online wellness tools by Julia Yuen: breathing timer, study timer with music, 528 Hz frequency player and essential oil dilution calculator. 免費身心小工具：呼吸練習、溫習計時、頻率播放、精油稀釋計算。">
+<link rel="canonical" href="https://juliayuen.com/tools/">
+<meta property="og:title" content="Free Wellness Tools 免費身心小工具">
+<meta property="og:description" content="Breathing timer, study timer, frequency player and dilution calculator. 呼吸、溫習、頻率、精油，四個免費小工具。">
+<meta property="og:url" content="https://juliayuen.com/tools/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Free Wellness Tools 免費身心小工具","url":"https://juliayuen.com/tools/",
+ "isPartOf":{"@type":"WebSite","name":"此刻 · The Present","url":"https://juliayuen.com/"},
+ "mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Breathing Exercise Timer 呼吸練習計時器","url":"https://juliayuen.com/tools/breathing/"},{"@type":"ListItem","position":2,"name":"Study Timer with Music 專注溫習計時器","url":"https://juliayuen.com/tools/focus/"},{"@type":"ListItem","position":3,"name":"Frequency Sound Player 頻率聲音播放器","url":"https://juliayuen.com/tools/frequency/"},{"@type":"ListItem","position":4,"name":"Essential Oil Dilution Calculator 精油稀釋計算器","url":"https://juliayuen.com/tools/dilution/"}]}}
+</script>
+<style>
+  :root{
+    --mint:#EBF6F1; --cream:#FBFAF4; --paper:#ffffff;
+    --ink:#234B47; --ink-soft:#5C7370; --line:rgba(35,75,71,.13);
+    --green:#157F74; --green-soft:#DDF1EC; --gold:#C28A2E; --gold-soft:#F7EDD6;
+    --warn:#8a5a2b; --radius:16px;
+    --serif:"Fraunces","Noto Serif TC","Songti TC",Georgia,serif;
+    --sans:"Noto Sans TC",-apple-system,"Segoe UI","PingFang TC",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;font-family:var(--sans);color:var(--ink);line-height:1.65;
+       background:linear-gradient(180deg,var(--mint) 0%,var(--cream) 42%,var(--cream) 100%);min-height:100vh}
+  a{color:var(--green)}
+  html[data-lang="zh"] [lang="en"],html[data-lang="zh"] [lang="zh-Hans"],
+  html[data-lang="zhs"] [lang="en"],html[data-lang="zhs"] [lang="zh-Hant"],
+  html[data-lang="en"] [lang="zh-Hant"],html[data-lang="en"] [lang="zh-Hans"]{display:none!important}
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px}
+  header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .brand{font-family:var(--serif);font-size:18px;color:var(--green);text-decoration:none;letter-spacing:.04em}
+  .langs{display:flex;gap:4px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:3px}
+  .langs button{border:0;background:none;font:inherit;font-size:13px;padding:5px 12px;border-radius:999px;cursor:pointer;color:var(--ink-soft)}
+  .langs button[aria-pressed="true"]{background:var(--green);color:#fff}
+  .hero{text-align:center;padding:28px 0 22px}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,5.5vw,38px);line-height:1.25;margin:8px 0 10px;color:var(--ink)}
+  .hero p{margin:0 auto;max-width:520px;color:var(--ink-soft)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 2px rgba(35,75,71,.04),0 8px 28px rgba(35,75,71,.06)}
+  .field{margin-bottom:22px}
+  .label{display:block;font-weight:500;margin-bottom:10px;font-size:15px}
+  .label small{font-weight:400;color:var(--ink-soft);margin-left:6px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;font-size:14px;
+        padding:8px 14px;border-radius:999px;cursor:pointer;transition:background .15s,border-color .15s;min-height:40px}
+  .chip:hover{border-color:var(--green)}
+  .chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+  .chip .sub{opacity:.7;font-size:12px;margin-left:4px}
+  .row{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
+  input[type=number]{font:inherit;font-size:16px;width:110px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;color:var(--ink);background:var(--cream)}
+  input[type=number]:focus,select:focus,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  select{font:inherit;font-size:15px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--cream);color:var(--ink)}
+  input[type=range]{flex:1;min-width:160px;accent-color:var(--green)}
+  .muted{color:var(--ink-soft);font-size:13px}
+  section{margin-top:40px}
+  h2{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:22px;margin:0 0 14px}
+  .cta{background:linear-gradient(135deg,var(--green) 0%,#199E91 100%);color:#fff;border-radius:var(--radius);padding:26px 22px;text-align:center}
+  .cta h2{color:#fff}
+  .cta p{margin:0 auto 18px;max-width:480px;opacity:.92}
+  .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:500;font-size:15px}
+  .btn.primary{background:var(--gold-soft);color:var(--green)}
+  .btn.ghost{border:1px solid rgba(255,255,255,.6);color:#fff}
+  details{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:8px}
+  summary{cursor:pointer;font-weight:500}
+  details p{margin:8px 0 2px;color:var(--ink-soft)}
+  .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+  .tools a{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--ink)}
+  .tools a:hover{border-color:var(--green)}
+  .tools b{display:block;color:var(--green);font-family:var(--serif)}
+  .tools span{font-size:13px;color:var(--ink-soft)}
+  footer{margin:48px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--ink-soft)}
+  footer a{color:var(--ink-soft)}
+
+
+  .tlist{display:grid;gap:14px}
+  .tcard{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;text-decoration:none;color:var(--ink);transition:transform .2s,box-shadow .2s,border-color .2s}
+  .tcard:hover{transform:translateY(-3px);border-color:var(--green);box-shadow:0 16px 36px -20px rgba(35,75,71,.4)}
+  .ti{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--green-soft)}
+  .ti svg{width:26px;height:26px;fill:none;stroke:var(--green);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .tb{display:flex;flex-direction:column;gap:4px}
+  .tb b{font-family:var(--serif);font-size:19px;color:var(--ink);font-weight:600}
+  .td{font-size:14px;color:var(--ink-soft)}
+  .tu{font-size:12.5px;color:var(--gold)}
+  .tcard i{font-style:normal;font-weight:500;color:var(--green);white-space:nowrap;font-size:14px}
+  @media (max-width:560px){.tcard{grid-template-columns:auto 1fr;padding:16px} .tcard i{grid-column:2}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/">此刻 · The Present</a>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-set-lang="zh" aria-pressed="true">繁</button>
+      <button type="button" data-set-lang="zhs" aria-pressed="false">简</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">Free Tools · 免費工具</div>
+    <h1><span lang="zh-Hant">免費身心小工具</span><span lang="zh-Hans">免费身心小工具</span><span lang="en">Free Wellness Tools</span></h1>
+    <p>
+      <span lang="zh-Hant">唔使登記、唔使下載，打開就用。緊張時、溫習時、想靜落嚟時，隨時返嚟此刻。</span><span lang="zh-Hans">无需注册、无需下载，打开即用。紧张时、复习时、想静下来时，随时回到此刻。</span>
+      <span lang="en">No sign-up, no download. Open and use them whenever you need to settle, focus or slow down.</span>
+    </p>
+  </div>
+
+  <main class="tlist">
+      <a class="tcard" href="/tools/breathing/">
+        <span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="10" stroke-dasharray="2 3"/></svg></span>
+        <span class="tb">
+          <b><span lang="zh-Hant">呼吸練習計時器</span><span lang="zh-Hans">呼吸练习计时器</span><span lang="en">Breathing Exercise Timer</span></b>
+          <span class="td"><span lang="zh-Hant">跟住圓圈同聲音一呼一吸。方形呼吸、4-7-8、平衡呼吸，1 至 10 分鐘。</span><span lang="zh-Hans">跟着圆圈和声音一呼一吸。方形呼吸、4-7-8、平衡呼吸，1 至 10 分钟。</span><span lang="en">Breathe along with a circle and a rising-and-falling sound. Box, 4-7-8 and coherent breathing, 1 to 10 minutes.</span></span>
+          <span class="tu"><span lang="zh-Hant">適合：緊張、失眠、開會或考試前</span><span lang="zh-Hans">适合：紧张、失眠、开会或考试前</span><span lang="en">Good for: Stress, sleep, before a meeting or exam</span></span>
+        </span>
+        <i><span lang="zh-Hant">免費使用 →</span><span lang="zh-Hans">免费使用 →</span><span lang="en">Open →</span></i>
+      </a>
+      <a class="tcard" href="/tools/focus/">
+        <span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9.5 2.5h5"/></svg></span>
+        <span class="tb">
+          <b><span lang="zh-Hant">專注溫習計時器</span><span lang="zh-Hans">专注复习计时器</span><span lang="en">Study Timer with Music</span></b>
+          <span class="td"><span lang="zh-Hant">番茄鐘 25/5、心流 50/10、深度溫習 90/15，配雨聲、棕噪音、琴音或專注頻率。</span><span lang="zh-Hans">番茄钟 25/5、心流 50/10、深度复习 90/15，配雨声、棕噪音、琴音或专注频率。</span><span lang="en">Pomodoro 25/5, flow 50/10 and 90-minute deep study, with rain, brown noise, soft piano or focus beats.</span></span>
+          <span class="tu"><span lang="zh-Hant">適合：溫習、工作、在家辦公</span><span lang="zh-Hans">适合：复习、工作、在家办公</span><span lang="en">Good for: Studying, work, working from home</span></span>
+        </span>
+        <i><span lang="zh-Hant">免費使用 →</span><span lang="zh-Hans">免费使用 →</span><span lang="en">Open →</span></i>
+      </a>
+      <a class="tcard" href="/tools/frequency/">
+        <span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h2l2-5 3 10 3-14 3 14 3-10 2 5h2"/></svg></span>
+        <span class="tb">
+          <b><span lang="zh-Hant">頻率聲音播放器</span><span lang="zh-Hans">频率声音播放器</span><span lang="en">Frequency Sound Player</span></b>
+          <span class="td"><span lang="zh-Hant">528Hz、432Hz 同索菲亞頻率，純音或雙耳節拍，可設定時間慢慢淡出。</span><span lang="zh-Hans">528Hz、432Hz 和索菲亚频率，纯音或双耳节拍，可设定时间慢慢淡出。</span><span lang="en">528 Hz, 432 Hz and Solfeggio tones, as a pure tone or binaural beats, with a gentle fade-out timer.</span></span>
+          <span class="tu"><span lang="zh-Hant">適合：冥想、休息、睡前放鬆</span><span lang="zh-Hans">适合：冥想、休息、睡前放松</span><span lang="en">Good for: Meditation, rest, winding down</span></span>
+        </span>
+        <i><span lang="zh-Hant">免費使用 →</span><span lang="zh-Hans">免费使用 →</span><span lang="en">Open →</span></i>
+      </a>
+      <a class="tcard" href="/tools/dilution/">
+        <span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3.5 4.2 6 7.6 6 10.6A6 6 0 0 1 6 13.6C6 10.6 8.5 7.2 12 3z"/><path d="M9.5 14.5a2.6 2.6 0 0 0 2.5 2.4"/></svg></span>
+        <span class="tb">
+          <b><span lang="zh-Hant">精油稀釋計算器</span><span lang="zh-Hans">精油稀释计算器</span><span lang="en">Essential Oil Dilution Calculator</span></b>
+          <span class="td"><span lang="zh-Hant">輸入瓶子容量同用途，即時計出要滴幾多滴精油，附速查表同安全指引。</span><span lang="zh-Hans">输入瓶子容量和用途，即时算出要滴多少滴精油，附速查表和安全指引。</span><span lang="en">Enter your bottle size and use to see exactly how many drops to add, with a quick chart and safety guide.</span></span>
+          <span class="tu"><span lang="zh-Hant">適合：滾珠瓶、按摩油、香水調配</span><span lang="zh-Hans">适合：滚珠瓶、按摩油、香水调配</span><span lang="en">Good for: Roller bottles, massage oil, perfume blends</span></span>
+        </span>
+        <i><span lang="zh-Hant">免費使用 →</span><span lang="zh-Hans">免费使用 →</span><span lang="en">Open →</span></i>
+      </a>
+  </main>
+
+  <section class="cta">
+    <h2><span lang="zh-Hant">想更深入了解自己？</span><span lang="zh-Hans">想更深入了解自己？</span><span lang="en">Want to go deeper?</span></h2>
+    <p>
+      <span lang="zh-Hant">Julia 提供 TimeWaver 信息場諮詢、個人化精油香水同身心課程，全部可以遙距進行。</span><span lang="zh-Hans">Julia 提供 TimeWaver 信息场咨询、个人化精油香水和身心课程，全部可以远程进行。</span>
+      <span lang="en">Julia offers TimeWaver information-field sessions, personalised essential oil perfume and wellness courses, all available remotely.</span>
+    </p>
+    <div class="btns">
+      <a class="btn primary" href="/"><span lang="zh-Hant">返回主頁</span><span lang="zh-Hans">返回主页</span><span lang="en">Visit the homepage</span></a>
+      <a class="btn ghost" id="ctaWA" href="#" target="_blank" rel="noopener">WhatsApp Julia</a>
+    </div>
+  </section>
+
+  <footer>
+    <div><a href="/">此刻 · The Present</a> · Julia Yuen</div>
+    <div>WhatsApp <a href="https://wa.me/85296215876">+852 9621 5876</a> · <a href="mailto:hello@juliayuen.com">hello@juliayuen.com</a></div>
+    <div style="margin-top:6px">© 2026 Wellness Path · 此刻 The Present</div>
+  </footer>
+</div>
+<script>
+(function(){
+  var hans=false;
+  var ZP=[["想了解多啲", "想了解更多"], ["嘅", "的"], ["咗", "了"], ["啲", "些"]];
+  var ZC={"費": "费", "網": "网"};
+  function S(x){ x=String(x); ZP.forEach(function(p){ x=x.split(p[0]).join(p[1]); }); x=x.replace(/(^|[^不相一])同(?![樣步時意])/g,"$1和"); return x.replace(/[\u4e00-\u9fff]/g,function(c){return ZC[c]||c}); }
+
+  var WA="https://wa.me/85296215876?text=";
+  function setLang(l){
+    hans=(l==="zhs"); if(hans) l="zh";
+    document.documentElement.setAttribute("data-lang",l);
+    document.documentElement.lang=hans?"zh-Hans":(l==="zh"?"zh-Hant":"en"); if(hans) document.documentElement.setAttribute("data-lang","zhs");
+    document.querySelectorAll("[data-set-lang]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.setLang===(hans?"zhs":l)?"true":"false")});
+    document.getElementById("ctaWA").href=WA+encodeURIComponent(l==="zh"?(hans?S("你好 Julia，我用咗你網站嘅免費工具，想了解多啲。"):"你好 Julia，我用咗你網站嘅免費工具，想了解多啲。"):"Hi Julia, I found your free tools and I'd like to know more.");
+    try{ localStorage.setItem("tp-lang", l==="en"?"en":(hans?"zh-Hans":"zh-Hant")); }catch(e){}
+  }
+  document.querySelectorAll("[data-set-lang]").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.setLang)})});
+  var q=new URLSearchParams(location.search).get("lang"), saved=null;
+  try{ var tp=localStorage.getItem("tp-lang"); saved = tp==="en"?"en":(tp==="zh-Hans"?"zhs":(tp?"zh":null)); }catch(e){}
+  setLang((q==="en"||q==="zh"||q==="zhs")?q:(saved==="en"||saved==="zh"||saved==="zhs")?saved:(/^zh-(cn|sg|hans)/i.test(navigator.language||"")?"zhs":(/^zh/i.test(navigator.language||"")?"zh":"en")));
+})();
+</script>
+</body>
+</html>

@@ -124,6 +124,27 @@
   .entry-card b{font-family:var(--display);font-size:1.1rem;color:var(--ink);font-weight:600}
   .entry-card small{font-size:.84rem;color:var(--muted)}
   .entry-card i{font-style:normal;margin-top:8px;font-size:.88rem;font-weight:600;color:var(--teal)}
+  .explore-tools{margin-top:clamp(18px,2.5vw,28px);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 10px;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:12px 20px;font-size:.9rem}
+  .explore-tools b{color:var(--ink);font-weight:600;margin-right:4px}
+  .explore-tools a{color:var(--teal);text-decoration:none;font-weight:500}
+  .explore-tools a:hover{text-decoration:underline}
+  .explore-tools .sep{color:var(--muted);opacity:.5}
+  @media (max-width:600px){.explore-tools{border-radius:18px;font-size:.85rem}}
+
+  /* ===== free tools ===== */
+  .tools-sec{padding:clamp(56px,8vw,96px) 0;background:linear-gradient(180deg,#fff 0%,var(--paper-2) 100%)}
+  .tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,22px);margin-top:8px}
+  .tool-card{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px 20px 20px;text-decoration:none;color:inherit;transition:.3s}
+  .tool-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -24px rgba(35,75,71,.45);border-color:var(--teal)}
+  .tool-card .ti{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(95,184,174,.14);margin-bottom:6px}
+  .tool-card svg{width:24px;height:24px;fill:none;stroke:var(--teal);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .tool-card b{font-family:var(--display);font-size:1.08rem;color:var(--ink);font-weight:600}
+  .tool-card small{font-size:.84rem;color:var(--muted);line-height:1.55}
+  .tool-card i{font-style:normal;margin-top:auto;padding-top:10px;font-size:.88rem;font-weight:600;color:var(--teal)}
+  .tools-more{text-align:center;margin-top:26px}
+  .tools-more a{color:var(--teal);font-weight:600;text-decoration:none}
+  @media (max-width:900px){.tools-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:480px){.tools-grid{grid-template-columns:1fr 1fr;gap:10px}.tool-card{padding:16px 14px}.tool-card small{font-size:.78rem}}
   .scentband{background:linear-gradient(160deg,#f7efe3 0%,#fbf6ee 60%,#fdf6e6 100%)}
   @media(max-width:980px){.entry-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:860px){
@@ -205,6 +226,10 @@
   .article{background:var(--cloud);border-radius:var(--r);border:1px solid var(--line);overflow:hidden;transition:.3s}
   .article:hover{transform:translateY(-5px);box-shadow:0 16px 36px -24px rgba(16,42,48,.4)}
   .article .pic{aspect-ratio:16/10;background:linear-gradient(135deg,#dfe9e6,#eef0e7)}
+  .article .pic{position:relative;overflow:hidden}
+  .article .pic img{width:100%;height:100%;object-fit:cover;display:block}
+  .article:hover .pic img{transform:scale(1.03)}
+  .article .pic img{transition:transform .5s ease}
   .article .body{padding:22px 22px 24px}
   .article .tag{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500}
   .article h3{font-size:1.18rem;margin:8px 0 8px}
@@ -781,6 +806,7 @@
           <li><a href="/faq.html" data-i18n="m-faq">常見問題</a></li>
         </ul></li>
       <li><a href="#articles" data-i18n="nav-articles">文章</a></li>
+      <li><a href="/tools/" data-i18n="nav-tools">免費工具</a></li>
     </ul>
     <div class="nav-cta">
       <div class="lang-switcher" id="langSwitcher">
@@ -883,6 +909,14 @@
         <span class="eb"><b data-i18n="en-c4">證書課程</b><small data-i18n="en-c4d">嬰兒按摩 · 健腦操 · 兒童芳療</small><i data-i18n="en-go4">查看課程 →</i></span>
       </a>
     </div>
+    <p class="explore-tools">
+      <b data-i18n="ex-tools">免費小工具：</b>
+      <a href="/tools/breathing/" data-i18n="tl-br">呼吸練習計時器</a><span class="sep">·</span>
+      <a href="/tools/focus/" data-i18n="tl-fo">專注溫習計時器</a><span class="sep">·</span>
+      <a href="/tools/frequency/" data-i18n="tl-fr">頻率聲音播放器</a><span class="sep">·</span>
+      <a href="/tools/dilution/" data-i18n="tl-di">精油稀釋計算器</a><span class="sep">·</span>
+      <a href="/tools/" data-i18n="ex-all">全部 →</a>
+    </p>
   </div>
 </section>
 
@@ -1414,7 +1448,7 @@ function switchTab(btn, panelId) {
     </div>
     <div class="grid-3">
       <article class="article">
-        <div class="pic"></div>
+        <div class="pic"><img src="articles/a1.jpg" width="1200" height="750" loading="lazy" alt="看不見的層面 · 情緒與身體的關係" data-i18n-alt="art1-alt"></div>
         <div class="body">
           <span class="tag">身心靈</span>
           <h3>病由心生，是真的嗎？</h3>
@@ -1423,7 +1457,7 @@ function switchTab(btn, panelId) {
         </div>
       </article>
       <article class="article">
-        <div class="pic"></div>
+        <div class="pic"><img src="articles/a2.jpg" width="1200" height="750" loading="lazy" alt="一次資訊場諮詢之後的安靜" data-i18n-alt="art2-alt"></div>
         <div class="body">
           <span class="tag">客人見證</span>
           <h3>一次諮詢後，我睡得好了</h3>
@@ -1432,7 +1466,7 @@ function switchTab(btn, panelId) {
         </div>
       </article>
       <article class="article">
-        <div class="pic"></div>
+        <div class="pic"><img src="articles/a3.jpg" width="1200" height="750" loading="lazy" alt="天然精油、薰衣草與薄荷" data-i18n-alt="art3-alt"></div>
         <div class="body">
           <span class="tag">芳療生活</span>
           <h3>三款適合睡前的精油</h3>
@@ -1524,6 +1558,44 @@ function switchTab(btn, panelId) {
 </section>
 <!-- ===== END VIDEO SECTION ===== -->
 
+<!-- ===== FREE TOOLS 免費小工具 ===== -->
+<section class="tools-sec" id="tools">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker" data-i18n="tl-kicker">免費小工具</span>
+      <h2 data-i18n="tl-h2">隨時用得著的身心小工具</h2>
+      <span class="en">Free wellness tools</span>
+    </div>
+    <div class="tools-grid">
+      <a class="tool-card" href="/tools/breathing/">
+        <span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="10" stroke-dasharray="2 3"/></svg></span>
+        <b data-i18n="tl-br">呼吸練習計時器</b>
+        <small data-i18n="tl-brd">方形呼吸 · 4-7-8 · 跟住圓圈同聲音一呼一吸</small>
+        <i data-i18n="tl-go">免費使用 →</i>
+      </a>
+      <a class="tool-card" href="/tools/focus/">
+        <span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9.5 2.5h5"/></svg></span>
+        <b data-i18n="tl-fo">專注溫習計時器</b>
+        <small data-i18n="tl-fod">番茄鐘 · 50/10 心流 · 雨聲同琴音陪讀</small>
+        <i data-i18n="tl-go">免費使用 →</i>
+      </a>
+      <a class="tool-card" href="/tools/frequency/">
+        <span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h2l2-5 3 10 3-14 3 14 3-10 2 5h2"/></svg></span>
+        <b data-i18n="tl-fr">頻率聲音播放器</b>
+        <small data-i18n="tl-frd">528Hz · 432Hz · 索菲亞頻率 · 雙耳節拍</small>
+        <i data-i18n="tl-go">免費使用 →</i>
+      </a>
+      <a class="tool-card" href="/tools/dilution/">
+        <span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3.5 4.2 6 7.6 6 10.6A6 6 0 0 1 6 13.6C6 10.6 8.5 7.2 12 3z"/><path d="M9.5 14.5a2.6 2.6 0 0 0 2.5 2.4"/></svg></span>
+        <b data-i18n="tl-di">精油稀釋計算器</b>
+        <small data-i18n="tl-did">幾多滴精油？輸入容量同用途即時計</small>
+        <i data-i18n="tl-go">免費使用 →</i>
+      </a>
+    </div>
+    <p class="tools-more"><a href="/tools/" data-i18n="tl-all">查看全部免費工具 →</a></p>
+  </div>
+</section>
+
 <!-- booking -->
 <section class="booking" id="booking">
   <div class="wrap">
@@ -1556,6 +1628,7 @@ function switchTab(btn, panelId) {
           <li><a href="#products" data-i18n="ft-prd">精油療癒</a></li>
           <li><a href="#courses">證書課程</a></li>
           <li><a href="#articles">文章見證</a></li>
+          <li><a href="/tools/" data-i18n="nav-tools">免費小工具</a></li>
         </ul>
       </div>
       <div>
@@ -1574,7 +1647,7 @@ function switchTab(btn, panelId) {
           <li><a href="#">立即加入會員</a></li>
         </ul>
         <div class="social">
-          <a href="https://www.youtube.com/@juliayuen" target="_blank" title="YouTube">YT</a>
+          <a href="https://www.youtube.com/@%E4%BC%B4%E8%AE%80%E5%AA%BD%E5%AA%BDJulia" target="_blank" title="YouTube">YT</a>
           <a href="https://www.facebook.com/juliayuen" target="_blank" title="Facebook">FB</a>
           <a href="#" title="Instagram">IG</a>
         </div>
@@ -1616,6 +1689,21 @@ const T = {
   'en-c3d':{'zh-Hant':'訂製送禮 · 親子 DIY 班','zh-Hans':'定制送礼 · 亲子 DIY 班','en':'Custom gifts · parent-child DIY class'},
   'en-c4':{'zh-Hant':'證書課程','zh-Hans':'证书课程','en':'Certificate Courses'},
   'en-c4d':{'zh-Hant':'嬰兒按摩 · 健腦操 · 兒童芳療','zh-Hans':'婴儿按摩 · 健脑操 · 儿童芳疗','en':'Baby massage · Brain Gym · kids aromatherapy'},
+  'ex-tools':{'zh-Hant':'免費小工具：','zh-Hans':'免费小工具：','en':'Free tools:'},
+  'ex-all':{'zh-Hant':'全部 →','zh-Hans':'全部 →','en':'All →'},
+  'nav-tools':{'zh-Hant':'免費工具','zh-Hans':'免费工具','en':'Free tools'},
+  'tl-kicker':{'zh-Hant':'免費小工具','zh-Hans':'免费小工具','en':'Free tools'},
+  'tl-h2':{'zh-Hant':'隨時用得著的身心小工具','zh-Hans':'随时用得着的身心小工具','en':'Everyday tools for body and mind'},
+  'tl-br':{'zh-Hant':'呼吸練習計時器','zh-Hans':'呼吸练习计时器','en':'Breathing timer'},
+  'tl-brd':{'zh-Hant':'方形呼吸 · 4-7-8 · 跟住圓圈同聲音一呼一吸','zh-Hans':'方形呼吸 · 4-7-8 · 跟着圆圈和声音一呼一吸','en':'Box and 4-7-8 breathing, guided by a circle and sound'},
+  'tl-fo':{'zh-Hant':'專注溫習計時器','zh-Hans':'专注复习计时器','en':'Study timer + music'},
+  'tl-fod':{'zh-Hant':'番茄鐘 · 50/10 心流 · 雨聲同琴音陪讀','zh-Hans':'番茄钟 · 50/10 心流 · 雨声和琴音陪读','en':'Pomodoro and 50/10 flow with rain or soft piano'},
+  'tl-fr':{'zh-Hant':'頻率聲音播放器','zh-Hans':'频率声音播放器','en':'Frequency sound player'},
+  'tl-frd':{'zh-Hant':'528Hz · 432Hz · 索菲亞頻率 · 雙耳節拍','zh-Hans':'528Hz · 432Hz · 索菲亚频率 · 双耳节拍','en':'528 Hz, 432 Hz, Solfeggio tones and binaural beats'},
+  'tl-di':{'zh-Hant':'精油稀釋計算器','zh-Hans':'精油稀释计算器','en':'Essential oil dilution calculator'},
+  'tl-did':{'zh-Hant':'幾多滴精油？輸入容量同用途即時計','zh-Hans':'要滴多少滴精油？输入容量和用途即时计算','en':'How many drops? Enter bottle size and use'},
+  'tl-go':{'zh-Hant':'免費使用 →','zh-Hans':'免费使用 →','en':'Try it free →'},
+  'tl-all':{'zh-Hant':'查看全部免費工具 →','zh-Hans':'查看全部免费工具 →','en':'See all free tools →'},
   'en-go':{'zh-Hant':'了解更多 →','zh-Hans':'了解更多 →','en':'Learn more →'},
   'en-go2':{'zh-Hant':'訂製你的香 →','zh-Hans':'定制你的香 →','en':'Create your scent →'},
   'en-go3':{'zh-Hant':'睇吓款式 →','zh-Hans':'查看款式 →','en':'See the range →'},
@@ -1695,6 +1783,9 @@ const T = {
   'bk-btn2':{'zh-Hant':'WhatsApp 揀時間','zh-Hans':'WhatsApp 选时间','en':'Pick a Time via WhatsApp'},
   // ARTICLES
   'art-kicker':{'zh-Hant':'文章 · 見證','zh-Hans':'文章 · 见证','en':'Articles & Stories'},
+  'art1-alt':{'zh-Hant':'看不見的層面 · 情緒與身體的關係','zh-Hans':'看不见的层面 · 情绪与身体的关系','en':'The invisible layer — emotion and the body'},
+  'art2-alt':{'zh-Hant':'一次資訊場諮詢之後的安靜','zh-Hans':'一次信息场咨询之后的安静','en':'The quiet after a first consultation'},
+  'art3-alt':{'zh-Hant':'天然精油、薰衣草與薄荷','zh-Hans':'天然精油、薰衣草与薄荷','en':'Natural essential oils, lavender and mint'},
   'art-h2':{'zh-Hant':'慢讀一篇，照顧自己','zh-Hans':'慢读一篇，照顾自己','en':'Slow down. Read. Take care.'},
   // TESTIMONIALS
   'tst-kicker':{'zh-Hant':'真實回饋','zh-Hans':'真实回馈','en':'Client Stories'},

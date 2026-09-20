@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -24,7 +24,7 @@
       "url": "https://juliayuen.com/tools/frequency/",
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "Any",
-      "inLanguage": ["en", "zh-Hant"],
+      "inLanguage": ["en", "zh-Hant", "zh-Hans"],
       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "HKD"},
       "creator": {"@type": "Person", "name": "Julia Yuen", "url": "https://juliayuen.com/"}
     },
@@ -49,11 +49,11 @@
 
 <style>
   :root{
-    --mint:#e6f2ec; --cream:#faf6ee; --paper:#ffffff;
-    --ink:#23332d; --ink-soft:#5b6b64; --line:#dfe6e1;
-    --green:#2f5d50; --green-soft:#d5e8de; --gold:#b89b5e; --gold-soft:#f3ecdc;
+    --mint:#EBF6F1; --cream:#FBFAF4; --paper:#ffffff;
+    --ink:#234B47; --ink-soft:#5C7370; --line:rgba(35,75,71,.13);
+    --green:#157F74; --green-soft:#DDF1EC; --gold:#C28A2E; --gold-soft:#F7EDD6;
     --warn:#8a5a2b; --radius:16px;
-    --serif:"Noto Serif TC","Songti TC",Georgia,serif;
+    --serif:"Fraunces","Noto Serif TC","Songti TC",Georgia,serif;
     --sans:"Noto Sans TC",-apple-system,"Segoe UI","PingFang TC",sans-serif;
   }
   *{box-sizing:border-box}
@@ -61,8 +61,9 @@
   body{margin:0;font-family:var(--sans);color:var(--ink);line-height:1.65;
        background:linear-gradient(180deg,var(--mint) 0%,var(--cream) 42%,var(--cream) 100%);min-height:100vh}
   a{color:var(--green)}
-  html[data-lang="zh"] [lang="en"]{display:none!important}
-  html[data-lang="en"] [lang="zh-Hant"]{display:none!important}
+  html[data-lang="zh"] [lang="en"],html[data-lang="zh"] [lang="zh-Hans"],
+  html[data-lang="zhs"] [lang="en"],html[data-lang="zhs"] [lang="zh-Hant"],
+  html[data-lang="en"] [lang="zh-Hant"],html[data-lang="en"] [lang="zh-Hans"]{display:none!important}
   .wrap{max-width:760px;margin:0 auto;padding:0 16px}
   header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
   .brand{font-family:var(--serif);font-size:18px;color:var(--green);text-decoration:none;letter-spacing:.04em}
@@ -71,9 +72,9 @@
   .langs button[aria-pressed="true"]{background:var(--green);color:#fff}
   .hero{text-align:center;padding:28px 0 22px}
   .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-  h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,5.5vw,38px);line-height:1.25;margin:8px 0 10px;color:var(--green)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,5.5vw,38px);line-height:1.25;margin:8px 0 10px;color:var(--ink)}
   .hero p{margin:0 auto;max-width:520px;color:var(--ink-soft)}
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 2px rgba(35,51,45,.04),0 8px 28px rgba(47,93,80,.06)}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 2px rgba(35,75,71,.04),0 8px 28px rgba(35,75,71,.06)}
   .field{margin-bottom:22px}
   .label{display:block;font-weight:500;margin-bottom:10px;font-size:15px}
   .label small{font-weight:400;color:var(--ink-soft);margin-left:6px}
@@ -90,8 +91,8 @@
   input[type=range]{flex:1;min-width:160px;accent-color:var(--green)}
   .muted{color:var(--ink-soft);font-size:13px}
   section{margin-top:40px}
-  h2{font-family:var(--serif);font-weight:600;color:var(--green);font-size:22px;margin:0 0 14px}
-  .cta{background:linear-gradient(135deg,var(--green) 0%,#3f7565 100%);color:#fff;border-radius:var(--radius);padding:26px 22px;text-align:center}
+  h2{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:22px;margin:0 0 14px}
+  .cta{background:linear-gradient(135deg,var(--green) 0%,#199E91 100%);color:#fff;border-radius:var(--radius);padding:26px 22px;text-align:center}
   .cta h2{color:#fff}
   .cta p{margin:0 auto 18px;max-width:480px;opacity:.92}
   .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
@@ -106,6 +107,10 @@
   .tools a:hover{border-color:var(--green)}
   .tools b{display:block;color:var(--green);font-family:var(--serif)}
   .tools span{font-size:13px;color:var(--ink-soft)}
+  .crumbs{font-size:13px;color:var(--ink-soft);margin:-4px 0 0}
+  .crumbs a{color:var(--ink-soft);text-decoration:none}
+  .crumbs a:hover{color:var(--green)}
+  .alltools{display:inline-block;margin-top:14px;font-weight:500;text-decoration:none}
   footer{margin:48px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--ink-soft)}
   footer a{color:var(--ink-soft)}
 
@@ -117,7 +122,7 @@
   .playing .ring:nth-child(3){animation-delay:2.66s}
   @keyframes ripple{0%{transform:scale(.8);opacity:.7}100%{transform:scale(1.45);opacity:0}}
   .core{position:relative;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0%,var(--gold-soft) 45%,var(--green-soft) 100%);
-        display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(47,93,80,.15)}
+        display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(35,75,71,.15)}
   .hz{font-family:var(--serif);font-size:40px;line-height:1;color:var(--green);font-variant-numeric:tabular-nums}
   .hz small{font-size:16px;margin-left:2px}
   .hzname{font-size:12px;color:var(--ink-soft);margin-top:6px;text-align:center;padding:0 10px}
@@ -142,15 +147,17 @@
     <a class="brand" href="/">此刻 · The Present</a>
     <div class="langs" role="group" aria-label="Language">
       <button type="button" data-set-lang="zh" aria-pressed="true">繁</button>
+      <button type="button" data-set-lang="zhs" aria-pressed="false">简</button>
       <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
     </div>
   </header>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">此刻</a> › <a href="/tools/"><span lang="zh-Hant">免費工具</span><span lang="zh-Hans">免费工具</span><span lang="en">Free tools</span></a> › <span lang="zh-Hant">頻率聲音播放器</span><span lang="zh-Hans">频率声音播放器</span><span lang="en">Frequency Player</span></nav>
 
   <div class="hero">
     <div class="eyebrow">Free Tool · 免費工具</div>
-    <h1><span lang="zh-Hant">頻率聲音播放器</span><span lang="en">Frequency Sound Player</span></h1>
+    <h1><span lang="zh-Hant">頻率聲音播放器</span><span lang="zh-Hans">频率声音播放器</span><span lang="en">Frequency Sound Player</span></h1>
     <p>
-      <span lang="zh-Hant">528Hz、432Hz 同索菲亞頻率，一撳就播。可以設定時間，靜靜陪你冥想、休息。</span>
+      <span lang="zh-Hant">528Hz、432Hz 同索菲亞頻率，一撳就播。可以設定時間，靜靜陪你冥想、休息。</span><span lang="zh-Hans">528Hz、432Hz 和索菲亚频率，一按就播。可以设定时间，静静陪你冥想、休息。</span>
       <span lang="en">Play 528 Hz, 432 Hz and the Solfeggio tones right in your browser. Set a timer and let it keep you company while you rest or meditate.</span>
     </p>
   </div>
@@ -170,88 +177,93 @@
     <div class="status" id="status" aria-live="polite"></div>
 
     <div class="field" style="margin-top:18px">
-      <span class="label"><span lang="zh-Hant">① 揀頻率</span><span lang="en">① Choose a frequency</span></span>
+      <span class="label"><span lang="zh-Hant">① 揀頻率</span><span lang="zh-Hans">① 选频率</span><span lang="en">① Choose a frequency</span></span>
       <div class="chips" id="freqChips"></div>
       <div class="row">
-        <label class="muted" for="hz"><span lang="zh-Hant">自訂：</span><span lang="en">Custom:</span></label>
+        <label class="muted" for="hz"><span lang="zh-Hant">自訂：</span><span lang="zh-Hans">自定义：</span><span lang="en">Custom:</span></label>
         <input type="number" id="hz" min="20" max="2000" step="1" value="528" inputmode="decimal">
         <span>Hz</span>
       </div>
     </div>
 
     <div class="field">
-      <span class="label"><span lang="zh-Hant">② 聲音模式</span><span lang="en">② Sound mode</span></span>
+      <span class="label"><span lang="zh-Hant">② 聲音模式</span><span lang="zh-Hans">② 声音模式</span><span lang="en">② Sound mode</span></span>
       <div class="seg" role="group" id="modeSeg">
-        <button type="button" data-mode="pure" aria-pressed="true"><span lang="zh-Hant">純音</span><span lang="en">Pure tone</span></button>
-        <button type="button" data-mode="binaural" aria-pressed="false"><span lang="zh-Hant">雙耳節拍 🎧</span><span lang="en">Binaural 🎧</span></button>
+        <button type="button" data-mode="pure" aria-pressed="true"><span lang="zh-Hant">純音</span><span lang="zh-Hans">纯音</span><span lang="en">Pure tone</span></button>
+        <button type="button" data-mode="binaural" aria-pressed="false"><span lang="zh-Hant">雙耳節拍 🎧</span><span lang="zh-Hans">双耳节拍 🎧</span><span lang="en">Binaural 🎧</span></button>
       </div>
       <div id="beatRow" hidden>
         <div class="chips" id="beatChips" style="margin-top:12px">
-          <button type="button" class="chip" data-beat="2"><span lang="zh-Hant">深睡 δ</span><span lang="en">Deep sleep δ</span><span class="sub">2 Hz</span></button>
-          <button type="button" class="chip" data-beat="6"><span lang="zh-Hant">冥想 θ</span><span lang="en">Meditation θ</span><span class="sub">6 Hz</span></button>
-          <button type="button" class="chip" data-beat="10" aria-pressed="true"><span lang="zh-Hant">放鬆 α</span><span lang="en">Relaxed α</span><span class="sub">10 Hz</span></button>
-          <button type="button" class="chip" data-beat="14"><span lang="zh-Hant">專注 β</span><span lang="en">Focus β</span><span class="sub">14 Hz</span></button>
+          <button type="button" class="chip" data-beat="2"><span lang="zh-Hant">深睡 δ</span><span lang="zh-Hans">深睡 δ</span><span lang="en">Deep sleep δ</span><span class="sub">2 Hz</span></button>
+          <button type="button" class="chip" data-beat="6"><span lang="zh-Hant">冥想 θ</span><span lang="zh-Hans">冥想 θ</span><span lang="en">Meditation θ</span><span class="sub">6 Hz</span></button>
+          <button type="button" class="chip" data-beat="10" aria-pressed="true"><span lang="zh-Hant">放鬆 α</span><span lang="zh-Hans">放松 α</span><span lang="en">Relaxed α</span><span class="sub">10 Hz</span></button>
+          <button type="button" class="chip" data-beat="14"><span lang="zh-Hant">專注 β</span><span lang="zh-Hans">专注 β</span><span lang="en">Focus β</span><span class="sub">14 Hz</span></button>
         </div>
         <div class="note">
-          <span lang="zh-Hant">雙耳節拍要戴耳筒：左耳 <b id="lHz"></b> Hz，右耳 <b id="rHz"></b> Hz。</span>
+          <span lang="zh-Hant">雙耳節拍要戴耳筒：左耳 <b id="lHz"></b> Hz，右耳 <b id="rHz"></b> Hz。</span><span lang="zh-Hans">双耳节拍要戴耳机：左耳 <b id="lHzS"></b> Hz，右耳 <b id="rHzS"></b> Hz。</span>
           <span lang="en">Use headphones: left ear <b id="lHzE"></b> Hz, right ear <b id="rHzE"></b> Hz.</span>
         </div>
       </div>
     </div>
 
     <div class="field">
-      <span class="label"><span lang="zh-Hant">③ 播放時間</span><span lang="en">③ Timer</span></span>
+      <span class="label"><span lang="zh-Hant">③ 播放時間</span><span lang="zh-Hans">③ 播放时间</span><span lang="en">③ Timer</span></span>
       <div class="chips" id="timeChips">
         <button type="button" class="chip" data-min="5">5 min</button>
         <button type="button" class="chip" data-min="10" aria-pressed="true">10 min</button>
         <button type="button" class="chip" data-min="20">20 min</button>
         <button type="button" class="chip" data-min="30">30 min</button>
         <button type="button" class="chip" data-min="60">60 min</button>
-        <button type="button" class="chip" data-min="0"><span lang="zh-Hant">不限</span><span lang="en">No limit</span></button>
+        <button type="button" class="chip" data-min="0"><span lang="zh-Hant">不限</span><span lang="zh-Hans">不限</span><span lang="en">No limit</span></button>
       </div>
     </div>
 
     <div class="field" style="margin-bottom:0">
-      <label class="label" for="vol"><span lang="zh-Hant">④ 音量</span><span lang="en">④ Volume</span></label>
+      <label class="label" for="vol"><span lang="zh-Hant">④ 音量</span><span lang="zh-Hans">④ 音量</span><span lang="en">④ Volume</span></label>
       <div class="row" style="margin-top:0">
         <input type="range" id="vol" min="0" max="100" value="35" aria-label="Volume">
         <span class="muted" id="volPct">35%</span>
       </div>
       <p class="muted" style="margin:10px 0 0">
-        <span lang="zh-Hant">建議由細聲開始，以舒服為準。時間到會慢慢淡出。</span>
+        <span lang="zh-Hant">建議由細聲開始，以舒服為準。時間到會慢慢淡出。</span><span lang="zh-Hans">建议从小音量开始，以舒服为准。时间到会慢慢淡出。</span>
         <span lang="en">Start quiet and keep it comfortable. The sound fades out gently when the timer ends.</span>
       </p>
     </div>
   </main>
 
   <section>
-    <h2><span lang="zh-Hant">常見頻率一覽</span><span lang="en">Frequency guide</span></h2>
+    <h2><span lang="zh-Hant">常見頻率一覽</span><span lang="zh-Hans">常见频率一览</span><span lang="en">Frequency guide</span></h2>
     <div class="freqlist" id="freqList"></div>
     <p class="muted" style="margin-top:12px">
-      <span lang="zh-Hant">以上係冥想同聲音療癒圈子嘅傳統講法，科學研究仍然有限，請當作放鬆輔助，唔能取代醫療。駕駛或操作機器時請勿使用。</span>
+      <span lang="zh-Hant">以上係冥想同聲音療癒圈子嘅傳統講法，科學研究仍然有限，請當作放鬆輔助，唔能取代醫療。駕駛或操作機器時請勿使用。</span><span lang="zh-Hans">以上是冥想和声音疗愈圈子的传统讲法，科学研究仍然有限，请当作放松辅助，不能取代医疗。驾驶或操作机器时请勿使用。</span>
       <span lang="en">These are traditional associations from sound-meditation practice. Scientific evidence is limited, so use them as a relaxation aid, not a medical treatment. Don't listen while driving or operating machinery.</span>
     </p>
   </section>
 
   <section class="cta">
-    <h2><span lang="zh-Hant">聲音係頻率，你都係。</span><span lang="en">Sound is frequency. So are you.</span></h2>
+    <h2><span lang="zh-Hant">聲音係頻率，你都係。</span><span lang="zh-Hans">声音是频率，你也是。</span><span lang="en">Sound is frequency. So are you.</span></h2>
     <p>
-      <span lang="zh-Hant">想了解你自己嘅資訊場而家處於咩狀態？Julia 用 TimeWaver 同你一齊睇見卡點、慢慢調和。</span>
+      <span lang="zh-Hant">想了解你自己嘅資訊場而家處於咩狀態？Julia 用 TimeWaver 同你一齊睇見卡點、慢慢調和。</span><span lang="zh-Hans">想了解你自己的信息场现在处于什么状态？Julia 用 TimeWaver 和你一起看见卡点、慢慢调和。</span>
       <span lang="en">Curious about your own information field? Julia uses TimeWaver to help you see where you feel stuck and gently rebalance.</span>
     </p>
     <div class="btns">
-      <a class="btn primary" href="/"><span lang="zh-Hant">了解 TimeWaver 諮詢</span><span lang="en">Explore TimeWaver sessions</span></a>
-      <a class="btn ghost" id="ctaWA" href="#" target="_blank" rel="noopener"><span lang="zh-Hant">WhatsApp Julia</span><span lang="en">WhatsApp Julia</span></a>
+      <a class="btn primary" href="/"><span lang="zh-Hant">了解 TimeWaver 諮詢</span><span lang="zh-Hans">了解 TimeWaver 咨询</span><span lang="en">Explore TimeWaver sessions</span></a>
+      <a class="btn ghost" id="ctaWA" href="#" target="_blank" rel="noopener"><span lang="zh-Hant">WhatsApp Julia</span><span lang="zh-Hans">WhatsApp Julia</span><span lang="en">WhatsApp Julia</span></a>
     </div>
   </section>
 
   <section>
-    <h2><span lang="zh-Hant">常見問題</span><span lang="en">FAQ</span></h2>
+    <h2><span lang="zh-Hant">常見問題</span><span lang="zh-Hans">常见问题</span><span lang="en">FAQ</span></h2>
     <div lang="zh-Hant">
       <details><summary>528Hz 係咩？</summary><p>528Hz 係索菲亞頻率其中一個，常用喺冥想同放鬆時作背景音。科學研究有限，建議當作放鬆輔助。</p></details>
       <details><summary>雙耳節拍要戴耳筒嗎？</summary><p>要。左右耳播放略有不同嘅頻率，例如 200Hz 同 210Hz，大腦會感受到 10Hz 嘅輕柔律動。冇耳筒就冇效果。</p></details>
       <details><summary>432Hz 同 440Hz 有咩分別？</summary><p>440Hz 係 A 音嘅國際標準音高；432Hz 係稍低嘅另一種調音，有人覺得聽落較柔和。</p></details>
       <details><summary>聽幾耐好？</summary><p>一般 10–20 分鐘已經足夠。以自己舒服為準，唔需要長時間播放。</p></details>
+    </div><div lang="zh-Hans">
+      <details><summary>528Hz 是什么？</summary><p>528Hz 是索菲亚频率其中一个，常用在冥想和放松时作背景音。科学研究有限，建议当作放松辅助。</p></details>
+      <details><summary>双耳节拍要戴耳机吗？</summary><p>要。左右耳播放略有不同的频率，例如 200Hz 和 210Hz，大脑会感受到 10Hz 的轻柔律动。没有耳机就没有效果。</p></details>
+      <details><summary>432Hz 和 440Hz 有什么分别？</summary><p>440Hz 是 A 音的国际标准音高；432Hz 是稍低的另一种调音，有人觉得听起来较柔和。</p></details>
+      <details><summary>听多久好？</summary><p>一般 10–20 分钟已经足够。以自己舒服为准，不需要长时间播放。</p></details>
     </div>
     <div lang="en">
       <details><summary>What is 528 Hz?</summary><p>It's one of the Solfeggio frequencies, often used as a calm background tone for meditation. Evidence for specific effects is limited, so think of it as a relaxation aid.</p></details>
@@ -262,12 +274,13 @@
   </section>
 
   <section>
-    <h2><span lang="zh-Hant">更多免費工具</span><span lang="en">More free tools</span></h2>
+    <h2><span lang="zh-Hant">更多免費工具</span><span lang="zh-Hans">更多免费工具</span><span lang="en">More free tools</span></h2>
     <div class="tools">
-      <a href="/tools/focus/"><b><span lang="zh-Hant">專注溫習計時器</span><span lang="en">Study Timer with Music</span></b><span lang="zh-Hant">番茄鐘＋雨聲、琴音</span><span lang="en">Pomodoro with rain or soft piano</span></a>
-      <a href="/tools/breathing/"><b><span lang="zh-Hant">呼吸練習計時器</span><span lang="en">Breathing Timer</span></b><span lang="zh-Hant">4-7-8、方形呼吸，跟住圓圈一呼一吸</span><span lang="en">4-7-8 and box breathing with a guided circle</span></a>
-      <a href="/tools/dilution/"><b><span lang="zh-Hant">精油稀釋計算器</span><span lang="en">Essential Oil Dilution Calculator</span></b><span lang="zh-Hant">幾多滴精油？一秒計到</span><span lang="en">How many drops for your bottle</span></a>
+      <a href="/tools/focus/"><b><span lang="zh-Hant">專注溫習計時器</span><span lang="zh-Hans">专注复习计时器</span><span lang="en">Study Timer with Music</span></b><span lang="zh-Hant">番茄鐘＋雨聲、琴音</span><span lang="zh-Hans">番茄钟＋雨声、琴音</span><span lang="en">Pomodoro with rain or soft piano</span></a>
+      <a href="/tools/breathing/"><b><span lang="zh-Hant">呼吸練習計時器</span><span lang="zh-Hans">呼吸练习计时器</span><span lang="en">Breathing Timer</span></b><span lang="zh-Hant">4-7-8、方形呼吸，跟住圓圈一呼一吸</span><span lang="zh-Hans">4-7-8、方形呼吸，跟着圆圈一呼一吸</span><span lang="en">4-7-8 and box breathing with a guided circle</span></a>
+      <a href="/tools/dilution/"><b><span lang="zh-Hant">精油稀釋計算器</span><span lang="zh-Hans">精油稀释计算器</span><span lang="en">Essential Oil Dilution Calculator</span></b><span lang="zh-Hant">幾多滴精油？一秒計到</span><span lang="zh-Hans">多少滴精油？一秒算出</span><span lang="en">How many drops for your bottle</span></a>
     </div>
+    <a class="alltools" href="/tools/"><span lang="zh-Hant">查看全部免費工具 →</span><span lang="zh-Hans">查看全部免费工具 →</span><span lang="en">See all free tools →</span></a>
   </section>
 
   <footer>
@@ -278,6 +291,11 @@
 
 <script>
 (function(){
+  var hans=false;
+  var ZP=[["關係", "关系"], ["同內疚", "和内疚"], ["自訂", "自定义"], ["嘅", "的"], ["咗", "了"], ["係", "是"], ["感受吓", "感受一下"], ["吓", "一下"]];
+  var ZC={"達": "达", "緊": "紧", "調": "调", "靜": "静", "結": "结", "愛": "爱", "張": "张", "寧": "宁", "轉": "转", "繃": "绷", "懼": "惧", "頻": "频", "變": "变", "訂": "订", "歸": "归", "釋": "释", "連": "连", "餘": "余", "詢": "询", "內": "内", "係": "系", "穩": "稳", "諮": "咨", "開": "开", "復": "复", "關": "关", "覺": "觉"};
+  function S(x){ x=String(x); ZP.forEach(function(p){ x=x.split(p[0]).join(p[1]); }); x=x.replace(/(^|[^不相一])同(?![樣步時意])/g,"$1和"); return x.replace(/[\u4e00-\u9fff]/g,function(c){return ZC[c]||c}); }
+
   var FREQS = [
     {hz:174, zh:"安穩・放下緊繃", en:"Grounding, easing tension"},
     {hz:285, zh:"修復・回到平衡", en:"Restoring balance"},
@@ -295,7 +313,7 @@
   var lang="zh", mode="pure", beat=10, minutes=10, hz=528;
   var ctx=null, master=null, oscs=[], endTimer=null, tick=null, endAt=0, playing=false;
 
-  function t(zh,en){return lang==="zh"?zh:en}
+  function t(zh,en){ return lang==="zh"?(hans?S(zh):zh):en; }
   function info(h){ for(var i=0;i<FREQS.length;i++) if(FREQS[i].hz===h) return FREQS[i]; return null; }
 
   // build chips + list
@@ -319,8 +337,8 @@
     document.querySelectorAll("#timeChips .chip").forEach(function(c){ c.setAttribute("aria-pressed", parseFloat(c.dataset.min)===minutes ? "true":"false"); });
     $("beatRow").hidden = mode!=="binaural";
     var l = hz - beat/2, r = hz + beat/2;
-    $("lHz").textContent = $("lHzE").textContent = +l.toFixed(1);
-    $("rHz").textContent = $("rHzE").textContent = +r.toFixed(1);
+    $("lHz").textContent = $("lHzS").textContent = $("lHzE").textContent = +l.toFixed(1);
+    $("rHz").textContent = $("rHzS").textContent = $("rHzE").textContent = +r.toFixed(1);
     $("playLabel").textContent = playing ? t("■ 停止","■ Stop") : t("▶ 播放","▶ Play");
     $("play").setAttribute("aria-pressed", playing?"true":"false");
     $("stage").classList.toggle("playing", playing);
@@ -418,19 +436,20 @@
   });
 
   function setLang(l){
+    hans=(l==="zhs"); if(hans) l="zh";
     lang=l;
     document.documentElement.setAttribute("data-lang", l);
-    document.documentElement.lang = l==="zh"?"zh-Hant":"en";
-    document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.setLang===l?"true":"false"); });
+    document.documentElement.lang = hans?"zh-Hans":(l==="zh"?"zh-Hant":"en"); if(hans) document.documentElement.setAttribute("data-lang","zhs");
+    document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.setLang===(hans?"zhs":l)?"true":"false"); });
     $("ctaWA").href = WA + encodeURIComponent(t("你好 Julia，我用咗你嘅頻率播放器，想了解 TimeWaver 諮詢。","Hi Julia, I used your frequency player and I'd like to know more about TimeWaver sessions."));
-    try{ localStorage.setItem("jy-lang", l); }catch(e){}
+    try{ localStorage.setItem("tp-lang", l==="en"?"en":(hans?"zh-Hans":"zh-Hant")); }catch(e){}
     render(); updateStatus();
   }
   document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.addEventListener("click", function(){ setLang(b.dataset.setLang); }); });
 
   var q = new URLSearchParams(location.search).get("lang"), saved=null;
-  try{ saved = localStorage.getItem("jy-lang"); }catch(e){}
-  var initial = (q==="en"||q==="zh") ? q : (saved==="en"||saved==="zh") ? saved : (/^zh/i.test(navigator.language||"") ? "zh" : "en");
+  try{ var tp=localStorage.getItem("tp-lang"); saved = tp==="en"?"en":(tp==="zh-Hans"?"zhs":(tp?"zh":null)); }catch(e){}
+  var initial = (q==="en"||q==="zh"||q==="zhs") ? q : (saved==="en"||saved==="zh"||saved==="zhs") ? saved : (/^zh-(cn|sg|hans)/i.test(navigator.language||"")?"zhs":(/^zh/i.test(navigator.language||"")?"zh":"en"));
   setLang(initial);
 })();
 </script>
