@@ -772,6 +772,16 @@
   ]
 }
 </script>
+<style>
+/* Oildiction 會員見證專區 (2026-09-23) */
+.nav-oil{display:inline-flex;align-items:center;gap:.3em;padding:.34em .8em;border-radius:999px;
+  background:rgba(95,184,174,.12);border:1px solid rgba(95,184,174,.45);color:#2f7d73!important;
+  font-weight:600;white-space:nowrap;transition:background .2s,border-color .2s}
+.nav-oil:hover{background:rgba(95,184,174,.22);border-color:rgba(95,184,174,.75)}
+.btn-leaf{background:rgba(95,184,174,.14);border:1px solid rgba(95,184,174,.55);color:#2f7d73}
+.btn-leaf:hover{background:rgba(95,184,174,.26);border-color:rgba(95,184,174,.85)}
+@media(max-width:900px){.nav-oil{padding:.3em .7em;font-size:.95em}}
+</style>
 </head>
 <body>
 
@@ -807,6 +817,7 @@
         </ul></li>
       <li><a href="#articles" data-i18n="nav-articles">文章</a></li>
       <li><a href="/tools/" data-i18n="nav-tools">免費工具</a></li>
+      <li><a class="nav-oil" href="https://oildiction.juliayuen.com" target="_blank" rel="noopener" data-i18n="nav-oildiction">🌿 Oildiction 會員見證專區</a></li>
     </ul>
     <div class="nav-cta">
       <div class="lang-switcher" id="langSwitcher">
@@ -843,6 +854,7 @@
     <div class="cta fade d3">
       <a href="https://wa.me/85296215876" target="_blank" class="btn btn-gold" data-i18n="hero-btn1">預約一次諮詢 →</a>
       <a href="#about" class="btn btn-ghost" data-i18n="hero-btn2">認識 TimeWaver</a>
+      <a href="https://oildiction.juliayuen.com" target="_blank" rel="noopener" class="btn btn-leaf" data-i18n="nav-oildiction">🌿 Oildiction 會員見證專區</a>
     </div>
   </div>
     <a class="scent-card fade d4" href="/perfume/" data-lhref>
@@ -1629,6 +1641,7 @@ function switchTab(btn, panelId) {
           <li><a href="#courses">證書課程</a></li>
           <li><a href="#articles">文章見證</a></li>
           <li><a href="/tools/" data-i18n="nav-tools">免費小工具</a></li>
+          <li><a href="https://oildiction.juliayuen.com" target="_blank" rel="noopener" data-i18n="nav-oildiction">🌿 Oildiction 會員見證專區</a></li>
         </ul>
       </div>
       <div>
@@ -1717,6 +1730,7 @@ const T = {
   'nav-courses':{'zh-Hant':'課程','zh-Hans':'课程','en':'Courses'},
   'nav-articles':{'zh-Hant':'文章','zh-Hans':'文章','en':'Articles'},
   'm-faq':{'zh-Hant':'常見問題','zh-Hans':'常见问题','en':'FAQ'},
+  'nav-oildiction':{'zh-Hant':'🌿 Oildiction 會員見證專區','zh-Hans':'🌿 Oildiction 会员见证专区','en':'🌿 Oildiction Member Stories'},
   'nav-about':{'zh-Hant':'關於','zh-Hans':'关于','en':'About'},
   'nav-member':{'zh-Hant':'會員專區','zh-Hans':'会员专区','en':'Members'},
   // HERO
