@@ -782,6 +782,30 @@
 .btn-leaf:hover{background:rgba(95,184,174,.26);border-color:rgba(95,184,174,.85)}
 @media(max-width:900px){.nav-oil{padding:.3em .7em;font-size:.95em}}
 </style>
+<style>
+/* Oildiction member modal (2026-10-08) */
+.oil-modal{position:fixed;inset:0;z-index:999;display:grid;place-items:center;padding:20px;
+  background:rgba(20,40,33,.55);backdrop-filter:blur(3px);animation:oilFade .18s ease}
+.oil-modal[hidden]{display:none}
+@keyframes oilFade{from{opacity:0}to{opacity:1}}
+.oil-card{position:relative;width:min(420px,100%);background:#fff;border-radius:18px;
+  padding:34px 28px 26px;text-align:center;
+  box-shadow:0 30px 70px -30px rgba(20,40,33,.6);animation:oilUp .22s cubic-bezier(.2,.8,.3,1)}
+@keyframes oilUp{from{transform:translateY(12px);opacity:0}to{transform:none;opacity:1}}
+.oil-x{position:absolute;top:10px;right:12px;width:34px;height:34px;border:0;background:none;
+  font-size:24px;line-height:1;color:#9AA5A0;cursor:pointer;border-radius:50%}
+.oil-x:hover{background:#F2F4F2;color:#2C4D3C}
+.oil-leaf{font-size:30px;line-height:1;margin-bottom:8px}
+.oil-card h3{font-family:var(--display,"Noto Serif TC",serif);font-size:1.3rem;margin:0 0 8px;
+  color:#2C4D3C;letter-spacing:.04em}
+.oil-card p{margin:0 0 18px;font-size:.95rem;line-height:1.75;color:#5A6B65}
+.oil-go{display:inline-block;width:100%;padding:13px 18px;border-radius:999px;
+  background:#2C4D3C;color:#fff;font-weight:600;letter-spacing:.04em;text-decoration:none}
+.oil-go:hover{background:#24402F}
+.oil-alt{margin:16px 0 0;font-size:.86rem;color:#8C9A94}
+.oil-alt a{color:#8A6520;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:520px){.oil-card{padding:30px 20px 22px}}
+</style>
 </head>
 <body>
 
@@ -817,7 +841,7 @@
         </ul></li>
       <li><a href="#articles" data-i18n="nav-articles">文章</a></li>
       <li><a href="/tools/" data-i18n="nav-tools">免費工具</a></li>
-      <li><a class="nav-oil" href="https://oildiction.juliayuen.com" target="_blank" rel="noopener" data-i18n="nav-oildiction">🌿 Oildiction 會員見證專區</a></li>
+      <li><a class="nav-oil" href="https://tinyurl.com/oildiction-hub" target="_blank" rel="noopener" data-i18n="nav-oildiction">🌿 Oildiction 會員見證專區</a></li>
     </ul>
     <div class="nav-cta">
       <div class="lang-switcher" id="langSwitcher">
@@ -854,7 +878,7 @@
     <div class="cta fade d3">
       <a href="https://wa.me/85296215876" target="_blank" class="btn btn-gold" data-i18n="hero-btn1">預約一次諮詢 →</a>
       <a href="#about" class="btn btn-ghost" data-i18n="hero-btn2">認識 TimeWaver</a>
-      <a href="https://oildiction.juliayuen.com" target="_blank" rel="noopener" class="btn btn-leaf" data-i18n="nav-oildiction">🌿 Oildiction 會員見證專區</a>
+      <a href="https://tinyurl.com/oildiction-hub" target="_blank" rel="noopener" class="btn btn-leaf" data-i18n="nav-oildiction">🌿 Oildiction 會員見證專區</a>
     </div>
   </div>
     <a class="scent-card fade d4" href="/perfume/" data-lhref>
@@ -1641,7 +1665,7 @@ function switchTab(btn, panelId) {
           <li><a href="#courses">證書課程</a></li>
           <li><a href="#articles">文章見證</a></li>
           <li><a href="/tools/" data-i18n="nav-tools">免費小工具</a></li>
-          <li><a href="https://oildiction.juliayuen.com" target="_blank" rel="noopener" data-i18n="nav-oildiction">🌿 Oildiction 會員見證專區</a></li>
+          <li><a href="https://tinyurl.com/oildiction-hub" target="_blank" rel="noopener" data-i18n="nav-oildiction">🌿 Oildiction 會員見證專區</a></li>
         </ul>
       </div>
       <div>
@@ -1655,7 +1679,7 @@ function switchTab(btn, panelId) {
       <div>
         <h4>會員專區</h4>
         <ul>
-          <li><a href="#">會員登入</a></li>
+          <li><a href="#" data-oil-open data-i18n="ft-login">會員登入</a></li>
           <li><a href="#">我的課程</a></li>
           <li><a href="#">立即加入會員</a></li>
         </ul>
@@ -1730,6 +1754,11 @@ const T = {
   'nav-courses':{'zh-Hant':'課程','zh-Hans':'课程','en':'Courses'},
   'nav-articles':{'zh-Hant':'文章','zh-Hans':'文章','en':'Articles'},
   'm-faq':{'zh-Hant':'常見問題','zh-Hans':'常见问题','en':'FAQ'},
+  'om-title':{'zh-Hant':'Oildiction 會員專區','zh-Hans':'Oildiction 会员专区','en':'Oildiction Members'},
+  'om-desc':{'zh-Hant':'會員見證、課程紀錄與學習資源，都在這裡。','zh-Hans':'会员见证、课程纪录与学习资源，都在这里。','en':'Member stories, course records and resources \u2014 all in one place.'},
+  'om-go':{'zh-Hant':'前往會員登入 \u2192','zh-Hans':'前往会员登入 \u2192','en':'Go to member login \u2192'},
+  'om-q':{'zh-Hant':'還不是會員？','zh-Hans':'还不是会员？','en':'Not a member yet?'},
+  'om-join':{'zh-Hant':'WhatsApp 查詢','zh-Hans':'WhatsApp 查询','en':'Ask on WhatsApp'},
   'nav-oildiction':{'zh-Hant':'🌿 Oildiction 會員見證專區','zh-Hans':'🌿 Oildiction 会员见证专区','en':'🌿 Oildiction Member Stories'},
   'nav-about':{'zh-Hant':'關於','zh-Hans':'关于','en':'About'},
   'nav-member':{'zh-Hant':'會員專區','zh-Hans':'会员专区','en':'Members'},
@@ -1913,7 +1942,48 @@ function switchTab(btn, panelId) {
   btn.classList.add('active');
   document.getElementById(panelId).classList.add('active');
 }
+
+// ---- Oildiction member modal ----
+document.addEventListener('DOMContentLoaded', function(){
+  var m = document.getElementById('oilModal');
+  if(!m) return;
+  var card = m.querySelector('.oil-card');
+  var last = null;
+  function open(e){
+    if(e){ e.preventDefault(); last = e.currentTarget; }
+    m.hidden = false;
+    document.body.style.overflow = 'hidden';
+    var f = m.querySelector('.oil-go'); if(f) f.focus();
+  }
+  function close(){
+    m.hidden = true;
+    document.body.style.overflow = '';
+    if(last && last.focus) last.focus();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-oil-open]'),
+    function(b){ b.addEventListener('click', open); });
+  var x = document.getElementById('oilClose');
+  if(x) x.addEventListener('click', close);
+  m.addEventListener('click', function(e){ if(!card.contains(e.target)) close(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && !m.hidden) close();
+  });
+});
 </script>
+
+
+<!-- Oildiction member modal -->
+<div class="oil-modal" id="oilModal" hidden>
+  <div class="oil-card" role="dialog" aria-modal="true" aria-labelledby="oilModalTitle">
+    <button class="oil-x" id="oilClose" aria-label="Close">&times;</button>
+    <div class="oil-leaf">🌿</div>
+    <h3 id="oilModalTitle" data-i18n="om-title">Oildiction 會員專區</h3>
+    <p data-i18n="om-desc">會員見證、課程紀錄與學習資源，都在這裡。</p>
+    <a class="oil-go" href="https://tinyurl.com/oildiction-hub" target="_blank" rel="noopener" data-i18n="om-go">前往會員登入 &rarr;</a>
+    <p class="oil-alt"><span data-i18n="om-q">還不是會員？</span>
+      <a href="https://wa.me/85296215876" target="_blank" rel="noopener" data-i18n="om-join">WhatsApp 查詢</a></p>
+  </div>
+</div>
 
 </body>
 </html>
