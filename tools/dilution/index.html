@@ -491,5 +491,120 @@
   setLang(initial);
 })();
 </script>
+
+<!-- ══════ tp-upgrade 2026-10-09 ══════ -->
+<style>
+.tp-up{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0 0}
+.tp-up button{display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+  font:inherit;font-size:14px;padding:9px 15px;border-radius:999px;
+  border:1px solid var(--line);background:var(--paper,#fff);color:var(--ink,#234B47)}
+.tp-up button:hover{border-color:var(--green,#157F74);color:var(--green,#157F74)}
+.tp-up .tp-ok{border-color:var(--green,#157F74);background:var(--green-soft,#DDF1EC);
+  color:var(--green,#157F74);font-weight:700}
+.tp-streak{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;
+  padding:8px 14px;border-radius:999px;background:var(--gold-soft,#F7EDD6);
+  color:var(--warn,#8a5a2b);font-weight:700}
+.tp-hint{flex-basis:100%;font-size:13px;line-height:1.7;color:var(--warn,#8a5a2b);
+  background:var(--gold-soft,#F7EDD6);border-radius:12px;padding:10px 14px;margin:2px 0 0}
+.tp-hint[hidden]{display:none}
+</style>
+<script>
+(function(){
+  "use strict";
+  /* ── 1. iOS 17+: route Web Audio through the playback channel so the
+         hardware silent switch no longer mutes it. Must be set early. ── */
+  var hasSession = false;
+  try{
+    if (navigator.audioSession) { navigator.audioSession.type = "playback"; hasSession = true; }
+  }catch(e){}
+
+  var KEY = "dilution";
+  function L(){
+    var h = (document.documentElement.lang||"").toLowerCase();
+    if (h.indexOf("en") === 0) return 2;
+    if (h.indexOf("zh-hans") === 0 || h.indexOf("zh-cn") === 0) return 1;
+    return 0;
+  }
+  function T(a){ return a[L()] || a[0]; }
+
+  /* ── 2. streak: distinct days this tool was opened ── */
+  function streak(){
+    var k = "tp-streak-" + KEY, today = new Date().toISOString().slice(0,10);
+    var d = {n:0, last:""};
+    try{ d = JSON.parse(localStorage.getItem(k)) || d; }catch(e){}
+    if (d.last !== today){
+      var y = new Date(Date.now() - 86400000).toISOString().slice(0,10);
+      d.n = (d.last === y) ? (d.n|0) + 1 : 1;
+      d.last = today;
+      try{ localStorage.setItem(k, JSON.stringify(d)); }catch(e){}
+    }
+    return d.n | 0;
+  }
+
+  function build(){
+    var host = document.querySelector("main.card") || document.querySelector(".wrap");
+    if (!host) return;
+
+    var bar = document.createElement("div");
+    bar.className = "tp-up";
+
+    /* streak */
+    var n = streak();
+    if (n > 1){
+      var st = document.createElement("span");
+      st.className = "tp-streak";
+      st.setAttribute("data-tp", JSON.stringify(["連續 "+n+" 日 🌱", "连续 "+n+" 日 🌱", n+" days in a row 🌱"]));
+      bar.appendChild(st);
+    }
+
+    
+
+    /* share — for passing the tool around parent groups */
+    var sh = document.createElement("button");
+    sh.type = "button";
+    sh.setAttribute("data-tp", JSON.stringify(["分享給朋友", "分享给朋友", "Share"]));
+    sh.addEventListener("click", function(){
+      var url = location.href.split("#")[0];
+      var title = T(["精油稀釋計算器 · 此刻 The Present", "精油稀释计算器 · 此刻 The Present", "Dilution Calculator · The Present"]);
+      if (navigator.share){
+        navigator.share({title: title, url: url}).catch(function(){});
+      } else if (navigator.clipboard){
+        navigator.clipboard.writeText(url).then(function(){
+          sh.dataset.tpBusy = "1";
+          sh.textContent = T(["已複製連結 ✓", "已复制链接 ✓", "Link copied ✓"]);
+          sh.classList.add("tp-ok");
+          setTimeout(function(){
+            delete sh.dataset.tpBusy;
+            sh.classList.remove("tp-ok");
+            window.__tpRelabel && window.__tpRelabel();
+          }, 2200);
+        }).catch(function(){});
+      }
+    });
+    bar.appendChild(sh);
+
+    host.appendChild(bar);
+
+    /* keep every label in step with the page's language switcher */
+    function relabel(root){
+      var els = (root || bar).querySelectorAll("[data-tp]");
+      for (var i = 0; i < els.length; i++){
+        if (els[i].dataset.tpBusy) continue;
+        try{ els[i].textContent = T(JSON.parse(els[i].getAttribute("data-tp"))); }catch(e){}
+      }
+    }
+    window.__tpRelabel = relabel;
+    relabel();
+    try{
+      new MutationObserver(function(){ relabel(); })
+        .observe(document.documentElement, {attributes:true, attributeFilter:["lang"]});
+    }catch(e){}
+  }
+
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", build);
+  else build();
+})();
+</script>
 </body>
 </html>

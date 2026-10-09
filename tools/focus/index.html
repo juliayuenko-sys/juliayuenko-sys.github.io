@@ -534,5 +534,290 @@
   setLang((q==="en"||q==="zh"||q==="zhs")?q:(saved==="en"||saved==="zh"||saved==="zhs")?saved:(/^zh-(cn|sg|hans)/i.test(navigator.language||"")?"zhs":(/^zh/i.test(navigator.language||"")?"zh":"en")));
 })();
 </script>
+
+<!-- ══════ tp-upgrade 2026-10-09 ══════ -->
+<style>
+.tp-up{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0 0}
+.tp-up button{display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+  font:inherit;font-size:14px;padding:9px 15px;border-radius:999px;
+  border:1px solid var(--line);background:var(--paper,#fff);color:var(--ink,#234B47)}
+.tp-up button:hover{border-color:var(--green,#157F74);color:var(--green,#157F74)}
+.tp-up .tp-ok{border-color:var(--green,#157F74);background:var(--green-soft,#DDF1EC);
+  color:var(--green,#157F74);font-weight:700}
+.tp-streak{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;
+  padding:8px 14px;border-radius:999px;background:var(--gold-soft,#F7EDD6);
+  color:var(--warn,#8a5a2b);font-weight:700}
+.tp-hint{flex-basis:100%;font-size:13px;line-height:1.7;color:var(--warn,#8a5a2b);
+  background:var(--gold-soft,#F7EDD6);border-radius:12px;padding:10px 14px;margin:2px 0 0}
+.tp-hint[hidden]{display:none}
+</style>
+<script>
+(function(){
+  "use strict";
+  /* ── 1. iOS 17+: route Web Audio through the playback channel so the
+         hardware silent switch no longer mutes it. Must be set early. ── */
+  var hasSession = false;
+  try{
+    if (navigator.audioSession) { navigator.audioSession.type = "playback"; hasSession = true; }
+  }catch(e){}
+
+  var KEY = "focus";
+  function L(){
+    var h = (document.documentElement.lang||"").toLowerCase();
+    if (h.indexOf("en") === 0) return 2;
+    if (h.indexOf("zh-hans") === 0 || h.indexOf("zh-cn") === 0) return 1;
+    return 0;
+  }
+  function T(a){ return a[L()] || a[0]; }
+
+  /* ── 2. streak: distinct days this tool was opened ── */
+  function streak(){
+    var k = "tp-streak-" + KEY, today = new Date().toISOString().slice(0,10);
+    var d = {n:0, last:""};
+    try{ d = JSON.parse(localStorage.getItem(k)) || d; }catch(e){}
+    if (d.last !== today){
+      var y = new Date(Date.now() - 86400000).toISOString().slice(0,10);
+      d.n = (d.last === y) ? (d.n|0) + 1 : 1;
+      d.last = today;
+      try{ localStorage.setItem(k, JSON.stringify(d)); }catch(e){}
+    }
+    return d.n | 0;
+  }
+
+  function build(){
+    var host = document.querySelector("main.card") || document.querySelector(".wrap");
+    if (!host) return;
+
+    var bar = document.createElement("div");
+    bar.className = "tp-up";
+
+    /* streak */
+    var n = streak();
+    if (n > 1){
+      var st = document.createElement("span");
+      st.className = "tp-streak";
+      st.setAttribute("data-tp", JSON.stringify(["連續 "+n+" 日 🌱", "连续 "+n+" 日 🌱", n+" days in a row 🌱"]));
+      bar.appendChild(st);
+    }
+
+    
+    /* sound test — proves output works before the user blames the tool */
+    var hint = document.createElement("p");
+    hint.className = "tp-hint";
+    hint.hidden = true;
+    hint.setAttribute("data-tp", JSON.stringify([
+      "聽唔到？iPhone 請把左側靜音掣撥回響鈴；其他裝置請調高音量，然後再按一次。",
+      "听不到？iPhone 请把左侧静音键拨回响铃；其他设备请调高音量，然后再按一次。",
+      "No sound? On iPhone flick the side switch off silent; on other devices turn the volume up, then test again."
+    ]));
+
+    var tb = document.createElement("button");
+    tb.type = "button";
+    tb.setAttribute("data-tp", JSON.stringify(["🔊 試聲", "🔊 试声", "🔊 Test sound"]));
+    tb.addEventListener("click", function(){
+      try{
+        if (navigator.audioSession) navigator.audioSession.type = "playback";
+      }catch(e){}
+      try{
+        var C = window.AudioContext || window.webkitAudioContext;
+        var c = new C();
+        if (c.state === "suspended") c.resume();
+        var o = c.createOscillator(), g = c.createGain(), t = c.currentTime;
+        o.type = "sine"; o.frequency.value = 528;
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.exponentialRampToValueAtTime(0.25, t + 0.04);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.9);
+        o.connect(g); g.connect(c.destination);
+        o.start(t); o.stop(t + 1.0);
+        setTimeout(function(){ try{ c.close(); }catch(e){} }, 1400);
+        tb.dataset.tpBusy = "1";
+        tb.textContent = T(["有聽到嗎？", "有听到吗？", "Hear it?"]);
+        tb.classList.add("tp-ok");
+        hint.hidden = false;
+        setTimeout(function(){
+          delete tb.dataset.tpBusy;
+          tb.classList.remove("tp-ok");
+          window.__tpRelabel && window.__tpRelabel();
+        }, 2600);
+      }catch(e){ hint.hidden = false; }
+    });
+    bar.appendChild(tb);
+    bar.appendChild(hint);
+
+
+    /* share — for passing the tool around parent groups */
+    var sh = document.createElement("button");
+    sh.type = "button";
+    sh.setAttribute("data-tp", JSON.stringify(["分享給朋友", "分享给朋友", "Share"]));
+    sh.addEventListener("click", function(){
+      var url = location.href.split("#")[0];
+      var title = T(["專注溫習計時器 · 此刻 The Present", "专注温习计时器 · 此刻 The Present", "Study Focus Timer · The Present"]);
+      if (navigator.share){
+        navigator.share({title: title, url: url}).catch(function(){});
+      } else if (navigator.clipboard){
+        navigator.clipboard.writeText(url).then(function(){
+          sh.dataset.tpBusy = "1";
+          sh.textContent = T(["已複製連結 ✓", "已复制链接 ✓", "Link copied ✓"]);
+          sh.classList.add("tp-ok");
+          setTimeout(function(){
+            delete sh.dataset.tpBusy;
+            sh.classList.remove("tp-ok");
+            window.__tpRelabel && window.__tpRelabel();
+          }, 2200);
+        }).catch(function(){});
+      }
+    });
+    bar.appendChild(sh);
+
+    host.appendChild(bar);
+
+    /* keep every label in step with the page's language switcher */
+    function relabel(root){
+      var els = (root || bar).querySelectorAll("[data-tp]");
+      for (var i = 0; i < els.length; i++){
+        if (els[i].dataset.tpBusy) continue;
+        try{ els[i].textContent = T(JSON.parse(els[i].getAttribute("data-tp"))); }catch(e){}
+      }
+    }
+    window.__tpRelabel = relabel;
+    relabel();
+    try{
+      new MutationObserver(function(){ relabel(); })
+        .observe(document.documentElement, {attributes:true, attributeFilter:["lang"]});
+    }catch(e){}
+  }
+
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", build);
+  else build();
+})();
+</script>
+
+<!-- ══════ tp-mode2 2026-10-09 ══════ -->
+<style>
+.tp-mode{display:flex;gap:8px;margin:0 0 16px;padding:5px;border-radius:999px;
+  background:var(--mint,#EBF6F1)}
+.tp-mode button{flex:1;cursor:pointer;font:inherit;font-size:14.5px;font-weight:600;
+  padding:10px 8px;border:0;border-radius:999px;background:none;color:var(--ink-soft,#5C7370)}
+.tp-mode button[aria-pressed="true"]{background:var(--paper,#fff);color:var(--green,#157F74);
+  box-shadow:0 2px 8px rgba(35,75,71,.10)}
+.tp-note{font-size:14px;line-height:1.8;color:var(--ink,#234B47);background:var(--gold-soft,#F7EDD6);
+  border-radius:14px;padding:13px 16px;margin:0 0 16px}
+.tp-note[hidden]{display:none}
+.tp-stars{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:14.5px;
+  font-weight:700;color:var(--warn,#8a5a2b);background:var(--gold-soft,#F7EDD6);
+  border-radius:14px;padding:11px 15px;margin:14px 0 0}
+.tp-stars .s{font-size:17px;letter-spacing:2px}
+.tp-stars[hidden]{display:none}
+</style>
+<script>
+(function(){
+  "use strict";
+  function L(){
+    var h=(document.documentElement.lang||"").toLowerCase();
+    if(h.indexOf("en")===0) return 2;
+    if(h.indexOf("zh-hans")===0||h.indexOf("zh-cn")===0) return 1;
+    return 0;
+  }
+  function T(a){ return a[L()]||a[0]; }
+  function tp(el,a){ el.setAttribute("data-tp", JSON.stringify(a)); el.textContent=T(a); }
+  function relabel(){ window.__tpRelabel && window.__tpRelabel(); }
+  function $(id){ return document.getElementById(id); }
+  function click(sel){ var e=document.querySelector(sel); if(e) e.click(); }
+  function day(){ return new Date().toISOString().slice(0,10); }
+
+  /* ───────── 做功課模式 ＋ 星星 ───────── */
+  function stars(add){
+    var k="tp-stars-focus", d={d:day(),n:0};
+    try{ d=JSON.parse(localStorage.getItem(k))||d; }catch(e){}
+    if(d.d!==day()){ d={d:day(),n:0}; }
+    if(add){ d.n=(d.n|0)+1; }
+    try{ localStorage.setItem(k,JSON.stringify(d)); }catch(e){}
+    return d.n|0;
+  }
+
+  function reward(){
+    try{
+      if(navigator.audioSession) navigator.audioSession.type="playback";
+      var C=window.AudioContext||window.webkitAudioContext, c=new C();
+      if(c.state==="suspended") c.resume();
+      [523.25,659.25,783.99,1046.5].forEach(function(f,i){
+        var o=c.createOscillator(), g=c.createGain(), n=c.currentTime+i*0.13;
+        o.type="triangle"; o.frequency.value=f;
+        g.gain.setValueAtTime(0.0001,n);
+        g.gain.exponentialRampToValueAtTime(0.16,n+0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001,n+0.5);
+        o.connect(g); g.connect(c.destination); o.start(n); o.stop(n+0.55);
+      });
+      setTimeout(function(){ try{c.close();}catch(e){} },1800);
+    }catch(e){}
+  }
+
+  function build(){
+    var card=document.querySelector("main.card"), pre=$("preChips");
+    if(!card||!pre) return;
+
+    /* preset chip, wired to the existing custom inputs */
+    var hw=document.createElement("button");
+    hw.type="button"; hw.className="chip";
+    var lab=document.createElement("span");
+    tp(lab,["做功課","做功课","Homework"]);
+    var sub=document.createElement("span"); sub.className="sub"; sub.textContent="15/5";
+    hw.appendChild(lab); hw.appendChild(sub);
+    hw.addEventListener("click", function(){
+      var f=$("fMin"), b=$("bMin");
+      if(!f||!b) return;
+      f.value=15; f.dispatchEvent(new Event("change",{bubbles:true}));
+      b.value=5;  b.dispatchEvent(new Event("change",{bubbles:true}));
+    });
+    pre.appendChild(hw);
+
+    /* today's completed focus rounds */
+    var box=document.createElement("div"); box.className="tp-stars";
+    var sp=document.createElement("span"); sp.className="s";
+    var tx=document.createElement("span");
+    box.appendChild(sp); box.appendChild(tx);
+    card.appendChild(box);
+
+    function paint(n){
+      box.hidden = n<1;
+      sp.textContent = n>5 ? "⭐".repeat(5) : "⭐".repeat(n);
+      tx.setAttribute("data-tp", JSON.stringify([
+        "今日完成 "+n+" 個專注回合",
+        "今日完成 "+n+" 个专注回合",
+        n+" focus round"+(n===1?"":"s")+" done today"
+      ]));
+      tx.textContent=T(JSON.parse(tx.getAttribute("data-tp")));
+    }
+    paint(stars(false));
+
+    /* a focus round ends when the phase label flips to BREAK */
+    var ph=$("phase");
+    if(ph){
+      var BREAKS=["休息中","休息","BREAK","Break"];
+      var last=(ph.textContent||"").trim();
+      try{
+        new MutationObserver(function(){
+          var now=(ph.textContent||"").trim();
+          if(now===last) return;
+          var wasBreak=BREAKS.indexOf(last)>=0, isBreak=BREAKS.indexOf(now)>=0;
+          last=now;
+          if(isBreak && !wasBreak){ paint(stars(true)); setTimeout(reward,1000); }
+        }).observe(ph,{childList:true,characterData:true,subtree:true});
+      }catch(e){}
+    }
+
+    relabel();
+    try{ new MutationObserver(function(){
+      [lab,tx].forEach(function(e){
+        try{ e.textContent=T(JSON.parse(e.getAttribute("data-tp"))); }catch(x){}
+      });
+    }).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]}); }catch(e){}
+  }
+
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",build);
+  else build();
+})();
+</script>
 </body>
 </html>
