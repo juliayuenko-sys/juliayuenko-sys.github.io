@@ -868,5 +868,214 @@ body.tp-kid .count{font-size:2.6rem}
 
 <!-- Cloudflare Web Analytics (cookieless) -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "e12395482b7a4782a53e9f87f2c6abe4"}'></script>
+
+<!-- ══════ tp-breath2 2026-10-10 ══════ -->
+<style>
+.b2-learn{border:1px solid var(--line);border-radius:14px;background:var(--paper,#fff);
+  margin:0 0 16px;overflow:hidden}
+.b2-learn summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:700;
+  font-size:15px;color:var(--green,#157F74);display:flex;align-items:center;gap:8px}
+.b2-learn summary::-webkit-details-marker{display:none}
+.b2-learn summary::after{content:"＋";margin-left:auto;font-weight:400;color:var(--ink-soft,#5C7370)}
+.b2-learn[open] summary::after{content:"－"}
+.b2-learn .bd{padding:0 16px 16px;font-size:14.5px;line-height:1.85;color:var(--ink-soft,#5C7370)}
+.b2-learn ol{margin:0 0 12px;padding-left:20px}
+.b2-learn li{margin-bottom:9px}
+.b2-learn b{color:var(--ink,#234B47)}
+.b2-go{display:inline-block;background:var(--green,#157F74);color:#fff;border:0;cursor:pointer;
+  font:inherit;font-size:14.5px;font-weight:700;padding:11px 18px;border-radius:999px}
+.b2-go:hover{background:#11685F}
+.b2-note{font-size:13px;line-height:1.7;color:var(--warn,#8a5a2b);
+  background:var(--gold-soft,#F7EDD6);border-radius:10px;padding:10px 13px;margin:12px 0 0}
+</style>
+<script>
+(function(){
+  "use strict";
+  function $(id){ return document.getElementById(id); }
+  function L(){
+    var h=(document.documentElement.lang||"").toLowerCase();
+    if(h.indexOf("en")===0) return 2;
+    if(h.indexOf("zh-hans")===0||h.indexOf("zh-cn")===0) return 1;
+    return 0;
+  }
+  function T(a){ return a[L()]||a[0]; }
+  var i18n=[];
+  function reg(el,arr,html){ i18n.push([el,arr,!!html]); paint(el,arr,!!html); }
+  function paint(el,arr,html){ if(html) el.innerHTML=T(arr); else el.textContent=T(arr); }
+  function repaint(){ i18n.forEach(function(r){ paint(r[0],r[1],r[2]); }); }
+
+  /* ── set the four second-boxes and let the page's own handlers commit ── */
+  function setPattern(a,b,c,d){
+    var v=[a,b,c,d];
+    for(var i=0;i<4;i++){
+      var el=$("s"+i); if(!el) continue;
+      el.value=v[i];
+      el.dispatchEvent(new Event("change",{bubbles:true}));
+    }
+  }
+  function setMinutes(m){
+    var c=document.querySelector('#timeChips .chip[data-min="'+m+'"]');
+    if(c) c.click();
+  }
+
+  /* ───────────────────────── 1. 腹式呼吸 guide ───────────────────────── */
+  function buildLearn(card, stage){
+    var d=document.createElement("details"); d.className="b2-learn";
+    var sum=document.createElement("summary");
+    reg(sum,["🫁　第一次做？先學腹式呼吸","🫁　第一次做？先学腹式呼吸","🫁　New to this? Start with belly breathing"]);
+    var bd=document.createElement("div"); bd.className="bd";
+    var ol=document.createElement("div");
+    reg(ol,[
+      "<p style='margin:0 0 10px'>大部分人緊張嘅時候用胸口呼吸，又快又淺。腹式呼吸係把呼吸交返俾橫隔膜 —— 要重新練，唔係天生就識。</p>"+
+      "<ol><li>坐直或者平躺，膝頭微曲，膊頭放鬆。</li>"+
+      "<li><b>一隻手放胸口，一隻手放肚臍上面。</b></li>"+
+      "<li>用鼻慢慢吸氣，想像啲氣沉落肚。<b>肚嗰隻手升起，胸口嗰隻手盡量唔好郁。</b></li>"+
+      "<li>用口慢慢呼氣，像吹蠟燭但唔吹熄佢。肚嗰隻手慢慢回落。</li>"+
+      "<li>一次 5 至 10 分鐘，一日可以做幾次。</li></ol>"+
+      "<p style='margin:0 0 12px'>練到胸口嗰隻手真係唔郁，就係做啱咗。</p>",
+
+      "<p style='margin:0 0 10px'>大部分人紧张的时候用胸口呼吸，又快又浅。腹式呼吸是把呼吸交还给横膈膜 —— 要重新练，不是天生就会。</p>"+
+      "<ol><li>坐直或者平躺，膝盖微曲，肩膀放松。</li>"+
+      "<li><b>一只手放胸口，一只手放肚脐上面。</b></li>"+
+      "<li>用鼻慢慢吸气，想象气沉到肚子。<b>肚子那只手升起，胸口那只手尽量不动。</b></li>"+
+      "<li>用口慢慢呼气，像吹蜡烛但不吹灭它。肚子那只手慢慢回落。</li>"+
+      "<li>一次 5 至 10 分钟，一天可以做几次。</li></ol>"+
+      "<p style='margin:0 0 12px'>练到胸口那只手真的不动，就是做对了。</p>",
+
+      "<p style='margin:0 0 10px'>Under stress most people breathe high in the chest, fast and shallow. Belly breathing hands the work back to the diaphragm — it has to be relearned.</p>"+
+      "<ol><li>Sit tall or lie down, knees bent, shoulders loose.</li>"+
+      "<li><b>One hand on your chest, one just above your navel.</b></li>"+
+      "<li>Breathe in slowly through the nose, letting the air sink low. <b>The belly hand rises; the chest hand stays as still as you can keep it.</b></li>"+
+      "<li>Breathe out slowly through the mouth, as if cooling soup. The belly hand settles back.</li>"+
+      "<li>5 to 10 minutes at a time, several times a day.</li></ol>"+
+      "<p style='margin:0 0 12px'>When the chest hand truly stops moving, you have it.</p>"
+    ], true);
+    var btn=document.createElement("button"); btn.type="button"; btn.className="b2-go";
+    reg(btn,["用腹式節奏開始（4 吸 · 6 呼 · 5 分鐘）","用腹式节奏开始（4 吸 · 6 呼 · 5 分钟）","Start belly breathing (in 4 · out 6 · 5 min)"]);
+    btn.addEventListener("click", function(){
+      setPattern(4,0,6,0); setMinutes(5);
+      d.open=false;
+      stage.scrollIntoView({behavior:"smooth",block:"center"});
+    });
+    var note=document.createElement("p"); note.className="b2-note";
+    reg(note,[
+      "覺得頭暈、手麻或者唔舒服就即刻停低，回復平常呼吸。有呼吸道、心血管問題或者懷孕，請先問過醫生。",
+      "觉得头晕、手麻或者不舒服就立刻停下，回复平常呼吸。有呼吸道、心血管问题或者怀孕，请先问过医生。",
+      "Stop and breathe normally if you feel light-headed, tingly or unwell. If you are pregnant or have a respiratory or cardiovascular condition, check with your doctor first."
+    ]);
+    bd.appendChild(ol); bd.appendChild(btn); bd.appendChild(note);
+    d.appendChild(sum); d.appendChild(bd);
+    card.insertBefore(d, stage);
+  }
+
+  /* ───────────────────── 2. 生理嘆息 pattern ───────────────────── */
+  var SIGH="2,1,6,0";
+  function buildSigh(){
+    var chips=$("patChips"); if(!chips) return;
+    var c=document.createElement("button");
+    c.type="button"; c.className="chip"; c.dataset.p=SIGH;
+    var lab=document.createElement("span");
+    reg(lab,["生理嘆息","生理叹息","Cyclic sigh"]);
+    var sub=document.createElement("span"); sub.className="sub";
+    reg(sub,["雙吸 · 長呼","双吸 · 长呼","double in · long out"]);
+    c.appendChild(lab); c.appendChild(sub);
+    c.addEventListener("click", function(){ setPattern(2,1,6,0); });
+    chips.appendChild(c);
+
+    /* the page calls the second phase 「閉氣」; for this pattern it is a top-up breath */
+    var ph=$("phase"); if(!ph) return;
+    var HOLD=["閉氣","闭气","Hold"], TOP=["再吸一小口","再吸一小口","Top up"];
+    function isSigh(){
+      try{ return [0,1,2,3].every(function(i){
+        return String($("s"+i).value)===SIGH.split(",")[i]; }); }catch(e){ return false; }
+    }
+    function fix(){
+      if(!isSigh()) return;
+      var t=(ph.textContent||"").trim();
+      if(HOLD.indexOf(t)>=0) ph.textContent=T(TOP);
+    }
+    try{ new MutationObserver(fix).observe(ph,{childList:true,characterData:true,subtree:true}); }catch(e){}
+  }
+
+  /* ───────────────────── 3. 頌缽 sound ───────────────────── */
+  var bowlOn=false, actx=null;
+  function vol(){
+    var v=$("bvol"); var n=v?parseInt(v.value,10):45;
+    return Math.pow(Math.max(0,Math.min(100,n))/100, 1.5);
+  }
+  function ring(root){
+    try{
+      if(navigator.audioSession) navigator.audioSession.type="playback";
+      if(!actx) actx=new (window.AudioContext||window.webkitAudioContext)();
+      if(actx.state==="suspended") actx.resume();
+      var n=actx.currentTime, dur=6.0;
+      var bus=actx.createGain(); bus.gain.value=0.55*vol(); bus.connect(actx.destination);
+      var RAT=[1,2.76,5.40,8.93], GN=[1,.36,.15,.06];
+      RAT.forEach(function(r,k){
+        [0,0.6].forEach(function(det){
+          var o=actx.createOscillator(), g=actx.createGain();
+          o.type="sine"; o.frequency.value=root*r+det;
+          var peak=GN[k]*0.16;
+          g.gain.setValueAtTime(.0001,n);
+          g.gain.exponentialRampToValueAtTime(peak,n+.012);
+          g.gain.exponentialRampToValueAtTime(.0001,n+dur*(1-k*0.16));
+          o.connect(g); g.connect(bus); o.start(n); o.stop(n+dur);
+        });
+      });
+      setTimeout(function(){ try{ bus.disconnect(); }catch(e){} }, (dur+1)*1000);
+    }catch(e){}
+  }
+  function buildBowl(){
+    var chips=$("sndChips"); if(!chips) return;
+    var c=document.createElement("button");
+    c.type="button"; c.className="chip"; c.dataset.snd="bowl";
+    reg(c,["頌缽","颂钵","Singing bowl"]);
+    c.addEventListener("click", function(){
+      var off=document.querySelector('#sndChips .chip[data-snd="off"]');
+      if(off) off.click();        /* silence the page's engine FIRST — this fires the
+                                     handler below, which would clear bowlOn */
+      bowlOn=true;
+      chips.querySelectorAll(".chip").forEach(function(x){ x.setAttribute("aria-pressed","false"); });
+      c.setAttribute("aria-pressed","true");
+      ring(220);
+    });
+    chips.appendChild(c);
+    /* any other sound choice turns the bowl off */
+    chips.querySelectorAll(".chip").forEach(function(x){
+      if(x===c) return;
+      x.addEventListener("click", function(){ bowlOn=false; c.setAttribute("aria-pressed","false"); });
+    });
+    /* strike on each phase change: higher going in, lower going out */
+    var ph=$("phase"); if(!ph) return;
+    var IN=["吸氣","吸气","Breathe in"], OUT=["呼氣","呼气","Breathe out"];
+    var last="";
+    try{
+      new MutationObserver(function(){
+        if(!bowlOn) return;
+        var t=(ph.textContent||"").trim();
+        if(t===last) return;
+        last=t;
+        if(IN.indexOf(t)>=0) ring(293.66);
+        else if(OUT.indexOf(t)>=0) ring(196);
+      }).observe(ph,{childList:true,characterData:true,subtree:true});
+    }catch(e){}
+  }
+
+  function go(){
+    var card=document.querySelector("main.card");
+    var stage=document.querySelector(".stage");
+    if(!card||!stage) return;
+    buildLearn(card, stage);
+    buildSigh();
+    buildBowl();
+    try{
+      new MutationObserver(repaint)
+        .observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+    }catch(e){}
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",go);
+  else go();
+})();
+</script>
 </body>
 </html>
