@@ -219,6 +219,8 @@ footer a{color:var(--teal-deep)}
 .sticky .btn{flex:1;max-width:300px;padding:12px 16px}
 .sticky .wa{flex:0 0 auto;width:50px;padding:0;height:48px}
 </style>
+<link rel="canonical" href="https://juliayuen.com/lip/">
+<meta property="og:image" content="https://juliayuen.com/lip/home.jpg">
 </head>
 <body>
 
@@ -996,6 +998,85 @@ var M = {
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",go);
   else go();
 })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "@id": "https://juliayuen.com/lip/#product",
+      "name": "此刻 · 唇語 手作香薰潤唇膏",
+      "alternateName": [
+        "Balm of Now",
+        "此刻 · 唇语 手作润唇膏"
+      ],
+      "description": "香港手作天然香薰潤唇膏，可自選香味、印製標籤，適合企業禮品、婚禮回禮及個人訂製。最少 2 支起訂，20 支以上可自選香味。保質期 12 個月，開封後 6 個月。",
+      "url": "https://juliayuen.com/lip/",
+      "image": "https://juliayuen.com/lip/home.jpg",
+      "brand": {
+        "@type": "Brand",
+        "name": "此刻 · The Present"
+      },
+      "category": "Lip care",
+      "inLanguage": "zh-Hant",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "HKD",
+        "lowPrice": "65",
+        "highPrice": "78",
+        "offerCount": "4",
+        "availability": "https://schema.org/InStock",
+        "url": "https://juliayuen.com/lip/",
+        "seller": {
+          "@type": "Organization",
+          "name": "Wellness Path",
+          "legalName": "YUEN CHUI YUI t/a Wellness Path"
+        }
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "最低訂購量",
+          "value": "2 支"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "自選香味門檻",
+          "value": "20 支"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "製作時間",
+          "value": "10–14 個工作天"
+        }
+      ],
+      "disambiguatingDescription": "美容及個人護理產品，並非醫療或治療用品。配方含芝麻油，對芝麻過敏者請勿使用。"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://juliayuen.com/lip/#diy",
+      "name": "親子手作潤唇膏 DIY 班",
+      "serviceType": "手作工作坊",
+      "url": "https://juliayuen.com/lip/",
+      "areaServed": {
+        "@type": "Place",
+        "name": "Hong Kong"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Wellness Path"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "280",
+        "priceCurrency": "HKD",
+        "description": "每位 HK$280，2 位起，一堂 60 分鐘，最多 12 人"
+      }
+    }
+  ]
+}
 </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 {
   "$schema": "https://juliayuen.com/services.json",
-  "updated": "2026-09-19",
+  "updated": "2026-10-10",
   "business": {
     "name": "此刻 · The Present",
     "name_en": "The Present",
@@ -19,6 +19,41 @@
   },
   "disclaimer": "TimeWaver is not a medical device. Nothing offered here diagnoses, treats or replaces medical or professional care.",
   "services": [
+    {
+      "id": "latent-positioning",
+      "name": "隱才定位系統",
+      "name_sc": "隐才定位系统",
+      "name_en": "Latent Positioning Session",
+      "url": "https://juliayuen.com/latent/",
+      "format": "90-minute 1:1, online worldwide (Zoom) or in person in Hong Kong / Macau",
+      "languages": [
+        "Cantonese",
+        "Mandarin",
+        "English"
+      ],
+      "price": 2880,
+      "currency": "HKD",
+      "includes": [
+        "90-minute session",
+        "written positioning report (PDF)",
+        "three core strengths + one positioning sentence",
+        "3-month action plan",
+        "guidance on where to work and rest at home",
+        "2 weeks of remote frequency balancing",
+        "optional scent prescription"
+      ],
+      "entry_point": {
+        "name": "free 15-minute intake conversation",
+        "price": 0
+      },
+      "ladder": {
+        "smaller": "timewaver-consultation",
+        "longer": "3 months / 6 sessions HK$4,980"
+      },
+      "audience": "professionals in transition, parents returning to work, founders",
+      "capacity": "8 places a month",
+      "disclaimer": "Personal development and positioning service. Not medical care, diagnosis or treatment. No income, career or health outcome is promised."
+    },
     {
       "id": "timewaver-consultation",
       "name": "TimeWaver 資訊場諮詢",
