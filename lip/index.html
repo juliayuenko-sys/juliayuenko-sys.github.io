@@ -926,9 +926,7 @@ var M = {
 })();
 </script>
 
-<!-- 可選：Cloudflare Web Analytics（免費，睇有幾多人掃碼）。喺 Cloudflare 攞 token 之後，刪走下面兩個註解符號，貼上 token。
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "你的TOKEN"}'></script>
--->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "e12395482b7a4782a53e9f87f2c6abe4"}'></script>
 
 <!-- ══════ tp-watag 2026-10-10 ══════ -->
 <script>
@@ -941,8 +939,16 @@ var M = {
     if(h.indexOf("zh-hans")===0||h.indexOf("zh-cn")===0) return 1;
     return 0;
   }
+  var FROM = (function(){
+    try{
+      var m=/[?&]from=([A-Za-z0-9_-]{1,24})/.exec(location.search);
+      return m ? m[1] : "";
+    }catch(e){ return ""; }
+  })();
   function srcLine(i){
-    return i===2 ? "\n(Source: "+LBL[2]+")" : "\n（來源："+LBL[i]+"）";
+    var lbl = LBL[i] + (FROM ? " · " + FROM : "");
+    if(i===2) return "\n(Source: "+lbl+")";
+    return i===1 ? "\n（来源："+lbl+"）" : "\n（來源："+lbl+"）";
   }
   function tagWA(){
     var a=document.querySelectorAll('a[href^="https://wa.me/"]'), i;
@@ -957,7 +963,11 @@ var M = {
       /* the page may already carry its own 來源 line — don't add a second */
       var has = base && (base.indexOf("來源：")>=0 || base.indexOf("来源：")>=0
                          || base.indexOf("Source:")>=0);
-      u.searchParams.set("text", base ? (has ? base : base+srcLine(i18)) : FALLBACK[i18]);
+      var out;
+      if(!base) out = FALLBACK[i18];
+      else if(has) out = base;   /* page handles its own source line, incl. ?from= */
+      else out = base + srcLine(i18);
+      u.searchParams.set("text", out);
       el.setAttribute("href", u.toString());
     }
   }
