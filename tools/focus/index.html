@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Study Timer with Music · Pomodoro Focus Timer 專注溫習計時器 | 此刻 · The Present</title>
-<meta name="description" content="Free study timer with calming background music: Pomodoro 25/5, 50/10 flow sessions and 90-minute deep study, with rain, brown noise, soft piano or focus binaural beats. 免費溫習計時器：番茄鐘、50/10 心流、90 分鐘深度溫習，配雨聲、棕噪音、琴音或專注頻率。">
+<meta name="description" content="Free study timer with calming background music: Pomodoro 25/5, 50/10 flow sessions and 90-minute deep study, with rain, brown noise, soft cicadas, stream or focus binaural beats. 免費溫習計時器：番茄鐘、50/10 心流、90 分鐘深度溫習，配雨聲、棕噪音、蟬鳴、流水聲或專注頻率。">
 <link rel="canonical" href="https://juliayuen.com/tools/focus/">
 <meta property="og:title" content="Study Timer + Music 專注溫習計時器">
-<meta property="og:description" content="Pomodoro timer with rain, brown noise and soft piano. 番茄鐘＋溫習音樂，一頁搞掂。">
+<meta property="og:description" content="Pomodoro timer with rain, cicadas, a quiet stream and brown noise. 番茄鐘＋溫習音樂，一頁搞掂。">
 <meta property="og:url" content="https://juliayuen.com/tools/focus/">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -205,15 +205,15 @@
       <div class="chips" id="musChips">
         <button type="button" class="chip" data-mus="rain"><span lang="zh-Hant">雨聲</span><span lang="zh-Hans">雨声</span><span lang="en">Rain</span></button>
         <button type="button" class="chip" data-mus="brown"><span lang="zh-Hant">棕噪音</span><span lang="zh-Hans">棕噪音</span><span lang="en">Brown noise</span></button>
-        <button type="button" class="chip" data-mus="pink"><span lang="zh-Hant">粉紅噪音</span><span lang="zh-Hans">粉红噪音</span><span lang="en">Pink noise</span></button>
-        <button type="button" class="chip" data-mus="piano"><span lang="zh-Hant">輕柔琴音</span><span lang="zh-Hans">轻柔琴音</span><span lang="en">Soft piano</span></button>
+        <button type="button" class="chip" data-mus="water"><span lang="zh-Hant">流水聲</span><span lang="zh-Hans">流水声</span><span lang="en">Stream</span></button>
+        <button type="button" class="chip" data-mus="cicada"><span lang="zh-Hant">蟬鳴</span><span lang="zh-Hans">蝉鸣</span><span lang="en">Cicadas</span></button>
         <button type="button" class="chip" data-mus="beta"><span lang="zh-Hant">專注頻率 🎧</span><span lang="zh-Hans">专注频率 🎧</span><span lang="en">Focus beats 🎧</span></button>
         <button type="button" class="chip" data-mus="off"><span lang="zh-Hant">靜音</span><span lang="zh-Hans">静音</span><span lang="en">Silent</span></button>
       </div>
       <p class="muted" id="musHint" style="margin:8px 0 0"></p>
       <div style="display:flex;align-items:center;gap:10px;margin-top:10px">
         <span class="muted"><span lang="zh-Hant">音量</span><span lang="zh-Hans">音量</span><span lang="en">Volume</span></span>
-        <input type="range" id="vol" min="0" max="100" value="40" style="flex:1" aria-label="Volume">
+        <input type="range" id="vol" min="0" max="100" value="28" style="flex:1" aria-label="Volume">
         <button type="button" class="ghostbtn" id="preview" style="padding:6px 12px"><span lang="zh-Hant">試聽</span><span lang="zh-Hans">试听</span><span lang="en">Preview</span></button>
       </div>
       <div class="toggles">
@@ -304,8 +304,8 @@
   var HINTS={
     rain:["穩定嘅雨聲，蓋過身邊雜音。","Steady rain to cover background noise."],
     brown:["低沉好似瀑布，好多人覺得最易專心。","A deep, waterfall-like rumble many people find easiest to focus with."],
-    pink:["比白噪音柔和，平均又穩定。","Softer than white noise, smooth and even."],
-    piano:["慢慢隨機嘅輕柔琴音，唔會重複到悶。","Slow, gently changing piano notes that never loop the same way."],
+    water:["好細聲嘅溪水聲，慢慢流，唔會搶耳。","A quiet stream, always moving, never demanding attention."],
+    cicada:["夏日黃昏，遠處嘅蟬鳴，一陣陣起落。","A summer evening — distant cicadas, rising and falling in waves."],
     beta:["雙耳節拍約 14Hz，一定要戴耳筒。","Binaural beats at about 14 Hz. Headphones needed."],
     off:["",""]
   };
@@ -337,9 +337,62 @@
   function makeVoice(kind){
     var out=ctx.createGain(); out.connect(bus);
     var nodes=[], timers=[];
-    if(kind==="brown"||kind==="pink"){
-      out.gain.value = kind==="brown"?.9:.6;
-      nodes.push(loopNoise(kind,out));
+    if(kind==="brown"){
+      out.gain.value = 1.45;
+      nodes.push(loopNoise("brown",out));
+
+    } else if(kind==="water"){
+      /* 流水聲 — a quiet stream: babble band + sparkle + body */
+      out.gain.value = 3.40;
+      var wbp=ctx.createBiquadFilter(); wbp.type="bandpass";
+      wbp.frequency.value=950; wbp.Q.value=.8;
+      var wg1=ctx.createGain(); wg1.gain.value=.30;
+      wbp.connect(wg1); wg1.connect(out);
+      nodes.push(loopNoise("white",wbp));
+      /* the band drifts — water is never static */
+      var wdr=ctx.createOscillator(); wdr.type="sine"; wdr.frequency.value=.08;
+      var wdg=ctx.createGain(); wdg.gain.value=170;
+      wdr.connect(wdg); wdg.connect(wbp.frequency); wdr.start(); nodes.push(wdr);
+      /* trickle sparkle, very low */
+      var whp=ctx.createBiquadFilter(); whp.type="highpass"; whp.frequency.value=2200;
+      var wlp=ctx.createBiquadFilter(); wlp.type="lowpass"; wlp.frequency.value=5200;
+      var wg2=ctx.createGain(); wg2.gain.value=.05;
+      whp.connect(wlp); wlp.connect(wg2); wg2.connect(out);
+      nodes.push(loopNoise("white",whp));
+      var wfl=ctx.createOscillator(); wfl.type="sine"; wfl.frequency.value=.31;
+      var wfg=ctx.createGain(); wfg.gain.value=.03;
+      wfl.connect(wfg); wfg.connect(wg2.gain); wfl.start(); nodes.push(wfl);
+      /* body of the stream */
+      var wlo=ctx.createBiquadFilter(); wlo.type="lowpass"; wlo.frequency.value=300;
+      var wg3=ctx.createGain(); wg3.gain.value=.14;
+      wlo.connect(wg3); wg3.connect(out);
+      nodes.push(loopNoise("brown",wlo));
+
+    } else if(kind==="cicada"){
+      /* 蟬鳴 — distant summer chorus, not an insect on your ear */
+      out.gain.value = 3.90;
+      function cBand(freq,q,rate,depth,gain){
+        var bp=ctx.createBiquadFilter(); bp.type="bandpass";
+        bp.frequency.value=freq; bp.Q.value=q;
+        var am=ctx.createGain(); am.gain.value=1-depth;
+        var lfo=ctx.createOscillator(); lfo.type="sine"; lfo.frequency.value=rate;
+        var ld=ctx.createGain(); ld.gain.value=depth;
+        lfo.connect(ld); ld.connect(am.gain); lfo.start();
+        var g=ctx.createGain(); g.gain.value=gain;
+        bp.connect(am); am.connect(g); g.connect(out);
+        nodes.push(loopNoise("white",bp), lfo);
+      }
+      cBand(4200,3.0,58,.45,.15);   /* main trill */
+      cBand(3100,2.2,43,.35,.09);   /* second voice, detuned */
+      var clp=ctx.createBiquadFilter(); clp.type="lowpass"; clp.frequency.value=480;
+      var cbg=ctx.createGain(); cbg.gain.value=.16;
+      clp.connect(cbg); cbg.connect(out);
+      nodes.push(loopNoise("pink",clp));
+      /* the chorus swells and fades, as it does outdoors */
+      var csw=ctx.createOscillator(); csw.type="sine"; csw.frequency.value=.055;
+      var csg=ctx.createGain(); csg.gain.value=1.17;
+      csw.connect(csg); csg.connect(out.gain); csw.start(); nodes.push(csw);
+
     } else if(kind==="rain"){
       var hp=ctx.createBiquadFilter(); hp.type="highpass"; hp.frequency.value=700;
       var lp=ctx.createBiquadFilter(); lp.type="lowpass"; lp.frequency.value=7000;
@@ -357,28 +410,8 @@
         timers.push(setTimeout(drop, 80+Math.random()*420));
       })();
       out.gain.value=1;
-    } else if(kind==="piano"){
-      out.gain.value=1;
-      var dl=ctx.createDelay(); dl.delayTime.value=.42; var fb=ctx.createGain(); fb.gain.value=.32; var wet=ctx.createGain(); wet.gain.value=.35;
-      dl.connect(fb); fb.connect(dl); dl.connect(wet); wet.connect(out);
-      // soft pad
-      [130.81,196].forEach(function(f){ var o=ctx.createOscillator(), pg=ctx.createGain(); o.type="sine"; o.frequency.value=f; pg.gain.value=.035; o.connect(pg); pg.connect(out); o.start(); nodes.push(o); });
-      var scale=[261.63,293.66,329.63,392,440,523.25,587.33,659.25];
-      var prev=3;
-      (function note(){
-        var step=[-2,-1,-1,1,1,2,0][Math.floor(Math.random()*7)];
-        prev=Math.max(0,Math.min(scale.length-1,prev+step));
-        var f=scale[prev], n=ctx.currentTime;
-        [[f,"triangle",.09],[f*2,"sine",.025]].forEach(function(v){
-          var o=ctx.createOscillator(), ng=ctx.createGain();
-          o.type=v[1]; o.frequency.value=v[0];
-          ng.gain.setValueAtTime(.0001,n); ng.gain.exponentialRampToValueAtTime(v[2],n+.02); ng.gain.exponentialRampToValueAtTime(.0001,n+3.2);
-          o.connect(ng); ng.connect(out); ng.connect(dl); o.start(n); o.stop(n+3.3);
-        });
-        timers.push(setTimeout(note, 900+Math.random()*1900));
-      })();
     } else if(kind==="beta"){
-      out.gain.value=1;
+      out.gain.value=1.5;
       [[200,-1],[214,1]].forEach(function(p){
         var o=ctx.createOscillator(), og=ctx.createGain(); o.type="sine"; o.frequency.value=p[0]; og.gain.value=.12;
         var pan=ctx.createStereoPanner?ctx.createStereoPanner():null;
@@ -817,6 +850,65 @@
 
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",build);
   else build();
+})();
+</script>
+
+
+<!-- ══════ tp-watag 2026-10-10 ══════ -->
+<script>
+(function(){
+  "use strict";
+  var LBL = ["專注溫習計時器", "专注温习计时器", "Study Focus Timer"], FALLBACK = ["你好，我喺【專注溫習計時器】見到你個網站，想了解多啲。", "你好，我在【专注温习计时器】看到你的网站，想了解更多。", "Hi Julia — I'd like to know more."], SUBJ = ["查詢：專注溫習計時器", "咨询：专注温习计时器", "Enquiry: Study Focus Timer"];
+  function L(){
+    var h=(document.documentElement.lang||"").toLowerCase();
+    if(h.indexOf("en")===0) return 2;
+    if(h.indexOf("zh-hans")===0||h.indexOf("zh-cn")===0) return 1;
+    return 0;
+  }
+  function srcLine(i){
+    return i===2 ? "\n(Source: "+LBL[2]+")" : "\n（來源："+LBL[i]+"）";
+  }
+  function tagWA(){
+    var a=document.querySelectorAll('a[href^="https://wa.me/"]'), i;
+    for(i=0;i<a.length;i++){
+      var el=a[i], u;
+      try{ u=new URL(el.href); }catch(e){ continue; }
+      var cur=u.searchParams.get("text")||"";
+      /* remember the page's own message once, before we ever touch it */
+      if(el.dataset.tpBase===undefined) el.dataset.tpBase=cur;
+      var base=el.dataset.tpBase;
+      var i18=L();
+      /* the page may already carry its own 來源 line — don't add a second */
+      var has = base && (base.indexOf("來源：")>=0 || base.indexOf("来源：")>=0
+                         || base.indexOf("Source:")>=0);
+      u.searchParams.set("text", base ? (has ? base : base+srcLine(i18)) : FALLBACK[i18]);
+      el.setAttribute("href", u.toString());
+    }
+  }
+  function tagMail(){
+    var a=document.querySelectorAll('a[href^="mailto:"]'), i;
+    for(i=0;i<a.length;i++){
+      var el=a[i], h=el.getAttribute("href")||"";
+      if(el.dataset.tpMail===undefined) el.dataset.tpMail=h;
+      var orig=el.dataset.tpMail;
+      if(orig.indexOf("subject=")>=0) continue;   /* page already set one */
+      var addr=orig.split("?")[0];
+      el.setAttribute("href", addr+"?subject="+encodeURIComponent(SUBJ[L()]));
+    }
+  }
+  function tag(){ tagWA(); tagMail(); }
+  function go(){
+    tag();
+    /* the page may rebuild its own links, and the language can change */
+    try{
+      new MutationObserver(tag)
+        .observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+    }catch(e){}
+    setTimeout(tag, 1200);
+    setTimeout(tag, 3000);
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",go);
+  else go();
 })();
 </script>
 </body>

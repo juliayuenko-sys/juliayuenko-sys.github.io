@@ -498,5 +498,63 @@ h2{font-size:30px;letter-spacing:.01em}
   </div>
 </footer>
 
+
+<!-- ══════ tp-watag 2026-10-10 ══════ -->
+<script>
+(function(){
+  "use strict";
+  var LBL = ["此刻香頻", "此刻香频", "Bespoke Scent"], FALLBACK = ["你好，我喺【此刻香頻】見到你個網站，想了解多啲。", "你好，我在【此刻香频】看到你的网站，想了解更多。", "Hi Julia — I'd like to know more."], SUBJ = ["查詢：此刻香頻", "咨询：此刻香频", "Enquiry: Bespoke Scent"];
+  function L(){
+    var h=(document.documentElement.lang||"").toLowerCase();
+    if(h.indexOf("en")===0) return 2;
+    if(h.indexOf("zh-hans")===0||h.indexOf("zh-cn")===0) return 1;
+    return 0;
+  }
+  function srcLine(i){
+    return i===2 ? "\n(Source: "+LBL[2]+")" : "\n（來源："+LBL[i]+"）";
+  }
+  function tagWA(){
+    var a=document.querySelectorAll('a[href^="https://wa.me/"]'), i;
+    for(i=0;i<a.length;i++){
+      var el=a[i], u;
+      try{ u=new URL(el.href); }catch(e){ continue; }
+      var cur=u.searchParams.get("text")||"";
+      /* remember the page's own message once, before we ever touch it */
+      if(el.dataset.tpBase===undefined) el.dataset.tpBase=cur;
+      var base=el.dataset.tpBase;
+      var i18=L();
+      /* the page may already carry its own 來源 line — don't add a second */
+      var has = base && (base.indexOf("來源：")>=0 || base.indexOf("来源：")>=0
+                         || base.indexOf("Source:")>=0);
+      u.searchParams.set("text", base ? (has ? base : base+srcLine(i18)) : FALLBACK[i18]);
+      el.setAttribute("href", u.toString());
+    }
+  }
+  function tagMail(){
+    var a=document.querySelectorAll('a[href^="mailto:"]'), i;
+    for(i=0;i<a.length;i++){
+      var el=a[i], h=el.getAttribute("href")||"";
+      if(el.dataset.tpMail===undefined) el.dataset.tpMail=h;
+      var orig=el.dataset.tpMail;
+      if(orig.indexOf("subject=")>=0) continue;   /* page already set one */
+      var addr=orig.split("?")[0];
+      el.setAttribute("href", addr+"?subject="+encodeURIComponent(SUBJ[L()]));
+    }
+  }
+  function tag(){ tagWA(); tagMail(); }
+  function go(){
+    tag();
+    /* the page may rebuild its own links, and the language can change */
+    try{
+      new MutationObserver(tag)
+        .observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+    }catch(e){}
+    setTimeout(tag, 1200);
+    setTimeout(tag, 3000);
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",go);
+  else go();
+})();
+</script>
 </body>
 </html>
