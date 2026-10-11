@@ -186,6 +186,26 @@
   html[lang="en"] h1,html[lang="en"] h2,html[lang="en"] .who,html[lang="en"] .q,
   html[lang="en"] .price,html[lang="en"] .nm{font-family:Georgia,"Noto Serif TC",serif}
 </style>
+<script>
+/* tp-lang0 2026-10-11 — shared default-language detector.
+   Returns "zh" (Traditional), "zhs" (Simplified) or "en". */
+window.tpL0 = function(){
+  var ls = [], one = "";
+  try { if (navigator.languages && navigator.languages.length) ls = [].slice.call(navigator.languages); } catch(e){}
+  try { one = navigator.language || ""; } catch(e){}
+  if (one) ls.push(one);
+  var i, t;
+  for (i = 0; i < ls.length; i++) {
+    t = (ls[i] || "").toLowerCase();
+    if (t.indexOf("zh") === 0) return (/^zh-(cn|sg)/.test(t) || t.indexOf("hans") >= 0) ? "zhs" : "zh";
+  }
+  for (i = 0; i < ls.length; i++) {
+    t = (ls[i] || "").toLowerCase();
+    if (/-(hk|mo|tw)\b/.test(t)) return "zh";
+  }
+  return "en";
+};
+</script>
 </head>
 <body>
 
@@ -456,10 +476,8 @@ document.addEventListener('DOMContentLoaded', function(){
   var saved = null;
   try{ saved = localStorage.getItem('latent-lang'); }catch(e){}
   if(!saved){
-    var n = (navigator.language || 'zh-Hant').toLowerCase();
-    if(n.indexOf('en') === 0) saved = 'en';
-    else if(n.indexOf('zh-cn')===0 || n.indexOf('zh-hans')===0 || n.indexOf('zh-sg')===0) saved = 'zh-Hans';
-    else saved = 'zh-Hant';
+    var z0 = tpL0();
+    saved = z0 === 'en' ? 'en' : (z0 === 'zhs' ? 'zh-Hans' : 'zh-Hant');
   }
   if(saved !== 'zh-Hant') setLang(saved);
 });

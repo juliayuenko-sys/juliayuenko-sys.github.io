@@ -238,6 +238,26 @@ footer p{margin:0 0 6px}
   ]
 }
 </script>
+<script>
+/* tp-lang0 2026-10-11 — shared default-language detector.
+   Returns "zh" (Traditional), "zhs" (Simplified) or "en". */
+window.tpL0 = function(){
+  var ls = [], one = "";
+  try { if (navigator.languages && navigator.languages.length) ls = [].slice.call(navigator.languages); } catch(e){}
+  try { one = navigator.language || ""; } catch(e){}
+  if (one) ls.push(one);
+  var i, t;
+  for (i = 0; i < ls.length; i++) {
+    t = (ls[i] || "").toLowerCase();
+    if (t.indexOf("zh") === 0) return (/^zh-(cn|sg)/.test(t) || t.indexOf("hans") >= 0) ? "zhs" : "zh";
+  }
+  for (i = 0; i < ls.length; i++) {
+    t = (ls[i] || "").toLowerCase();
+    if (/-(hk|mo|tw)\b/.test(t)) return "zh";
+  }
+  return "en";
+};
+</script>
 </head>
 <body>
 
@@ -359,9 +379,8 @@ footer p{margin:0 0 6px}
   var start = params.get("lang");
   if (LANGS.indexOf(start) < 0) { try { start = localStorage.getItem("tp-lang"); } catch(e) { start = null; } }
   if (LANGS.indexOf(start) < 0) {
-    var nav = (navigator.language || "zh-Hant");
-    start = /^zh/i.test(nav) ? (/(CN|SG|Hans)/i.test(nav) ? "zh-Hans" : "zh-Hant") : (/^zh/i.test(nav) ? "zh-Hant" : "en");
-    if (!/^zh/i.test(nav) && !/^en/i.test(nav)) start = "zh-Hant";
+    var z0 = tpL0();
+    start = z0 === "en" ? "en" : (z0 === "zhs" ? "zh-Hans" : "zh-Hant");
   }
   setLang(start);
 })();

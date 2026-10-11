@@ -94,6 +94,26 @@
   .tcard i{font-style:normal;font-weight:500;color:var(--green);white-space:nowrap;font-size:14px}
   @media (max-width:560px){.tcard{grid-template-columns:auto 1fr;padding:16px} .tcard i{grid-column:2}}
 </style>
+<script>
+/* tp-lang0 2026-10-11 — shared default-language detector.
+   Returns "zh" (Traditional), "zhs" (Simplified) or "en". */
+window.tpL0 = function(){
+  var ls = [], one = "";
+  try { if (navigator.languages && navigator.languages.length) ls = [].slice.call(navigator.languages); } catch(e){}
+  try { one = navigator.language || ""; } catch(e){}
+  if (one) ls.push(one);
+  var i, t;
+  for (i = 0; i < ls.length; i++) {
+    t = (ls[i] || "").toLowerCase();
+    if (t.indexOf("zh") === 0) return (/^zh-(cn|sg)/.test(t) || t.indexOf("hans") >= 0) ? "zhs" : "zh";
+  }
+  for (i = 0; i < ls.length; i++) {
+    t = (ls[i] || "").toLowerCase();
+    if (/-(hk|mo|tw)\b/.test(t)) return "zh";
+  }
+  return "en";
+};
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -191,7 +211,7 @@
   document.querySelectorAll("[data-set-lang]").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.setLang)})});
   var q=new URLSearchParams(location.search).get("lang"), saved=null;
   try{ var tp=localStorage.getItem("tp-lang"); saved = tp==="en"?"en":(tp==="zh-Hans"?"zhs":(tp?"zh":null)); }catch(e){}
-  setLang((q==="en"||q==="zh"||q==="zhs")?q:(saved==="en"||saved==="zh"||saved==="zhs")?saved:(/^zh-(cn|sg|hans)/i.test(navigator.language||"")?"zhs":(/^zh/i.test(navigator.language||"")?"zh":"en")));
+  setLang((q==="en"||q==="zh"||q==="zhs")?q:(saved==="en"||saved==="zh"||saved==="zhs")?saved:tpL0());
 })();
 </script>
 

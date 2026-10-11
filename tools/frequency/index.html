@@ -139,6 +139,26 @@
   .freqlist b{color:var(--green);min-width:62px;font-variant-numeric:tabular-nums}
   .freqlist span{font-size:14px;color:var(--ink-soft)}
 </style>
+<script>
+/* tp-lang0 2026-10-11 — shared default-language detector.
+   Returns "zh" (Traditional), "zhs" (Simplified) or "en". */
+window.tpL0 = function(){
+  var ls = [], one = "";
+  try { if (navigator.languages && navigator.languages.length) ls = [].slice.call(navigator.languages); } catch(e){}
+  try { one = navigator.language || ""; } catch(e){}
+  if (one) ls.push(one);
+  var i, t;
+  for (i = 0; i < ls.length; i++) {
+    t = (ls[i] || "").toLowerCase();
+    if (t.indexOf("zh") === 0) return (/^zh-(cn|sg)/.test(t) || t.indexOf("hans") >= 0) ? "zhs" : "zh";
+  }
+  for (i = 0; i < ls.length; i++) {
+    t = (ls[i] || "").toLowerCase();
+    if (/-(hk|mo|tw)\b/.test(t)) return "zh";
+  }
+  return "en";
+};
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -449,7 +469,7 @@
 
   var q = new URLSearchParams(location.search).get("lang"), saved=null;
   try{ var tp=localStorage.getItem("tp-lang"); saved = tp==="en"?"en":(tp==="zh-Hans"?"zhs":(tp?"zh":null)); }catch(e){}
-  var initial = (q==="en"||q==="zh"||q==="zhs") ? q : (saved==="en"||saved==="zh"||saved==="zhs") ? saved : (/^zh-(cn|sg|hans)/i.test(navigator.language||"")?"zhs":(/^zh/i.test(navigator.language||"")?"zh":"en"));
+  var initial = (q==="en"||q==="zh"||q==="zhs") ? q : (saved==="en"||saved==="zh"||saved==="zhs") ? saved : tpL0();
   setLang(initial);
 })();
 </script>

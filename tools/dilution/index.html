@@ -149,6 +149,26 @@
   footer a{color:var(--ink-soft)}
   @media (max-width:480px){ .card,.result{padding:18px} .stats{gap:6px} .stat b{font-size:15px} }
 </style>
+<script>
+/* tp-lang0 2026-10-11 — shared default-language detector.
+   Returns "zh" (Traditional), "zhs" (Simplified) or "en". */
+window.tpL0 = function(){
+  var ls = [], one = "";
+  try { if (navigator.languages && navigator.languages.length) ls = [].slice.call(navigator.languages); } catch(e){}
+  try { one = navigator.language || ""; } catch(e){}
+  if (one) ls.push(one);
+  var i, t;
+  for (i = 0; i < ls.length; i++) {
+    t = (ls[i] || "").toLowerCase();
+    if (t.indexOf("zh") === 0) return (/^zh-(cn|sg)/.test(t) || t.indexOf("hans") >= 0) ? "zhs" : "zh";
+  }
+  for (i = 0; i < ls.length; i++) {
+    t = (ls[i] || "").toLowerCase();
+    if (/-(hk|mo|tw)\b/.test(t)) return "zh";
+  }
+  return "en";
+};
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -482,8 +502,7 @@
   var saved = null; try{ var tp=localStorage.getItem("tp-lang"); saved = tp==="en"?"en":(tp==="zh-Hans"?"zhs":(tp?"zh":null)); }catch(e){}
   if(q==="en"||q==="zh"||q==="zhs") initial=q;
   else if(saved==="en"||saved==="zh"||saved==="zhs") initial=saved;
-  else if(/^zh-(cn|sg|hans)/i.test(navigator.language||"")) initial="zhs";
-  else if(!/^zh/i.test(navigator.language||"")) initial="en";
+  else initial=tpL0();
 
   // default: 10ml roller, daily body 2%
   document.querySelector('#useChips .chip[data-pct="2"]').classList.add("active");

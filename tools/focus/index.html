@@ -146,6 +146,26 @@
   color:var(--warn,#8a5a2b);background:var(--gold-soft,#F7EDD6);
   border-radius:12px;padding:10px 15px}
 </style>
+<script>
+/* tp-lang0 2026-10-11 — shared default-language detector.
+   Returns "zh" (Traditional), "zhs" (Simplified) or "en". */
+window.tpL0 = function(){
+  var ls = [], one = "";
+  try { if (navigator.languages && navigator.languages.length) ls = [].slice.call(navigator.languages); } catch(e){}
+  try { one = navigator.language || ""; } catch(e){}
+  if (one) ls.push(one);
+  var i, t;
+  for (i = 0; i < ls.length; i++) {
+    t = (ls[i] || "").toLowerCase();
+    if (t.indexOf("zh") === 0) return (/^zh-(cn|sg)/.test(t) || t.indexOf("hans") >= 0) ? "zhs" : "zh";
+  }
+  for (i = 0; i < ls.length; i++) {
+    t = (ls[i] || "").toLowerCase();
+    if (/-(hk|mo|tw)\b/.test(t)) return "zh";
+  }
+  return "en";
+};
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -608,7 +628,7 @@
   document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.addEventListener("click", function(){ setLang(b.dataset.setLang); }); });
   var q=new URLSearchParams(location.search).get("lang"), saved=null;
   try{ var tp=localStorage.getItem("tp-lang"); saved = tp==="en"?"en":(tp==="zh-Hans"?"zhs":(tp?"zh":null)); }catch(e){}
-  setLang((q==="en"||q==="zh"||q==="zhs")?q:(saved==="en"||saved==="zh"||saved==="zhs")?saved:(/^zh-(cn|sg|hans)/i.test(navigator.language||"")?"zhs":(/^zh/i.test(navigator.language||"")?"zh":"en")));
+  setLang((q==="en"||q==="zh"||q==="zhs")?q:(saved==="en"||saved==="zh"||saved==="zhs")?saved:tpL0());
 })();
 </script>
 
@@ -970,5 +990,77 @@
 
 <!-- Cloudflare Web Analytics (cookieless) -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "e12395482b7a4782a53e9f87f2c6abe4"}'></script>
+
+<!-- ══════ tp-skiplabel 2026-10-11 ══════
+     跳過 meant two different things depending on the phase. Now it says which. -->
+<style>
+/* The new labels are longer than 跳過, so keep each one on a single line.
+   The control row was already overflowing on narrow phones (≤360px) because
+   .play has min-width:150px — so let the row wrap instead: the skip pill
+   drops to its own centred line rather than pushing the page sideways. */
+#skip{white-space:nowrap}
+.controls{flex-wrap:wrap;row-gap:10px}
+.play{min-width:0}
+/* while here: the volume slider would not shrink below its intrinsic width,
+   so the 試聽／Preview button hung off the right edge on a 320px screen */
+#vol{min-width:0}
+</style>
+<script>
+(function(){
+  "use strict";
+  var btn = document.getElementById("skip"),
+      ph  = document.getElementById("phase"),
+      rst = document.getElementById("reset");
+  if(!btn || !ph) return;
+
+  /* [zh-Hant, zh-Hans, en] */
+  var TO_BREAK = ["提早休息 \u203A", "提早休息 \u203A", "Break now \u203A"],
+      TO_FOCUS = ["繼續專注 \u203A", "继续专注 \u203A", "Back to focus \u203A"],
+      TIP_BRK  = ["未到時間都想休息？撳一下即刻開始休息",
+                  "未到时间都想休息？点一下立即开始休息",
+                  "Start the break before the timer ends"],
+      TIP_FOC  = ["休息夠？撳一下即刻返去專注",
+                  "休息够？点一下立即回到专注",
+                  "Back to focus before the break ends"],
+      RESET    = ["重新開始", "重新开始", "Start over"];
+
+  function L(){
+    var h = (document.documentElement.lang || "").toLowerCase();
+    if(h.indexOf("en") === 0) return 2;
+    if(h.indexOf("zh-hans") === 0 || h.indexOf("zh-cn") === 0) return 1;
+    return 0;
+  }
+  /* "休息" is written the same in Traditional and Simplified, so one test covers both */
+  function onBreak(){
+    var txt = ph.textContent || "";
+    return txt.indexOf("休息") >= 0 || txt.toUpperCase().indexOf("BREAK") >= 0;
+  }
+
+  var last = null;
+  function paint(force){
+    var brk = onBreak(), i = L(), key = brk + "|" + i;
+    if(!force && key === last) return;
+    last = key;
+    var lab = brk ? TO_FOCUS : TO_BREAK,
+        tip = brk ? TIP_FOC  : TIP_BRK;
+    var sp = btn.querySelectorAll("span[lang]");
+    for(var k = 0; k < sp.length; k++){
+      var lg = (sp[k].getAttribute("lang") || "").toLowerCase();
+      sp[k].textContent = lg === "en" ? lab[2] : (lg === "zh-hans" ? lab[1] : lab[0]);
+    }
+    btn.setAttribute("aria-label", lab[i]);
+    btn.setAttribute("title", tip[i]);
+    if(rst){ rst.setAttribute("aria-label", RESET[i]); rst.setAttribute("title", RESET[i]); }
+  }
+
+  paint(true);
+  /* render() rewrites #phase on every tick; repaint only when the phase flips */
+  new MutationObserver(function(){ paint(false); })
+    .observe(ph, { childList: true, characterData: true, subtree: true });
+  /* and on a 繁／简／EN switch */
+  new MutationObserver(function(){ paint(true); })
+    .observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+})();
+</script>
 </body>
 </html>
