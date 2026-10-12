@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Study Timer with Music · Pomodoro Focus Timer 專注溫習計時器 | 此刻 · The Present</title>
-<meta name="description" content="Free study timer with calming background music: Pomodoro 25/5, 50/10 flow sessions and 90-minute deep study, with rain, brown noise, soft cicadas, stream or focus binaural beats. 免費溫習計時器：番茄鐘、50/10 心流、90 分鐘深度溫習，配雨聲、棕噪音、蟬鳴、流水聲或專注頻率。">
+<meta name="description" content="Free study timer with calming background music: Pomodoro 25/5, 50/10 flow sessions and 90-minute deep study, with gentle forest, breeze, birdsong and ocean-wave sounds, plus rain, brown noise, soft cicadas, stream or focus binaural beats. 免費溫習計時器：番茄鐘、50/10 心流、90 分鐘深度溫習，配雨聲、棕噪音、蟬鳴、流水聲或專注頻率。">
 <link rel="canonical" href="https://juliayuen.com/tools/focus/">
 <meta property="og:title" content="Study Timer + Music 專注溫習計時器">
-<meta property="og:description" content="Pomodoro timer with rain, cicadas, a quiet stream and brown noise. 番茄鐘＋溫習音樂，一頁搞掂。">
+<meta property="og:description" content="Pomodoro timer with soft forest, birdsong and ocean sounds, rain, cicadas, a quiet stream and brown noise. 番茄鐘＋溫習音樂，一頁搞掂。">
 <meta property="og:url" content="https://juliayuen.com/tools/focus/">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -166,6 +166,12 @@ window.tpL0 = function(){
   return "en";
 };
 </script>
+
+<style>
+/* 柔和自然 group label inside the chip row */
+.chipgrp{flex:0 0 100%;font-size:12.5px;color:var(--ink-soft);margin:6px 0 -2px;letter-spacing:.02em}
+.chipgrp:first-child{margin-top:0}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -227,6 +233,13 @@ window.tpL0 = function(){
     <div class="field">
       <span class="label"><span lang="zh-Hant">② 背景聲音</span><span lang="zh-Hans">② 背景声音</span><span lang="en">② Background sound</span></span>
       <div class="chips" id="musChips">
+        <span class="chipgrp"><span lang="zh-Hant">🌿 柔和自然 · 細聲陪伴，小朋友都啱聽</span><span lang="zh-Hans">🌿 柔和自然 · 轻声陪伴，小朋友也适合听</span><span lang="en">🌿 Gentle nature · soft and quiet, kid-friendly</span></span>
+        <button type="button" class="chip" data-mus="forest"><span lang="zh-Hant">森林</span><span lang="zh-Hans">森林</span><span lang="en">Forest</span></button>
+        <button type="button" class="chip" data-mus="breeze"><span lang="zh-Hant">微風</span><span lang="zh-Hans">微风</span><span lang="en">Breeze</span></button>
+        <button type="button" class="chip" data-mus="birds"><span lang="zh-Hant">雀鳥</span><span lang="zh-Hans">雀鸟</span><span lang="en">Birdsong</span></button>
+        <button type="button" class="chip" data-mus="ocean"><span lang="zh-Hant">海浪</span><span lang="zh-Hans">海浪</span><span lang="en">Ocean waves</span></button>
+        <button type="button" class="chip" data-mus="dolphin"><span lang="zh-Hant">海浪＋海豚</span><span lang="zh-Hans">海浪＋海豚</span><span lang="en">Waves &amp; dolphins</span></button>
+        <span class="chipgrp"><span lang="zh-Hant">其他背景聲</span><span lang="zh-Hans">其他背景声</span><span lang="en">Other sounds</span></span>
         <button type="button" class="chip" data-mus="rain"><span lang="zh-Hant">雨聲</span><span lang="zh-Hans">雨声</span><span lang="en">Rain</span></button>
         <button type="button" class="chip" data-mus="brown"><span lang="zh-Hant">棕噪音</span><span lang="zh-Hans">棕噪音</span><span lang="en">Brown noise</span></button>
         <button type="button" class="chip" data-mus="water"><span lang="zh-Hant">流水聲</span><span lang="zh-Hans">流水声</span><span lang="en">Stream</span></button>
@@ -320,20 +333,39 @@ window.tpL0 = function(){
 
   var WA="https://wa.me/85296215876?text=";
   var $=function(id){return document.getElementById(id)};
-  var lang="zh", focusMin=25, breakMin=5, mus="rain";
+  var lang="zh", focusMin=25, breakMin=5, mus="forest";
   var phase="focus", running=false, remaining=25*60000, total=25*60000, endAt=0, tickT=null, round=1, focusedMs=0, lastTick=0;
   var ctx=null, bus=null, voice=null, wake=null, previewing=false, baseTitle=document.title;
   var C=2*Math.PI*52;
   $("prog").style.strokeDasharray=C;
 
   var HINTS={
+    forest:["森林入面嘅微風同樹葉沙沙聲，遠處偶爾有一兩聲雀仔。好細聲，唔搶耳。","Soft breeze through leaves, with a distant bird now and then. Very quiet, never demanding."],
+    breeze:["慢慢吹過嘅微風，一陣強一陣弱。最簡單、最柔和。","A slow breeze that comes and goes. The simplest and softest of them all."],
+    birds:["遠遠嘅雀仔輕輕地叫，叫完留一段靜。冇突然嘅聲。","Small birds calling softly in the distance, with long quiet gaps. Nothing sudden."],
+    ocean:["一下一下慢慢嘅海浪，湧上嚟、退落去，好似呼吸咁。","Slow waves rolling in and out, about as steady as a breath."],
+    dolphin:["慢慢嘅海浪，遠處偶爾有海豚輕輕嘅哨音，好遠、好柔。","Slow waves with the occasional faint dolphin whistle far out at sea."],
     rain:["穩定嘅雨聲，蓋過身邊雜音。","Steady rain to cover background noise."],
     brown:["低沉好似瀑布，好多人覺得最易專心。","A deep, waterfall-like rumble many people find easiest to focus with."],
     water:["好細聲嘅溪水聲，慢慢流，唔會搶耳。","A quiet stream, always moving, never demanding attention."],
     cicada:["夏日黃昏，遠處嘅蟬鳴，一陣陣起落。","A summer evening — distant cicadas, rising and falling in waves."],
     beta:["雙耳節拍約 14Hz，一定要戴耳筒。","Binaural beats at about 14 Hz. Headphones needed."],
-    zen:["緩慢嘅缽音，一下一下散開，中間留白。最靜嘅一個。","Slow singing bowls, each one left to fade. The quietest of the five."],
+    zen:["緩慢嘅缽音，一下一下散開，中間留白。好靜嘅一個。","Slow singing bowls, each one left to fade. Very quiet."],
     off:["",""]
+  };
+  var HINTS_S={
+    forest:"森林里的微风和树叶沙沙声，远处偶尔有一两声鸟叫。很轻声，不抢耳。",
+    breeze:"缓缓吹过的微风，时强时弱。最简单、最柔和。",
+    birds:"远处的小鸟轻轻鸣叫，叫完留一段安静。没有突然的声响。",
+    ocean:"一下一下缓慢的海浪，涌上来、退下去，像呼吸一样。",
+    dolphin:"缓慢的海浪，远处偶尔传来海豚轻轻的哨音，很远、很柔。",
+    rain:"稳定的雨声，盖过身边杂音。",
+    brown:"低沉像瀑布，很多人觉得最容易专心。",
+    water:"很轻的溪水声，缓缓流动，不抢耳。",
+    cicada:"夏日黄昏，远处的蝉鸣，一阵阵起落。",
+    beta:"双耳节拍约 14Hz，一定要戴耳机。",
+    zen:"缓慢的钵音，一下一下散开，中间留白。很安静。",
+    off:""
   };
   function t(zh,en){ return lang==="zh"?(hans?S(zh):zh):en; }
   function fmt(ms){ var s=Math.max(0,Math.ceil(ms/1000)); return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2); }
@@ -360,10 +392,137 @@ window.tpL0 = function(){
   function loopNoise(type, dest){
     var s=ctx.createBufferSource(); s.buffer=noiseBuffer(type); s.loop=true; s.connect(dest); s.start(); return s;
   }
+
+  /* ---------- 柔和自然 gentle nature ----------
+     Everything here is built to be dim and slow: low-passed so there is no hiss
+     or sparkle, swells take 10-20 s, and nothing starts or stops suddenly.
+     Bird / dolphin calls have soft attacks and long gaps, so there are no
+     startling moments for a child at a desk. */
+  var GENTLE={forest:1,breeze:1,birds:1,ocean:1,dolphin:1};
+  function glfo(freq,depth,target,nodes){
+    var o=ctx.createOscillator(), g=ctx.createGain();
+    o.type="sine"; o.frequency.value=freq; g.gain.value=depth;
+    o.connect(g); g.connect(target); o.start(); nodes.push(o); return o;
+  }
+  function gnoise(type,filters,dest,nodes){
+    /* noise -> [filters...] -> dest ; returns the filter nodes so callers can modulate them */
+    var made=[], prev=null;
+    filters.forEach(function(f){
+      var b=ctx.createBiquadFilter(); b.type=f[0]; b.frequency.value=f[1]; b.Q.value=f[2]||.5;
+      if(prev) prev.connect(b); prev=b; made.push(b);
+    });
+    var src=ctx.createBufferSource(); src.buffer=noiseBuffer(type); src.loop=true;
+    src.start(); nodes.push(src);
+    src.connect(made[0]); prev.connect(dest);
+    return made;
+  }
+  function breezeBed(dest,lvl,nodes){
+    var g=ctx.createGain(); g.gain.value=lvl; g.connect(dest);
+    var f=gnoise("pink",[["bandpass",420,.6],["lowpass",900,.4]],g,nodes);
+    glfo(.043,170,f[0].frequency,nodes); glfo(.083,90,f[0].frequency,nodes);   /* centre drifts ~160-680 Hz */
+    glfo(.057,lvl*.45,g.gain,nodes);   glfo(.031,lvl*.25,g.gain,nodes);        /* gusts, 18-32 s apart */
+  }
+  function waveBed(dest,lvl,nodes){
+    /* a wave = the water gets louder AND brighter, then drains away (~11 s). Same rate drives both. */
+    var g=ctx.createGain(); g.gain.value=lvl*.55; g.connect(dest);
+    var f=gnoise("pink",[["lowpass",620,.4]],g,nodes);
+    glfo(.092,380,f[0].frequency,nodes); glfo(.058,160,f[0].frequency,nodes);
+    glfo(.092,lvl*.40,g.gain,nodes);     glfo(.058,lvl*.12,g.gain,nodes);
+    var foam=ctx.createGain(); foam.gain.value=lvl*.05; foam.connect(dest);       /* faint foam on the crest only */
+    gnoise("white",[["highpass",1400,.5],["lowpass",3000,.5]],foam,nodes);
+    glfo(.092,lvl*.045,foam.gain,nodes);
+    var low=ctx.createGain(); low.gain.value=lvl*.14; low.connect(dest);
+    gnoise("brown",[["lowpass",150,.5]],low,nodes);
+  }
+  function chirp(dest,vol,lo,hi,timers){
+    /* one short phrase of 2-4 soft notes, placed somewhere in the stereo field */
+    var pan=ctx.createStereoPanner?ctx.createStereoPanner():null, pg=ctx.createGain();
+    pg.gain.value=vol;
+    if(pan){ pan.pan.value=Math.random()*1.4-.7; pg.connect(pan); pan.connect(dest); } else pg.connect(dest);
+    var notes=2+Math.floor(Math.random()*3), n=ctx.currentTime+.05, base=lo+Math.random()*(hi-lo), end=n;
+    for(var i=0;i<notes;i++){
+      var dur=.13+Math.random()*.15, f0=base*(1+(Math.random()-.5)*.28), f1=f0*(1+(Math.random()<.5?.14:-.1));
+      var o=ctx.createOscillator(), o2=ctx.createOscillator(), g=ctx.createGain(), g2=ctx.createGain();
+      o.type="sine"; o2.type="sine";
+      o.frequency.setValueAtTime(f0,n); o.frequency.linearRampToValueAtTime(f1,n+dur);
+      o2.frequency.setValueAtTime(f0*2,n); o2.frequency.linearRampToValueAtTime(f1*2,n+dur);
+      g.gain.setValueAtTime(.0001,n); g.gain.linearRampToValueAtTime(.30,n+.045); g.gain.exponentialRampToValueAtTime(.0001,n+dur+.07);
+      g2.gain.value=.16;
+      o.connect(g); o2.connect(g2); g2.connect(g); g.connect(pg);
+      o.start(n); o2.start(n); o.stop(n+dur+.1); o2.stop(n+dur+.1);
+      n+=dur+.09+Math.random()*.12; end=n;
+    }
+    setTimeout(function(){ try{ pg.disconnect(); }catch(e){} }, (end-ctx.currentTime+1)*1000);
+  }
+  function birdLoop(dest,vol,lo,hi,minGap,maxGap,timers){
+    (function next(){
+      chirp(dest,vol,lo,hi,timers);
+      timers.push(setTimeout(next,(minGap+Math.random()*(maxGap-minGap))*1000));
+    })();
+  }
+  function whistleLoop(dest,vol,timers,nodes){
+    /* far-off dolphin: a slow rising-and-falling glide with a slight wobble, through a dim echo */
+    var echo=ctx.createDelay(1); echo.delayTime.value=.27;
+    var fb=ctx.createGain(); fb.gain.value=.34;
+    var elp=ctx.createBiquadFilter(); elp.type="lowpass"; elp.frequency.value=1900;
+    var wet=ctx.createGain(); wet.gain.value=.5;
+    echo.connect(elp); elp.connect(fb); fb.connect(echo); elp.connect(wet); wet.connect(dest);
+    var send=ctx.createGain(); send.gain.value=vol; send.connect(dest); send.connect(echo);
+    nodes.push(send,echo);
+    (function next(){
+      var count=1+Math.floor(Math.random()*3), n=ctx.currentTime+.1, base=1900+Math.random()*500;
+      for(var i=0;i<count;i++){
+        var d=.65+Math.random()*.5, f0=base*(1+(Math.random()-.5)*.1), f1=f0*(1.42+Math.random()*.18);
+        var o=ctx.createOscillator(), w=ctx.createOscillator(), wg=ctx.createGain(), g=ctx.createGain(), h=ctx.createGain(), o2=ctx.createOscillator();
+        o.type="sine"; o2.type="sine"; w.type="sine"; w.frequency.value=9; wg.gain.value=22;
+        w.connect(wg); wg.connect(o.frequency);
+        o.frequency.setValueAtTime(f0,n); o.frequency.linearRampToValueAtTime(f1,n+d*.5); o.frequency.linearRampToValueAtTime(f0*1.12,n+d);
+        o2.frequency.setValueAtTime(f0*2,n); o2.frequency.linearRampToValueAtTime(f1*2,n+d*.5); o2.frequency.linearRampToValueAtTime(f0*2.24,n+d);
+        h.gain.value=.1;
+        g.gain.setValueAtTime(.0001,n); g.gain.linearRampToValueAtTime(1,n+.22); g.gain.linearRampToValueAtTime(.7,n+d*.6); g.gain.exponentialRampToValueAtTime(.0001,n+d+.3);
+        o.connect(g); o2.connect(h); h.connect(g); g.connect(send);
+        o.start(n); o2.start(n); w.start(n); o.stop(n+d+.4); o2.stop(n+d+.4); w.stop(n+d+.4);
+        n+=d+.35+Math.random()*.4;
+      }
+      timers.push(setTimeout(next,(11+Math.random()*12)*1000));
+    })();
+  }
+  function makeGentle(kind,out,nodes,timers){
+    /* one shared "dimmer" so nothing above ~3.4 kHz ever reaches the speaker */
+    var dim=ctx.createBiquadFilter(); dim.type="lowpass"; dim.frequency.value=3400; dim.Q.value=.5; dim.connect(out);
+    if(kind==="breeze"){
+      out.gain.value=1.6;
+      breezeBed(dim,1,nodes);
+    } else if(kind==="forest"){
+      out.gain.value=1.6;
+      breezeBed(dim,.8,nodes);
+      var leaf=ctx.createGain(); leaf.gain.value=.028; leaf.connect(dim);
+      gnoise("white",[["highpass",1800,.5],["lowpass",3200,.5]],leaf,nodes);
+      glfo(.19,.018,leaf.gain,nodes);
+      var under=ctx.createGain(); under.gain.value=.10; under.connect(dim);
+      gnoise("brown",[["lowpass",170,.5]],under,nodes);
+      birdLoop(dim,.42,1700,2700,7,16,timers);
+    } else if(kind==="birds"){
+      out.gain.value=2.0;
+      breezeBed(dim,.6,nodes);
+      birdLoop(dim,.45,1800,3000,3,8,timers);
+      birdLoop(dim,.2,1500,2300,6,13,timers);
+    } else if(kind==="ocean"){
+      out.gain.value=1.6;
+      waveBed(dim,1,nodes);
+    } else if(kind==="dolphin"){
+      out.gain.value=1.6;
+      waveBed(dim,.9,nodes);
+      whistleLoop(dim,.08,timers,nodes);
+    }
+  }
+
   function makeVoice(kind){
     var out=ctx.createGain(); out.connect(bus);
     var nodes=[], timers=[];
-    if(kind==="brown"){
+    if(GENTLE[kind]){
+      makeGentle(kind,out,nodes,timers);
+    } else if(kind==="brown"){
       out.gain.value = 1.45;
       nodes.push(loopNoise("brown",out));
 
@@ -537,7 +696,7 @@ window.tpL0 = function(){
     document.querySelectorAll("#musChips .chip").forEach(function(c){ c.setAttribute("aria-pressed", c.dataset.mus===mus?"true":"false"); });
     if(document.activeElement!==$("fMin")) $("fMin").value=focusMin;
     if(document.activeElement!==$("bMin")) $("bMin").value=breakMin;
-    $("musHint").textContent = t(HINTS[mus][0],HINTS[mus][1]);
+    $("musHint").textContent = (hans && lang==="zh" && HINTS_S[mus]!=null) ? HINTS_S[mus] : t(HINTS[mus][0],HINTS[mus][1]);
     $("preview").hidden = running || mus==="off";
     $("preview").querySelector('[lang="zh-Hant"]').textContent = previewing?"停止試聽":"試聽";
     $("preview").querySelector('[lang="zh-Hans"]').textContent = previewing?"停止试听":"试听";
