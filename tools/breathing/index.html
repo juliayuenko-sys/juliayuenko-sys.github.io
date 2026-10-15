@@ -291,14 +291,14 @@ window.tpL0 = function(){
       <details><summary>每日做幾耐好？</summary><p>每次 3–5 分鐘已經好好。重要係恆常，唔係做得耐。</p></details>
       <details><summary>有冇語音引導？</summary><p>有。開啟「女聲引導」，會用女聲提示「吸氣、呼氣、停一停」：繁體用廣東話、簡體用普通話、英文版用英文。語音由你部機內置嘅女聲讀出，如果部機冇該語言嘅女聲，就會用背景聲提示。</p></details>
       <details><summary>畫面入面嘅身體動畫係咩意思？</summary><p>側面圖顯示空氣由鼻吸入，經氣管入到肺部，橫隔膜向下，肚微微鼓起；呼氣時空氣由口呼出，橫隔膜放鬆上升。想睇圓圈可以切換。</p></details>
-      <details><summary>小朋友可以做嗎？</summary><p>可以試短啲嘅節奏，例如吸 3 秒、呼 4 秒，唔好閉氣，由大人陪住做。</p></details>
+      <details><summary>小朋友可以做嗎？</summary><p>可以試短啲嘅節奏，例如吸 3 秒、呼 4 秒，唔好閉氣，由大人陪住做。撳「同小朋友一齊做」，畫面會變成家長同小朋友並肩呼吸嘅動畫：聞花香就用鼻吸氣，吹蠟燭就用口呼氣，睇到空氣入肺、橫隔膜郁動，仲有小朋友聲提示同海浪聲陪伴。</p></details>
     </div><div lang="zh-Hans">
       <details><summary>有语音引导吗？</summary><p>有。开启“女声引导”，会用女声提示“吸气、呼气、停一停”：简体用普通话、繁体用广东话、英文版用英文。语音由你设备内置的女声朗读，如果设备没有该语言的女声，就会用背景声提示。</p></details>
       <details><summary>画面里的身体动画是什么意思？</summary><p>侧面图显示空气由鼻吸入，经气管进入肺部，横膈膜向下，肚子微微鼓起；呼气时空气由口呼出，横膈膜放松上升。想看圆圈可以切换。</p></details>
       <details><summary>方形呼吸法怎么做？</summary><p>吸气 4 秒、闭气 4 秒、呼气 4 秒、再闭气 4 秒，重复几轮。</p></details>
       <details><summary>4-7-8 呼吸法怎么做？</summary><p>用鼻吸气 4 秒，闭气 7 秒，用口慢慢呼气 8 秒。初学建议做 4 轮左右。</p></details>
       <details><summary>每日做多久好？</summary><p>每次 3–5 分钟已经很好。重要是恒常，不是做得久。</p></details>
-      <details><summary>小朋友可以做吗？</summary><p>可以试短一些的节奏，例如吸 3 秒、呼 4 秒，不要闭气，由大人陪着做。</p></details>
+      <details><summary>小朋友可以做吗？</summary><p>可以试短一些的节奏，例如吸 3 秒、呼 4 秒，不要闭气，由大人陪着做。点“同小朋友一起做”，画面会变成家长和小朋友并肩呼吸的动画：闻花香就用鼻吸气，吹蜡烛就用嘴呼气，看到空气入肺、横膈膜活动，还有小朋友声提示和海浪声陪伴。</p></details>
     </div>
     <div lang="en">
       <details><summary>Is there a voice guide?</summary><p>Yes. Turn on the voice guide and a gentle female voice says "in, out, pause" — Cantonese in the Traditional Chinese version, Mandarin in Simplified Chinese, English in English. The voice comes from your own device; if it has no female voice for that language, the background sound cues you instead.</p></details>
@@ -306,7 +306,7 @@ window.tpL0 = function(){
       <details><summary>What is box breathing?</summary><p>Breathe in for 4 seconds, hold for 4, out for 4, hold for 4, and repeat.</p></details>
       <details><summary>How do you do 4-7-8 breathing?</summary><p>Breathe in through your nose for 4, hold for 7, breathe out through your mouth for 8. Start with about 4 rounds.</p></details>
       <details><summary>How long should I practise?</summary><p>3–5 minutes a day works well. Doing it regularly matters more than doing it for long.</p></details>
-      <details><summary>Can children do this?</summary><p>Yes, with a shorter rhythm such as in 3, out 4, no breath-holding, and an adult alongside.</p></details>
+      <details><summary>Can children do this?</summary><p>Yes, with a shorter rhythm such as in 3, out 4, no breath-holding, and an adult alongside. Tap “With my child” and the picture becomes a parent and child breathing side by side: smell the flower to breathe in through the nose, blow the candle to breathe out through the mouth, with a child-voice guide and a soft ocean sound.</p></details>
     </div>
   </section>
 
@@ -1119,12 +1119,32 @@ body.tp-kid .count{font-size:2.6rem}
 .b3-view button[aria-pressed="true"]{background:var(--green-soft,#DDF1EC);border-color:var(--green,#157F74);color:var(--green,#157F74);font-weight:700}
 
 .b3-vis{display:none}
-.stage.b3-on{height:auto!important;flex-direction:column;justify-content:flex-start;margin-bottom:2px}
-.stage.b3-on .orb,.stage.b3-on .guide-ring{display:none}
+.stage.b3-on,.stage.b3-fam-on{height:auto!important;flex-direction:column;justify-content:flex-start;margin-bottom:2px}
+.stage.b3-on .orb,.stage.b3-on .guide-ring,.stage.b3-fam-on .orb,.stage.b3-fam-on .guide-ring{display:none}
 .stage.b3-on .b3-vis{display:block;width:100%}
-.stage.b3-on .readout{position:static;display:flex;align-items:baseline;justify-content:center;gap:12px;margin-top:2px}
-.stage.b3-on .phase{font-size:22px}
-.stage.b3-on .count{font-size:34px}
+.stage.b3-on .readout,.stage.b3-fam-on .readout{position:static;display:flex;align-items:baseline;justify-content:center;gap:12px;margin-top:2px}
+.stage.b3-on .phase,.stage.b3-fam-on .phase{font-size:22px}
+.stage.b3-on .count,.stage.b3-fam-on .count{font-size:34px}
+/* family scene (kid mode) */
+.b3-fam{display:none;width:100%;cursor:pointer;-webkit-tap-highlight-color:transparent;border-radius:16px}
+.stage.b3-fam-on .b3-fam{display:block}
+.b3-fam:focus-visible{outline:2px solid var(--green,#157F74);outline-offset:4px}
+.b3-fam svg{display:block;width:100%;max-width:480px;height:auto;margin:0 auto;overflow:visible}
+.b3-fam text{font-family:var(--sans);font-size:12.5px;fill:var(--ink-soft,#5C7370)}
+.b3-fam text.nm{font-size:13px;font-weight:700;fill:var(--ink,#234B47)}
+.b3-fam text.tg{font-size:13px;font-weight:700;fill:rgba(35,75,71,.45)}
+.b3-fam text.tg.on{fill:var(--green,#157F74)}
+.b3-fam text.lbl-lung{font-size:15px;fill:rgba(35,75,71,.42);font-family:var(--serif)}
+.b3-fam text.lbl-dia{fill:#9A6A1E;font-weight:700}
+@media (max-width:370px){.b3-fam text{font-size:14.5px}.b3-fam text.nm,.b3-fam text.tg{font-size:15px}.b3-fam text.lbl-lung{font-size:17px}}
+.b3-leg{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin:2px 0 0;font-size:13px;color:var(--ink-soft,#5C7370)}
+.b3-leg i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.b3-stars{display:flex;align-items:center;justify-content:center;gap:8px;margin:-6px 0 14px;font-size:14px;font-weight:600;color:#8a6a1f}
+.b3-stars[hidden]{display:none}
+.b3-stars .st{letter-spacing:1px;font-size:16px}
+.b3-stars.pop .st{animation:b3pop .7s ease-out}
+@keyframes b3pop{0%{transform:scale(.7)}55%{transform:scale(1.25)}100%{transform:scale(1)}}
+.b3-voice label[hidden]{display:none}
 .b3-vis svg{display:block;margin:0 auto;height:min(292px,72vw);width:auto;max-width:100%;overflow:visible}
 .b3-vis text{font-family:var(--sans);font-size:12.5px;fill:var(--ink-soft,#5C7370)}
 .b3-vis text.on{fill:var(--green,#157F74);font-weight:700}
@@ -1149,7 +1169,7 @@ body.tp-kid .count{font-size:2.6rem}
 .custom{grid-template-columns:repeat(4,minmax(0,1fr))}
 .custom label{min-width:0}
 .custom input[type=number]{width:100%;max-width:64px}
-@media (prefers-reduced-motion: reduce){ .b3-vis svg *{transition:none!important} }
+@media (prefers-reduced-motion: reduce){ .b3-vis svg *{transition:none!important} .b3-stars.pop .st{animation:none} }
 </style>
 <script>
 (function(){
@@ -1229,6 +1249,16 @@ body.tp-kid .count{font-size:2.6rem}
     top:{l:["再吸一小口","再吸一小口","A little more"], s:["再吸一小口","再吸一小口","A little more"]},
     done:{l:["完成。感受一下此刻嘅你。","完成。感受一下此刻的你。","Well done. Notice how you feel right now."]}
   };
+  var KCUES={
+    inn:{l:["我哋一齊，用鼻聞花香","我们一起，用鼻子闻花香","Let's smell the flower. Breathe in through your nose"], s:["聞花香","闻花香","Smell the flower"]},
+    hold:{l:["停一停","停一停","Pause"], s:["停一停","停一停","Pause"]},
+    out:{l:["我哋一齊，用口慢慢吹蠟燭","我们一起，用嘴巴慢慢吹蜡烛","Now blow the candle slowly through your mouth"], s:["吹蠟燭","吹蜡烛","Blow the candle"]},
+    top:{l:["再聞一小口","再闻一小口","One more little sniff"], s:["再聞一小口","再闻一小口","One more little sniff"]},
+    done:{l:["好叻呀！我哋做到喇！","真棒！我们做到啦！","Great job! We did it!"]}
+  };
+  var kidV=lsGet("tp-kidvoice-breathing","1")!=="0";
+  function kidMode(){ return document.body.classList.contains("tp-kid"); }
+  function kidVoiceOn(){ return kidMode() && kidV; }
   var inCount=0, lastSpoken="";
   function speak(text){
     if(!synth||!voiceOn||!text) return false;
@@ -1237,14 +1267,15 @@ body.tp-kid .count{font-size:2.6rem}
       synth.cancel();
       var u=new SpeechSynthesisUtterance(text);
       u.voice=v; u.lang=v.lang;
-      u.rate = L()===2 ? .86 : .78;
-      u.pitch = 1.04;
+      var kv=kidVoiceOn();
+      u.rate = kv ? (L()===2 ? .92 : .86) : (L()===2 ? .86 : .78);
+      u.pitch = kv ? 1.75 : 1.04;
       u.volume = Math.min(1, .45 + .9*(parseInt(($("bvol")||{value:42}).value,10)/100));
       synth.speak(u); lastSpoken=text; return true;
     }catch(e){ return false; }
   }
   function cue(k,dur){
-    var set=CUES[k]; if(!set) return;
+    var set=(kidVoiceOn()?KCUES:CUES)[k]; if(!set) return;
     var i=L(), t;
     if(k==="done") t=set.l[i];
     else t = (inCount<=2 && dur>=4 && set.l) ? set.l[i] : (set.s||set.l)[i];
@@ -1260,7 +1291,8 @@ body.tp-kid .count{font-size:2.6rem}
       el.textContent=T(["呢個瀏覽器唔支援語音，會用背景聲提示。建議用 Chrome、Edge 或 Safari。","这个浏览器不支持语音，会用背景声提示。建议使用 Chrome、Edge 或 Safari。","This browser has no speech support, so the background sound will cue you. Try Chrome, Edge or Safari."]); return; }
     var v=pick(L());
     if(v){ el.className="b3-vs";
-      el.textContent=T(["✓ 已搵到女聲：","✓ 已找到女声：","✓ Female voice found: "])+v.name; }
+      el.textContent=T(["✓ 已搵到女聲：","✓ 已找到女声：","✓ Female voice found: "])+v.name+
+        (kidVoiceOn()?T(["（小朋友聲＝將呢把女聲調高音調，唔同裝置效果會有啲分別）","（小朋友声＝把这个女声调高音调，不同设备效果会有些差别）"," (child voice = the same voice, pitched up; the effect varies by device)"]):""); }
     else { el.className="b3-vs warn";
       el.textContent=T([
         "你部機暫時未有粵語女聲，會用背景聲提示。iPhone、Mac 內置粵語；Windows 用 Edge 瀏覽器通常有；Android 可喺語音設定加入粵語（香港）。",
@@ -1330,6 +1362,22 @@ body.tp-kid .count{font-size:2.6rem}
     done:{h:["完成","完成","Well done"],
           d:["感受一下此刻嘅你。","感受一下此刻的你。","Notice how you feel right now."]}
   };
+  var KCAP={
+    idle:{h:["準備好就按「開始」","准备好就按「开始」","Press Start when you are ready"],
+          d:["家長同小朋友並肩坐好，一齊望住畫面，跟住佢哋嘅動作吸氣、呼氣。撳一下畫面都可以開始。","家长和小朋友并肩坐好，一起看着画面，跟着他们的动作吸气、呼气。点一下画面也可以开始。","Sit side by side and watch together, breathing in step with the two of them. You can also tap the picture to start."]},
+    inn:{h:["一齊用鼻聞花香","一起用鼻子闻花香","Smell the flower together"],
+         d:["空氣由鼻吸入，經氣管落到肺。橫隔膜向下，肚肚鼓起上嚟。","空气由鼻吸入，经气管进入肺部。横膈膜向下，肚肚鼓起来。","Air comes in through the nose and down into the lungs. The diaphragm lowers and the tummy puffs out."]},
+    hold1:{h:["停一停","停一停","Pause"],d:["肚肚鼓鼓，輕輕停一停。","肚肚鼓鼓，轻轻停一停。","Tummies full — a little pause."]},
+    out:{h:["一齊用口吹蠟燭","一起用嘴巴吹蜡烛","Blow the candle together"],
+         d:["空氣由肺經口慢慢吹出去。橫隔膜放鬆上升，肚肚扁返落去。","空气从肺经口慢慢吹出去。横膈膜放松上升，肚肚瘪下去。","Air flows out of the lungs through the mouth. The diaphragm relaxes upward and the tummy settles."]},
+    hold3:{h:["停一停","停一停","Pause"],d:["等一等，想吸氣先吸。","等一等，想吸气再吸。","Wait a moment, then breathe in."]},
+    top:{h:["再聞一小口","再闻一小口","One more little sniff"],d:["再吸一小口，聞多啲花香。","再吸一小口，多闻一点花香。","A tiny extra sniff of the flower."]},
+    done:{h:["做到喇！","做到啦！","You did it!"],d:["好叻呀！家長同小朋友一齊完成咗。","真棒！家长和小朋友一起完成了。","Well done — you finished together."]}
+  };
+  var KL={ parent:["家長","家长","Parent"], child:["小朋友","小朋友","Child"], flower:["聞花香","闻花香","Smell the flower"], candle:["吹蠟燭","吹蜡烛","Blow the candle"],
+           dia:["橫隔膜","横膈膜","Diaphragm"], lung:["肺","肺","Lungs"], lin:["鼻吸入","鼻吸入","In (nose)"], lout:["口呼出","口呼出","Out (mouth)"],
+           aria:["家長同小朋友一齊呼吸示意圖：空氣由鼻吸入落到肺，橫隔膜向下，肚肚鼓起；呼氣時由口吹出。撳一下開始或停止。","家长和小朋友一起呼吸示意图：空气由鼻吸入进入肺部，横膈膜向下，肚肚鼓起；呼气时由口吹出。点一下开始或停止。","Parent and child breathing together: air enters through the nose into the lungs as the diaphragm lowers and the tummy puffs out, then leaves through the mouth. Tap to start or stop."],
+           stars:["今日一齊深呼吸咗 # 次","今天一起深呼吸了 # 次","Breaths together today: #"] };
   var LBL={ nose:["鼻","鼻","Nose"], mouth:["口","口","Mouth"], lung:["肺","肺","Lungs"],
             dia:["橫隔膜","横膈膜","Diaphragm"], belly:["肚","肚子","Belly"] };
   var ARIA=["呼吸動作示意圖：空氣由鼻經氣管入肺，橫隔膜向下，肚微微鼓起","呼吸动作示意图：空气由鼻经气管入肺，横膈膜向下，肚子微微鼓起","Breathing diagram: air passes from the nose down the windpipe into the lungs while the diaphragm lowers and the belly rises"];
@@ -1360,15 +1408,21 @@ body.tp-kid .count{font-size:2.6rem}
     /* view switch: 身體 | 圓圈 */
     var row=document.createElement("div"); row.className="b3-view"; row.id="b3view";
     var bB=document.createElement("button"); bB.type="button"; bB.setAttribute("data-v","body");
+    var bF=document.createElement("button"); bF.type="button"; bF.setAttribute("data-v","fam"); bF.hidden=true;
     var bC=document.createElement("button"); bC.type="button"; bC.setAttribute("data-v","orb");
-    row.appendChild(bB); row.appendChild(bC);
+    row.appendChild(bB); row.appendChild(bF); row.appendChild(bC);
     card.insertBefore(row, stage);
-    V.bB=bB; V.bC=bC; V.row=row;
+    V.bB=bB; V.bC=bC; V.bF=bF; V.row=row;
+    famBuild(stage);
 
     var cap=document.createElement("div"); cap.className="b3-cap"; cap.id="b3cap";
     cap.innerHTML='<b></b><span></span>';
     stage.parentNode.insertBefore(cap, stage.nextSibling);
     V.cap=cap; V.stage=stage;
+    var stars=document.createElement("div"); stars.className="b3-stars"; stars.hidden=true; stars.setAttribute("aria-live","polite");
+    stars.innerHTML='<span class="st"></span><span class="tx"></span>';
+    cap.parentNode.insertBefore(stars, cap.nextSibling);
+    V.stars=stars;
     return true;
   }
 
@@ -1415,7 +1469,7 @@ body.tp-kid .count{font-size:2.6rem}
   }
   function frame(t){
     V.raf=0;
-    if(!V.on) return;
+    if(!V.on&&!F.on) return;
     var dt=Math.min(.1,(t-(V.lastT||t))/1000); V.lastT=t; V.dt=dt;
     if(V.anim){
       var x=clamp((t-V.anim.t0)/V.anim.dur,0,1);
@@ -1424,15 +1478,16 @@ body.tp-kid .count{font-size:2.6rem}
     }
     var cycle = clamp(V.curDur/2, 1.3, 3.2);
     V.clock = (V.clock + dt/cycle) % 1;
-    draw(); placeParticles();
-    var busy = V.anim || V.aIn>.01 || V.aOut>.01 || V.kind==="inn" || V.kind==="out" || V.kind==="top";
+    if(V.on){ draw(); placeParticles(); }
+    if(F.on) famDraw(dt);
+    var busy = V.anim || V.aIn>.01 || V.aOut>.01 || V.kind==="inn" || V.kind==="out" || V.kind==="top" || (F.on && famBusy());
     if(busy) V.raf=requestAnimationFrame(frame); else V.lastT=0;
   }
-  function kick(){ if(V.on && !V.raf){ V.lastT=0; V.raf=requestAnimationFrame(frame); } }
+  function kick(){ if((V.on||F.on) && !V.raf){ V.lastT=0; V.raf=requestAnimationFrame(frame); } }
 
   function setCaption(){
     if(!V.cap) return;
-    var c=CAP[V.kind]||CAP.idle, i=L();
+    var src=(kidMode()&&F.on)?KCAP:CAP, c=src[V.kind]||src.idle, i=L();
     V.cap.querySelector("b").textContent=c.h[i];
     V.cap.querySelector("span").textContent=c.d[i];
   }
@@ -1443,15 +1498,207 @@ body.tp-kid .count{font-size:2.6rem}
     V.el.b3lbLung.textContent=LBL.lung[i]; V.el.b3lbDia.textContent=LBL.dia[i]; V.el.b3lbBelly.textContent=LBL.belly[i];
     V.el.b3svg.setAttribute("aria-label",ARIA[i]);
     V.bB.textContent=T(["🫁 身體","🫁 身体","🫁 Body"]); V.bC.textContent=T(["◯ 圓圈","◯ 圆圈","◯ Circle"]);
+    V.bF.textContent=T(["👨‍👧 一齊做","👨‍👧 一起做","👨‍👧 Together"]);
+    famLabels();
   }
   function setView(v, save){
-    V.on=(v==="body");
+    V.on=(v==="body"); F.on=(v==="fam");
     V.stage.classList.toggle("b3-on",V.on);
-    V.cap.classList.toggle("on",V.on);
+    V.stage.classList.toggle("b3-fam-on",F.on);
+    V.cap.classList.toggle("on",V.on||F.on);
     V.bB.setAttribute("aria-pressed",V.on?"true":"false");
-    V.bC.setAttribute("aria-pressed",V.on?"false":"true");
-    if(save) lsSet("tp-view-breathing",v);
-    if(V.on){ draw(); setCaption(); kick(); }
+    V.bF.setAttribute("aria-pressed",F.on?"true":"false");
+    V.bC.setAttribute("aria-pressed",(V.on||F.on)?"false":"true");
+    if(save) lsSet(kidMode()?"tp-view-kid-breathing":"tp-view-breathing",v);
+    if(V.on){ draw(); }
+    if(F.on){ famDraw(0); }
+    if(V.on||F.on){ setCaption(); kick(); }
+    if(V.stars) V.stars.hidden = !(kidMode() && ST.n>0);
+  }
+
+  /* ═════════════════ 2b. 家長＋小朋友一齊呼吸 (kid mode) ═════════════════
+     Two figures — parent (left) and child (right, a beat behind) — breathe in step with the page's phase.
+     Air enters through the nose (teal) and leaves through the mouth (gold); the diaphragm follows each breath. */
+  var F={ on:false, built:false, pc:0, kindC:"idle", tt:0, clock:0, kt:0, A:null, C:null, N:10, fl:null, flame:null };
+  var ST={ n:0 };
+  function today(){ var d=new Date(); return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(); }
+  function stLoad(){ try{ var o=JSON.parse(lsGet("tp-kid-stars-breathing","{}")); ST.n=(o&&o.d===today())?(o.n|0):0; }catch(e){ ST.n=0; } }
+  function stRender(pop){
+    var el=V.stars; if(!el) return;
+    var n=ST.n, k=Math.min(n,8);
+    el.querySelector(".st").textContent=new Array(k+1).join("⭐")+(n>8?"+":"");
+    el.querySelector(".tx").textContent=T(KL.stars).replace("#",n);
+    el.hidden=!(kidMode()&&n>0);
+    if(pop&&!reduced()){ el.classList.remove("pop"); void el.offsetWidth; el.classList.add("pop"); setTimeout(function(){ el.classList.remove("pop"); },900); }
+  }
+  function stAdd(){ ST.n++; lsSet("tp-kid-stars-breathing",JSON.stringify({d:today(),n:ST.n})); stRender(true); }
+
+  var HEAD_D="M116 128 L117 104 C100 96 93 74 97 54 C101 30 120 15 142 16 C161 17 173 30 175 44 C176 48 177 50 179 53 C182 57 185 61 187 66 C185 69 182 70 179 71 C179 74 180 77 179 80 C181 82 181 85 178 87 C178 91 174 95 168 98 C161 100 154 100 150 100 L151 128";
+  var HAIR_D="M117 100 C100 92 93 74 97 54 C101 30 120 15 142 16 C161 17 173 30 175 44 C168 39 158 36 148 38 C134 40 124 48 122 62 C121 76 121 90 117 100 Z";
+  var FIG={
+    A:{id:"fa",tx:-36,ty:26,s:.66,mirror:false,shirt:"#E3EEF7",hair:"#5B463E",kind:"adult"},
+    C:{id:"fc",tx:372,ty:64,s:.54,mirror:true,shirt:"#FBEFC9",hair:"#8A5A3C",kind:"child"}
+  };
+  var FLOWER={x:180,y:58}, CANDLE={x:180,y:106};
+  function loc(o,x,y){ return o.mirror ? [(o.tx-x)/o.s,(y-o.ty)/o.s] : [(x-o.tx)/o.s,(y-o.ty)/o.s]; }
+  function f1(n){ return (Math.round(n*10)/10); }
+  function inD(o){
+    var a=loc(o,FLOWER.x,FLOWER.y), dx=a[0]-205;
+    return "M"+f1(a[0])+" "+f1(a[1])+" C"+f1(a[0]-.35*dx)+" "+f1(a[1])+" "+f1(205+.3*dx)+" 67 205 67 L183 68 C170 69 154 72 146 84 C140 93 136 103 135 118 L134 150 C133 168 130 182 126 198 L123 214";
+  }
+  function outD(o){
+    var b=loc(o,CANDLE.x,CANDLE.y), ex=b[0]-208;
+    return "M123 214 L126 198 C130 182 133 168 134 150 L135 118 C136 103 140 93 148 90 C157 85 168 83.5 178 83.5 L208 85 C"+f1(208+.35*ex)+" 85 "+f1(b[0]-.3*ex)+" "+f1(b[1])+" "+f1(b[0])+" "+f1(b[1]);
+  }
+  function figSVG(o){
+    var P=o.id, line="rgba(35,75,71,.34)", skin="#FBEBDF", hc=o.hair;
+    var tr = o.mirror ? "translate("+o.tx+" "+o.ty+") scale(-"+o.s+" "+o.s+")" : "translate("+o.tx+" "+o.ty+") scale("+o.s+")";
+    var back = o.kind==="adult"
+      ? '<circle cx="106" cy="27" r="13" fill="'+hc+'"/>'
+      : '<circle cx="95" cy="46" r="10.5" fill="'+hc+'"/><circle cx="92" cy="76" r="9.5" fill="'+hc+'"/>';
+    var bow='';
+    return '<g id="'+P+'" transform="'+tr+'">'+
+      '<defs><clipPath id="'+P+'clip"><path id="'+P+'clipP" d=""/></clipPath></defs>'+
+      '<g mask="url(#fFade)"><path id="'+P+'torso" fill="'+o.shirt+'" stroke="'+line+'" stroke-width="2" stroke-linejoin="round" d=""/></g>'+
+      back+
+      '<path fill="'+skin+'" d="'+HEAD_D+' Z"/>'+
+      '<path fill="'+hc+'" d="'+HAIR_D+'"/>'+
+      '<path fill="none" stroke="'+line+'" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" d="'+HEAD_D+'"/>'+
+      bow+
+      '<path fill="'+skin+'" stroke="'+line+'" stroke-width="1.6" stroke-linecap="round" d="M121 52 C114 52 112 63 120 67"/>'+
+      '<path d="M151 49 Q157 54 163 49" fill="none" stroke="rgba(35,75,71,.55)" stroke-width="2.2" stroke-linecap="round"/>'+
+      '<circle cx="162" cy="63" r="6" fill="#F4A9A0" opacity=".5"/>'+
+      '<ellipse id="'+P+'mouth" cx="178.4" cy="83.5" rx="3" ry="1.5" fill="#C9857A" opacity=".85"/>'+
+      '<path fill="none" stroke="#D2ECE6" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" d="M183 68 C170 69 154 72 146 84 C140 93 136 103 135 118 L134 150 C133 168 130 182 126 198 L123 214"/>'+
+      '<path fill="none" stroke="#D2ECE6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" d="M147 91 C157 86 168 83.5 177 83.5"/>'+
+      '<g clip-path="url(#'+P+'clip)"><g id="'+P+'lungT">'+
+        '<path d="M112 138 C138 122 172 138 176 182 C180 224 168 246 150 252 L104 252 C86 240 86 192 92 164 C96 148 102 142 112 138 Z" fill="url(#fLg)" stroke="#6FB9AD" stroke-width="2" stroke-linejoin="round"/>'+
+        '<path id="'+P+'lungAir" d="M112 138 C138 122 172 138 176 182 C180 224 168 246 150 252 L104 252 C86 240 86 192 92 164 C96 148 102 142 112 138 Z" fill="#5FC7B8" opacity=".1"/>'+
+        '<path fill="none" stroke="#9FD3C9" stroke-width="3.4" stroke-linecap="round" d="M126 198 L108 224 M126 198 L146 228 M126 192 L154 206"/>'+
+      '</g></g>'+
+      '<path fill="none" stroke="#C4E5DE" stroke-width="7.5" stroke-linecap="round" d="M134 150 C133 168 130 182 126 198 L124 212"/>'+
+      '<path id="'+P+'dia" fill="none" stroke="#C28A2E" stroke-width="6.5" stroke-linecap="round" d=""/>'+
+      '<path id="'+P+'arrow" d="M-8 -4.5 L8 -4.5 L0 7 Z" fill="#C28A2E" opacity="0"/>'+
+      '<g id="'+P+'hand"><rect x="0" y="0" width="30" height="13" rx="6.5" fill="#F6DCCF" stroke="#D9AE98" stroke-width="1.3"/><ellipse cx="7" cy="-1" rx="6" ry="3.6" transform="rotate(-18 7 -1)" fill="#F6DCCF" stroke="#D9AE98" stroke-width="1.3"/><path d="M13 3 V10 M18 3 V10 M23 3 V10" stroke="#D9AE98" stroke-width="1" stroke-linecap="round"/></g>'+
+      '<path id="'+P+'pathI" d="'+inD(o)+'" fill="none" stroke="none"/><path id="'+P+'pathO" d="'+outD(o)+'" fill="none" stroke="none"/>'+
+      '<g id="'+P+'pI"></g><g id="'+P+'pO"></g>'+
+    '</g>';
+  }
+  function famSVG(){
+    return '<svg id="b3fsvg" viewBox="0 0 360 262" aria-hidden="true" xmlns="'+NS+'">'+
+      '<defs>'+
+        '<linearGradient id="fLg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E6F5F1"/><stop offset="1" stop-color="#B7E1D8"/></linearGradient>'+
+        '<linearGradient id="fFadeG" gradientUnits="userSpaceOnUse" x1="0" y1="282" x2="0" y2="316"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>'+
+        '<mask id="fFade" maskUnits="userSpaceOnUse" x="0" y="0" width="340" height="340"><rect x="0" y="0" width="340" height="340" fill="url(#fFadeG)"/></mask>'+
+      '</defs>'+
+      '<rect x="4" y="222" width="352" height="28" rx="14" fill="#E8F3EE"/>'+
+      figSVG(FIG.A)+figSVG(FIG.C)+
+      /* shared flower (in) and candle (out) */
+      '<g id="b3fFlower" transform="translate(180 44)">'+
+        '<path d="M0 12 C-1 22 1 30 0 36" stroke="#6DAE8F" stroke-width="2.4" fill="none" stroke-linecap="round"/>'+
+        '<path d="M0 30 C-9 26 -14 29 -15 34 C-8 36 -3 34 0 30 Z M0 24 C9 20 14 23 15 28 C8 30 3 28 0 24 Z" fill="#8CC7A8"/>'+
+        '<g id="b3fPet" fill="#F5A9BA"><ellipse cx="0" cy="-9" rx="5.2" ry="8.2"/><ellipse cx="0" cy="-9" rx="5.2" ry="8.2" transform="rotate(72)"/><ellipse cx="0" cy="-9" rx="5.2" ry="8.2" transform="rotate(144)"/><ellipse cx="0" cy="-9" rx="5.2" ry="8.2" transform="rotate(216)"/><ellipse cx="0" cy="-9" rx="5.2" ry="8.2" transform="rotate(288)"/><circle r="5.4" fill="#F7D27A"/></g>'+
+      '</g>'+
+      '<g id="b3fCandle">'+
+        '<ellipse cx="180" cy="149" rx="15" ry="4" fill="#D9C7A3"/>'+
+        '<rect x="175" y="110" width="10" height="38" rx="2.5" fill="#FFF4E0" stroke="rgba(154,106,30,.45)" stroke-width="1.2"/>'+
+        '<path d="M180 110 L180 106" stroke="#6B5A47" stroke-width="1.4" stroke-linecap="round"/>'+
+        '<g id="b3fFlame" transform="translate(180 106)"><path d="M0 -19 C6 -12 7 -5 0 2 C-7 -5 -6 -12 0 -19 Z" fill="#F7B93E"/><path d="M0 -10 C3 -6 3 -2 0 0 C-3 -2 -3 -6 0 -10 Z" fill="#FFE59A"/></g>'+
+      '</g>'+
+      '<text id="b3fTgF" class="tg" x="199" y="48"></text>'+
+      '<text id="b3fTgC" class="tg" x="199" y="132"></text>'+
+      /* labels */
+      '<text id="b3fLungA" class="lbl-lung" x="56" y="156" text-anchor="middle"></text>'+
+      '<text id="b3fLungC" class="lbl-lung" x="296" y="171" text-anchor="middle"></text>'+
+      '<line x1="96" y1="199" x2="113" y2="191" stroke="rgba(154,106,30,.5)" stroke-width="1"/><text id="b3fDiaA" class="lbl-dia" x="116" y="194"></text>'+
+      '<line x1="264" y1="207" x2="247" y2="212" stroke="rgba(154,106,30,.5)" stroke-width="1"/><text id="b3fDiaC" class="lbl-dia" x="244" y="216" text-anchor="end"></text>'+
+      '<text id="b3fNmA" class="nm" x="62" y="241" text-anchor="middle"></text>'+
+      '<text id="b3fNmC" class="nm" x="296" y="241" text-anchor="middle"></text>'+
+    '</svg>';
+  }
+  function famBuild(stage){
+    var box=document.createElement("div"); box.className="b3-fam"; box.id="b3fam";
+    box.setAttribute("role","button"); box.setAttribute("tabindex","0");
+    box.innerHTML=famSVG()+'<div class="b3-leg"><span><i style="background:#2FA698"></i><b id="b3lgI"></b></span><span><i style="background:#D9A441"></i><b id="b3lgO"></b></span></div>';
+    stage.insertBefore(box, stage.firstChild);
+    box.addEventListener("click",function(){ var p=$("play"); if(p) p.click(); });
+    box.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); var p=$("play"); if(p) p.click(); } });
+    ["A","C"].forEach(function(k){
+      var o=FIG[k], P=o.id, g={o:o,aIn:0,aOut:0,lenI:0,lenO:0,pI:[],pO:[],q:{}};
+      ["torso","lungT","lungAir","clipP","dia","arrow","mouth","hand","pathI","pathO"].forEach(function(n){ g.q[n]=$(P+n); });
+      var gi=$(P+"pI"), go_=$(P+"pO"), r=(3.1/o.s).toFixed(2);
+      for(var i=0;i<F.N;i++){
+        var a=document.createElementNS(NS,"circle"); a.setAttribute("r",r); a.setAttribute("fill","#2FA698"); a.setAttribute("opacity","0"); gi.appendChild(a); g.pI.push(a);
+        var b=document.createElementNS(NS,"circle"); b.setAttribute("r",r); b.setAttribute("fill","#D9A441"); b.setAttribute("opacity","0"); go_.appendChild(b); g.pO.push(b);
+      }
+      F[k]=g;
+    });
+    F.fl=$("b3fFlower"); F.pet=$("b3fPet"); F.flame=$("b3fFlame"); F.box=box;
+    F.built=true;
+  }
+  function famLabels(){
+    if(!F.built) return;
+    var i=L();
+    $("b3fTgF").textContent=KL.flower[i];
+    var tc=$("b3fTgC"), ct=KL.candle[i];
+    if(i===2){ tc.textContent=""; [["Blow the",0],["candle",1]].forEach(function(w){ var t=document.createElementNS(NS,"tspan"); t.setAttribute("x","199"); t.setAttribute("y",String(128+13*w[1])); t.textContent=w[0]; tc.appendChild(t); }); }
+    else tc.textContent=ct;
+    $("b3fLungA").textContent=KL.lung[i]; $("b3fLungC").textContent=KL.lung[i];
+    $("b3fDiaA").textContent=KL.dia[i]; $("b3fDiaC").textContent=KL.dia[i];
+    $("b3fNmA").textContent=KL.parent[i]; $("b3fNmC").textContent=KL.child[i];
+    $("b3lgI").textContent=KL.lin[i]; $("b3lgO").textContent=KL.lout[i];
+    F.box.setAttribute("aria-label",KL.aria[i]);
+    stRender();
+  }
+  function famKind(kind){
+    clearTimeout(F.kt);
+    if(reduced()||!F.built){ F.kindC=kind; return; }
+    F.kt=setTimeout(function(){ F.kindC=kind; kick(); },340);   /* the child follows a beat behind */
+  }
+  function famBusy(){
+    var c=F.kindC;
+    return Math.abs(F.pc-V.p)>.003 || F.A.aIn>.01 || F.A.aOut>.01 || F.C.aIn>.01 || F.C.aOut>.01 || c==="inn"||c==="out"||c==="top";
+  }
+  function figUpdate(g,p,kind,dt){
+    var q=g.q;
+    q.torso.setAttribute("d",torsoD(p));
+    var sx=1+.09*p, sy=1+.08*p;
+    q.lungT.setAttribute("transform","translate(124 134) scale("+sx.toFixed(4)+" "+sy.toFixed(4)+") translate(-124 -134)");
+    q.lungAir.setAttribute("opacity",(.10+.42*p).toFixed(3));
+    var apex=230+26*p, ctrl=2*apex-262;
+    q.dia.setAttribute("d","M76 262 Q136 "+ctrl.toFixed(2)+" 196 262");
+    q.clipP.setAttribute("d","M0 0 H340 V262 H196 Q136 "+ctrl.toFixed(2)+" 76 262 H0 Z");
+    var inh=(kind==="inn"||kind==="top"), exh=(kind==="out");
+    q.arrow.setAttribute("transform","translate(136 "+(apex+17).toFixed(1)+") rotate("+(exh?180:0)+")");
+    q.arrow.setAttribute("opacity",(inh||exh)?".85":"0");
+    q.mouth.setAttribute("ry",exh?"3.6":"1.5"); q.mouth.setAttribute("rx",exh?"2.7":"3");
+    q.hand.setAttribute("transform","translate("+(177+20*p).toFixed(1)+" 278)");
+    var k=Math.min(1,(dt||.016)*7);
+    g.aIn += ((inh?1:0)-g.aIn)*k; g.aOut += ((exh?1:0)-g.aOut)*k;
+    if(!g.lenI){ try{ g.lenI=q.pathI.getTotalLength(); g.lenO=q.pathO.getTotalLength(); }catch(e){ g.lenI=g.lenO=0; } }
+    if(!g.lenI) return;
+    for(var n=0;n<F.N;n++){
+      var s=(n/F.N+F.clock)%1, f=Math.sin(Math.PI*s);
+      var a=q.pathI.getPointAtLength(s*g.lenI); g.pI[n].setAttribute("cx",a.x.toFixed(1)); g.pI[n].setAttribute("cy",a.y.toFixed(1)); g.pI[n].setAttribute("opacity",(g.aIn*f*.95).toFixed(3));
+      var b=q.pathO.getPointAtLength(s*g.lenO); g.pO[n].setAttribute("cx",b.x.toFixed(1)); g.pO[n].setAttribute("cy",b.y.toFixed(1)); g.pO[n].setAttribute("opacity",(g.aOut*f*.95).toFixed(3));
+    }
+  }
+  function famDraw(dt){
+    if(!F.built) return;
+    dt=dt||0; F.tt+=dt;
+    F.pc += (V.p-F.pc)*(dt?(1-Math.exp(-dt/.32)):1);
+    var cycle=clamp(V.curDur/2,1.3,3.2)*1.45;
+    F.clock=(F.clock+dt/cycle)%1;
+    figUpdate(F.A,V.p,V.kind,dt);
+    figUpdate(F.C,F.pc,F.kindC,dt);
+    var inh=(V.kind==="inn"||V.kind==="top"), exh=(V.kind==="out"), calm=reduced();
+    F.fl.setAttribute("transform","translate(180 44) rotate("+(calm?0:(Math.sin(F.tt*1.6)*3)).toFixed(2)+") scale("+(.9+.22*V.p).toFixed(3)+")");
+    F.fl.setAttribute("opacity",exh?".5":"1");
+    var amp=(exh&&!calm)?1:.18, sk=calm?0:amp*(8*Math.sin(F.tt*12)+4*Math.sin(F.tt*7.1));
+    var sc=exh?(.62+.38*V.p)*(calm?1:(.94+.06*Math.sin(F.tt*9))):1;
+    F.flame.setAttribute("transform","translate(180 106) skewX("+sk.toFixed(2)+") scale(1 "+sc.toFixed(3)+")");
+    $("b3fCandle").setAttribute("opacity",inh?".5":"1");
+    $("b3fTgF").setAttribute("class","tg"+(inh?" on":"")); $("b3fTgC").setAttribute("class","tg"+(exh?" on":""));
   }
 
   /* ═════════════════ 3. 海浪呼吸 (wave-synced sound) ═════════════════ */
@@ -1533,7 +1780,10 @@ body.tp-kid .count{font-size:2.6rem}
     else if(k==="hold"){ d=(V.p>.5?s[1]:s[3])||2; kind=V.p>.5?"hold1":"hold3"; }
     else if(k==="idle"||k==="done"){ d=1.2; if(k==="idle") inCount=0; }
     else return;
-    V.kind=kind; V.curDur=d;
+    var pk=V.kind;
+    if(pk==="out" && kind!=="out" && kidMode() && V.outT0 && (Date.now()-V.outT0) >= .85*V.curDur*1000) stAdd();   /* a finished out-breath earns a star */
+    if(kind==="out" && pk!=="out") V.outT0=Date.now();
+    V.kind=kind; V.curDur=d; famKind(kind);
     if(!quiet){
       var tgt = (k==="inn") ? (isSigh()?.78:1) : (k==="top") ? 1 : (k==="out"||k==="idle"||k==="done") ? 0 : V.p;
       if(reduced()){ V.p=tgt; V.anim=null; }
@@ -1550,14 +1800,18 @@ body.tp-kid .count{font-size:2.6rem}
     if(!ph||!orb||!build()) return;
 
     /* — view switch — */
-    var kid=function(){ return document.body.classList.contains("tp-kid"); };
-    var pref=lsGet("tp-view-breathing","body");
+    var pref=lsGet("tp-view-breathing","body"); if(pref!=="orb") pref="body";
+    var kpref=lsGet("tp-view-kid-breathing","fam"); if(kpref!=="orb") kpref="fam";
+    var lastKid=false;
     function applyView(){
-      if(kid()){ V.row.hidden=true; setView("orb",false); }
-      else { V.row.hidden=false; setView(pref,false); }
+      var k=kidMode();
+      V.bB.hidden=k; V.bF.hidden=!k; V.row.hidden=false;
+      setView(k?kpref:pref,false);
+      if(k!==lastKid){ lastKid=k; kidChanged(k); }
     }
     V.bB.addEventListener("click",function(){ pref="body"; setView("body",true); });
-    V.bC.addEventListener("click",function(){ pref="orb"; setView("orb",true); });
+    V.bF.addEventListener("click",function(){ kpref="fam"; setView("fam",true); });
+    V.bC.addEventListener("click",function(){ if(kidMode()) kpref="orb"; else pref="orb"; setView("orb",true); });
     try{ new MutationObserver(applyView).observe(document.body,{attributes:true,attributeFilter:["class"]}); }catch(e){}
 
     /* — voice controls, placed inside ③ 聲音 above the volume slider — */
@@ -1567,7 +1821,10 @@ body.tp-kid .count{font-size:2.6rem}
     cb.type="checkbox"; cb.id="b3v"; cb.checked=voiceOn; lab.appendChild(cb); lab.appendChild(sp);
     var test=document.createElement("button"); test.type="button"; test.id="b3test";
     var vs=document.createElement("p"); vs.className="b3-vs"; vs.id="b3vs"; vs.setAttribute("aria-live","polite");
-    vbox.appendChild(lab); vbox.appendChild(test); vbox.appendChild(vs);
+    var labK=document.createElement("label"), cbK=document.createElement("input"), spK=document.createElement("span");
+    cbK.type="checkbox"; cbK.id="b3kv"; cbK.checked=kidV; labK.appendChild(cbK); labK.appendChild(spK); labK.hidden=true;
+    vbox.appendChild(lab); vbox.appendChild(test); vbox.appendChild(labK); vbox.appendChild(vs);
+    cbK.addEventListener("change",function(){ kidV=cbK.checked; lsSet("tp-kidvoice-breathing",kidV?"1":"0"); relabel(); });
     if(volRow) volRow.parentNode.insertBefore(vbox,volRow);
     var oh=document.createElement("p"); oh.className="muted b3-oh"; oh.hidden=true;
     if(volRow) volRow.parentNode.insertBefore(oh,vbox);
@@ -1577,8 +1834,9 @@ body.tp-kid .count{font-size:2.6rem}
       if(!v||!synth) return;
       var was=voiceOn; voiceOn=true;
       var i=L(); synth.cancel();
-      [CUES.inn.l[i],CUES.out.l[i]].forEach(function(t){
-        var u=new SpeechSynthesisUtterance(t); u.voice=v; u.lang=v.lang; u.rate=i===2?.86:.78; u.pitch=1.04;
+      var kv=kidVoiceOn(), set=kv?KCUES:CUES;
+      [set.inn.l[i],set.out.l[i]].forEach(function(t){
+        var u=new SpeechSynthesisUtterance(t); u.voice=v; u.lang=v.lang; u.rate=kv?(i===2?.92:.86):(i===2?.86:.78); u.pitch=kv?1.75:1.04;
         u.volume=Math.min(1,.45+.9*(parseInt($("bvol").value,10)/100)); synth.speak(u);
       });
       voiceOn=was;
@@ -1623,10 +1881,26 @@ body.tp-kid .count{font-size:2.6rem}
       else { try{ synth&&synth.cancel(); }catch(e){} oStop(); }
     },true);
 
+    /* — entering / leaving 同小朋友一齊做 — */
+    function kidChanged(k){
+      relabel();
+      if(k){ stLoad(); stRender(); if(!OC.sel) oc.click(); }       /* gentle ocean-breath sound by default */
+      else if(V.stars) V.stars.hidden=true;
+    }
+    var note=document.querySelector(".tp-note");
+    if(note){
+      var NOTE=["並排坐低，一齊睇畫面：左邊係家長，右邊係小朋友。畫面出現「聞花香」就用鼻吸氣，「吹蠟燭」就用口慢慢呼氣。一分鐘就夠 —— 你做，佢會跟。",
+                "并排坐下，一起看画面：左边是家长，右边是小朋友。画面出现“闻花香”就用鼻吸气，“吹蜡烛”就用嘴慢慢呼气。一分钟就够 —— 你做，他会跟。",
+                "Sit side by side and watch together: the parent is on the left, the child on the right. At “smell the flower” breathe in through the nose; at “blow the candle” breathe out slowly through the mouth. One minute is enough — they follow you, not your instructions."];
+      note.setAttribute("data-tp",JSON.stringify(NOTE)); note.textContent=T(NOTE);
+    }
+
     /* — labels, language, voices — */
     function relabel(){
-      sp.textContent=T(["🗣 女聲引導","🗣 女声引导","🗣 Voice guide"]);
-      test.textContent=T(["試聽女聲","试听女声","Hear the voice"]);
+      var km=kidMode();
+      sp.textContent=km?T(["🗣 語音引導","🗣 语音引导","🗣 Voice guide"]):T(["🗣 女聲引導","🗣 女声引导","🗣 Voice guide"]);
+      spK.textContent=T(["🧒 小朋友聲","🧒 小朋友声","🧒 Child voice"]); labK.hidden=!km;
+      test.textContent=kidVoiceOn()?T(["試聽小朋友聲","试听小朋友声","Hear the child voice"]):T(["試聽女聲","试听女声","Hear the voice"]);
       oc.textContent=T(["海浪呼吸","海浪呼吸","Ocean breath"]);
       oh.textContent=T(["海浪呼吸：吸氣時浪慢慢湧上嚟，呼氣時慢慢退落去，同個圈、同身體一齊動。",
                         "海浪呼吸：吸气时浪慢慢涌上来，呼气时慢慢退下去，和圆圈、身体一起动。",
