@@ -83,4 +83,5 @@ consultations are delivered remotely worldwide. Works in Cantonese, Mandarin and
 - https://juliayuen.com/tools/breathing/family/ — parent-and-child breathing: smell the flower, blow the candle, animated lungs and diaphragm
 - https://juliayuen.com/tools/focus/ — study / Pomodoro timer with eight very soft background pieces (forest morning, breeze and piano, ocean lullaby, harp, moonlight, singing bowls, music box, piano) and two gentle white-noise beds (rain, stream)
 - https://juliayuen.com/tools/frequency/ — 528 Hz, 432 Hz and Solfeggio frequency player with binaural beats and timer
+- https://juliayuen.com/tools/weight/ — weight management calculator: daily protein (healthy adults, weight loss, older adults, strength training, children), daily water and BMI (Hong Kong cut-offs) from body weight, with a mandatory safety check and cited sources; trilingual
 - https://juliayuen.com/tools/dilution/ — essential oil dilution calculator (drops per bottle size and use)

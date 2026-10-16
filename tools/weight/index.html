@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weight Management Calculator: Protein, Water & BMI 體重管理計算器 | 此刻 · The Present</title>
+<meta name="description" content="Free weight management calculator: enter your weight to see how much protein and water you need each day, plus BMI (Hong Kong cut-offs), with a safety check and sources. 免費體重管理計算器：輸入體重，計算每日蛋白質、飲水量同 BMI。">
+<link rel="canonical" href="https://juliayuen.com/tools/weight/">
+<meta property="og:title" content="Weight Management Calculator 體重管理計算器">
+<meta property="og:description" content="How much protein and water do you need each day? Enter your weight. 每日要食幾多蛋白質、飲幾多水？輸入體重即知。">
+<meta property="og:url" content="https://juliayuen.com/tools/weight/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Weight Management Calculator: Protein, Water & BMI 體重管理計算器",
+   "url": "https://juliayuen.com/tools/weight/",
+   "applicationCategory": "HealthApplication",
+   "operatingSystem": "Any",
+   "inLanguage": [
+    "en",
+    "zh-Hant",
+    "zh-Hans"
+   ],
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "HKD"
+   },
+   "description": "Free calculator for daily protein, water intake and BMI from your body weight, with a safety check and sources. 輸入體重，計算每日蛋白質、飲水量同 BMI。",
+   "creator": {
+    "@type": "Person",
+    "name": "Julia Yuen",
+    "url": "https://juliayuen.com/"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How much protein do I need each day?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Healthy adults: about 0.83–1.0 g per kg of body weight (WHO/EFSA reference 0.83 g/kg). While losing weight about 1.2–1.4 g/kg; people 65 or over at least about 1.0–1.2 g/kg; with strength training about 1.4–2.0 g/kg. For a 60 kg adult staying healthy, that is roughly 50–60 g."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need more protein while losing weight?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Studies and guidelines generally suggest more protein than maintenance while losing weight (about 1.2–1.4 g/kg), together with resistance exercise, to help keep muscle. People with a high weight use a more suitable reference weight. If you have kidney problems, ask your doctor first."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much protein do older adults need?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "PROT-AGE and ESPEN suggest at least about 1.0–1.2 g/kg for older adults, ideally 25–30 g per meal. A 60 kg older adult needs roughly 60–70 g. With reduced kidney function or illness, a doctor or dietitian should set the amount."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much water should I drink each day?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "EFSA reference for total water: 2.0 L for women and 2.5 L for men, including the water in food (about a fifth). This tool starts from 30–35 ml per kg and adjusts for exercise and weather; drinks are about 80%. If you have kidney disease, heart failure or a doctor-set fluid limit, follow your doctor."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What BMI counts as overweight?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Hong Kong's Department of Health uses, for Chinese adults, BMI 23–24.9 as overweight, 25 or above as obese and below 18.5 as underweight. A waist of 90 cm or more for men and 80 cm or more for women is central obesity. BMI does not show muscle mass and is only a guide."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Who should not use this tool?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "People with kidney disease, heart failure, cirrhosis, pregnancy or breastfeeding, an eating disorder, or a diet or fluid plan already set by a doctor or dietitian should not rely on this tool and should get individual advice. It is also not for children under 4."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "每日要食幾多蛋白質？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "一般成年人參考約每公斤體重 0.83–1.0 g（世衞／EFSA 參考值 0.83 g/kg）。減重期間約 1.2–1.4 g/kg，65 歲或以上至少約 1.0–1.2 g/kg，有做重量訓練約 1.4–2.0 g/kg。例如 60 kg 嘅成年人，維持健康約 50–60 g。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "減重期間要食多啲蛋白質嗎？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "研究同指引一般建議減重期間蛋白質高於維持期（約 1.2–1.4 g/kg），並配合阻力運動，幫助保留肌肉。體重偏高者按較合適嘅體重計，避免高估。有腎臟問題請先問醫生。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "長者每日需要幾多蛋白質？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "PROT-AGE 同 ESPEN 建議長者至少約 1.0–1.2 g/kg，並盡量每餐有 25–30 g。例如 60 kg 長者約 60–70 g。腎功能下降或有疾病者，份量要由醫生或營養師決定。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "每日要飲幾多水？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "歐洲食品安全局（EFSA）參考總水分：成年女性 2.0 L、男性 2.5 L（包括食物入面嘅水分，約兩成）。本工具以每公斤 30–35 ml 為基礎，再按運動同天氣調整，飲品約佔八成。有腎病、心臟衰竭或醫生限水者，請跟醫生指示。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "BMI 幾多先算過重？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "香港衞生署對成年華人嘅標準：BMI 23–24.9 為過重，25 或以上為肥胖，18.5 以下為過輕。腰圍男性 90 cm、女性 80 cm 或以上屬中央肥胖。BMI 唔反映肌肉量，只係參考。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "邊啲人唔適合用呢個工具？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "腎臟病、心臟衰竭、肝硬化、懷孕或餵哺、飲食失調，或醫生／營養師已指定飲食同飲水量嘅人，唔適合自行跟呢個工具，請由醫生或註冊營養師個別安排。4 歲以下幼兒亦唔適用。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "每天要吃多少蛋白质？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "一般成年人参考约每公斤体重 0.83–1.0 g（世卫组织／EFSA 参考值 0.83 g/kg）。减重期间约 1.2–1.4 g/kg，65 岁及以上至少约 1.0–1.2 g/kg，有做力量训练约 1.4–2.0 g/kg。例如 60 kg 的成年人，维持健康约 50–60 g。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "减重期间要多吃蛋白质吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "研究和指引一般建议减重期间蛋白质高于维持期（约 1.2–1.4 g/kg），并配合阻力运动，帮助保留肌肉。体重偏高者按更合适的体重计算，避免高估。有肾脏问题请先问医生。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "长者每天需要多少蛋白质？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "PROT-AGE 和 ESPEN 建议长者至少约 1.0–1.2 g/kg，并尽量每餐有 25–30 g。例如 60 kg 的长者约 60–70 g。肾功能下降或有疾病者，份量需由医生或营养师决定。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "每天要喝多少水？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "欧洲食品安全局（EFSA）参考总水分：成年女性 2.0 L、男性 2.5 L（包括食物中的水分，约两成）。本工具以每公斤 30–35 ml 为基础，再按运动和天气调整，饮品约占八成。有肾病、心力衰竭或医生限水者，请遵医嘱。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "BMI 多少才算超重？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "香港卫生署对成年华人的标准：BMI 23–24.9 为超重，25 及以上为肥胖，低于 18.5 为过轻。腰围男性 90 cm、女性 80 cm 及以上属中心性肥胖。BMI 不反映肌肉量，只是参考。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "哪些人不适合用这个工具？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "肾脏病、心力衰竭、肝硬化、怀孕或哺乳、饮食失调，或医生／营养师已指定饮食和饮水量的人，不适合自行参照这个工具，请由医生或注册营养师个别安排。4 岁以下幼儿也不适用。"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+  :root{
+    --mint:#EBF6F1; --cream:#FBFAF4; --paper:#ffffff;
+    --ink:#234B47; --ink-soft:#5C7370; --line:rgba(35,75,71,.13);
+    --green:#157F74; --green-soft:#DDF1EC; --gold:#C28A2E; --gold-soft:#F7EDD6;
+    --warn:#8a5a2b;
+    --radius:16px;
+    --serif:"Fraunces","Noto Serif TC","Songti TC",Georgia,serif;
+    --sans:"Noto Sans TC", -apple-system, "Segoe UI", "PingFang TC", sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;font-family:var(--sans);color:var(--ink);line-height:1.65;
+       background:linear-gradient(180deg,var(--mint) 0%,var(--cream) 42%,var(--cream) 100%);min-height:100vh}
+  a{color:var(--green)}
+  /* language switching: both languages live in the page so Google indexes both */
+  html[data-lang="zh"] [lang="en"],html[data-lang="zh"] [lang="zh-Hans"],
+  html[data-lang="zhs"] [lang="en"],html[data-lang="zhs"] [lang="zh-Hant"],
+  html[data-lang="en"] [lang="zh-Hant"],html[data-lang="en"] [lang="zh-Hans"]{display:none!important}
+
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px}
+  header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .brand{font-family:var(--serif);font-size:18px;color:var(--green);text-decoration:none;letter-spacing:.04em}
+  .langs{display:flex;gap:4px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:3px}
+  .langs button{border:0;background:none;font:inherit;font-size:13px;padding:5px 12px;border-radius:999px;cursor:pointer;color:var(--ink-soft)}
+  .langs button[aria-pressed="true"]{background:var(--green);color:#fff}
+
+  .hero{text-align:center;padding:28px 0 22px}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,5.5vw,38px);line-height:1.25;margin:8px 0 10px;color:var(--ink)}
+  .hero p{margin:0 auto;max-width:520px;color:var(--ink-soft)}
+
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 2px rgba(35,75,71,.04),0 8px 28px rgba(35,75,71,.06)}
+  .field{margin-bottom:22px}
+  .label{display:block;font-weight:500;margin-bottom:10px;font-size:15px}
+  .label small{font-weight:400;color:var(--ink-soft);margin-left:6px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;font-size:14px;
+        padding:8px 14px;border-radius:999px;cursor:pointer;transition:background .15s,border-color .15s;min-height:40px}
+  .chip:hover{border-color:var(--green)}
+  .chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+  .chip .sub{opacity:.7;font-size:12px;margin-left:4px}
+  .row{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
+  input[type=number]{font:inherit;font-size:16px;width:110px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;color:var(--ink);background:var(--cream)}
+  input[type=number]:focus,select:focus,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  select{font:inherit;font-size:15px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--cream);color:var(--ink)}
+  input[type=range]{flex:1;min-width:160px;accent-color:var(--green)}
+  .muted{color:var(--ink-soft);font-size:13px}
+
+  .result{margin-top:6px;background:var(--gold-soft);border-radius:var(--radius);padding:22px;text-align:center}
+  .big{font-family:var(--serif);font-size:clamp(44px,11vw,64px);line-height:1;color:var(--green);font-variant-numeric:tabular-nums}
+  .big-unit{font-size:18px;color:var(--ink-soft);margin-left:6px;font-family:var(--sans)}
+  .result .caption{margin-top:8px;color:var(--ink)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+  .stat{background:var(--paper);border-radius:12px;padding:10px 6px}
+  .stat b{display:block;font-size:17px;font-variant-numeric:tabular-nums;color:var(--green)}
+  .stat span{font-size:12px;color:var(--ink-soft)}
+  .split{margin-top:14px;font-size:14px;color:var(--ink)}
+  .note{margin-top:14px;font-size:13px;color:var(--warn);background:#fbf3e8;border-radius:10px;padding:10px 12px;text-align:left}
+
+  .consult{margin-top:14px;background:var(--paper);border:1px solid var(--gold);border-radius:12px;padding:14px;text-align:center}
+  .consult p{margin:0 0 12px;font-size:14px;color:var(--ink)}
+  .btn.wa{background:var(--green);color:#fff}
+  .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+  .tools a{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--ink)}
+  .tools a:hover{border-color:var(--green)}
+  .tools b{display:block;color:var(--green);font-family:var(--serif)}
+  .tools span{font-size:13px;color:var(--ink-soft)}
+  section{margin-top:40px}
+  h2{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:22px;margin:0 0 14px}
+  .table-wrap{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius)}
+  table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+  th,td{padding:10px 8px;text-align:center;border-bottom:1px solid var(--line)}
+  th{background:var(--mint);font-weight:500}
+  tr:last-child td{border-bottom:0}
+  td:first-child,th:first-child{text-align:left}
+
+  .guide{display:grid;gap:10px}
+  .guide div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;gap:12px}
+  .guide b{color:var(--green);white-space:nowrap}
+
+  .cta{background:linear-gradient(135deg,var(--green) 0%,#199E91 100%);color:#fff;border-radius:var(--radius);padding:26px 22px;text-align:center}
+  .cta h2{color:#fff}
+  .cta p{margin:0 auto 18px;max-width:480px;opacity:.92}
+  .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:500;font-size:15px}
+  .btn.primary{background:var(--gold-soft);color:var(--green)}
+  .btn.ghost{border:1px solid rgba(255,255,255,.6);color:#fff}
+  .btn:hover{filter:brightness(1.05)}
+
+  details{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:8px}
+  summary{cursor:pointer;font-weight:500}
+  details p{margin:8px 0 2px;color:var(--ink-soft)}
+
+  .crumbs{font-size:13px;color:var(--ink-soft);margin:-4px 0 0}
+  .crumbs a{color:var(--ink-soft);text-decoration:none}
+  .crumbs a:hover{color:var(--green)}
+  .alltools{display:inline-block;margin-top:14px;font-weight:500;text-decoration:none}
+  footer{margin:48px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--ink-soft)}
+  footer a{color:var(--ink-soft)}
+  @media (max-width:480px){ .card,.result{padding:18px} .stats{gap:6px} .stat b{font-size:15px} }
+
+  /* ── weight tool ── */
+  [hidden]{display:none!important}
+  .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .grid2 .f label{display:block;font-size:14px;font-weight:500;margin-bottom:6px}
+  .grid2 .f small{font-weight:400;color:var(--ink-soft);font-size:12px;margin-left:4px}
+  .grid2 input[type=number]{width:100%}
+  .card .field:last-child{margin-bottom:0}
+  .goals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .goals .chip{display:flex;flex-direction:column;align-items:flex-start;text-align:left;border-radius:14px;padding:10px 12px;line-height:1.35}
+  .goals .chip .sub{margin:2px 0 0;font-size:12px}
+  .goals .chip.dim{opacity:.45}
+  .info-n{margin:10px 0 0;font-size:13.5px;color:var(--ink);background:var(--mint);border-radius:10px;padding:9px 12px}
+  .errs{margin:12px 0 0;font-size:13.5px;color:#9b3d2e;background:#fdeeea;border-radius:10px;padding:8px 12px}
+  .errs p{margin:2px 0}
+  .scr-box{background:#fbf3e8;border:1px solid rgba(194,138,46,.35);border-radius:14px;padding:14px 14px 12px}
+  .scr-box>p{margin:0 0 10px;font-size:14px;color:var(--warn)}
+  .flag{display:flex;gap:10px;align-items:flex-start;padding:9px 4px;font-size:14.5px;line-height:1.5;cursor:pointer;min-height:44px}
+  .flag input{width:22px;height:22px;flex:none;margin:1px 0 0;accent-color:var(--green)}
+  .scr-box .chip{margin-top:6px}
+  #out{margin-top:22px}
+  #out>.top-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+  #out h2{margin:0}
+  #recap{font-size:13px;color:var(--ink-soft)}
+  .wait{margin:0;color:var(--ink-soft);text-align:center;padding:8px 0}
+  #tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0}
+  #tiles .stat{padding:12px 6px;text-align:center;background:var(--gold-soft)}
+  #tiles .stat b{font-size:16px;line-height:1.3}
+  #tiles .stat span{display:block;margin-top:2px}
+  .rc{border-top:1px solid var(--line);padding:16px 0 6px}
+  .rc:first-child{border-top:0}
+  .rc h3{font-family:var(--serif);font-size:17px;margin:0 0 8px;color:var(--ink)}
+  .rc h4{font-size:14.5px;margin:14px 0 8px}
+  .rc p{margin:0 0 8px;font-size:14.5px;line-height:1.7}
+  .rc p.muted{font-size:12.5px}
+  .rc p.info{background:var(--mint);border-radius:10px;padding:8px 12px;font-size:13.5px}
+  .rc p.note{background:#fbf3e8;color:var(--warn);border-radius:10px;padding:8px 12px;font-size:13px}
+  .rc .table-wrap{margin:0 0 8px}
+  table.ft{font-size:13px}
+  table.ft th,table.ft td{padding:8px 6px}
+  table.ft td:nth-child(2){text-align:left;font-size:12.5px}
+  .tl{margin:0;padding-left:1.2em;font-size:14.5px;line-height:1.8}
+  .blocked{background:#fbf3e8;border:1px solid var(--gold);border-radius:14px;padding:16px}
+  .blocked h3{margin:0 0 8px;font-family:var(--serif);color:var(--warn)}
+  .blocked p{margin:0 0 8px;font-size:14.5px}
+  #acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  #acts button{font:inherit;font-size:14px;padding:9px 15px;border-radius:999px;border:1px solid var(--green);background:var(--paper);color:var(--green);cursor:pointer;font-weight:500;min-height:40px}
+  #acts button:hover{background:var(--green-soft)}
+  details#sarc{margin-top:16px}
+  #sarc .q{margin:14px 0 4px;font-size:14.5px;font-weight:500}
+  #sarc .chips .chip{font-size:13.5px;padding:7px 12px;min-height:36px}
+  .sfres{margin:14px 0 0;padding:10px 12px;border-radius:10px;background:var(--mint);font-size:14px}
+  .sfres.pos{background:#fbf3e8;color:var(--warn)}
+  .src-list{margin:10px 0 0;padding-left:1.2em;font-size:13.5px;line-height:1.8}
+  .src-list a{word-break:break-word}
+  .disc{margin-top:18px;font-size:12.5px;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .src-p{font-size:13.5px;color:var(--ink-soft);margin:8px 0 0}
+  .print-only{display:none}
+  @media (max-width:420px){ .goals{grid-template-columns:1fr} #tiles .stat b{font-size:14px} }
+  @media print{
+    @page{size:A4;margin:14mm}
+    body.tp-printing .wrap>*:not(#out){display:none!important}
+    body.tp-printing{background:#fff}
+    body.tp-printing #out{margin:0}
+    body.tp-printing #acts,body.tp-printing #sarc{display:none!important}
+    body.tp-printing .print-only{display:block}
+    body.tp-printing .card{box-shadow:none;border:0;padding:0}
+    body.tp-printing .rc{break-inside:avoid}
+  }
+</style>
+<script>
+/* tp-lang0 2026-10-11 — shared default-language detector.
+   Returns "zh" (Traditional), "zhs" (Simplified) or "en". */
+window.tpL0 = function(){
+  var ls = [], one = "";
+  try { if (navigator.languages && navigator.languages.length) ls = [].slice.call(navigator.languages); } catch(e){}
+  try { one = navigator.language || ""; } catch(e){}
+  if (one) ls.push(one);
+  var i, t;
+  for (i = 0; i < ls.length; i++) {
+    t = (ls[i] || "").toLowerCase();
+    if (t.indexOf("zh") === 0) return (/^zh-(cn|sg)/.test(t) || t.indexOf("hans") >= 0) ? "zhs" : "zh";
+  }
+  for (i = 0; i < ls.length; i++) {
+    t = (ls[i] || "").toLowerCase();
+    if (/-(hk|mo|tw)\b/.test(t)) return "zh";
+  }
+  return "en";
+};
+</script>
+<script>
+(function(){
+  var q=null,s=null,l;
+  try{ q=new URLSearchParams(location.search).get("lang"); }catch(e){}
+  try{ var t=localStorage.getItem("tp-lang"); s=t==="en"?"en":(t==="zh-Hans"?"zhs":(t?"zh":null)); }catch(e){}
+  l=(q==="en"||q==="zh"||q==="zhs")?q:(s||tpL0());
+  window.__tpInit=l;
+  var d=document.documentElement;
+  d.setAttribute("data-lang",l);
+  d.lang=l==="en"?"en":(l==="zhs"?"zh-Hans":"zh-Hant");
+})();
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <a class="brand" href="/">此刻 · The Present</a>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-set-lang="zh" aria-pressed="true">繁</button>
+      <button type="button" data-set-lang="zhs" aria-pressed="false">简</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">此刻</a> › <a href="/tools/"><span lang="zh-Hant">免費工具</span><span lang="zh-Hans">免费工具</span><span lang="en">Free tools</span></a> › <span lang="zh-Hant">體重管理計算器</span><span lang="zh-Hans">体重管理计算器</span><span lang="en">Weight Management Calculator</span></nav>
+
+  <div class="hero">
+    <div class="eyebrow">Free Tool · 免費工具</div>
+    <h1><span lang="zh-Hant">體重管理計算器</span><span lang="zh-Hans">体重管理计算器</span><span lang="en">Weight Management Calculator</span></h1>
+    <p><span lang="zh-Hant">輸入體重，即刻知道每日大約要食幾多蛋白質、飲幾多水，仲有 BMI 同健康體重範圍。免費、唔使登記，資料只喺你部機入面計算。</span><span lang="zh-Hans">输入体重，马上知道每天大约要吃多少蛋白质、喝多少水，还有 BMI 和健康体重范围。免费、不用注册，数据只在你的设备上计算。</span><span lang="en">Enter your weight to see roughly how much protein and water you need each day, plus your BMI and healthy weight range. Free, no sign-up, and everything is calculated on your own device.</span></p>
+  </div>
+
+  <main class="card" id="form">
+    <div class="field">
+      <span class="label"><span lang="zh-Hant">① 關於你</span><span lang="zh-Hans">① 关于你</span><span lang="en">① About you</span></span>
+      <div class="chips" role="group" aria-label="sex"><button type="button" class="chip" data-sex="M" aria-pressed="false"><span lang="zh-Hant">男</span><span lang="zh-Hans">男</span><span lang="en">Male</span></button><button type="button" class="chip" data-sex="F" aria-pressed="false"><span lang="zh-Hant">女</span><span lang="zh-Hans">女</span><span lang="en">Female</span></button></div>
+      <div class="grid2" style="margin-top:14px">
+        <div class="f"><label for="age"><span lang="zh-Hant">年齡（歲）</span><span lang="zh-Hans">年龄（岁）</span><span lang="en">Age (years)</span></label><input type="number" id="age" min="4" max="110" step="1" inputmode="numeric" autocomplete="off"></div>
+        <div class="f"><label for="wt"><span lang="zh-Hant">體重（kg）</span><span lang="zh-Hans">体重（kg）</span><span lang="en">Weight (kg)</span></label><input type="number" id="wt" min="10" max="250" step="0.1" inputmode="decimal" autocomplete="off"></div>
+        <div class="f"><label for="ht"><span lang="zh-Hant">身高（cm）</span><span lang="zh-Hans">身高（cm）</span><span lang="en">Height (cm)</span><small><span lang="zh-Hant">可選，建議填</span><span lang="zh-Hans">可选，建议填</span><span lang="en">optional, recommended</span></small></label><input type="number" id="ht" min="120" max="230" step="1" inputmode="numeric" autocomplete="off"></div>
+        <div class="f"><label for="waist"><span lang="zh-Hant">腰圍（cm）</span><span lang="zh-Hans">腰围（cm）</span><span lang="en">Waist (cm)</span><small><span lang="zh-Hant">可選</span><span lang="zh-Hans">可选</span><span lang="en">optional</span></small></label><input type="number" id="waist" min="40" max="200" step="1" inputmode="numeric" autocomplete="off"></div>
+      </div>
+      <p class="muted" style="margin:10px 0 0"><span lang="zh-Hant">填身高先計到 BMI 同健康體重範圍；體重偏高嘅話，蛋白質亦會按較合適嘅體重計，避免高估。</span><span lang="zh-Hans">填写身高才能算出 BMI 和健康体重范围；体重偏高时，蛋白质也会按更合适的体重计算，避免高估。</span><span lang="en">Add your height to get your BMI and healthy weight range. If your weight is high, protein is calculated from a more suitable reference weight so it is not over-estimated.</span></p>
+      <div class="errs" id="errs" role="alert" hidden></div>
+    </div>
+
+    <div class="field">
+      <span class="label"><span lang="zh-Hant">② 你嘅目標（蛋白質）</span><span lang="zh-Hans">② 你的目标（蛋白质）</span><span lang="en">② Your goal (protein)</span></span>
+      <div class="goals" role="group" aria-label="goal"><button type="button" class="chip" data-goal="maint" aria-pressed="true"><span lang="zh-Hant">維持健康</span><span lang="zh-Hans">维持健康</span><span lang="en">Stay healthy</span><span class="sub"><span lang="zh-Hant">一般成人</span><span lang="zh-Hans">一般成人</span><span lang="en">adults</span></span></button><button type="button" class="chip" data-goal="loss" aria-pressed="false"><span lang="zh-Hant">減重期保肌</span><span lang="zh-Hans">减重期保肌</span><span lang="en">Lose weight, keep muscle</span><span class="sub"><span lang="zh-Hant">減脂時保留肌肉</span><span lang="zh-Hans">减脂时保留肌肉</span><span lang="en">protect muscle</span></span></button><button type="button" class="chip" data-goal="senior" aria-pressed="false"><span lang="zh-Hant">長者維持肌肉</span><span lang="zh-Hans">长者维持肌肉</span><span lang="en">Older adults: keep muscle</span><span class="sub"><span lang="zh-Hant">65 歲或以上</span><span lang="zh-Hans">65 岁及以上</span><span lang="en">65 or over</span></span></button><button type="button" class="chip" data-goal="train" aria-pressed="false"><span lang="zh-Hant">有做重量訓練</span><span lang="zh-Hans">有做力量训练</span><span lang="en">Strength training</span><span class="sub"><span lang="zh-Hant">增肌／維持</span><span lang="zh-Hans">增肌／维持</span><span lang="en">build / maintain</span></span></button></div>
+      <p class="info-n" id="n_child" hidden><span lang="zh-Hant">18 歲以下：會按年齡計孩子成長所需嘅蛋白質，唔設減重目標。</span><span lang="zh-Hans">18 岁以下：会按年龄计算孩子成长所需的蛋白质，不设减重目标。</span><span lang="en">Under 18: protein is based on age for healthy growth. There is no weight-loss goal for children.</span></p>
+    </div>
+
+    <div class="field">
+      <span class="label"><span lang="zh-Hant">③ 日常活動（飲水）</span><span lang="zh-Hans">③ 日常活动（饮水）</span><span lang="en">③ Daily activity (water)</span></span>
+      <div class="muted" style="margin:-4px 0 8px"><span lang="zh-Hant">每日運動時間</span><span lang="zh-Hans">每天运动时间</span><span lang="en">Exercise per day</span></div>
+      <div class="chips" role="group" aria-label="exercise"><button type="button" class="chip" data-ex="0" aria-pressed="true"><span lang="zh-Hant">少運動</span><span lang="zh-Hans">很少运动</span><span lang="en">Little</span></button><button type="button" class="chip" data-ex="30" aria-pressed="false"><span lang="zh-Hant">30 分鐘</span><span lang="zh-Hans">30 分钟</span><span lang="en">30 min</span></button><button type="button" class="chip" data-ex="60" aria-pressed="false"><span lang="zh-Hant">60 分鐘</span><span lang="zh-Hans">60 分钟</span><span lang="en">60 min</span></button><button type="button" class="chip" data-ex="90" aria-pressed="false"><span lang="zh-Hant">90 分鐘或以上</span><span lang="zh-Hans">90 分钟或以上</span><span lang="en">90 min +</span></button></div>
+      <div class="chips" style="margin-top:10px"><button type="button" class="chip" id="hot" aria-pressed="false"><span lang="zh-Hant">天氣炎熱或好易出汗（例如香港夏天喺戶外）</span><span lang="zh-Hans">天气炎热或容易出汗（例如夏天在户外）</span><span lang="en">Hot weather or I sweat a lot (e.g. summer outdoors)</span></button></div>
+    </div>
+
+    <div class="field">
+      <span class="label"><span lang="zh-Hant">④ 先確認一下</span><span lang="zh-Hans">④ 先确认一下</span><span lang="en">④ A quick safety check</span></span>
+      <div class="scr-box">
+        <p><span lang="zh-Hant">以下有冇一項適用於你？適用嘅話，份量要由醫生或註冊營養師個別安排，呢個工具唔會顯示數字。</span><span lang="zh-Hans">以下有没有一项适用于你？适用的话，份量需要由医生或注册营养师个别安排，这个工具不会显示数字。</span><span lang="en">Does any of these apply to you? If so, amounts need to be set by your doctor or a registered dietitian, and this tool will not show numbers.</span></p>
+        <label class="flag"><input type="checkbox" id="f1"><span><span lang="zh-Hant">腎臟病、腎功能下降或洗腎</span><span lang="zh-Hans">肾脏病、肾功能下降或透析</span><span lang="en">Kidney disease, reduced kidney function or dialysis</span></span></label><label class="flag"><input type="checkbox" id="f2"><span><span lang="zh-Hant">心臟衰竭、肝硬化或其他要限制飲水嘅情況</span><span lang="zh-Hans">心力衰竭、肝硬化或其他需要限制饮水的情况</span><span lang="en">Heart failure, cirrhosis or any condition needing fluid limits</span></span></label><label class="flag"><input type="checkbox" id="f3"><span><span lang="zh-Hant">懷孕或餵哺母乳</span><span lang="zh-Hans">怀孕或哺乳</span><span lang="en">Pregnant or breastfeeding</span></span></label><label class="flag"><input type="checkbox" id="f4"><span><span lang="zh-Hant">正面對飲食失調（現時或曾經）</span><span lang="zh-Hans">正面对饮食失调（现在或曾经）</span><span lang="en">Eating disorder (now or in the past)</span></span></label><label class="flag"><input type="checkbox" id="f5"><span><span lang="zh-Hant">醫生或營養師已經指定我嘅蛋白質、飲水或飲食</span><span lang="zh-Hans">医生或营养师已经为我指定了蛋白质、饮水或饮食</span><span lang="en">My doctor or dietitian has already set my protein, fluid or diet plan</span></span></label>
+        <button type="button" class="chip" id="fnone" aria-pressed="false"><span lang="zh-Hant">✔ 以上全部都冇</span><span lang="zh-Hans">✔ 以上全部都没有</span><span lang="en">✔ None of these apply to me</span></button>
+      </div>
+    </div>
+  </main>
+
+  <div id="out" aria-live="polite">
+    <div class="card">
+      <div class="top-h"><h2><span lang="zh-Hant">你嘅結果</span><span lang="zh-Hans">你的结果</span><span lang="en">Your results</span></h2><span id="recap" hidden></span></div>
+      <div class="print-only" style="font-size:12px;color:#5C7370;margin-bottom:8px">此刻 · The Present — juliayuen.com/tools/weight/</div>
+      <div id="tiles" hidden></div>
+      <div id="resBody"><p class="wait"><span lang="zh-Hant">填好性別、年齡、體重，同確認第 ④ 項，結果就會出現。</span><span lang="zh-Hans">填好性别、年龄、体重，并确认第 ④ 项，结果就会出现。</span><span lang="en">Fill in sex, age and weight and confirm step ④ to see your results.</span></p></div>
+      <div id="acts" hidden>
+        <button type="button" id="copyBtn"><span lang="zh-Hant">複製結果</span><span lang="zh-Hans">复制结果</span><span lang="en">Copy results</span></button>
+        <button type="button" id="printBtn"><span lang="zh-Hant">列印／存成 PDF</span><span lang="zh-Hans">打印／存为 PDF</span><span lang="en">Print / save as PDF</span></button>
+      </div>
+      <div class="disc print-only"><span lang="zh-Hant">呢個工具只提供一般營養資訊，唔係醫療診斷或建議，亦唔能取代醫生或註冊營養師。有長期病患、正在服藥、懷孕，或者對飲食有疑問，請先諮詢專業人士。所有數字只喺你部機入面計算，唔會上傳或儲存。</span><span lang="zh-Hans">这个工具只提供一般营养信息，不是医疗诊断或建议，也不能取代医生或注册营养师。如有慢性病、正在服药、怀孕，或对饮食有疑问，请先咨询专业人士。所有数字只在你的设备上计算，不会上传或保存。</span><span lang="en">This tool gives general nutrition information only. It is not a diagnosis or medical advice and does not replace your doctor or a registered dietitian. If you have a long-term condition, take medication, are pregnant, or are unsure about your diet, check with a professional first. All numbers are calculated on your device and are never uploaded or stored.</span></div>
+    </div>
+
+    <details id="sarc" hidden>
+      <summary><span lang="zh-Hant">肌肉自查（SARC-F，5 條問題）</span><span lang="zh-Hans">肌肉自查（SARC-F，5 道题）</span><span lang="en">Muscle check (SARC-F, 5 questions)</span></summary>
+      <p class="muted" style="margin:8px 0 0"><span lang="zh-Hant">肌少症係指肌肉量同力量隨年紀下降。呢份係篩查問卷，唔係診斷。</span><span lang="zh-Hans">肌少症是指肌肉量和力量随年龄下降。这是筛查问卷，不是诊断。</span><span lang="en">Sarcopenia means muscle mass and strength decline with age. This is a screening questionnaire, not a diagnosis.</span></p>
+      <div class="q">1. <span lang="zh-Hant">提起或搬動 4.5 kg（約 10 磅）嘅物件，有幾困難？</span><span lang="zh-Hans">提起或搬动 4.5 kg（约 10 磅）的物品，有多困难？</span><span lang="en">How much difficulty do you have lifting and carrying 4.5 kg (10 lb)?</span></div><div class="chips"><button type="button" class="chip" data-q="0" data-v="0" aria-pressed="false"><span lang="zh-Hant">冇困難</span><span lang="zh-Hans">没有困难</span><span lang="en">None</span></button><button type="button" class="chip" data-q="0" data-v="1" aria-pressed="false"><span lang="zh-Hant">有啲困難</span><span lang="zh-Hans">有些困难</span><span lang="en">Some</span></button><button type="button" class="chip" data-q="0" data-v="2" aria-pressed="false"><span lang="zh-Hant">好困難、要輔助或做唔到</span><span lang="zh-Hans">很困难、需要辅助或做不到</span><span lang="en">A lot, needs aids, or unable</span></button></div><div class="q">2. <span lang="zh-Hant">喺房間入面行走，有幾困難？</span><span lang="zh-Hans">在房间里走动，有多困难？</span><span lang="en">How much difficulty do you have walking across a room?</span></div><div class="chips"><button type="button" class="chip" data-q="1" data-v="0" aria-pressed="false"><span lang="zh-Hant">冇困難</span><span lang="zh-Hans">没有困难</span><span lang="en">None</span></button><button type="button" class="chip" data-q="1" data-v="1" aria-pressed="false"><span lang="zh-Hant">有啲困難</span><span lang="zh-Hans">有些困难</span><span lang="en">Some</span></button><button type="button" class="chip" data-q="1" data-v="2" aria-pressed="false"><span lang="zh-Hant">好困難、要輔助或做唔到</span><span lang="zh-Hans">很困难、需要辅助或做不到</span><span lang="en">A lot, needs aids, or unable</span></button></div><div class="q">3. <span lang="zh-Hant">由椅子起身或轉移到床上，有幾困難？</span><span lang="zh-Hans">从椅子上起身或转移到床上，有多困难？</span><span lang="en">How much difficulty do you have moving from a chair to a bed?</span></div><div class="chips"><button type="button" class="chip" data-q="2" data-v="0" aria-pressed="false"><span lang="zh-Hant">冇困難</span><span lang="zh-Hans">没有困难</span><span lang="en">None</span></button><button type="button" class="chip" data-q="2" data-v="1" aria-pressed="false"><span lang="zh-Hant">有啲困難</span><span lang="zh-Hans">有些困难</span><span lang="en">Some</span></button><button type="button" class="chip" data-q="2" data-v="2" aria-pressed="false"><span lang="zh-Hant">好困難、要輔助或做唔到</span><span lang="zh-Hans">很困难、需要辅助或做不到</span><span lang="en">A lot, needs aids, or unable</span></button></div><div class="q">4. <span lang="zh-Hant">行上 10 級樓梯，有幾困難？</span><span lang="zh-Hans">爬 10 级楼梯，有多困难？</span><span lang="en">How much difficulty do you have climbing a flight of 10 stairs?</span></div><div class="chips"><button type="button" class="chip" data-q="3" data-v="0" aria-pressed="false"><span lang="zh-Hant">冇困難</span><span lang="zh-Hans">没有困难</span><span lang="en">None</span></button><button type="button" class="chip" data-q="3" data-v="1" aria-pressed="false"><span lang="zh-Hant">有啲困難</span><span lang="zh-Hans">有些困难</span><span lang="en">Some</span></button><button type="button" class="chip" data-q="3" data-v="2" aria-pressed="false"><span lang="zh-Hant">好困難、要輔助或做唔到</span><span lang="zh-Hans">很困难、需要辅助或做不到</span><span lang="en">A lot, needs aids, or unable</span></button></div><div class="q">5. <span lang="zh-Hant">過去一年跌倒過幾多次？</span><span lang="zh-Hans">过去一年摔倒过几次？</span><span lang="en">How many times have you fallen in the past year?</span></div><div class="chips"><button type="button" class="chip" data-q="4" data-v="0" aria-pressed="false"><span lang="zh-Hant">0 次</span><span lang="zh-Hans">0 次</span><span lang="en">None</span></button><button type="button" class="chip" data-q="4" data-v="1" aria-pressed="false"><span lang="zh-Hant">1–3 次</span><span lang="zh-Hans">1–3 次</span><span lang="en">1–3 falls</span></button><button type="button" class="chip" data-q="4" data-v="2" aria-pressed="false"><span lang="zh-Hant">4 次或以上</span><span lang="zh-Hans">4 次或以上</span><span lang="en">4 or more</span></button></div>
+      <div class="sfres" id="sfRes"></div>
+    </details>
+  </div>
+
+  <section>
+    <details>
+      <summary><span lang="zh-Hant">點樣計出嚟？資料來源</span><span lang="zh-Hans">是怎么算出来的？资料来源</span><span lang="en">How it is calculated — and sources</span></summary>
+      <p class="src-p"><span lang="zh-Hant">呢個工具用公開嘅專業指引計算，同一般營養師用嘅做法一致：先睇年齡同目標，再按（合適嘅）體重計每公斤克數。</span><span lang="zh-Hans">这个工具使用公开的专业指引计算，做法与一般营养师相近：先看年龄和目标，再按（合适的）体重计算每公斤克数。</span><span lang="en">The calculator uses published professional guidance, in the way a dietitian would: start from age and goal, then apply a per-kg amount to a suitable reference weight.</span></p>
+      <p class="src-p"><span lang="zh-Hant">蛋白質 = 每公斤克數 × 計算體重。BMI 高於 27 時，計算體重取 BMI 27 對應體重，避免過高估算（做法參考 PROMISS 等研究；呢個上限係本工具嘅設計選擇）。結果取最接近嘅 5 g。</span><span lang="zh-Hans">蛋白质 = 每公斤克数 × 计算体重。BMI 高于 27 时，计算体重取 BMI 27 对应的体重，避免高估（做法参考 PROMISS 等研究；这个上限是本工具的设计选择）。结果取最接近的 5 g。</span><span lang="en">Protein = grams per kg × reference weight. Above BMI 27 the reference weight is the weight at BMI 27, to avoid over-estimating (an approach used in studies such as PROMISS; the cap is this tool's own design choice). Results are rounded to the nearest 5 g.</span></p>
+      <p class="src-p"><span lang="zh-Hant">飲水：總水分 = 每公斤 30–35 ml（常用臨床經驗法則），並以 EFSA 成人總水分（女 2.0 L、男 2.5 L）作下限；飲品約佔總水分 8 成（食物約 2 成）。運動每小時加約 0.5 L、炎熱加約 0.5 L 屬一般經驗法則，非官方標準。</span><span lang="zh-Hans">饮水：总水分 = 每公斤 30–35 ml（常用临床经验法则），并以 EFSA 成人总水分（女 2.0 L、男 2.5 L）为下限；饮品约占总水分 8 成（食物约 2 成）。运动每小时加约 0.5 L、炎热加约 0.5 L 属一般经验法则，并非官方标准。</span><span lang="en">Fluids: total water = 30–35 ml per kg (a common clinical rule of thumb), with the EFSA adult total (women 2.0 L, men 2.5 L) as the floor; drinks are about 80% of total water (food about 20%). Adding about 0.5 L per hour of exercise and about 0.5 L for heat are rules of thumb, not official standards.</span></p>
+      <p class="src-p"><b><span lang="zh-Hant">資料來源</span><span lang="zh-Hans">资料来源</span><span lang="en">Sources</span></b></p>
+      <ul class="src-list"><li><a href="https://www.chp.gov.hk/en/healthtopics/content/25/8802.html" target="_blank" rel="noopener noreferrer"><span lang="zh-Hant">香港衞生署衞生防護中心：肥胖（BMI 23／25）</span><span lang="zh-Hans">香港卫生署卫生防护中心：肥胖（BMI 23／25）</span><span lang="en">Centre for Health Protection (HK): Obesity (BMI 23 / 25)</span></a></li><li><a href="https://www.elderly.gov.hk/english/healthy_ageing/weight_management.html" target="_blank" rel="noopener noreferrer"><span lang="zh-Hant">衞生署長者健康服務：體重管理（BMI、腰圍、運動）</span><span lang="zh-Hans">卫生署长者健康服务：体重管理（BMI、腰围、运动）</span><span lang="en">Elderly Health Service (HK): Weight management (BMI, waist, activity)</span></a></li><li><a href="https://digital.library.adelaide.edu.au/dspace/handle/2440/80029" target="_blank" rel="noopener noreferrer"><span lang="zh-Hant">PROT-AGE 小組（Bauer 等，2013）：長者蛋白質</span><span lang="zh-Hans">PROT-AGE 小组（Bauer 等，2013）：长者蛋白质</span><span lang="en">PROT-AGE Study Group (Bauer et al., 2013): protein for older adults</span></a></li><li><a href="https://www.ucviden.dk/da/publications/espen-guideline-on-clinical-nutrition-and-hydration-in-geriatrics/" target="_blank" rel="noopener noreferrer"><span lang="zh-Hant">ESPEN 老年營養與水分指引（Volkert 等，2019）</span><span lang="zh-Hans">ESPEN 老年营养与水分指南（Volkert 等，2019）</span><span lang="en">ESPEN guideline on nutrition and hydration in geriatrics (Volkert et al., 2019)</span></a></li><li><a href="https://pubmed.ncbi.nlm.nih.gov/28642676/" target="_blank" rel="noopener noreferrer"><span lang="zh-Hant">ISSN 立場聲明：蛋白質與運動（Jäger 等，2017）</span><span lang="zh-Hans">ISSN 立场声明：蛋白质与运动（Jäger 等，2017）</span><span lang="en">ISSN position stand: protein and exercise (Jäger et al., 2017)</span></a></li><li><a href="https://pure.amsterdamumc.nl/ws/files/142148308/Protein-requirement-in-obesity.pdf" target="_blank" rel="noopener noreferrer"><span lang="zh-Hant">肥胖者蛋白質需求（阿姆斯特丹大學醫學中心）</span><span lang="zh-Hans">肥胖者蛋白质需求（阿姆斯特丹大学医学中心）</span><span lang="en">Protein requirement in obesity (Amsterdam UMC)</span></a></li><li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10591413" target="_blank" rel="noopener noreferrer"><span lang="zh-Hant">肌少症性肥胖：蛋白質與運動（範圍綜述）</span><span lang="zh-Hans">肌少症性肥胖：蛋白质与运动（范围综述）</span><span lang="en">Sarcopenic obesity: protein supplementation and exercise (scoping review)</span></a></li><li><a href="https://nap.edu/read/11537/chapter/14" target="_blank" rel="noopener noreferrer"><span lang="zh-Hant">美國國家科學院 DRI：蛋白質（兒童 RDA）</span><span lang="zh-Hans">美国国家科学院 DRI：蛋白质（儿童 RDA）</span><span lang="en">US National Academies DRI: protein (children's RDA)</span></a></li><li><a href="https://www.efsa.europa.eu/en/press/news/nda100326" target="_blank" rel="noopener noreferrer"><span lang="zh-Hant">EFSA 水分參考攝取量（2010）</span><span lang="zh-Hans">EFSA 水分适宜摄入量（2010）</span><span lang="en">EFSA adequate water intake (2010)</span></a></li><li><a href="https://www.eufic.org/en/healthy-living/article/how-much-water-should-you-drink-per-day" target="_blank" rel="noopener noreferrer"><span lang="zh-Hant">EUFIC：每日飲水（食物約 20–30% 水分）</span><span lang="zh-Hans">EUFIC：每日饮水（食物约 20–30% 水分）</span><span lang="en">EUFIC: how much water per day (food gives 20–30%)</span></a></li><li><a href="https://secure.cosa.org.au/media/zhgoka0k/sarc-f.pdf" target="_blank" rel="noopener noreferrer"><span lang="zh-Hant">SARC-F 問卷與計分（≥4 分為陽性）</span><span lang="zh-Hans">SARC-F 问卷与计分（≥4 分为阳性）</span><span lang="en">SARC-F questionnaire and scoring (≥4 positive)</span></a></li></ul>
+    </details>
+    <div class="disc"><span lang="zh-Hant">呢個工具只提供一般營養資訊，唔係醫療診斷或建議，亦唔能取代醫生或註冊營養師。有長期病患、正在服藥、懷孕，或者對飲食有疑問，請先諮詢專業人士。所有數字只喺你部機入面計算，唔會上傳或儲存。</span><span lang="zh-Hans">这个工具只提供一般营养信息，不是医疗诊断或建议，也不能取代医生或注册营养师。如有慢性病、正在服药、怀孕，或对饮食有疑问，请先咨询专业人士。所有数字只在你的设备上计算，不会上传或保存。</span><span lang="en">This tool gives general nutrition information only. It is not a diagnosis or medical advice and does not replace your doctor or a registered dietitian. If you have a long-term condition, take medication, are pregnant, or are unsure about your diet, check with a professional first. All numbers are calculated on your device and are never uploaded or stored.</span></div>
+  </section>
+
+  <section class="cta">
+    <h2><span lang="zh-Hant">想有人陪你一步一步跟進？</span><span lang="zh-Hans">想有人陪你一步一步跟进？</span><span lang="en">Want someone to walk it through with you?</span></h2>
+    <p><span lang="zh-Hant">呢個工具幫你睇到方向。個人化嘅飲食或治療安排，請交俾醫生或註冊營養師。Julia 提供身心健康諮詢同生活習慣支持，歡迎 WhatsApp 傾吓。</span><span lang="zh-Hans">这个工具帮你看清方向。个人化的饮食或治疗安排，请交给医生或注册营养师。Julia 提供身心健康咨询和生活习惯支持，欢迎 WhatsApp 聊聊。</span><span lang="en">This tool shows you a direction. A personal diet or treatment plan belongs with your doctor or a registered dietitian. Julia offers wellbeing consultations and habit support, and you are welcome to WhatsApp her.</span></p>
+    <div class="btns">
+      <a class="btn primary" href="https://wa.me/85296215876" target="_blank" rel="noopener"><span lang="zh-Hant">WhatsApp 傾吓</span><span lang="zh-Hans">WhatsApp 聊聊</span><span lang="en">Chat on WhatsApp</span></a>
+      <a class="btn ghost" href="/tools/"><span lang="zh-Hant">睇其他免費工具</span><span lang="zh-Hans">看看其他免费工具</span><span lang="en">More free tools</span></a>
+    </div>
+  </section>
+
+  <section>
+    <h2><span lang="zh-Hant">常見問題</span><span lang="zh-Hans">常见问题</span><span lang="en">FAQ</span></h2>
+    <div lang="zh-Hant"><details><summary>每日要食幾多蛋白質？</summary><p>一般成年人參考約每公斤體重 0.83–1.0 g（世衞／EFSA 參考值 0.83 g/kg）。減重期間約 1.2–1.4 g/kg，65 歲或以上至少約 1.0–1.2 g/kg，有做重量訓練約 1.4–2.0 g/kg。例如 60 kg 嘅成年人，維持健康約 50–60 g。</p></details><details><summary>減重期間要食多啲蛋白質嗎？</summary><p>研究同指引一般建議減重期間蛋白質高於維持期（約 1.2–1.4 g/kg），並配合阻力運動，幫助保留肌肉。體重偏高者按較合適嘅體重計，避免高估。有腎臟問題請先問醫生。</p></details><details><summary>長者每日需要幾多蛋白質？</summary><p>PROT-AGE 同 ESPEN 建議長者至少約 1.0–1.2 g/kg，並盡量每餐有 25–30 g。例如 60 kg 長者約 60–70 g。腎功能下降或有疾病者，份量要由醫生或營養師決定。</p></details><details><summary>每日要飲幾多水？</summary><p>歐洲食品安全局（EFSA）參考總水分：成年女性 2.0 L、男性 2.5 L（包括食物入面嘅水分，約兩成）。本工具以每公斤 30–35 ml 為基礎，再按運動同天氣調整，飲品約佔八成。有腎病、心臟衰竭或醫生限水者，請跟醫生指示。</p></details><details><summary>BMI 幾多先算過重？</summary><p>香港衞生署對成年華人嘅標準：BMI 23–24.9 為過重，25 或以上為肥胖，18.5 以下為過輕。腰圍男性 90 cm、女性 80 cm 或以上屬中央肥胖。BMI 唔反映肌肉量，只係參考。</p></details><details><summary>邊啲人唔適合用呢個工具？</summary><p>腎臟病、心臟衰竭、肝硬化、懷孕或餵哺、飲食失調，或醫生／營養師已指定飲食同飲水量嘅人，唔適合自行跟呢個工具，請由醫生或註冊營養師個別安排。4 歲以下幼兒亦唔適用。</p></details></div><div lang="zh-Hans"><details><summary>每天要吃多少蛋白质？</summary><p>一般成年人参考约每公斤体重 0.83–1.0 g（世卫组织／EFSA 参考值 0.83 g/kg）。减重期间约 1.2–1.4 g/kg，65 岁及以上至少约 1.0–1.2 g/kg，有做力量训练约 1.4–2.0 g/kg。例如 60 kg 的成年人，维持健康约 50–60 g。</p></details><details><summary>减重期间要多吃蛋白质吗？</summary><p>研究和指引一般建议减重期间蛋白质高于维持期（约 1.2–1.4 g/kg），并配合阻力运动，帮助保留肌肉。体重偏高者按更合适的体重计算，避免高估。有肾脏问题请先问医生。</p></details><details><summary>长者每天需要多少蛋白质？</summary><p>PROT-AGE 和 ESPEN 建议长者至少约 1.0–1.2 g/kg，并尽量每餐有 25–30 g。例如 60 kg 的长者约 60–70 g。肾功能下降或有疾病者，份量需由医生或营养师决定。</p></details><details><summary>每天要喝多少水？</summary><p>欧洲食品安全局（EFSA）参考总水分：成年女性 2.0 L、男性 2.5 L（包括食物中的水分，约两成）。本工具以每公斤 30–35 ml 为基础，再按运动和天气调整，饮品约占八成。有肾病、心力衰竭或医生限水者，请遵医嘱。</p></details><details><summary>BMI 多少才算超重？</summary><p>香港卫生署对成年华人的标准：BMI 23–24.9 为超重，25 及以上为肥胖，低于 18.5 为过轻。腰围男性 90 cm、女性 80 cm 及以上属中心性肥胖。BMI 不反映肌肉量，只是参考。</p></details><details><summary>哪些人不适合用这个工具？</summary><p>肾脏病、心力衰竭、肝硬化、怀孕或哺乳、饮食失调，或医生／营养师已指定饮食和饮水量的人，不适合自行参照这个工具，请由医生或注册营养师个别安排。4 岁以下幼儿也不适用。</p></details></div><div lang="en"><details><summary>How much protein do I need each day?</summary><p>Healthy adults: about 0.83–1.0 g per kg of body weight (WHO/EFSA reference 0.83 g/kg). While losing weight about 1.2–1.4 g/kg; people 65 or over at least about 1.0–1.2 g/kg; with strength training about 1.4–2.0 g/kg. For a 60 kg adult staying healthy, that is roughly 50–60 g.</p></details><details><summary>Do I need more protein while losing weight?</summary><p>Studies and guidelines generally suggest more protein than maintenance while losing weight (about 1.2–1.4 g/kg), together with resistance exercise, to help keep muscle. People with a high weight use a more suitable reference weight. If you have kidney problems, ask your doctor first.</p></details><details><summary>How much protein do older adults need?</summary><p>PROT-AGE and ESPEN suggest at least about 1.0–1.2 g/kg for older adults, ideally 25–30 g per meal. A 60 kg older adult needs roughly 60–70 g. With reduced kidney function or illness, a doctor or dietitian should set the amount.</p></details><details><summary>How much water should I drink each day?</summary><p>EFSA reference for total water: 2.0 L for women and 2.5 L for men, including the water in food (about a fifth). This tool starts from 30–35 ml per kg and adjusts for exercise and weather; drinks are about 80%. If you have kidney disease, heart failure or a doctor-set fluid limit, follow your doctor.</p></details><details><summary>What BMI counts as overweight?</summary><p>Hong Kong's Department of Health uses, for Chinese adults, BMI 23–24.9 as overweight, 25 or above as obese and below 18.5 as underweight. A waist of 90 cm or more for men and 80 cm or more for women is central obesity. BMI does not show muscle mass and is only a guide.</p></details><details><summary>Who should not use this tool?</summary><p>People with kidney disease, heart failure, cirrhosis, pregnancy or breastfeeding, an eating disorder, or a diet or fluid plan already set by a doctor or dietitian should not rely on this tool and should get individual advice. It is also not for children under 4.</p></details></div>
+  </section>
+
+  <section>
+    <h2><span lang="zh-Hant">更多免費工具</span><span lang="zh-Hans">更多免费工具</span><span lang="en">More free tools</span></h2>
+    <div class="tools">
+      <a href="/tools/breathing/"><b><span lang="zh-Hant">呼吸練習計時器</span><span lang="zh-Hans">呼吸练习计时器</span><span lang="en">Breathing Exercise Timer</span></b><span><span lang="zh-Hant">成人、學生、親子三個版本</span><span lang="zh-Hans">成人、学生、亲子三个版本</span><span lang="en">Adults, students, parent and child</span></span></a>
+      <a href="/tools/focus/"><b><span lang="zh-Hant">專注溫習計時器</span><span lang="zh-Hans">专注复习计时器</span><span lang="en">Study Timer with Music</span></b><span><span lang="zh-Hant">非常柔和嘅背景音樂</span><span lang="zh-Hans">非常柔和的背景音乐</span><span lang="en">Very soft background music</span></span></a>
+      <a href="/tools/dilution/"><b><span lang="zh-Hant">精油稀釋計算器</span><span lang="zh-Hans">精油稀释计算器</span><span lang="en">Essential Oil Dilution Calculator</span></b><span><span lang="zh-Hant">幾多滴精油，一秒計到</span><span lang="zh-Hans">多少滴精油，一秒算出</span><span lang="en">How many drops, in a second</span></span></a></div>
+    <a class="alltools" href="/tools/"><span lang="zh-Hant">查看全部免費工具 →</span><span lang="zh-Hans">查看全部免费工具 →</span><span lang="en">See all free tools →</span></a>
+  </section>
+
+  <footer>
+    <div><a href="/">此刻 · The Present</a> · Julia Yuen</div>
+    <div>WhatsApp <a href="https://wa.me/85296215876">+852 9621 5876</a> · <a href="mailto:hello@juliayuen.com">hello@juliayuen.com</a></div>
+  </footer>
+</div>
+
+<script>window.TXT={"r_wait":["填好性別、年齡、體重，同確認第 ④ 項，結果就會出現。","填好性别、年龄、体重，并确认第 ④ 项，结果就会出现。","Fill in sex, age and weight and confirm step ④ to see your results."],"j_e_age":["年齡請填 4–110 歲。4 歲以下請向兒科醫生查詢。","年龄请填 4–110 岁。4 岁以下请咨询儿科医生。","Please enter an age between 4 and 110. For children under 4, ask a paediatrician."],"j_e_wt":["請填合理嘅體重（成人 25–250 kg，孩子 10–150 kg）。","请填写合理的体重（成人 25–250 kg，孩子 10–150 kg）。","Please enter a realistic weight (adults 25–250 kg, children 10–150 kg)."],"j_e_ht":["身高請填 120–230 cm，或者留空。","身高请填 120–230 cm，或者留空。","Height should be 120–230 cm, or leave it blank."],"j_e_waist":["腰圍請填 40–200 cm，或者留空。","腰围请填 40–200 cm，或者留空。","Waist should be 40–200 cm, or leave it blank."],"j_blk_h":["請由醫生或註冊營養師為你安排","请由医生或注册营养师为你安排","Please get a plan from your doctor or dietitian"],"j_blk_p":["你剔咗其中一項情況。呢類情況嘅蛋白質同飲水份量因人而異（例如腎病可能要限制蛋白質，心臟衰竭可能要限水），所以呢個工具唔提供數字。請跟從醫生或營養師嘅指示。","你勾选了其中一项情况。这类情况下的蛋白质和饮水量因人而异（例如肾病可能需要限制蛋白质，心力衰竭可能需要限水），所以这个工具不提供数字。请遵从医生或营养师的指示。","You ticked one of the situations above. Protein and fluid amounts vary a lot in these cases (kidney disease may limit protein, heart failure may limit fluid), so this tool does not give numbers. Please follow your doctor's or dietitian's advice."],"j_blk_f3":["懷孕或餵哺期間，營養需要唔同，請向產科醫生或營養師查詢。","怀孕或哺乳期间，营养需求不同，请咨询产科医生或营养师。","Nutrition needs change during pregnancy and breastfeeding. Please ask your obstetrician or a dietitian."],"j_blk_f4":["如果飲食或體重帶畀你困擾，你唔係一個人。可以聯絡精神健康支援熱線 18111（24 小時，電話或 WhatsApp），或者同信任嘅人、醫生傾吓。","如果饮食或体重给你带来困扰，你并不孤单。可以联系精神健康支援热线 18111（24 小时，电话或 WhatsApp），或者和信任的人、医生聊一聊。","If food or weight is weighing on you, you are not alone. You can call the Mental Health Support Hotline 18111 (24 hours, phone or WhatsApp), or talk to someone you trust or your doctor."],"j_pm":["約 {lo}–{hi} g","约 {lo}–{hi} g","about {lo}–{hi} g"],"j_pm1":["約 {v} g","约 {v} g","about {v} g"],"j_wm":["{lo}–{hi} L","{lo}–{hi} L","{lo}–{hi} L"],"j_wm1":["約 {v} L","约 {v} L","about {v} L"],"j_p_h":["每日蛋白質","每日蛋白质","Daily protein"],"j_p_basis":["以 {w} kg 計，約每公斤 {lo}–{hi} g。","按 {w} kg 计算，约每公斤 {lo}–{hi} g。","Based on {w} kg, about {lo}–{hi} g per kg."],"j_p_cap":["你嘅體重高於 BMI 27，為免高估，用咗 {w} kg（BMI 27 對應體重）計算，約每公斤 {lo}–{hi} g。","你的体重高于 BMI 27，为避免高估，按 {w} kg（BMI 27 对应体重）计算，约每公斤 {lo}–{hi} g。","Your weight is above BMI 27, so to avoid over-estimating we used {w} kg (the weight at BMI 27): about {lo}–{hi} g per kg."],"j_p_noh":["未填身高，用咗你實際體重計。體重偏高嘅話，建議填埋身高。","没有填身高，按你的实际体重计算。体重偏高时，建议补填身高。","No height entered, so your actual weight was used. If your weight is high, add your height."],"j_p_meal":["分三餐，每餐約 {lo}–{hi} g","分三餐，每餐约 {lo}–{hi} g","Over three meals: about {lo}–{hi} g each"],"j_p_meal1":["分三餐，每餐約 {v} g","分三餐，每餐约 {v} g","Over three meals: about {v} g each"],"j_p_senior":["長者每餐有 25–30 g 蛋白質，較有利維持肌肉。唔夠嘅話，可以將蛋白質集中喺三餐，例如加一隻蛋、一件豆腐或一杯奶。","长者每餐有 25–30 g 蛋白质，更有利于维持肌肉。不够的话，可以把蛋白质集中在三餐里，例如加一个蛋、一块豆腐或一杯奶。","For older adults, 25–30 g of protein per meal is better for keeping muscle. If a meal falls short, add an egg, some tofu or a glass of milk."],"j_p_train":["分 3–4 餐，每 3–4 小時一次，每次約 20–40 g（ISSN）。","分 3–4 餐，每 3–4 小时一次，每次约 20–40 g（ISSN）。","Spread over 3–4 meals about 3–4 hours apart, roughly 20–40 g each (ISSN)."],"j_g_maint":["一般成人：約 0.83–1.0 g/kg（世衞同歐洲食品安全局參考值 0.83 g/kg）。","一般成人：约 0.83–1.0 g/kg（世卫组织和欧洲食品安全局参考值 0.83 g/kg）。","Healthy adults: about 0.83–1.0 g/kg (WHO and EFSA reference 0.83 g/kg)."],"j_g_loss":["減重期：約 1.2–1.4 g/kg，幫助減重時保留肌肉；要配合阻力運動，每星期 2–3 次。","减重期：约 1.2–1.4 g/kg，帮助减重时保留肌肉；需配合阻力运动，每周 2–3 次。","While losing weight: about 1.2–1.4 g/kg to help keep muscle, together with resistance exercise 2–3 times a week."],"j_g_senior":["長者：至少約 1.0–1.2 g/kg（PROT-AGE、ESPEN 建議）。","长者：至少约 1.0–1.2 g/kg（PROT-AGE、ESPEN 建议）。","Older adults: at least about 1.0–1.2 g/kg (PROT-AGE, ESPEN)."],"j_g_train":["有做重量訓練：約 1.4–2.0 g/kg（ISSN）。超過 2.0 唔一定更好。","有做力量训练：约 1.4–2.0 g/kg（ISSN）。超过 2.0 不一定更好。","With strength training: about 1.4–2.0 g/kg (ISSN). More than 2.0 is not necessarily better."],"j_g_child":["孩子成長：按年齡約 {r} g/kg（美國 DRI 建議攝取量），大約 {g} g。一般均衡飲食已經足夠，唔需要蛋白粉。","孩子成长：按年龄约 {r} g/kg（美国 DRI 推荐摄入量），大约 {g} g。一般均衡饮食已经足够，不需要蛋白粉。","Healthy growth: about {r} g/kg for this age (US DRI recommended intake), roughly {g} g. A balanced diet is usually enough; protein powder is not needed."],"j_g_senior_floor":["你 65 歲或以上，蛋白質已按至少 1.0 g/kg 計。","你已 65 岁或以上，蛋白质已按至少 1.0 g/kg 计算。","You are 65 or over, so protein is set at no less than 1.0 g/kg."],"j_loss_nonover":["你嘅 BMI 未屬過重，一般唔建議以減重為目標，已改按「維持健康」計算。","你的 BMI 还不算超重，一般不建议以减重为目标，已改按“维持健康”计算。","Your BMI is not in the overweight range, so weight loss is not usually a goal. Protein is shown for \"stay healthy\" instead."],"j_loss_under":["你嘅 BMI 偏低，唔建議減重，已改按「維持健康」計算。","你的 BMI 偏低，不建议减重，已改按“维持健康”计算。","Your BMI is low, so weight loss is not advised. Protein is shown for \"stay healthy\" instead."],"j_food_h":["一餐大約要幾份？","一餐大约要多少份？","Servings for one meal"],"j_food_cols":["食物,常見份量,蛋白質約,一餐約需","食物,常见份量,蛋白质约,一餐约需","Food,Serving,Protein,Per meal"],"j_food_note":["數字係約數，會因品牌、部位同煮法而不同，以食物標籤為準。","数字为约数，会因品牌、部位和烹调方式而不同，以食品标签为准。","Figures are approximate and vary by brand, cut and cooking. Check the label."],"j_p_safe":["食多啲蛋白質唔等於更好。有腎臟問題請先問醫生；打算長期用蛋白粉，亦建議先問醫生或營養師。","多吃蛋白质不等于更好。有肾脏问题请先问医生；打算长期用蛋白粉，也建议先问医生或营养师。","More protein is not always better. If you have kidney problems, ask your doctor first, and check with a doctor or dietitian before long-term protein powder."],"j_w_h":["每日飲水","每日饮水","Daily fluids"],"j_w_cups":["約 {a}–{b} 杯（每杯 250 ml）","约 {a}–{b} 杯（每杯 250 ml）","about {a}–{b} cups (250 ml each)"],"j_w_cups1":["約 {a} 杯（每杯 250 ml）","约 {a} 杯（每杯 250 ml）","about {a} cups (250 ml each)"],"j_w_total":["連食物入面嘅水分，總水分大約 {lo}–{hi} L（食物通常提供約兩成）。","连同食物里的水分，总水分大约 {lo}–{hi} L（食物通常提供约两成）。","Including the water in food, total water is roughly {lo}–{hi} L (food usually provides about a fifth)."],"j_w_total1":["連食物入面嘅水分，總水分大約 {v} L（歐洲食品安全局 EFSA 參考值）。","连同食物里的水分，总水分大约 {v} L（欧洲食品安全局 EFSA 参考值）。","Including the water in food, total water is about {v} L (EFSA reference)."],"j_w_add":["已加：運動 +{ex} L、炎熱 +{hot} L。","已加：运动 +{ex} L、炎热 +{hot} L。","Added: exercise +{ex} L, heat +{hot} L."],"j_w_senior":["65 歲或以上，飲品至少 {m} L（ESPEN）。","65 岁及以上，饮品至少 {m} L（ESPEN）。","At 65 or over, drinks should be at least {m} L (ESPEN)."],"j_w_cap":["份量已封頂喺 3.5 L。一般唔需要飲得更多；大量出汗或長時間運動，請同醫生傾點樣補充電解質。","份量已封顶在 3.5 L。一般不需要喝得更多；大量出汗或长时间运动，请咨询医生如何补充电解质。","Capped at 3.5 L. You usually do not need more; if you sweat heavily or exercise for long, ask a doctor about electrolytes."],"j_w_tips":["分散喺一日飲，唔好一次過灌；茶、咖啡、湯都計；盡量用清水或無糖茶代替含糖飲品。尿液淡黃色，通常代表水分足夠。","分散在一天里喝，不要一次猛灌；茶、咖啡、汤都算；尽量用白开水或无糖茶代替含糖饮品。尿液呈淡黄色，通常代表水分足够。","Spread drinks through the day rather than gulping. Tea, coffee and soup count. Choose water or unsweetened tea over sugary drinks. Pale-yellow urine usually means you are drinking enough."],"j_b_h":["體重同 BMI","体重和 BMI","Weight and BMI"],"j_b_bmi":["BMI {v}（{c}）","BMI {v}（{c}）","BMI {v} ({c})"],"j_cat0":["過輕","过轻","underweight"],"j_cat1":["正常","正常","healthy"],"j_cat2":["過重","超重","overweight"],"j_cat3":["肥胖","肥胖","obese"],"j_b_scale":["香港成年華人標準（衞生署）：低於 18.5 過輕；18.5–22.9 正常；23–24.9 過重；25 或以上肥胖。","香港成年华人标准（卫生署）：低于 18.5 过轻；18.5–22.9 正常；23–24.9 超重；25 及以上肥胖。","Hong Kong standard for Chinese adults (Department of Health): below 18.5 underweight; 18.5–22.9 healthy; 23–24.9 overweight; 25 or above obese."],"j_b_range":["健康體重範圍（BMI 18.5–22.9）：{lo}–{hi} kg","健康体重范围（BMI 18.5–22.9）：{lo}–{hi} kg","Healthy weight range (BMI 18.5–22.9): {lo}–{hi} kg"],"j_b_step":["第一步目標：減約 5%（約 {x} kg），即 {y} kg。循序漸進，唔使一次過達標；急速節食容易流失肌肉。","第一步目标：减约 5%（约 {x} kg），即 {y} kg。循序渐进，不必一次达标；急速节食容易流失肌肉。","First step: lose about 5% (around {x} kg), to {y} kg. Go gradually; crash dieting tends to cost muscle."],"j_b_under":["BMI 偏低，唔建議自行減重。如果體重無原因下降，或者覺得無力，請睇醫生。","BMI 偏低，不建议自行减重。如果体重无故下降，或者觉得乏力，请看医生。","Your BMI is low, so do not try to lose weight. If you are losing weight without a reason or feel weak, see a doctor."],"j_b_waist_hi":["腰圍 {v} cm：已達中央肥胖標準（男 ≥90 cm、女 ≥80 cm）。","腰围 {v} cm：已达到中心性肥胖标准（男 ≥90 cm、女 ≥80 cm）。","Waist {v} cm: at or above the central obesity cut-off (men ≥90 cm, women ≥80 cm)."],"j_b_waist_ok":["腰圍 {v} cm：低於中央肥胖標準（男 90 cm、女 80 cm）。","腰围 {v} cm：低于中心性肥胖标准（男 90 cm、女 80 cm）。","Waist {v} cm: below the central obesity cut-off (men 90 cm, women 80 cm)."],"j_b_noh":["填埋身高，就會顯示 BMI、健康體重範圍同第一步目標。","把身高也填上，就会显示 BMI、健康体重范围和第一步目标。","Add your height to see your BMI, healthy weight range and a first step."],"j_b_bminote":["BMI 睇唔到肌肉同脂肪嘅比例：BMI 正常但肌肉偏少亦有可能（例如少運動、年長）。可以做下面嘅肌肉自查。","BMI 看不出肌肉和脂肪的比例：BMI 正常但肌肉偏少也有可能（例如缺乏运动、年长）。可以做下面的肌肉自查。","BMI cannot show the balance of muscle and fat: a normal BMI can still hide low muscle (for example with little exercise or in older age). Try the muscle check below."],"j_b_child":["孩子嘅體重要按年齡同性別睇生長曲線，唔好用成人 BMI。如果對孩子成長有疑問，請諮詢兒科醫生或學生健康服務。","孩子的体重要按年龄和性别看生长曲线，不要用成人 BMI。如果对孩子的成长有疑问，请咨询儿科医生。","A child's weight should be read on a growth chart for age and sex, not with the adult BMI. If you are unsure about your child's growth, ask a paediatrician."],"j_w_child":["孩子飲水參考：總水分約 {t} L，其中飲品約 {d} L（歐洲食品安全局 EFSA）。","孩子饮水参考：总水分约 {t} L，其中饮品约 {d} L（欧洲食品安全局 EFSA）。","Children: total water about {t} L, of which drinks about {d} L (EFSA)."],"j_sf_wait":["答完 5 題就會顯示結果。","答完 5 题就会显示结果。","Answer all five to see the result."],"j_sf_hi":["得分 {s}／10（≥4）：提示有肌少症風險。建議向醫生或物理治療師查詢；一般會配合阻力運動同足夠蛋白質。","得分 {s}／10（≥4）：提示有肌少症风险。建议咨询医生或物理治疗师；一般会配合阻力运动和足够的蛋白质。","Score {s}/10 (≥4): suggests a risk of sarcopenia. Please ask a doctor or physiotherapist; the usual approach combines resistance exercise with enough protein."],"j_sf_lo":["得分 {s}／10：風險較低。保持活動，並恆常做阻力運動。","得分 {s}／10：风险较低。保持活动，并坚持做阻力运动。","Score {s}/10: lower risk. Stay active and keep up resistance exercise."],"tips_h":["蛋白質要配合運動，先事半功倍","蛋白质要配合运动，才更有效","Protein works best with movement"],"tip1":["阻力運動（彈力帶、深蹲、舉啞鈴）每星期 2–3 次，同蛋白質一齊做。","阻力运动（弹力带、深蹲、举哑铃）每周 2–3 次，和蛋白质一起做。","Resistance exercise (bands, squats, dumbbells) 2–3 times a week, alongside enough protein."],"tip2":["衞生署建議成年人每星期做 150–300 分鐘中等強度帶氧運動，10–20 分鐘一節都計。","卫生署建议成年人每周做 150–300 分钟中等强度有氧运动，每次 10–20 分钟也算。","The Department of Health suggests 150–300 minutes of moderate aerobic activity a week; 10–20 minute bouts count."],"tip3":["減少含糖飲品同酒精，穀類唔好戒（衞生署長者健康服務）。","少喝含糖饮品和酒精，主食不要戒掉（卫生署长者健康服务）。","Cut sugary drinks and alcohol, and do not drop grains altogether (Department of Health)."],"copy":["複製結果","复制结果","Copy results"],"copied":["已複製 ✓","已复制 ✓","Copied ✓"],"j_copy_head":["體重管理計算器結果（此刻 · The Present）","体重管理计算器结果（此刻 · The Present）","Weight Management Calculator results (The Present)"],"j_sum_prot":["蛋白質","蛋白质","Protein"],"j_sum_water":["飲品","饮品","Drinks"],"disc":["呢個工具只提供一般營養資訊，唔係醫療診斷或建議，亦唔能取代醫生或註冊營養師。有長期病患、正在服藥、懷孕，或者對飲食有疑問，請先諮詢專業人士。所有數字只喺你部機入面計算，唔會上傳或儲存。","这个工具只提供一般营养信息，不是医疗诊断或建议，也不能取代医生或注册营养师。如有慢性病、正在服药、怀孕，或对饮食有疑问，请先咨询专业人士。所有数字只在你的设备上计算，不会上传或保存。","This tool gives general nutrition information only. It is not a diagnosis or medical advice and does not replace your doctor or a registered dietitian. If you have a long-term condition, take medication, are pregnant, or are unsure about your diet, check with a professional first. All numbers are calculated on your device and are never uploaded or stored."]};</script>
+<script>
+(function(){
+"use strict";
+var TXT = window.TXT || {};
+function L(){
+  var h=(document.documentElement.lang||"").toLowerCase();
+  if(h.indexOf("en")===0) return 2;
+  if(h.indexOf("zh-hans")===0) return 1;
+  return 0;
+}
+function X(k,v){
+  var a=TXT[k]; if(!a) return k;
+  var s=a[L()]||a[0];
+  if(v) s=s.replace(/\{(\w+)\}/g,function(m,n){ return v[n]!==undefined?v[n]:m; });
+  return s;
+}
+function r1(x){ return Math.round(x*10)/10; }
+function r5(x){ return Math.round(x/5)*5; }
+function num(v){ if(v===undefined||v===null||v==="") return NaN; var n=parseFloat(String(v).replace(",",".")); return isFinite(n)?n:NaN; }
+function has(n){ return !isNaN(n); }
+
+/* ───────────────────────── pure calculation ───────────────────────── */
+var KG = { maint:[0.83,1.0], loss:[1.2,1.4], senior:[1.0,1.2], train:[1.4,2.0] };
+
+function compute(i){
+  var fl = i.flags||[];
+  if(fl.length) return {status:"blocked", flags:fl.slice()};
+  var age=num(i.age), wt=num(i.wt), ht=num(i.ht), wa=num(i.waist), sex=i.sex;
+  var errs=[];
+  if(has(age) && (age<4 || age>110)) errs.push("age");
+  var child = has(age) && age>=4 && age<18;
+  var wlo = child?10:(has(age)?25:10), whi = child?150:250;
+  if(has(wt) && (wt<wlo || wt>whi)) errs.push("wt");
+  if(!child){
+    if(has(ht) && (ht<120 || ht>230)) errs.push("ht");
+    if(has(wa) && (wa<40 || wa>200)) errs.push("waist");
+  }
+  if(errs.length) return {status:"invalid", errs:errs};
+  if(!has(age) || !has(wt) || (sex!=="M" && sex!=="F")) return {status:"wait"};
+  if(!i.scr) return {status:"screen"};
+
+  var M = sex==="M";
+  if(child){
+    var rate = age<=13 ? 0.95 : 0.85;
+    var g = Math.round(rate*wt);
+    var tot = age<=8 ? 1.6 : (age<=13 ? (M?2.1:1.9) : (M?2.5:2.0));
+    return {status:"ok", kind:"child", age:age, wt:wt, rate:rate, g:g, wTot:tot, wDrinks:r1(0.8*tot)};
+  }
+
+  var h = has(ht) ? ht/100 : NaN;
+  var bmi = has(h) ? wt/(h*h) : NaN;
+  var goal = i.goal || "maint", notes=[];
+  if(goal==="loss" && has(bmi)){
+    if(bmi<18.5){ goal="maint"; notes.push("j_loss_under"); }
+    else if(bmi<23){ goal="maint"; notes.push("j_loss_nonover"); }
+  }
+  if(age>=65 && goal==="maint"){ goal="senior"; notes.push("j_g_senior_floor"); }
+  var k = KG[goal], kLo=k[0], kHi=k[1];
+  var rw = wt, capped=false;
+  if(has(bmi) && bmi>27){ rw = 27*h*h; capped=true; }
+  var pLo=r5(rw*kLo), pHi=Math.max(r5(rw*kHi), pLo);
+  var mLo=Math.round(pLo/3), mHi=Math.round(pHi/3);
+
+  /* water */
+  var ex = num(i.ex)||0, exAdd = ex/60*0.5, hotAdd = i.hot?0.5:0;
+  var floorT = M?2.5:2.0;
+  var btLo = Math.max(wt*0.030, floorT), btHi = Math.max(wt*0.035, btLo);
+  var dLo = 0.8*btLo + exAdd + hotAdd, dHi = 0.8*btHi + exAdd + hotAdd;
+  var sMin = null;
+  if(age>=65){ sMin = M?2.0:1.6; dLo=Math.max(dLo,sMin); dHi=Math.max(dHi,dLo); }
+  var wCap=false;
+  if(dHi>3.5){ dHi=3.5; wCap=true; }
+  if(dLo>3.5) dLo=3.5;
+  var tLo = dLo + 0.2*btLo, tHi = dHi + 0.2*btHi;
+  var water = { dLo:r1(dLo), dHi:r1(dHi), tLo:r1(tLo), tHi:r1(tHi), exAdd:r1(exAdd), hotAdd:hotAdd, capped:wCap, sMin:sMin };
+  if(water.dHi<water.dLo) water.dHi=water.dLo;
+
+  /* weight / BMI */
+  var wgt = { bmi:null, cat:null, rLo:null, rHi:null, stepX:null, stepY:null, under:false, waist:null, waistHi:false };
+  if(has(bmi)){
+    wgt.bmi=r1(bmi);
+    wgt.cat = bmi<18.5?0:(bmi<23?1:(bmi<25?2:3));
+    wgt.rLo=Math.round(18.5*h*h); wgt.rHi=Math.round(22.9*h*h);
+    wgt.under = bmi<18.5;
+    if(bmi>=23){ wgt.stepX=r1(0.05*wt); wgt.stepY=r1(wt-0.05*wt); }
+  }
+  if(has(wa)){ wgt.waist=wa; wgt.waistHi = wa >= (M?90:80); }
+
+  return { status:"ok", kind:"adult", sex:sex, age:age, wt:wt, ht:has(ht)?ht:null,
+    goal:goal, notes:notes, kLo:kLo, kHi:kHi, rw:Math.round(rw), rwCapped:capped,
+    pLo:pLo, pHi:pHi, mLo:mLo, mHi:mHi, water:water, wgt:wgt };
+}
+
+function sarc(a){
+  var s=0;
+  for(var i=0;i<5;i++){ if(a[i]===null||a[i]===undefined) return null; s+=a[i]; }
+  return {score:s, pos:s>=4};
+}
+
+/* ───────────────────────── food table ───────────────────────── */
+var FOODS = [
+ {n:["雞蛋","鸡蛋","Egg"], s:["1 隻（約 50 g）","1 个（约 50 g）","1 egg (about 50 g)"], p:6},
+ {n:["牛奶","牛奶","Milk"], s:["1 杯（240 ml）","1 杯（240 ml）","1 cup (240 ml)"], p:8},
+ {n:["無糖豆漿","无糖豆浆","Unsweetened soy milk"], s:["1 杯（240 ml）","1 杯（240 ml）","1 cup (240 ml)"], p:7},
+ {n:["希臘乳酪","希腊酸奶","Greek yoghurt"], s:["1 杯（170 g）","1 杯（170 g）","1 pot (170 g)"], p:15},
+ {n:["板豆腐","老豆腐","Firm tofu"], s:["約半磚（150 g）","约半块（150 g）","about half a block (150 g)"], p:12},
+ {n:["魚柳（熟）","鱼片（熟）","Cooked fish"], s:["100 g（約一隻手掌）","100 g（约一个手掌）","100 g (about a palm)"], p:22},
+ {n:["雞胸肉（熟）","鸡胸肉（熟）","Cooked chicken breast"], s:["100 g（約一隻手掌）","100 g（约一个手掌）","100 g (about a palm)"], p:30},
+ {n:["瘦牛／豬肉（熟）","瘦牛／猪肉（熟）","Cooked lean beef / pork"], s:["100 g（約一隻手掌）","100 g（约一个手掌）","100 g (about a palm)"], p:27}
+];
+function servings(mid,p){ var x=Math.round(mid/p*2)/2; return x<0.5?0.5:x; }
+
+/* ───────────────────────── state & DOM ───────────────────────── */
+var $=function(id){ return document.getElementById(id); };
+var FL=["f1","f2","f3","f4","f5"];
+var st={ sex:"", goal:"maint", ex:0, hot:false, scr:null, sf:[null,null,null,null,null] };
+var last=null, sarcAuto=false, hadResult=false;
+
+function inputs(){
+  var flags=[]; FL.forEach(function(f){ if($(f).checked) flags.push(f); });
+  return { sex:st.sex, age:$("age").value, wt:$("wt").value, ht:$("ht").value, waist:$("waist").value,
+           goal:st.goal, ex:st.ex, hot:st.hot, flags:flags, scr:(flags.length?"flags":st.scr) };
+}
+function rng(a,b,pm,pm1,dec){
+  var f=function(x){ return dec===undefined?String(x):x.toFixed(dec); };
+  return (a===b) ? X(pm1,{v:f(a),a:f(a)}) : X(pm,{lo:f(a),hi:f(b),a:f(a),b:f(b)});
+}
+function tile(label,val){ val=String(val).replace(/^(about|約|约)\s*/,""); return '<div class="stat"><b>'+val+'</b><span>'+label+'</span></div>'; }
+function card(h,body,cls){ return '<div class="rc'+(cls?" "+cls:"")+'"><h3>'+h+'</h3>'+body+'</div>'; }
+function p(t,c){ return '<p'+(c?' class="'+c+'"':'')+'>'+t+'</p>'; }
+
+function proteinCard(r){
+  var b="", goalKey = r.goal==="maint"?"j_g_maint":(r.goal==="loss"?"j_g_loss":(r.goal==="senior"?"j_g_senior":"j_g_train"));
+  var kl=r.kLo, kh=r.kHi;
+  if(r.rwCapped) b+=p(X("j_p_cap",{w:r.rw,lo:kl,hi:kh}));
+  else b+=p(X("j_p_basis",{w:r.rw,lo:kl,hi:kh}));
+  if(!r.ht) b+=p(X("j_p_noh"),"muted");
+  b+=p(X(goalKey));
+  r.notes.forEach(function(n){ b+=p(X(n),"info"); });
+  b+=p("<b>"+rng(r.mLo,r.mHi,"j_p_meal","j_p_meal1")+"</b>");
+  if(r.goal==="senior") b+=p(X("j_p_senior"));
+  if(r.goal==="train") b+=p(X("j_p_train"));
+  var mid=(r.pLo+r.pHi)/6, cols=X("j_food_cols").split(",");
+  var rows="";
+  FOODS.forEach(function(f){
+    rows+="<tr><td>"+f.n[L()]+"</td><td>"+f.s[L()]+"</td><td>"+f.p+" g</td><td>× "+servings(mid,f.p)+"</td></tr>";
+  });
+  b+='<h4>'+X("j_food_h")+'</h4><div class="table-wrap"><table class="ft"><thead><tr><th>'+cols[0]+'</th><th>'+cols[1]+'</th><th>'+cols[2]+'</th><th>'+cols[3]+'</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+  b+=p(X("j_food_note"),"muted");
+  b+=p(X("j_p_safe"),"note");
+  return card(X("j_p_h")+" · "+rng(r.pLo,r.pHi,"j_pm","j_pm1"),b);
+}
+function waterCard(r){
+  var w=r.water, b="";
+  var cA=Math.round(w.dLo*4), cB=Math.round(w.dHi*4);
+  b+=p("<b>"+rng(w.dLo,w.dHi,"j_wm","j_wm1",1)+"</b> — "+(cA===cB?X("j_w_cups1",{a:cA}):X("j_w_cups",{a:cA,b:cB})));
+  b+=p(w.tLo===w.tHi?X("j_w_total1",{v:w.tLo.toFixed(1)}):X("j_w_total",{lo:w.tLo.toFixed(1),hi:w.tHi.toFixed(1)}));
+  if(w.exAdd>0||w.hotAdd>0) b+=p(X("j_w_add",{ex:w.exAdd.toFixed(2).replace(/0$/,""),hot:w.hotAdd.toFixed(1)}),"muted");
+  if(w.sMin!==null) b+=p(X("j_w_senior",{m:w.sMin.toFixed(1)}),"info");
+  if(w.capped) b+=p(X("j_w_cap"),"note");
+  b+=p(X("j_w_tips"));
+  return card(X("j_w_h"),b);
+}
+function weightCard(r){
+  var g=r.wgt, b="";
+  if(g.bmi===null){ b+=p(X("j_b_noh"),"muted"); }
+  else {
+    b+=p("<b>"+X("j_b_bmi",{v:g.bmi.toFixed(1),c:X("j_cat"+g.cat)})+"</b>");
+    b+=p(X("j_b_range",{lo:g.rLo,hi:g.rHi}));
+    if(g.under) b+=p(X("j_b_under"),"info");
+    else if(g.stepX!==null) b+=p(X("j_b_step",{x:g.stepX.toFixed(1),y:g.stepY.toFixed(1)}));
+    b+=p(X("j_b_scale"),"muted");
+  }
+  if(g.waist!==null) b+=p(X(g.waistHi?"j_b_waist_hi":"j_b_waist_ok",{v:g.waist}));
+  b+=p(X("j_b_bminote"),"muted");
+  return card(X("j_b_h"),b);
+}
+function tipsCard(){
+  return card(X("tips_h"),'<ul class="tl"><li>'+X("tip1")+'</li><li>'+X("tip2")+'</li><li>'+X("tip3")+'</li></ul>');
+}
+function recap(r){
+  var s=[ r.sex==="M"?{0:"男",1:"男",2:"Male"}[L()]:{0:"女",1:"女",2:"Female"}[L()] ];
+  s.push(r.age+({0:" 歲",1:" 岁",2:" y"}[L()])); s.push(r.wt+" kg");
+  if(r.ht) s.push(r.ht+" cm");
+  return s.join(" · ");
+}
+function summaryText(r){
+  var lines=[X("j_copy_head")];
+  if(r.kind==="child"){
+    lines.push(X("j_sum_prot")+": "+X("j_pm1",{v:r.g}));
+    lines.push(X("j_sum_water")+": "+X("j_wm1",{v:r.wDrinks.toFixed(1)}));
+  } else {
+    lines.push(X("j_sum_prot")+": "+rng(r.pLo,r.pHi,"j_pm","j_pm1"));
+    lines.push(X("j_sum_water")+": "+rng(r.water.dLo,r.water.dHi,"j_wm","j_wm1",1));
+    if(r.wgt.bmi!==null) lines.push("BMI: "+r.wgt.bmi.toFixed(1)+" ("+X("j_cat"+r.wgt.cat)+")");
+  }
+  lines.push(""); lines.push(X("disc")); lines.push("https://juliayuen.com/tools/weight/");
+  return lines.join("\n");
+}
+
+function showMsg(html){ $("resBody").innerHTML='<p class="wait">'+html+'</p>'; $("tiles").hidden=true; $("acts").hidden=true; $("recap").hidden=true; $("sarc").hidden=true; }
+
+function render(){
+  var inp=inputs(), r=compute(inp); last=r;
+  /* validation messages */
+  var em=$("errs"); em.innerHTML="";
+  if(r.status==="invalid") r.errs.forEach(function(e){ em.innerHTML+='<p>'+X("j_e_"+e)+'</p>'; });
+  em.hidden = !(r.status==="invalid");
+  /* child dimming of goal chips */
+  var age=num(inp.age), isChild = has(age) && age>=4 && age<18;
+  $("n_child").hidden=!isChild;
+  document.querySelectorAll("[data-goal]").forEach(function(b){ b.classList.toggle("dim",isChild); });
+  /* scr chips */
+  $("fnone").setAttribute("aria-pressed", (st.scr==="none" && !inp.flags.length)?"true":"false");
+
+  if(r.status==="blocked"){
+    var b='<div class="blocked"><h3>'+X("j_blk_h")+'</h3>'+p(X("j_blk_p"));
+    if(r.flags.indexOf("f3")>=0) b+=p(X("j_blk_f3"));
+    if(r.flags.indexOf("f4")>=0) b+=p(X("j_blk_f4"));
+    b+='</div>';
+    $("resBody").innerHTML=b; $("tiles").hidden=true; $("acts").hidden=true; $("recap").hidden=true; $("sarc").hidden=true;
+    return;
+  }
+  if(r.status!=="ok"){ showMsg(X("r_wait")); return; }
+
+  $("recap").hidden=false; $("recap").textContent=recap(r);
+  var t="", body="";
+  if(r.kind==="child"){
+    t=tile(X("j_sum_prot"),X("j_pm1",{v:r.g}))+tile(X("j_sum_water"),X("j_wm1",{v:r.wDrinks.toFixed(1)}))+tile("BMI","—");
+    body+=card(X("j_p_h")+" · "+X("j_pm1",{v:r.g}), p(X("j_g_child",{r:r.rate,g:r.g}))+p(X("j_p_safe"),"note"));
+    body+=card(X("j_w_h")+" · "+X("j_wm1",{v:r.wDrinks.toFixed(1)}), p(X("j_w_child",{t:r.wTot.toFixed(1),d:r.wDrinks.toFixed(1)}))+p(X("j_w_tips")));
+    body+=card(X("j_b_h"), p(X("j_b_child")));
+    $("sarc").hidden=true;
+  } else {
+    t=tile(X("j_sum_prot"),rng(r.pLo,r.pHi,"j_pm","j_pm1"))+tile(X("j_sum_water"),rng(r.water.dLo,r.water.dHi,"j_wm","j_wm1",1))
+      +tile("BMI", r.wgt.bmi===null?"—":r.wgt.bmi.toFixed(1));
+    body+=proteinCard(r)+waterCard(r)+weightCard(r)+tipsCard();
+    $("sarc").hidden=false;
+    if(!sarcAuto && r.age>=65){ $("sarc").open=true; sarcAuto=true; }
+    renderSarc();
+  }
+  $("tiles").innerHTML=t; $("tiles").hidden=false;
+  $("resBody").innerHTML=body; $("acts").hidden=false;
+  hadResult=true;
+}
+function renderSarc(){
+  var s=sarc(st.sf), el=$("sfRes");
+  el.textContent = s===null ? X("j_sf_wait") : X(s.pos?"j_sf_hi":"j_sf_lo",{s:s.score});
+  el.className = "sfres"+(s&&s.pos?" pos":"");
+  document.querySelectorAll("#sarc [data-q]").forEach(function(b){
+    var q=+b.dataset.q, v=+b.dataset.v;
+    b.setAttribute("aria-pressed", st.sf[q]===v?"true":"false");
+  });
+}
+
+/* ───────────────────────── events ───────────────────────── */
+function pressGroup(sel,attr,val){
+  document.querySelectorAll(sel).forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute(attr))===String(val)?"true":"false"); });
+}
+document.querySelectorAll("[data-sex]").forEach(function(b){ b.addEventListener("click",function(){ st.sex=b.dataset.sex; pressGroup("[data-sex]","data-sex",st.sex); render(); }); });
+document.querySelectorAll("[data-goal]").forEach(function(b){ b.addEventListener("click",function(){ st.goal=b.dataset.goal; pressGroup("[data-goal]","data-goal",st.goal); render(); }); });
+document.querySelectorAll("[data-ex]").forEach(function(b){ b.addEventListener("click",function(){ st.ex=+b.dataset.ex; pressGroup("[data-ex]","data-ex",st.ex); render(); }); });
+$("hot").addEventListener("click",function(){ st.hot=!st.hot; this.setAttribute("aria-pressed",st.hot?"true":"false"); render(); });
+["age","wt","ht","waist"].forEach(function(id){ $(id).addEventListener("input",render); });
+FL.forEach(function(f){ $(f).addEventListener("change",function(){ if(this.checked) st.scr="flags"; else if(!inputs().flags.length) st.scr=null; render(); }); });
+$("fnone").addEventListener("click",function(){
+  FL.forEach(function(f){ $(f).checked=false; });
+  st.scr="none"; render();
+  if(last && last.status==="ok"){ try{ $("out").scrollIntoView({behavior:"smooth",block:"start"}); }catch(e){} }
+});
+document.querySelectorAll("#sarc [data-q]").forEach(function(b){
+  b.addEventListener("click",function(){ st.sf[+b.dataset.q]=+b.dataset.v; renderSarc(); });
+});
+$("copyBtn").addEventListener("click",function(){
+  if(!last||last.status!=="ok") return;
+  var txt=summaryText(last), btn=this;
+  var done=function(){ btn.textContent=X("copied"); setTimeout(function(){ btn.textContent=X("copy"); },2000); };
+  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done).catch(function(){});
+  else { try{ var ta=document.createElement("textarea"); ta.value=txt; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); document.body.removeChild(ta); done(); }catch(e){} }
+});
+$("printBtn").addEventListener("click",function(){
+  document.body.classList.add("tp-printing");
+  var off=function(){ document.body.classList.remove("tp-printing"); window.removeEventListener("afterprint",off); };
+  window.addEventListener("afterprint",off);
+  window.print();
+});
+
+function setLang(l){
+  var hans=(l==="zhs"), lang=l==="en"?"en":(hans?"zh-Hans":"zh-Hant");
+  document.documentElement.setAttribute("data-lang",l);
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.setLang===l?"true":"false"); });
+  try{ localStorage.setItem("tp-lang", l==="en"?"en":(hans?"zh-Hans":"zh-Hant")); }catch(e){}
+  $("copyBtn").textContent=X("copy");
+  render();
+}
+document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.addEventListener("click",function(){ setLang(b.dataset.setLang); }); });
+
+window.TPW = { compute:compute, sarc:sarc, FOODS:FOODS, X:X, state:st };
+setLang(window.__tpInit || "zh");
+})();
+
+</script>
+
+<!-- ══════ tp-upgrade 2026-10-09 ══════ -->
+<style>
+.tp-up{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0 0}
+.tp-up button{display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+  font:inherit;font-size:14px;padding:9px 15px;border-radius:999px;
+  border:1px solid var(--line);background:var(--paper,#fff);color:var(--ink,#234B47)}
+.tp-up button:hover{border-color:var(--green,#157F74);color:var(--green,#157F74)}
+.tp-up .tp-ok{border-color:var(--green,#157F74);background:var(--green-soft,#DDF1EC);
+  color:var(--green,#157F74);font-weight:700}
+.tp-streak{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;
+  padding:8px 14px;border-radius:999px;background:var(--gold-soft,#F7EDD6);
+  color:var(--warn,#8a5a2b);font-weight:700}
+.tp-hint{flex-basis:100%;font-size:13px;line-height:1.7;color:var(--warn,#8a5a2b);
+  background:var(--gold-soft,#F7EDD6);border-radius:12px;padding:10px 14px;margin:2px 0 0}
+.tp-hint[hidden]{display:none}
+</style>
+<script>
+(function(){
+  "use strict";
+  /* ── 1. iOS 17+: route Web Audio through the playback channel so the
+         hardware silent switch no longer mutes it. Must be set early. ── */
+  var hasSession = false;
+  try{
+    if (navigator.audioSession) { navigator.audioSession.type = "playback"; hasSession = true; }
+  }catch(e){}
+
+  var KEY = "weight";
+  function L(){
+    var h = (document.documentElement.lang||"").toLowerCase();
+    if (h.indexOf("en") === 0) return 2;
+    if (h.indexOf("zh-hans") === 0 || h.indexOf("zh-cn") === 0) return 1;
+    return 0;
+  }
+  function T(a){ return a[L()] || a[0]; }
+
+  /* ── 2. streak: distinct days this tool was opened ── */
+  function streak(){
+    var k = "tp-streak-" + KEY, today = new Date().toISOString().slice(0,10);
+    var d = {n:0, last:""};
+    try{ d = JSON.parse(localStorage.getItem(k)) || d; }catch(e){}
+    if (d.last !== today){
+      var y = new Date(Date.now() - 86400000).toISOString().slice(0,10);
+      d.n = (d.last === y) ? (d.n|0) + 1 : 1;
+      d.last = today;
+      try{ localStorage.setItem(k, JSON.stringify(d)); }catch(e){}
+    }
+    return d.n | 0;
+  }
+
+  function build(){
+    var host = document.querySelector("main.card") || document.querySelector(".wrap");
+    if (!host) return;
+
+    var bar = document.createElement("div");
+    bar.className = "tp-up";
+
+    /* streak */
+    var n = streak();
+    if (n > 1){
+      var st = document.createElement("span");
+      st.className = "tp-streak";
+      st.setAttribute("data-tp", JSON.stringify(["連續 "+n+" 日 🌱", "连续 "+n+" 日 🌱", n+" days in a row 🌱"]));
+      bar.appendChild(st);
+    }
+
+    
+
+    /* share — for passing the tool around parent groups */
+    var sh = document.createElement("button");
+    sh.type = "button";
+    sh.setAttribute("data-tp", JSON.stringify(["分享給朋友", "分享给朋友", "Share"]));
+    sh.addEventListener("click", function(){
+      var url = location.href.split("#")[0];
+      var title = T(["體重管理計算器 · 此刻 The Present", "体重管理计算器 · 此刻 The Present", "Weight Management Calculator · The Present"]);
+      if (navigator.share){
+        navigator.share({title: title, url: url}).catch(function(){});
+      } else if (navigator.clipboard){
+        navigator.clipboard.writeText(url).then(function(){
+          sh.dataset.tpBusy = "1";
+          sh.textContent = T(["已複製連結 ✓", "已复制链接 ✓", "Link copied ✓"]);
+          sh.classList.add("tp-ok");
+          setTimeout(function(){
+            delete sh.dataset.tpBusy;
+            sh.classList.remove("tp-ok");
+            window.__tpRelabel && window.__tpRelabel();
+          }, 2200);
+        }).catch(function(){});
+      }
+    });
+    bar.appendChild(sh);
+
+    host.appendChild(bar);
+
+    /* keep every label in step with the page's language switcher */
+    function relabel(root){
+      var els = (root || bar).querySelectorAll("[data-tp]");
+      for (var i = 0; i < els.length; i++){
+        if (els[i].dataset.tpBusy) continue;
+        try{ els[i].textContent = T(JSON.parse(els[i].getAttribute("data-tp"))); }catch(e){}
+      }
+    }
+    window.__tpRelabel = relabel;
+    relabel();
+    try{
+      new MutationObserver(function(){ relabel(); })
+        .observe(document.documentElement, {attributes:true, attributeFilter:["lang"]});
+    }catch(e){}
+  }
+
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", build);
+  else build();
+})();
+</script>
+
+
+<!-- ══════ tp-watag 2026-10-10 ══════ -->
+<script>
+(function(){
+  "use strict";
+  var LBL = ["體重管理計算器", "体重管理计算器", "Weight Management Calculator"], FALLBACK = ["你好，我喺【體重管理計算器】見到你個網站，想了解多啲。", "你好，我在【体重管理计算器】看到你的网站，想了解更多。", "Hi Julia — I'd like to know more."], SUBJ = ["查詢：體重管理計算器", "咨询：体重管理计算器", "Enquiry: Weight Management Calculator"];
+  function L(){
+    var h=(document.documentElement.lang||"").toLowerCase();
+    if(h.indexOf("en")===0) return 2;
+    if(h.indexOf("zh-hans")===0||h.indexOf("zh-cn")===0) return 1;
+    return 0;
+  }
+  var FROM = (function(){
+    try{
+      var m=/[?&]from=([A-Za-z0-9_-]{1,24})/.exec(location.search);
+      return m ? m[1] : "";
+    }catch(e){ return ""; }
+  })();
+  function srcLine(i){
+    var lbl = LBL[i] + (FROM ? " · " + FROM : "");
+    if(i===2) return "\n(Source: "+lbl+")";
+    return i===1 ? "\n（来源："+lbl+"）" : "\n（來源："+lbl+"）";
+  }
+  function tagWA(){
+    var a=document.querySelectorAll('a[href^="https://wa.me/"]'), i;
+    for(i=0;i<a.length;i++){
+      var el=a[i], u;
+      try{ u=new URL(el.href); }catch(e){ continue; }
+      var cur=u.searchParams.get("text")||"";
+      /* remember the page's own message once, before we ever touch it */
+      if(el.dataset.tpBase===undefined) el.dataset.tpBase=cur;
+      var base=el.dataset.tpBase;
+      var i18=L();
+      /* the page may already carry its own 來源 line — don't add a second */
+      var has = base && (base.indexOf("來源：")>=0 || base.indexOf("来源：")>=0
+                         || base.indexOf("Source:")>=0);
+      var out;
+      if(!base) out = FALLBACK[i18];
+      else if(has) out = base;   /* page handles its own source line, incl. ?from= */
+      else out = base + srcLine(i18);
+      u.searchParams.set("text", out);
+      el.setAttribute("href", u.toString());
+    }
+  }
+  function tagMail(){
+    var a=document.querySelectorAll('a[href^="mailto:"]'), i;
+    for(i=0;i<a.length;i++){
+      var el=a[i], h=el.getAttribute("href")||"";
+      if(el.dataset.tpMail===undefined) el.dataset.tpMail=h;
+      var orig=el.dataset.tpMail;
+      if(orig.indexOf("subject=")>=0) continue;   /* page already set one */
+      var addr=orig.split("?")[0];
+      el.setAttribute("href", addr+"?subject="+encodeURIComponent(SUBJ[L()]));
+    }
+  }
+  function tag(){ tagWA(); tagMail(); }
+  function go(){
+    tag();
+    /* the page may rebuild its own links, and the language can change */
+    try{
+      new MutationObserver(tag)
+        .observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+    }catch(e){}
+    setTimeout(tag, 1200);
+    setTimeout(tag, 3000);
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",go);
+  else go();
+})();
+</script>
+
+<!-- Cloudflare Web Analytics (cookieless) -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "e12395482b7a4782a53e9f87f2c6abe4"}'></script>
+
+</body>
+</html>
