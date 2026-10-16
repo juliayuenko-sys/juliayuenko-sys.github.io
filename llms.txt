@@ -78,7 +78,9 @@ consultations are delivered remotely worldwide. Works in Cantonese, Mandarin and
 ## Free tools (no sign-up)
 
 - https://juliayuen.com/tools/ — all free tools
-- https://juliayuen.com/tools/breathing/ — breathing exercise timer (box, 4-7-8, coherent) with a breath-following sound
-- https://juliayuen.com/tools/focus/ — study / Pomodoro timer with gentle forest, breeze, birdsong and ocean-wave sounds (kid-friendly, quiet), plus rain, brown noise or focus binaural beats
+- https://juliayuen.com/tools/breathing/ — breathing exercise timer for adults (box, 4-7-8, coherent, cyclic sigh) with gentle female voice guide, body animation and ocean-wave sound
+- https://juliayuen.com/tools/breathing/student/ — student version: one-minute breathing before study or exams, simple demo, no breath-holding, full-screen and printable poster for classrooms
+- https://juliayuen.com/tools/breathing/family/ — parent-and-child breathing: smell the flower, blow the candle, animated lungs and diaphragm
+- https://juliayuen.com/tools/focus/ — study / Pomodoro timer with eight very soft background pieces (forest morning, breeze and piano, ocean lullaby, harp, moonlight, singing bowls, music box, piano) and two gentle white-noise beds (rain, stream)
 - https://juliayuen.com/tools/frequency/ — 528 Hz, 432 Hz and Solfeggio frequency player with binaural beats and timer
 - https://juliayuen.com/tools/dilution/ — essential oil dilution calculator (drops per bottle size and use)
