@@ -1,1 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Julia Yuen｜很高興認識你</title>
+<meta name="description" content="Julia Yuen，香港整合身心諮詢顧問、TimeWaver 13 模組認證顧問。歡迎同行交流合作，也歡迎預約遠距諮詢。">
+<meta property="og:title" content="Julia Yuen｜很高興認識你">
+<meta property="og:description" content="整合身心諮詢顧問・TimeWaver 認證顧問・二十年教師。同行合作、遠距諮詢，都從這裡開始。">
+<meta property="og:url" content="https://juliayuen.com/tw/">
+<meta property="og:image" content="https://juliayuen.com/lip/portrait.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F7F4;      /* 薄荷白 */
+  --card:#FFFFFF;
+  --ink:#1E3A37;        /* 深松綠 */
+  --soft:#5B706C;
+  --mint:#CFE3DA;
+  --amber:#A8803F;      /* 精油琥珀 */
+  --line:#DCE7E1;
+  --peer:#2F5D57;
+  --client:#8A6A33;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#132220;--card:#1B2E2B;--ink:#E4EEEA;--soft:#A3B7B2;
+    --mint:#264440;--amber:#D4AE6B;--line:#2C4642;--peer:#7FB5AB;--client:#D4AE6B;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#132220;--card:#1B2E2B;--ink:#E4EEEA;--soft:#A3B7B2;
+  --mint:#264440;--amber:#D4AE6B;--line:#2C4642;--peer:#7FB5AB;--client:#D4AE6B;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:560px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:"Noto Serif TC","Songti TC",serif;font-weight:700;line-height:1.35;margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:6px}
 
+/* hero */
+.hero{padding:48px 0 28px;text-align:center}
+.portrait{
+  width:112px;height:112px;border-radius:50%;margin:0 auto 18px;
+  background:var(--mint) center/cover no-repeat;
+  display:grid;place-items:center;font-family:"Noto Serif TC",serif;font-size:44px;color:var(--peer);
+  box-shadow:0 0 0 6px var(--paper),0 0 0 7px var(--line);
+}
+.hello{font-size:15px;color:var(--soft);margin:0 0 6px}
+.hero h1{font-size:34px;letter-spacing:.04em}
+.hero h1 small{display:block;font-size:15px;font-family:"Noto Sans TC",sans-serif;font-weight:400;color:var(--soft);letter-spacing:.08em;margin-top:4px}
+.role{margin:14px 0 0;font-size:16px}
+.tagline{
+  margin:22px auto 0;max-width:24em;font-family:"Noto Serif TC",serif;font-size:19px;line-height:1.7;
+}
+
+/* path chooser — the memorable piece */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:30px 0 8px}
+.path{
+  appearance:none;border:1.5px solid var(--line);background:var(--card);color:var(--ink);
+  border-radius:18px;padding:18px 14px 16px;text-align:left;cursor:pointer;font:inherit;
+  transition:border-color .2s,transform .2s;
+}
+.path b{display:block;font-family:"Noto Serif TC",serif;font-size:18px;margin-bottom:4px}
+.path span{font-size:13.5px;color:var(--soft);line-height:1.55;display:block}
+.path[data-path="peer"] b{color:var(--peer)}
+.path[data-path="client"] b{color:var(--client)}
+.path[aria-selected="true"][data-path="peer"]{border-color:var(--peer)}
+.path[aria-selected="true"][data-path="client"]{border-color:var(--client)}
+.path:hover{transform:translateY(-2px)}
+.hint{text-align:center;font-size:13px;color:var(--soft);margin:6px 0 0}
+
+/* panels */
+.panel{display:none;padding:26px 0 8px}
+.panel.on{display:block;animation:rise .35s ease}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.panel.on{animation:none}.path:hover{transform:none}}
+.panel h2{font-size:23px;margin-bottom:6px}
+.lead{color:var(--soft);margin:0 0 18px}
+.item{border-top:1px solid var(--line);padding:16px 0}
+.item h3{font-size:17px;margin-bottom:4px}
+.item p{margin:0;font-size:15px}
+.item .meta{font-size:13.5px;color:var(--soft);margin-top:4px}
+.panel[data-panel="peer"] .item h3{color:var(--peer)}
+.panel[data-panel="client"] .item h3{color:var(--client)}
+.note{font-size:13px;color:var(--soft);margin-top:8px}
+
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
+  min-height:52px;border-radius:14px;border:0;font:inherit;font-weight:500;font-size:16px;
+  text-decoration:none;cursor:pointer;margin-top:12px;
+}
+.btn.peer{background:var(--peer);color:#fff}
+.btn.client{background:var(--client);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+:root[data-theme="dark"] .btn.peer,:root[data-theme="dark"] .btn.client{color:#132220}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.peer,:root:not([data-theme="light"]) .btn.client{color:#132220}}
+
+/* creds */
+.creds{margin:34px 0 0;padding:20px;background:var(--card);border-radius:18px;border:1px solid var(--line)}
+.creds h2{font-size:18px;margin-bottom:10px}
+.creds ul{margin:0;padding:0 0 0 1.1em;font-size:14.5px}
+.creds li{margin:3px 0}
+
+/* form */
+.keep{margin:34px 0 0}
+.keep h2{font-size:22px;margin-bottom:4px}
+label{display:block;font-size:14px;margin:14px 0 6px;color:var(--soft)}
+input,select,textarea{
+  width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--card);
+  border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;
+}
+textarea{min-height:84px;resize:vertical}
+.contacts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.contacts .btn{margin-top:0;font-size:15px}
+footer{text-align:center;font-size:13px;color:var(--soft);padding:40px 0 34px}
+footer a{color:var(--soft)}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="hero">
+    <div class="portrait" id="portrait" role="img" aria-label="Julia 的照片">J</div>
+    <p class="hello">很高興認識你，我是</p>
+    <h1>Julia Yuen<small>來自香港</small></h1>
+    <p class="role">整合身心諮詢顧問・TimeWaver 認證顧問</p>
+    <p class="tagline">二十年在課室學會「留意」一個人，<br>現在換了工具，繼續做同一件事。</p>
+  </header>
+
+  <section aria-label="選擇你想了解的內容">
+    <div class="paths" role="tablist">
+      <button class="path" role="tab" data-path="peer" aria-selected="false" aria-controls="p-peer">
+        <b>我是同行</b><span>交流、合作、轉介，或一起玩精油</span>
+      </button>
+      <button class="path" role="tab" data-path="client" aria-selected="false" aria-controls="p-client">
+        <b>我想了解自己</b><span>遠距諮詢，回台灣也能繼續</span>
+      </button>
+    </div>
+    <p class="hint" id="hint">選一個，看看我們可以怎麼連結</p>
+
+    <!-- 同行 -->
+    <div class="panel" id="p-peer" data-panel="peer" role="tabpanel">
+      <h2>同行，我們可以這樣合作</h2>
+      <p class="lead">同樣走在身心這條路上，很想聽聽你的經驗。</p>
+      <div class="item">
+        <h3>個案與經驗交流</h3>
+        <p>TimeWaver、Healy 或其他工具的使用心得，彼此切磋，跨地域也沒問題。</p>
+      </div>
+      <div class="item">
+        <h3>聯合工作坊</h3>
+        <p>精油 DIY（潤唇膏、身體乳）、Brain Gym® 健腦操、親子活動，可線上或來台合辦。</p>
+      </div>
+      <div class="item">
+        <h3>互相轉介</h3>
+        <p>適合轉介給我的朋友：想釐清方向或開展第二事業的人、忙碌的專業人士與在職父母、想調和家庭關係的家庭。</p>
+        <p class="meta">你擅長的範疇也告訴我，我身邊有需要的朋友會想到你。</p>
+      </div>
+      <div class="item">
+        <h3>一起用精油</h3>
+        <p>我是 Young Living 銀級領袖，與約 150 位夥伴一起把精油帶進生活。喜歡精油的你，歡迎交流用油心得，也可以了解加入團隊的方式。</p>
+      </div>
+      <a class="btn peer" data-wa="peer" href="#">傳訊息聊合作</a>
+    </div>
+
+    <!-- 散客 -->
+    <div class="panel" id="p-client" data-panel="client" role="tabpanel">
+      <h2>給想多了解自己的你</h2>
+      <p class="lead">全程遠距進行，不用配合時間地點。回到台灣，也能繼續。</p>
+      <div class="item">
+        <h3>TimeWaver 首次諮詢</h3>
+        <p>看見生活、關係與方向上的卡點，再以兩星期頻率調和陪你走一段。</p>
+        <p class="meta">90 分鐘諮詢＋報告＋兩星期調和｜HK$1,680</p>
+      </div>
+      <div class="item">
+        <h3>隱才定位系統</h3>
+        <p>想轉換跑道、開展第二事業？找出你還沒用上的天賦。</p>
+        <p class="meta">30 分鐘＋個人定位報告＋兩星期遠距調理｜HK$2,880</p>
+      </div>
+      <div class="item">
+        <h3>此刻・香頻 客製精油香水</h3>
+        <p>按你此刻的狀態調配，一瓶只屬於你的香氣。</p>
+        <p class="meta">HK$980 起</p>
+      </div>
+      <a class="btn client" data-wa="client" href="#">預約免費 15 分鐘對談</a>
+      <p class="note">先聊聊再決定，不用有壓力。</p>
+    </div>
+  </section>
+
+  <section class="creds" aria-labelledby="c-h">
+    <h2 id="c-h">關於我</h2>
+    <ul>
+      <li>此刻・The Present 創辦人</li>
+      <li>TimeWaver 13 模組認證顧問，曾於 TimeWaver 國際會議分享</li>
+      <li>Brain Gym® 健腦操認證導師</li>
+      <li>香港國際嬰兒按摩協會（HKIIMA）認證導師</li>
+      <li>註冊教師，教學二十年</li>
+      <li>兩個孩子的媽媽</li>
+    </ul>
+  </section>
+
+  <section class="keep" aria-labelledby="k-h">
+    <h2 id="k-h">留個聯絡，回頭好找你</h2>
+    <p class="lead">填好後會開啟訊息，按「傳送」就完成。</p>
+    <form id="keep" novalidate>
+      <label for="f-name">你的名字</label>
+      <input id="f-name" autocomplete="name" required>
+      <label for="f-who">我是</label>
+      <select id="f-who">
+        <option value="同行">同行（想交流／合作／轉介）</option>
+        <option value="想了解精油團隊">對精油團隊有興趣</option>
+        <option value="想了解自己">想了解諮詢</option>
+      </select>
+      <label for="f-where">我們在哪裡認識？</label>
+      <input id="f-where" placeholder="例如：台北某某聚會">
+      <label for="f-msg">想聊什麼（可留空）</label>
+      <textarea id="f-msg"></textarea>
+      <button class="btn peer" type="submit">送出</button>
+    </form>
+
+    <div class="contacts">
+      <a class="btn ghost" href="julia.vcf" download>存入通訊錄</a>
+      <a class="btn ghost" id="line-btn" href="#" target="_blank" rel="noopener">加 LINE</a>
+      <a class="btn ghost" id="wa-btn" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn ghost" href="mailto:hello@juliayuen.com">Email</a>
+    </div>
+  </section>
+
+  <footer>
+    <a href="https://juliayuen.com/">juliayuen.com</a> 看更多<br>
+    此刻・The Present
+  </footer>
+</main>
+
+<script>
+/* ===== 設定：只需改這裡 ===== */
+const WHATSAPP = "85296215876";
+const LINE_URL = "";            // 例：https://line.me/ti/p/~你的LINEID（留空會自動隱藏按鈕）
+const PORTRAIT = "/lip/portrait.jpg";
+const SRC_TAG  = "（來自 juliayuen.com/tw）";
+/* ========================== */
+
+const wa = t => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(t + "\n" + SRC_TAG);
+
+// 照片：載入成功才顯示，否則保留「J」
+(() => {
+  const img = new Image();
+  img.onload = () => { const p = document.getElementById("portrait"); p.style.backgroundImage = "url(" + PORTRAIT + ")"; p.textContent = ""; };
+  img.src = PORTRAIT;
+})();
+
+// LINE / WhatsApp 按鈕
+const lineBtn = document.getElementById("line-btn");
+if (LINE_URL) lineBtn.href = LINE_URL; else lineBtn.classList.add("hidden");
+document.getElementById("wa-btn").href = wa("Hi Julia，很高興認識你！");
+document.querySelector('[data-wa="peer"]').href = wa("Hi Julia，我是同行，想和你聊聊合作／交流。");
+document.querySelector('[data-wa="client"]').href = wa("Hi Julia，我想預約免費 15 分鐘對談。");
+document.querySelectorAll("[data-wa]").forEach(a => { a.target = "_blank"; a.rel = "noopener"; });
+
+// 分流
+const tabs = document.querySelectorAll(".path");
+function show(which, scroll){
+  tabs.forEach(t => t.setAttribute("aria-selected", t.dataset.path === which));
+  document.querySelectorAll(".panel").forEach(p => p.classList.toggle("on", p.dataset.panel === which));
+  document.getElementById("hint").classList.add("hidden");
+  if (scroll) document.getElementById("p-" + which).scrollIntoView({behavior: matchMedia("(prefers-reduced-motion:reduce)").matches ? "auto" : "smooth", block:"start"});
+}
+tabs.forEach(t => t.addEventListener("click", () => {
+  show(t.dataset.path, true);
+  history.replaceState(null, "", "#" + t.dataset.path);
+  document.getElementById("f-who").value = t.dataset.path === "peer" ? "同行" : "想了解自己";
+}));
+// 直接分享 juliayuen.com/tw#peer 或 #client
+const h = location.hash.slice(1);
+if (h === "peer" || h === "client") show(h, false);
+
+// 表格 → WhatsApp
+document.getElementById("keep").addEventListener("submit", e => {
+  e.preventDefault();
+  const name = document.getElementById("f-name");
+  if (!name.value.trim()) { name.focus(); name.placeholder = "請先填名字"; return; }
+  const t = "Hi Julia，我是 " + name.value.trim() +
+    "\n身份：" + document.getElementById("f-who").value +
+    "\n認識地點：" + (document.getElementById("f-where").value.trim() || "—") +
+    (document.getElementById("f-msg").value.trim() ? "\n想聊：" + document.getElementById("f-msg").value.trim() : "");
+  window.open(wa(t), "_blank");
+});
+</script>
+</body>
+</html>
