@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>什麼是 TimeWaver？信息場技術簡介｜Julia Yuen</title>
+<meta name="description" content="TimeWaver 信息場技術簡介：原理、運作方式、12 維模型、Coaching Wheel 及影片。由 TimeWaver 13 模組認證顧問 Julia Yuen 整理。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Outfit:wght@300;400;500;600&family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#234B47;
+    --teal:#199E91;
+    --teal-2:#46B8AC;
+    --aqua:#86D9CB;
+    --gold:#E0B158;
+    --gold-soft:#F0D69A;
+    --gold-deep:#C28A2E;
+    --paper:#FBFAF4;
+    --paper-2:#EBF6F1;
+    --cloud:#FFFFFF;
+    --muted:#5C7370;
+    --line:rgba(35,75,71,.13);
+    --display:"Fraunces","Noto Serif TC",Georgia,serif;
+    --body:"Outfit","Noto Sans TC",system-ui,sans-serif;
+    --maxw:1180px;
+    --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.65;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .en{font-family:var(--body);letter-spacing:.04em;color:var(--muted);font-weight:300}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+  section{padding:clamp(56px,9vw,120px) 0}
+
+  /* ---------- type scale (fluid) ---------- */
+  h1{font-family:var(--display);font-weight:500;line-height:1.08;font-size:clamp(2.1rem,6.4vw,4.4rem);letter-spacing:-.01em}
+  h2{font-family:var(--display);font-weight:500;line-height:1.14;font-size:clamp(1.7rem,4.2vw,2.9rem)}
+  h3{font-family:var(--display);font-weight:500;font-size:clamp(1.15rem,2.4vw,1.5rem)}
+  p{font-size:clamp(.98rem,1.5vw,1.08rem)}
+  .kicker{font-family:var(--body);text-transform:uppercase;letter-spacing:.28em;font-size:.72rem;color:var(--gold);font-weight:500}
+  .lead{font-size:clamp(1.05rem,2vw,1.25rem);color:var(--muted);font-weight:300;max-width:54ch}
+
+  .sec-head{text-align:center;max-width:60ch;margin:0 auto clamp(34px,5vw,60px)}
+  .sec-head .kicker{display:block;margin-bottom:14px}
+  .sec-head .en{display:block;margin-top:6px;font-size:.95rem}
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--body);font-weight:500;
+    padding:.85em 1.6em;border-radius:999px;font-size:.95rem;transition:.25s ease;cursor:pointer;border:1px solid transparent}
+  .btn-gold{background:var(--gold);color:#fff}
+  .btn-gold:hover{background:#b1862f;transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--teal);color:var(--teal)}
+  .btn-ghost:hover{background:var(--teal);color:#fff}
+  .btn-line{border-color:var(--teal);color:var(--teal)}
+  .btn-line:hover{background:var(--teal);color:#fff}
+  .more{display:inline-flex;align-items:center;gap:.4em;color:var(--teal);font-weight:500;font-size:.92rem;transition:.2s}
+  .more:hover{gap:.7em;color:var(--gold)}
+
+  /* ---------- top announcement ---------- */
+  .topbar{background:var(--ink);color:#cfe3e2;text-align:center;font-size:.8rem;letter-spacing:.05em;padding:9px 16px}
+  .topbar a{color:var(--gold-soft);font-weight:500}
+
+  /* ---------- header / nav ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(251,250,244,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:baseline;gap:.5em;font-family:var(--display);font-size:1.5rem;font-weight:600;color:var(--ink)}
+  .brand small{font-family:var(--body);font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .menu{display:flex;align-items:center;gap:clamp(14px,2vw,30px);list-style:none}
+  .menu a{font-size:.92rem;color:var(--ink);font-weight:400;transition:.2s}
+  .menu a:hover{color:var(--teal)}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .lang-switcher{display:flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:999px;padding:.3em .7em;background:rgba(255,255,255,.6);backdrop-filter:blur(8px)}
+  .lang-btn{font-size:.78rem;color:var(--muted);cursor:pointer;background:none;border:0;font-family:var(--body);padding:.2em .3em;border-radius:999px;transition:.2s;font-weight:400}
+  .lang-btn:hover{color:var(--teal)}
+  .lang-btn.active{color:var(--teal);font-weight:700;background:rgba(25,158,145,.1)}
+  .lang-div{color:var(--line);font-size:.75rem;user-select:none}
+  .burger,.burger-box{display:none}
+
+
+  /* ---------- grouped dropdown menu ---------- */
+  .menu .dd{position:relative}
+  .dd-btn{background:none;border:0;font-size:.92rem;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:6px;padding:0;font-family:var(--body)}
+  .dd-btn:hover{color:var(--teal)}
+  .dd-btn i{width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:.2s}
+  .dd.open .dd-btn i{transform:rotate(-135deg) translateY(-1px)}
+  .dd-menu{list-style:none;position:absolute;top:calc(100% + 16px);left:-18px;min-width:220px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 14px 34px rgba(20,60,56,.12);opacity:0;visibility:hidden;transform:translateY(-6px);transition:.2s;z-index:60}
+  .dd.open .dd-menu{opacity:1;visibility:visible;transform:none}
+  .dd-menu a{display:block;padding:10px 12px;border-radius:9px;font-size:.9rem;white-space:nowrap}
+  .dd-menu a:hover{background:rgba(25,158,145,.08)}
+  .new{font-size:.62rem;background:var(--gold);color:#fff;border-radius:999px;padding:.15em .55em;margin-left:4px;letter-spacing:.06em;vertical-align:middle}
+  @media(min-width:861px){.menu .dd:hover .dd-menu{opacity:1;visibility:visible;transform:none}.dd-menu::before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px}}
+
+  /* ---------- hero perfume card ---------- */
+  .hero-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:clamp(28px,4vw,60px);align-items:center}
+  .scent-card{display:block;background:rgba(255,255,255,.78);border:1px solid rgba(196,154,69,.35);border-radius:22px;overflow:hidden;box-shadow:0 18px 40px rgba(60,50,30,.12);transition:.3s}
+  .scent-card:hover{transform:translateY(-4px);box-shadow:0 24px 48px rgba(60,50,30,.18)}
+  .scent-card img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+  .sc-body{display:block;padding:18px 22px 22px}
+  .sc-tag{display:block;font-size:.7rem;letter-spacing:.18em;color:var(--gold-deep);font-weight:600;margin-bottom:6px}
+  .sc-title{display:block;font-family:var(--display);font-size:1.15rem;color:var(--ink);line-height:1.5}
+  .sc-desc{display:block;font-size:.85rem;color:var(--muted);margin-top:6px}
+  .sc-more{display:inline-block;margin-top:12px;color:var(--gold-deep);font-weight:600;font-size:.9rem}
+
+  /* ---------- entry cards ---------- */
+  .entry{background:var(--paper)}
+  .entry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px)}
+  .entry-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.3s}
+  .entry-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -24px rgba(35,75,71,.45)}
+  .entry-card .ep{position:relative;display:block;aspect-ratio:4/3;overflow:hidden}
+  .entry-card img{width:100%;height:100%;object-fit:cover;display:block}
+  .entry-card .badge{position:absolute;top:12px;left:12px;font-style:normal;font-size:.68rem;font-weight:700;letter-spacing:.1em;background:var(--gold);color:#fff;border-radius:999px;padding:.25em .7em}
+  .entry-card .eb{display:flex;flex-direction:column;gap:4px;padding:16px 18px 20px}
+  .entry-card b{font-family:var(--display);font-size:1.1rem;color:var(--ink);font-weight:600}
+  .entry-card small{font-size:.84rem;color:var(--muted)}
+  .entry-card i{font-style:normal;margin-top:8px;font-size:.88rem;font-weight:600;color:var(--teal)}
+  .explore-tools{margin-top:clamp(18px,2.5vw,28px);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 10px;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:12px 20px;font-size:.9rem}
+  .explore-tools b{color:var(--ink);font-weight:600;margin-right:4px}
+  .explore-tools a{color:var(--teal);text-decoration:none;font-weight:500}
+  .explore-tools a:hover{text-decoration:underline}
+  .explore-tools .sep{color:var(--muted);opacity:.5}
+  @media (max-width:600px){.explore-tools{border-radius:18px;font-size:.85rem}}
+
+  /* ===== free tools ===== */
+  .tools-sec{padding:clamp(56px,8vw,96px) 0;background:linear-gradient(180deg,#fff 0%,var(--paper-2) 100%)}
+  .tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,22px);margin-top:8px}
+  .tool-card{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px 20px 20px;text-decoration:none;color:inherit;transition:.3s}
+  .tool-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -24px rgba(35,75,71,.45);border-color:var(--teal)}
+  .tool-card .ti{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(95,184,174,.14);margin-bottom:6px}
+  .tool-card svg{width:24px;height:24px;fill:none;stroke:var(--teal);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .tool-card b{font-family:var(--display);font-size:1.08rem;color:var(--ink);font-weight:600}
+  .tool-card small{font-size:.84rem;color:var(--muted);line-height:1.55}
+  .tool-card i{font-style:normal;margin-top:auto;padding-top:10px;font-size:.88rem;font-weight:600;color:var(--teal)}
+  .tools-more{text-align:center;margin-top:26px}
+  .tools-more a{color:var(--teal);font-weight:600;text-decoration:none}
+  @media (max-width:900px){.tools-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:480px){.tools-grid{grid-template-columns:1fr 1fr;gap:10px}.tool-card{padding:16px 14px}.tool-card small{font-size:.78rem}}
+  .scentband{background:linear-gradient(160deg,#f7efe3 0%,#fbf6ee 60%,#fdf6e6 100%)}
+  @media(max-width:980px){.entry-grid{grid-template-columns:1fr}}
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr}
+    .scent-card{max-width:420px}
+    .menu{max-height:calc(100vh - 74px);overflow-y:auto}
+    .menu .dd{width:100%;border-bottom:1px solid var(--line)}
+    .dd-btn{width:100%;justify-content:space-between;padding:15px 0;font-size:1.05rem}
+    .dd-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;border-radius:0;padding:0 0 10px 14px;min-width:0;display:none;background:transparent}
+    .dd.open .dd-menu{display:block}
+    .dd-menu li{border:0!important}
+    .dd-menu a{padding:9px 0!important;font-size:.98rem!important;color:var(--muted)}
+    .scentband .lip-poster{order:2}
+  }
+  @media(max-width:480px){.entry-grid{gap:12px}.entry-card .eb{padding:12px 12px 14px}.entry-card b{font-size:.98rem}.entry-card small{font-size:.76rem}}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;color:var(--ink);overflow:hidden;
+    background:linear-gradient(160deg,#d6f1ea 0%,#eaf7ef 45%,#fdf6e6 100%)}
+  .hero .wrap{position:relative;z-index:2;padding-top:clamp(60px,10vw,110px);padding-bottom:clamp(70px,11vw,130px)}
+  .hero h1{color:var(--ink);max-width:16ch}
+  .hero h1 em{font-style:italic;color:var(--gold-deep)}
+  .hero .sub{margin-top:22px;color:#3E5C58;font-size:clamp(1.02rem,2vw,1.25rem);font-weight:300;max-width:46ch}
+  .hero .en-sub{display:block;margin-top:8px;font-size:.95rem;color:var(--muted);letter-spacing:.04em}
+  .hero .cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
+  .wave{position:absolute;inset:0;z-index:1;opacity:.5}
+  .particles span{position:absolute;border-radius:50%;background:var(--teal);opacity:.32;animation:float 9s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+  .scroll-hint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:2;color:var(--muted);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase}
+
+  /* fade-up load animation */
+  .fade{opacity:0;transform:translateY(18px);animation:up .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .fade.d1{animation-delay:.12s}.fade.d2{animation-delay:.24s}.fade.d3{animation-delay:.36s}.fade.d4{animation-delay:.48s}
+  @keyframes up{to{opacity:1;transform:none}}
+
+  /* ---------- intro strip ---------- */
+  .intro{background:var(--cloud)}
+  .intro .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,64px);align-items:center}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .chip{border:1px solid var(--line);border-radius:999px;padding:.5em 1em;font-size:.85rem;color:var(--teal);background:var(--paper)}
+  .photo{border-radius:var(--r);aspect-ratio:4/3;background:
+      linear-gradient(135deg,rgba(95,184,174,.25),rgba(196,154,69,.22)),var(--paper-2);
+    display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;letter-spacing:.2em;
+    border:1px solid var(--line)}
+
+  /* ---------- card grids ---------- */
+  .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(18px,2.4vw,28px)}
+  .card{background:var(--cloud);border-radius:var(--r);overflow:hidden;border:1px solid var(--line);
+    transition:.3s ease;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px -22px rgba(16,42,48,.4)}
+  .card .pic{aspect-ratio:3/2;background:linear-gradient(135deg,var(--teal),var(--teal-2));position:relative}
+  .card .pic.alt1{background:linear-gradient(135deg,#2e7b80,#5fb8ae)}
+  .card .pic.alt2{background:linear-gradient(135deg,#1a5b63,#23707a)}
+  .card .pic.warm{background:linear-gradient(135deg,#c49a45,#e4cd93)}
+  .card .pic span{position:absolute;left:16px;bottom:14px;color:rgba(255,255,255,.85);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase}
+  .card .body{padding:24px 24px 26px;flex:1;display:flex;flex-direction:column}
+  .card h3{margin-bottom:4px}
+  .card .en{font-size:.82rem;margin-bottom:12px}
+  .card p{color:var(--muted);font-size:.95rem;flex:1}
+  .card .more{margin-top:18px}
+
+  /* ---------- product band ---------- */
+  .band{background:var(--paper-2);color:var(--ink)}
+  .band .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,5vw,60px);align-items:center}
+  .band h2{color:var(--ink)}
+  .band .en{color:var(--muted)}
+  .band p{color:#44605C;margin-top:16px}
+  .band .photo{background:linear-gradient(135deg,rgba(224,177,88,.32),rgba(134,217,203,.42)),#dff0ea;color:var(--muted);border-color:var(--line)}
+
+  /* ---------- booking CTA ---------- */
+  .booking{background:var(--paper-2);text-align:center}
+  .booking .box{background:var(--cloud);border:1px solid var(--line);border-radius:24px;padding:clamp(34px,6vw,64px);max-width:780px;margin:0 auto}
+  .booking h2{margin-bottom:10px}
+  .booking .cta{margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn-wa{background:#25D366;color:#fff}
+  .btn-wa:hover{background:#1da851;transform:translateY(-2px)}
+
+  /* ---------- articles ---------- */
+  .article{background:var(--cloud);border-radius:var(--r);border:1px solid var(--line);overflow:hidden;transition:.3s}
+  .article:hover{transform:translateY(-5px);box-shadow:0 16px 36px -24px rgba(16,42,48,.4)}
+  .article .pic{aspect-ratio:16/10;background:linear-gradient(135deg,#dfe9e6,#eef0e7)}
+  .article .pic{position:relative;overflow:hidden}
+  .article .pic img{width:100%;height:100%;object-fit:cover;display:block}
+  .article:hover .pic img{transform:scale(1.03)}
+  .article .pic img{transition:transform .5s ease}
+  .article .body{padding:22px 22px 24px}
+  .article .tag{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .article h3{font-size:1.18rem;margin:8px 0 8px}
+  .article p{color:var(--muted);font-size:.92rem}
+
+  /* ---------- testimonials ---------- */
+  /* ---- memo testimonials ---- */
+  .quotes{background:linear-gradient(160deg,#f0f7f4 0%,#faf9f2 100%)}
+  .memo-board{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(18px,2.5vw,30px)}
+  .memo{
+    background:#fff;
+    border-radius:4px 4px 4px 4px;
+    padding:clamp(22px,3vw,32px) clamp(20px,3vw,30px) clamp(20px,3vw,28px);
+    box-shadow:0 2px 8px rgba(35,75,71,.08), 0 8px 24px -8px rgba(35,75,71,.12), 3px 3px 0 #e8e2d4;
+    border-top:5px solid var(--teal);
+    position:relative;
+    transition:.3s ease;
+    display:flex;flex-direction:column;
+  }
+  .memo:nth-child(2){border-top-color:var(--gold);transform:rotate(.4deg)}
+  .memo:nth-child(3){border-top-color:var(--aqua);transform:rotate(-.3deg)}
+  .memo:hover{transform:rotate(0) translateY(-6px);box-shadow:0 12px 40px -12px rgba(35,75,71,.22), 3px 3px 0 #e0d8cc}
+  .memo::before{content:'📌';position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:1.3rem}
+  .memo-tag{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:14px}
+  .memo:nth-child(2) .memo-tag{color:var(--gold-deep)}
+  .memo:nth-child(3) .memo-tag{color:#2E9B8F}
+  .memo-weeks{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;color:var(--muted);
+    border-bottom:1px dashed var(--line);padding-bottom:14px;margin-bottom:18px;font-style:italic}
+  .memo-text{font-family:var(--display);font-style:italic;font-size:clamp(.98rem,1.6vw,1.08rem);
+    color:#2d4a46;line-height:1.8;flex:1}
+  .memo-from{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:flex-end}
+  .memo-from b{font-style:normal;font-family:var(--body);font-weight:600;font-size:.9rem;color:var(--ink)}
+  .memo-from small{display:block;color:var(--muted);font-size:.78rem;margin-top:3px;font-style:normal}
+  .memo-stars{color:var(--gold);font-size:.8rem;letter-spacing:.08em}
+
+  /* ---------- footer ---------- */
+  footer{background:#2E7E74;color:#dcefe9;padding-top:clamp(48px,7vw,80px)}
+  .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(24px,4vw,48px)}
+  footer h4{font-family:var(--display);color:#fff;font-weight:500;font-size:1.05rem;margin-bottom:14px}
+  footer .brand{color:#fff;margin-bottom:12px}
+  footer ul{list-style:none}
+  footer li{margin-bottom:9px;font-size:.9rem}
+  footer a:hover{color:var(--gold-soft)}
+  .social{display:flex;gap:12px;margin-top:6px}
+  .social a{width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;transition:.2s}
+  .social a:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+  .disclaimer{border-top:1px solid rgba(255,255,255,.18);margin-top:clamp(36px,5vw,56px);padding:22px 0;font-size:.76rem;color:#bfe0d9;line-height:1.6}
+  .copy{padding-bottom:30px;font-size:.78rem;color:#aed7cf}
+
+  /* ===================================================== */
+  /* MOBILE — the part that fixes your 手機版 layout        */
+  /* ===================================================== */
+  @media(max-width:860px){
+    .menu{position:fixed;inset:74px 0 auto 0;background:var(--paper);flex-direction:column;align-items:flex-start;
+      gap:0;padding:8px 24px 24px;border-bottom:1px solid var(--line);transform:translateY(calc(-100% - 140px));transition:.35s ease;height:auto}
+    .menu li{width:100%;border-bottom:1px solid var(--line)}
+    .menu a{display:block;padding:15px 0;font-size:1.05rem}
+    .burger-box:checked ~ .menu,.burger-box:checked ~ .nav .menu{transform:none}
+    .burger{display:flex;flex-direction:column;gap:5px;width:30px;cursor:pointer;background:none;border:0;padding:6px 0}
+    .burger span{height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+    .burger-box:checked ~ .nav .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .burger-box:checked ~ .nav .burger span:nth-child(2){opacity:0}
+    .burger-box:checked ~ .nav .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .nav-cta .btn{display:none}
+    .intro .grid,.band .grid{grid-template-columns:1fr}
+    .band .photo{order:-1}
+    .fgrid{grid-template-columns:1fr 1fr;gap:30px}
+  }
+  @media(max-width:480px){
+    .fgrid{grid-template-columns:1fr}
+    .hero .cta{flex-direction:column;align-items:stretch}
+    .hero .cta .btn{justify-content:center}
+  }
+
+  /* ========== TIMEWAVER SECTION ========== */
+  .tw-section{background:linear-gradient(160deg,#0e2e2a 0%,#163e38 60%,#1a4a42 100%);color:#e8f4f1;position:relative;overflow:hidden}
+  .tw-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 30%,rgba(25,158,145,.18) 0%,transparent 70%);pointer-events:none}
+  .tw-section .wrap{position:relative;z-index:2}
+  .tw-kicker{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--aqua);font-weight:500;display:block;margin-bottom:16px}
+  .tw-section h2{color:#fff;margin-bottom:10px}
+  .tw-section .tw-lead{color:#a8d4ce;font-size:clamp(1rem,1.8vw,1.18rem);max-width:58ch;margin-bottom:48px;font-weight:300}
+  .tw-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
+  .tw-tab{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:999px;
+    padding:.6em 1.3em;font-size:.88rem;color:#a8d4ce;cursor:pointer;transition:.25s;font-family:var(--body);font-weight:400}
+  .tw-tab:hover{background:rgba(255,255,255,.13);color:#fff}
+  .tw-tab.active{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:500}
+  .tw-panel{display:none;animation:twfade .4s ease}
+  .tw-panel.active{display:block}
+  @keyframes twfade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .tw-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px);align-items:start}
+  .tw-grid.single{grid-template-columns:1fr}
+  .tw-text h3{color:#fff;font-size:clamp(1.3rem,2.5vw,1.8rem);margin-bottom:16px}
+  .tw-text p{color:#c2deda;line-height:1.75;margin-bottom:16px;font-size:clamp(.95rem,1.5vw,1.06rem)}
+  .tw-text p:last-child{margin-bottom:0}
+  .tw-text strong{color:#e0f0ec}
+  .tw-visual{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+  .tw-visual-box{aspect-ratio:4/3;background:linear-gradient(135deg,rgba(25,158,145,.35),rgba(224,177,88,.2)),rgba(255,255,255,.04);
+    display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:.8rem;letter-spacing:.2em}
+  .tw-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px;margin-top:8px}
+  .tw-step{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:24px}
+  .tw-step-num{font-family:var(--display);font-size:2rem;color:var(--aqua);font-weight:500;line-height:1;margin-bottom:10px}
+  .tw-step h4{color:#fff;font-size:1rem;font-weight:500;margin-bottom:8px}
+  .tw-step p{color:#a8d4ce;font-size:.9rem;line-height:1.6}
+  .tw-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .tw-pill{background:rgba(25,158,145,.22);border:1px solid rgba(25,158,145,.4);border-radius:8px;
+    padding:.5em 1em;font-size:.85rem;color:#86d9cb}
+  .tw-dim-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:12px;margin-top:24px}
+  .tw-dim{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px 16px;text-align:center}
+  .tw-dim .num{font-family:var(--display);font-size:1.4rem;color:var(--gold);font-weight:500}
+  .tw-dim .label{font-size:.8rem;color:#a8d4ce;margin-top:6px;line-height:1.4}
+  .tw-cta-strip{margin-top:48px;padding:32px 36px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+    border-radius:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+  .tw-cta-strip p{color:#c2deda;font-size:1rem;max-width:48ch}
+  .tw-cta-strip strong{display:block;color:#fff;font-size:1.15rem;margin-bottom:6px}
+  @media(max-width:760px){
+    .tw-grid{grid-template-columns:1fr}
+    .tw-cta-strip{flex-direction:column;align-items:flex-start;padding:24px}
+  }
+  /* ========== END TIMEWAVER SECTION ========== */
+
+
+  /* ---- social proof bar ---- */
+  .proof-bar{background:var(--ink);padding:clamp(14px,2vw,20px) 0;overflow:hidden}
+  .proof-bar .wrap{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:clamp(16px,3vw,40px)}
+  .proof-item{display:flex;align-items:center;gap:10px;color:#cfe3e2;font-size:clamp(.78rem,1.2vw,.88rem);white-space:nowrap}
+  .proof-item .dot{width:6px;height:6px;background:var(--aqua);border-radius:50%;flex-shrink:0}
+  .proof-divider{width:1px;height:28px;background:rgba(255,255,255,.2)}
+  @media(max-width:600px){.proof-divider{display:none}.proof-bar .wrap{gap:12px}}
+
+
+  /* ---- pricing section ---- */
+  .pricing{background:linear-gradient(160deg,#f0f7f4 0%,#faf9f2 100%)}
+  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+  .price-card{background:#fff;border-radius:24px;padding:clamp(28px,4vw,40px);border:1px solid var(--line);
+    display:flex;flex-direction:column;transition:.3s;position:relative;overflow:hidden}
+  .price-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px -20px rgba(35,75,71,.25)}
+  .price-card.featured{border:2px solid var(--teal);background:linear-gradient(160deg,#f0faf8,#fff)}
+  .price-card.featured::before{content:'最受歡迎';position:absolute;top:18px;right:-28px;
+    background:var(--teal);color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.12em;
+    padding:.4em 2.8em;transform:rotate(35deg);transform-origin:center}
+  .price-icon{font-size:2rem;margin-bottom:16px}
+  .price-name{font-family:var(--display);font-size:1.3rem;font-weight:500;color:var(--ink);margin-bottom:6px}
+  .price-sub{font-size:.82rem;color:var(--muted);margin-bottom:20px;font-style:italic}
+  .price-features{list-style:none;margin-bottom:24px;flex:1}
+  .price-features li{display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:#3E5C58;
+    padding:8px 0;border-bottom:1px solid var(--line)}
+  .price-features li:last-child{border-bottom:0}
+  .price-features li::before{content:'✦';color:var(--teal);font-size:.7rem;margin-top:3px;flex-shrink:0}
+  .price-cta{margin-top:auto}
+  .price-hint{font-size:.78rem;color:var(--muted);text-align:center;margin-top:10px;font-style:italic}
+  .price-from{font-size:.75rem;color:var(--muted);margin-bottom:16px;text-align:center;
+    background:var(--paper);border-radius:999px;padding:.4em 1em;display:inline-block}
+  @media(max-width:860px){.pricing-grid{grid-template-columns:1fr}}
+  @media(min-width:580px) and (max-width:860px){.pricing-grid{grid-template-columns:1fr 1fr}}
+
+  /* ---- video section ---- */
+  .vid-section{background:var(--ink);padding:clamp(56px,9vw,110px) 0}
+  .vid-section .sec-head .kicker{color:var(--aqua)}
+  .vid-section h2{color:#fff}
+  .vid-section .en{color:#9fc2bf}
+  .vid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+  @media(max-width:900px){.vid-grid{grid-template-columns:1fr}}
+  @media(min-width:600px) and (max-width:900px){.vid-grid{grid-template-columns:1fr 1fr}}
+  .vid-card{border-radius:20px;overflow:hidden;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}
+  .vid-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden}
+  .vid-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  .vid-placeholder{position:absolute;top:0;left:0;width:100%;height:100%;
+    background:linear-gradient(135deg,rgba(25,158,145,.3),rgba(35,75,71,.8));
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;cursor:pointer}
+  .vid-play{width:64px;height:64px;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.25s}
+  .vid-play svg{width:24px;height:24px;fill:#fff;margin-left:4px}
+  .vid-placeholder:hover .vid-play{background:var(--teal);border-color:var(--teal);transform:scale(1.08)}
+  .vid-placeholder p{color:rgba(255,255,255,.7);font-size:.85rem;letter-spacing:.15em;text-transform:uppercase}
+  .vid-label{padding:20px 22px}
+  .vid-label h3{color:#fff;font-size:1.1rem;margin-bottom:6px}
+  .vid-label p{color:#9fc2bf;font-size:.9rem}
+
+  /* ---------- about Julia ---------- */
+  .julia{background:var(--cloud)}
+  .julia-col{max-width:62ch}
+  .julia-col p{margin-top:16px;color:#44605C}
+  .julia-col .en{margin-top:6px}
+  .julia-col .more{margin-top:22px}
+
+  /* ---------- DIY lip balm feature ---------- */
+  .lipband{background:linear-gradient(160deg,#fdf6e6 0%,#f4f8ee 55%,#eaf7ef 100%)}
+  .lip-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,64px);align-items:center}
+  .lipband h2 em{font-style:italic;color:var(--gold-deep)}
+  .lipband p{color:#44605C;margin-top:16px;max-width:48ch}
+  .lip-points{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .lip-points li{border:1px solid var(--line);border-radius:999px;padding:.45em 1em;font-size:.85rem;color:var(--teal);background:rgba(255,255,255,.7)}
+  .lipband .cta{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap}
+  .lip-poster{display:block;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 30px 60px -34px rgba(35,75,71,.6);transition:transform .3s ease,box-shadow .3s ease}
+  .lip-poster:hover{transform:translateY(-4px);box-shadow:0 36px 70px -34px rgba(35,75,71,.7)}
+  .lip-poster img{width:100%;height:auto}
+  @media(max-width:860px){.lip-grid{grid-template-columns:1fr}}
+
+/* ── 2026-10-09 三條路 + B2B ── */
+.entry-card .lst{font-size:.78rem;color:var(--muted);opacity:.9;line-height:1.65;margin-top:3px}
+.b2b{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  margin-top:clamp(14px,2vw,22px);background:var(--paper-2);border:1px solid var(--line);
+  border-radius:var(--r);padding:18px 22px;text-decoration:none;transition:.3s}
+.b2b:hover{border-color:var(--teal-2)}
+.b2b b{display:block;font-family:var(--display);font-size:1.02rem;color:var(--ink);font-weight:600}
+.b2b small{display:block;font-size:.84rem;color:var(--muted);margin-top:4px;line-height:1.65}
+.b2b i{font-style:normal;font-size:.88rem;font-weight:600;color:var(--teal);white-space:nowrap}
+.sv-latent{display:block;margin-top:24px;background:var(--paper-2);border:1px solid var(--line);
+  border-radius:var(--r);padding:20px 22px;text-decoration:none;transition:.3s}
+.sv-latent:hover{border-color:var(--teal-2)}
+.sv-latent b{display:block;font-family:var(--display);font-size:1.06rem;color:var(--ink);font-weight:600}
+.sv-latent small{display:block;font-size:.86rem;color:var(--muted);margin-top:5px;line-height:1.75}
+.sv-latent i{font-style:normal;display:inline-block;margin-top:9px;font-size:.88rem;
+  font-weight:600;color:var(--teal)}
+</style>
+<link rel="canonical" href="https://juliayuen.com/timewaver/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://juliayuen.com/timewaver/">
+<meta property="og:site_name" content="Julia Yuen · Wellness Path">
+<meta property="og:locale" content="zh_HK">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:title" content="什麼是 TimeWaver？信息場技術簡介｜Julia Yuen">
+<meta property="og:description" content="TimeWaver 信息場技術簡介：原理、運作方式、12 維模型、Coaching Wheel 及影片。由 TimeWaver 13 模組認證顧問 Julia Yuen 整理。">
+<meta property="og:image" content="https://juliayuen.com/assets/og-home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="此刻 · The Present">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="什麼是 TimeWaver？信息場技術簡介｜Julia Yuen">
+<meta name="twitter:description" content="TimeWaver 信息場技術簡介：原理、運作方式、12 維模型、Coaching Wheel 及影片。由 TimeWaver 13 模組認證顧問 Julia Yuen 整理。">
+<meta name="twitter:image" content="https://juliayuen.com/assets/og-home.jpg">
+<style>
+/* ===== 2026-11 homepage restructure (Julia-led, consult + devices) ===== */
+.brand{align-items:baseline}
+.nav-new{font-size:.6rem;background:var(--gold);color:#fff;border-radius:999px;padding:.12em .5em;margin-left:4px;vertical-align:middle;letter-spacing:.06em}
+
+.brand{white-space:nowrap}
+@media(max-width:600px){.brand small{display:none}.brand{font-size:1.3rem}}
+/* hero */
+.h2x{position:relative;overflow:hidden;background:linear-gradient(160deg,#d6f1ea 0%,#eaf7ef 48%,#fdf6e6 100%);padding:clamp(40px,7vw,90px) 0 clamp(48px,7vw,90px)}
+.h2x .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(28px,5vw,64px);align-items:center}
+.h2x h1{font-size:clamp(1.9rem,4.2vw,3.1rem);max-width:none;margin-top:14px;line-height:1.18}
+.h2x h1 em{font-style:italic;color:var(--gold-deep)}
+.h2x .sub{margin-top:20px;color:#3E5C58;font-size:clamp(1rem,1.8vw,1.15rem);max-width:48ch}
+.h2x .cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+.chips{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:.8rem;background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:999px;padding:.35em .9em;color:var(--ink)}
+.portrait{position:relative;max-width:340px;justify-self:end;width:100%}
+.portrait img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:24px;box-shadow:0 26px 60px -28px rgba(35,75,71,.55)}
+.portrait figcaption{position:absolute;left:16px;bottom:16px;background:rgba(255,255,255,.92);border-radius:14px;padding:10px 14px;font-size:.82rem;line-height:1.35;box-shadow:0 8px 20px -10px rgba(0,0,0,.3)}
+.portrait figcaption b{display:block;font-family:var(--display);font-size:1rem;font-weight:600}
+
+/* steps */
+.steps{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:clamp(14px,2vw,22px);align-items:stretch}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column}
+.step .no{font-family:var(--display);font-size:.85rem;color:var(--gold-deep);letter-spacing:.12em}
+.step h3{margin:6px 0 8px}
+.step p{font-size:.93rem;color:var(--muted)}
+.step .price{font-family:var(--display);font-size:1.5rem;color:var(--ink);margin:14px 0 4px}
+.step .btn{margin-top:auto;align-self:flex-start}
+.step.main{border:1.5px solid var(--teal);box-shadow:0 22px 44px -30px rgba(25,158,145,.6)}
+.opt{border-top:1px dashed var(--line);padding:14px 0 4px;margin-top:12px;display:grid;grid-template-columns:1fr auto;gap:4px 14px;align-items:center}
+.opt b{font-weight:500;font-size:1.02rem}
+.opt small{grid-column:1;color:var(--muted);font-size:.84rem}
+.opt .amt{grid-row:1/3;grid-column:2;text-align:right;font-family:var(--display);font-size:1.25rem}
+.opt .acts{grid-column:1/3;display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.btn-sm{padding:.55em 1.1em;font-size:.85rem}
+.btn-pp{background:#FFC439;color:#14213d;border-color:#FFC439}
+.btn-pp:hover{background:#f2b52c}
+.opt-more{margin-top:12px;font-size:.86rem;color:var(--muted)}
+.opt-more a{color:var(--teal);font-weight:500}
+.paynote{margin-top:18px;text-align:center;font-size:.84rem;color:var(--muted)}
+
+/* devices */
+.dev{background:#fff}
+.dev-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.4vw,28px)}
+.dev-card{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
+.dev-card img{width:100%;height:auto;aspect-ratio:2048/1530;object-fit:cover}
+.dev-card .b{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.dev-card .tag{font-size:.72rem;letter-spacing:.18em;color:var(--gold-deep);font-weight:600;text-transform:uppercase}
+.dev-card p{font-size:.93rem;color:var(--muted)}
+.dev-card .fit{font-size:.88rem;color:var(--ink);background:var(--paper-2);border-radius:10px;padding:8px 12px}
+.dev-cta{margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.dev-note{text-align:center;margin-top:12px;font-size:.82rem;color:var(--muted)}
+
+/* everyday mini cards */
+.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mini{display:grid;grid-template-columns:88px 1fr;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px;transition:.25s}
+.mini:hover{transform:translateY(-3px);box-shadow:0 16px 34px -24px rgba(35,75,71,.5)}
+.mini img{width:88px;height:88px!important;object-fit:cover;border-radius:12px}
+.mini b{display:block;font-weight:500;font-size:.98rem;line-height:1.35}
+.mini small{display:block;color:var(--muted);font-size:.82rem;margin-top:3px}
+.mini i{font-style:normal;color:var(--teal);font-size:.82rem;font-weight:500;display:block;margin-top:5px}
+
+/* about + quotes */
+.ab{background:var(--paper-2)}
+.ab-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,56px);align-items:start}
+.ab p{margin-top:14px;color:#3E5C58}
+.creds{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;list-style:none}
+.creds li{padding:10px 0;border-bottom:1px solid var(--line);font-size:.93rem}
+.creds li:last-child{border:0}
+.q-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(36px,5vw,56px)}
+.q{background:#fff;border-radius:var(--r);padding:22px;border:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.q p{font-size:.93rem;color:var(--ink);margin:0}
+.q footer{all:unset;font-size:.82rem;color:var(--muted)}
+.q footer b{color:var(--ink);font-weight:500;margin-right:6px}
+
+/* faq + final */
+.faq-list{max-width:760px;margin:0 auto}
+.faq-list details{border-bottom:1px solid var(--line);padding:16px 4px}
+.faq-list summary{cursor:pointer;font-weight:500;font-size:1.02rem;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"+";color:var(--teal);font-size:1.3rem;line-height:1}
+.faq-list details[open] summary::after{content:"–"}
+.faq-list details p{margin-top:10px;color:var(--muted);font-size:.95rem}
+.faq-more{text-align:center;margin-top:20px}
+.final{background:var(--ink);color:#e6f2ef;text-align:center}
+.final h2{color:#fff}
+.final p{color:#c4dcd8;margin:12px auto 0;max-width:44ch}
+.final .cta{margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.final .btn-line{border-color:#86D9CB;color:#86D9CB}
+.final .btn-line:hover{background:#86D9CB;color:var(--ink)}
+.final .mail{display:block;margin-top:18px;font-size:.88rem;color:#a8cbc5}
+
+@media(max-width:980px){.steps{grid-template-columns:1fr}.mini-grid{grid-template-columns:1fr 1fr}.q-grid{grid-template-columns:1fr}}
+@media(max-width:860px){
+  .h2x .grid{grid-template-columns:1fr}
+  .portrait{justify-self:start;max-width:300px;order:-1}
+  .h2x .cta{flex-direction:column;align-items:stretch}.h2x .cta .btn{justify-content:center}
+  .dev-grid{grid-template-columns:1fr}
+  .ab-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .mini-grid{grid-template-columns:1fr}
+  .portrait{max-width:none;display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center}
+  .portrait img{width:96px;height:96px;aspect-ratio:auto;border-radius:50%;box-shadow:none}
+  .portrait figcaption{position:static;background:none;box-shadow:none;padding:0}
+  .h2x h1{margin-top:10px}
+  .step .btn{align-self:stretch;justify-content:center}
+}
+
+/* sub-pages */
+.ph{background:linear-gradient(160deg,#d6f1ea 0%,#eaf7ef 48%,#fdf6e6 100%);padding:clamp(40px,6vw,80px) 0;text-align:center}
+.ph h1{font-size:clamp(1.9rem,4.4vw,3rem);margin-top:12px}
+.ph .lead{margin:16px auto 0}
+.ph .cta{margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.dv{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);align-items:center}
+.dv.rev .dv-img{order:2}
+.dv-img img{width:100%;height:auto;border-radius:var(--r);box-shadow:0 22px 50px -30px rgba(35,75,71,.6)}
+.dv h2{margin:10px 0 12px}
+.dv ul{list-style:none;margin-top:16px}
+.dv li{padding:8px 0 8px 26px;position:relative;border-bottom:1px solid var(--line);font-size:.95rem}
+.dv li::before{content:"✦";position:absolute;left:0;color:var(--gold-deep)}
+.cmp{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.cmp th,.cmp td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);font-size:.93rem;vertical-align:top}
+.cmp thead th{background:var(--paper-2);font-family:var(--display);font-weight:500;font-size:1rem}
+.cmp tbody th{font-weight:500;color:var(--muted);width:24%}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+.how div{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.how div::before{counter-increment:s;content:"0" counter(s);font-family:var(--display);color:var(--gold-deep);letter-spacing:.12em;font-size:.85rem}
+.how h3{margin:6px 0 6px;font-size:1.1rem}
+.how p{font-size:.92rem;color:var(--muted)}
+@media(max-width:860px){.dv{grid-template-columns:1fr}.dv.rev .dv-img{order:0}.how{grid-template-columns:1fr}}
+</style>
+
+</head>
+<body>
+<div class="topbar"><span data-i18n="tb2">全新 · TimeWaver Mobile／Home 家用設備 · <a href="/devices/">預約免費視像示範 →</a></span></div>
+
+<header>
+  <input type="checkbox" id="burger-box" class="burger-box">
+  <div class="wrap nav">
+    <a class="brand" href="/">Julia Yuen<small>Wellness&nbsp;Path</small></a>
+    <ul class="menu">
+      <li class="dd"><button class="dd-btn" aria-expanded="false"><span data-i18n="nav-consult">諮詢</span><i></i></button>
+        <ul class="dd-menu">
+          <li><a href="/#consult" data-i18n="m-tw1">TimeWaver 首次諮詢</a></li>
+          <li><a href="/latent/"><span data-i18n="m-latent">隱才定位系統</span></a></li>
+          <li><a href="/#consult" data-i18n="m-pay">收費及付款</a></li>
+        </ul></li>
+      <li><a href="/devices/"><span data-i18n="nav-dev">家用設備</span><b class="nav-new">NEW</b></a></li>
+      <li class="dd"><button class="dd-btn" aria-expanded="false"><span data-i18n="nav-products">產品</span><i></i></button>
+        <ul class="dd-menu">
+          <li><a href="/perfume/" data-lhref data-i18n="m-perfume">此刻 · 香頻 香水訂製</a></li>
+          <li><a href="/lip/" data-i18n="nav-lip">此刻 · 唇語 潤唇膏</a></li>
+          <li><a href="/#everyday" data-i18n="m-oils2">天然精油</a></li>
+          <li><a href="/gift/" data-i18n="m-gift">企業禮品訂製</a></li>
+        </ul></li>
+      <li><a href="/#learn" data-i18n="nav-courses">課程</a></li>
+      <li class="dd"><button class="dd-btn" aria-expanded="false"><span data-i18n="nav-about">關於</span><i></i></button>
+        <ul class="dd-menu">
+          <li><a href="/#julia" data-i18n="m-julia">關於 Julia</a></li>
+          <li><a href="/timewaver/" data-i18n="m-tw">什麼是 TimeWaver</a></li>
+          <li><a href="/#testimonials" data-i18n="m-testi">客人見證</a></li>
+          <li><a href="/faq.html" data-i18n="m-faq">常見問題</a></li>
+        </ul></li>
+    </ul>
+    <div class="nav-cta">
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn active" data-lang="zh-Hant" onclick="setLang('zh-Hant')">繁</button>
+        <span class="lang-div">|</span>
+        <button class="lang-btn" data-lang="zh-Hans" onclick="setLang('zh-Hans')">簡</button>
+        <span class="lang-div">|</span>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="https://wa.me/85296215876" target="_blank" rel="noopener" class="btn btn-gold" data-i18n="nav-book">預約諮詢</a>
+      <label for="burger-box" class="burger" aria-label="選單"><span></span><span></span><span></span></label>
+    </div>
+  </div>
+</header>
+<section class="ph"><div class="wrap"><span class="kicker">TimeWaver</span><h1 data-i18n="tw-h1">什麼是 TimeWaver？</h1><p class="lead" data-i18n="tw-lead">源自德國的信息場技術。這一頁整理了原理、運作方式和影片，讓你慢慢了解。</p></div></section>
+<!-- intro -->
+<section class="intro" id="about">
+  <div class="wrap grid">
+    <div>
+      <p class="kicker">什麼是 TimeWaver</p>
+      <h2 style="margin-top:12px">在信息場中，<br>聆聽身心的訊息。</h2>
+      <p class="en">An invitation to listen — through the information field.</p>
+      <p class="lead" style="margin-top:18px">TimeWaver 是一套源自德國的信息場技術。我們透過它去分析與和諧身心的深層背景，讓被打結的能量重新流動，陪你在放鬆中找回內在的平衡與覺察。</p>
+      <div class="chips">
+        <span class="chip">信息場分析</span>
+        <span class="chip">能量和諧</span>
+        <span class="chip">芳香療法整合</span>
+        <span class="chip">身心覺察</span>
+      </div>
+    </div>
+    <img src="/assets/julia-portrait.jpg" alt="Julia Yuen" width="800" height="1000" style="width:100%;max-width:360px;height:auto;margin:0 auto;border-radius:var(--r);box-shadow:0 12px 40px -16px rgba(35,75,71,.25)">
+  </div>
+</section>
+
+
+<!-- ===== TIMEWAVER SECTION ===== -->
+<section class="tw-section" id="what-is-timewaver">
+  <div class="wrap">
+    <span class="tw-kicker">認識 TimeWaver</span>
+    <h2>什麼是 TimeWaver 信息場技術？</h2>
+    <p class="tw-lead">TimeWaver 是源自德國的信息場分析系統，連結意識與物質，協助你在生活、健康與目標中達到和諧。<br>
+    <span style="font-size:.9rem;color:rgba(168,212,206,.7)">What is TimeWaver? An information field technology that bridges consciousness and matter.</span></p>
+
+    <!-- Tab navigation -->
+    <div class="tw-tabs" role="tablist">
+      <button class="tw-tab active" onclick="switchTab(this,'tab-what')" role="tab">什麼是信息場</button>
+      <button class="tw-tab" onclick="switchTab(this,'tab-how')" role="tab">如何運作</button>
+      <button class="tw-tab" onclick="switchTab(this,'tab-dim')" role="tab">12維模型</button>
+      <button class="tw-tab" onclick="switchTab(this,'tab-coaching')" role="tab">Coaching Wheel</button>
+      <button class="tw-tab" onclick="switchTab(this,'tab-apply')" role="tab">應用範疇</button>
+    </div>
+
+    <!-- Panel 1: 什麼是信息場 -->
+    <div class="tw-panel active" id="tab-what">
+      <div class="tw-grid">
+        <div class="tw-text">
+          <h3>信息場——身體與意識之間的橋樑</h3>
+          <p>我們每個人都有兩個面向：<strong>身體（物質）</strong>與<strong>思想（意識）</strong>。這兩者的連結，就是所謂的「信息場」。它既不屬於身體，也不屬於精神，而是兩者之間一種全新的存在。</p>
+          <p>TimeWaver 的創始人 Marcus Schmieke 說：「思想可以在信息場中創造出顯化在物質中的形狀；物質世界同樣可以影響信息場的思想。當身體與意識不能相互交流，我們便會生病。」</p>
+          <p>TimeWaver 系統正是透過信息場技術，<strong>分析與協調身心的深層背景因素</strong>，讓被阻塞的能量重新流動。</p>
+          <div class="tw-pills">
+            <span class="tw-pill">量子物理學基礎</span>
+            <span class="tw-pill">生物場域論</span>
+            <span class="tw-pill">心理學整合</span>
+            <span class="tw-pill">靈性修行視角</span>
+          </div>
+        </div>
+        <div class="tw-visual">
+          <img src="data:image/jpeg;base64,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p/f7F0MiV/MeqIv7hswuzPS1Ex2QrK7GXQWu/wA2WeqV+hHVo7SPg0VU3lU3ZakXJCdKzrEmpKJuRIEXdT0pgXzgTxYrZlQVlcBX0POtiRGpW+Xf3sVnpavk86Vp5zvnkCnJKYsVpqXnaImosOFES7Scwx1Tmp5WquFN5cKKmE9B9iez1tmVFPhTloylpRESO1u4kRq70RqdCp5F9KAfeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAART2wdkT6Msal6Il32sWknrdFRd25MqVU/uqtT0VkrHnLtjJl0SzKTl6+8gyDVRPO571X2IBGEk5jJyA+Iy3YkRqubjJXvHVixHRYr4j1rc9yucuFVWs40Hw0PjJ7TrgAfd9iWgaIp2k6SZTsvdpeXlUip37m2q21Sr3qp5CTYfY9sGdGuMSiXwYist0bFjxGqqbv3vMotKLvO4PRLex/YCr3JeDERqNW2WaiVORcHfGXa3sFucSJeEO0hrU9b6id6uBe+FpLw84g9Exux9YDBciPkGfORq1TUTvVVFVK++8xevY6sCR6sWShI5HWqpfb669+r53mXMLSXh5zB6Lb2PLAXVVScJa2q76W/eTfX53mXMZIXY1sGivtIVHsc61trVJqIq1YfnC0l4ecAeldquw36pXnETrDarsN+qV5xE6xCXmoHpXarsN+qV5xE6w2q7DfqlecROsB5qB6V2q7DfqlecROsNquw36pXnETrAeageldquw36pXnETrDarsN+qV5xE6wHmoHpXarsN+qV5xE6w2q7DfqlecROsB5qB6V2q7DfqlecROsNquw36pXnETrAeageldquw36pXnETrDarsN+qV5xE6wHmoHpXarsN+qV5xE6w2q7DfqlecROsB5qB6V2q7DfqlecROsNquw36pXnETrAeageldquw36pXnETrDarsN+qV5xE6wHmo6dERdx8JfJ3yfyegtquw36pXnETrF0LsX2IQno+HRao5PLfETrAQYCetrqxb6tXl36xtdWLfVq8u/WBApY+G17kctdaE+7XVi31avLv1ja6sW+rV5d+skQKCetrqxb6tXl36xtdWLfVq8u/WQIFBPW11Yt9Wry79Y2urFvq1eXfrAgUE9bXVi31avLv1ja6sW+rV5d+sCBQT1tdWLfVq8u/WNrqxb6tXl36wIFBPW11Yt9Wry79Y2ur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" alt="TimeWaver 脈輪報告" style="width:100%;display:block">
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2: 如何運作 -->
+    <div class="tw-panel" id="tab-how">
+      <div class="tw-grid">
+        <div class="tw-text">
+          <h3>TimeWaver 如何為你分析與調和？</h3>
+          <p>TimeWaver 在德國研發，現已被全球逾 <strong>1,500 名諮詢師</strong>使用。系統會鎖定你個人的信息場，即時分析，並從 <strong>12 個不同維度</strong>進行頻率的調整與調和。</p>
+          <p>分析範圍涵蓋：身體壓力成因、睡眠質素影響因素、細胞健康狀態、免疫系統狀態、情緒及信念的影響、居住環境的影響等。</p>
+          <p>每一個人身體失衡的成因各有不同，可以是食物敏感、毒素過多、情緒壓力或環境因素。TimeWaver 幫助你從信息場中<strong>找出肉眼看不見的根源</strong>，而不只是處理表面症狀。</p>
+        </div>
+        <div class="tw-text">
+          <h3>主要分析模組</h3>
+          <div class="tw-pills" style="flex-direction:column;gap:12px">
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🔬 器官統整模組 — 52器官能量場分析</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">⚡ 經絡模組 — 中醫經絡能量通道優化</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🕐 時間軸模組 — 過去、現在與未來的生命線</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🎵 音頻模組 — 個人化頻率平衡療法</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🌀 光環模組 — 脈輪分析與可視化</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🧬 波動基因模組 — DNA波動場調節</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3: 12維模型 -->
+    <div class="tw-panel" id="tab-dim">
+      <div class="tw-grid">
+        <div class="tw-text">
+          <h3>Burkhard Heim 的 12 維模型</h3>
+          <p>TimeWaver 的理論基礎來自德國物理學家 <strong>Burkhard Heim</strong>（Werner Heisenberg 的學生）在 20 世紀 70 年代末提出的統一場論。他完成了許多著名物理學家（包括 Einstein 和 Hawking）未能完成的任務。</p>
+          <p>根據 Heim 的模型，信息場位於<strong>第 7 維和第 8 維</strong>——這是我們存在的層面，所有問題的答案、預先決定和所有知識都儲存於此。通過 TimeWaver，更高的維度與我們習慣的時空四個維度進行溝通。</p>
+        </div>
+        <div class="tw-text">
+          <img src="data:image/jpeg;base64,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" alt="12維信息場模型" style="width:100%;border-radius:12px;margin-bottom:20px;border:1px solid rgba(255,255,255,.12)">
+          <div class="tw-dim-grid">
+            <div class="tw-dim"><div class="num">d1–d4</div><div class="label">物質世界<br>四維時空</div></div>
+            <div class="tw-dim"><div class="num">d5–d6</div><div class="label">能量控制場<br>ECL</div></div>
+            <div class="tw-dim"><div class="num">d7–d8</div><div class="label">信息場<br>意識層面</div></div>
+            <div class="tw-dim"><div class="num">d9–d10</div><div class="label">全球信息場<br>GIF</div></div>
+            <div class="tw-dim"><div class="num">d11–d12</div><div class="label">心識空間<br>純意識</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 4: Coaching Wheel -->
+    <div class="tw-panel" id="tab-coaching">
+      <div class="tw-text tw-grid single" style="margin-bottom:28px">
+        <div>
+          <h3>Coaching Wheel — 5 步驟諮詢流程</h3>
+          <p>透過多維度的信息場分析，促進深度自我覺察，比較「意識」與「潛意識」之間的差異，協助你找到真正屬於自己的方向。</p>
+        </div>
+      </div>
+      <div class="tw-steps">
+        <div class="tw-step">
+          <div class="tw-step-num">01</div>
+          <h4>自我評價</h4>
+          <p>根據 13 個生命領域（家庭、財務、健康、事業、友誼、靈性等），以 1–10 分進行自我評估。</p>
+        </div>
+        <div class="tw-step">
+          <div class="tw-step-num">02</div>
+          <h4>探索願景與目標</h4>
+          <p>透過回答 TimeWaver 的問題，讓你的夢想、願望與願景變得更加清晰具體。</p>
+        </div>
+        <div class="tw-step">
+          <div class="tw-step-num">03</div>
+          <h4>信息場分析</h4>
+          <p>多維度分析將你的自我評價（意識）與潛意識進行比較，把隱藏的模式帶入覺察。</p>
+        </div>
+        <div class="tw-step">
+          <div class="tw-step-num">04</div>
+          <h4>制定行動計劃</h4>
+          <p>從短期和長期目標的角度，優化你的觀點，制定具體可行的行動計劃。</p>
+        </div>
+        <div class="tw-step">
+          <div class="tw-step-num">05</div>
+          <h4>執行與跟進</h4>
+          <p>根據 TimeWaver 的評估進行諮詢，與顧問一起執行計劃，持續追蹤進展。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 5: 應用範疇 -->
+    <div class="tw-panel" id="tab-apply">
+      <div class="tw-grid">
+        <div class="tw-text">
+          <h3>廣泛的應用領域</h3>
+          <p>TimeWaver 的信息場技術可以應用於生活各個層面，從個人身心健康到企業管理，提供多元的支持與洞察。</p>
+          <div class="tw-pills" style="flex-direction:column;gap:10px;margin-top:16px">
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">💚 心靈成長與發展</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🌿 身體保健與管理（睡眠、免疫、細胞健康）</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🤝 人際關係與家庭和諧</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🏢 企業決策與領導支援</span>
+            <span class="tw-pill" style="border-radius:10px;padding:.7em 1.1em">🏡 居住空間能量優化</span>
+          </div>
+        </div>
+        <div class="tw-text">
+          <h3>常見的諮詢主題</h3>
+          <p style="margin-bottom:20px">在我們的諮詢中，客人常帶來以下議題：</p>
+          <div class="tw-steps" style="grid-template-columns:1fr">
+            <div class="tw-step" style="padding:18px">
+              <h4>😴 睡眠困擾</h4>
+              <p>全球約 10-30% 人口受睡眠障礙影響。TimeWaver 幫助找出影響睡眠的信息場因素。</p>
+            </div>
+            <div class="tw-step" style="padding:18px">
+              <h4>😰 情緒與壓力</h4>
+              <p>長期壓力、焦慮、情緒困擾背後往往有更深的信息場根源需要被看見與調和。</p>
+            </div>
+            <div class="tw-step" style="padding:18px">
+              <h4>🔋 身體活力低落</h4>
+              <p>細胞膜電位降低是許多身體失衡的根源。TimeWaver 頻率調和助你恢復自然電壓。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="tw-cta-strip">
+      <div>
+        <strong>準備好體驗 TimeWaver 了嗎？</strong>
+        <p>首次諮詢包含 15 分鐘免費了解，讓我陪你看看哪一種方式最適合此刻的你。</p>
+      </div>
+      <a href="https://wa.me/85296215876" target="_blank" class="btn btn-gold">預約免費了解 →</a>
+    </div>
+  </div>
+</section>
+
+<script>
+function switchTab(btn, panelId) {
+  document.querySelectorAll('.tw-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tw-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+</script>
+<!-- ===== VIDEO SECTION ===== -->
+<!--
+=======================================================
+📹 影片管理指南
+=======================================================
+換 YouTube 影片：
+  1. 去 YouTube，撳「分享」→「嵌入」
+  2. 複製 src 入面 /embed/XXXXXXX 嗰串 ID
+  3. 將下面 YOUR_YOUTUBE_ID 換成你嘅 ID
+
+換 Vimeo 影片：
+  src="https://player.vimeo.com/video/YOUR_VIMEO_ID"
+
+暫時未有影片？保留 placeholder，之後再換。
+=======================================================
+-->
+<section class="vid-section" id="videos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">了解 TimeWaver</span>
+      <h2 style="color:#fff">親眼看看，儀器如何運作</h2>
+      <span class="en">See TimeWaver in Action</span>
+    </div>
+    <div class="vid-grid">
+
+      <!-- 影片 1：Julia 親身介紹 -->
+      <div class="vid-card">
+        <div style="background:rgba(25,158,145,.1);padding:8px 14px;display:flex;align-items:center;gap:8px">
+          <span style="background:var(--teal);color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.12em;padding:.25em .7em;border-radius:999px">🎤 Julia 親身講解</span>
+        </div>
+        <div class="vid-wrap">
+          <iframe src="https://www.youtube.com/embed/UZ7X8gIVHO8"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <div class="vid-label">
+          <h3 style="font-size:1rem">什麼是 TimeWaver 信息場技術？</h3>
+          <p style="font-size:.85rem">Julia 親身講解信息場分析如何精準呈現身心狀態，數據說話，不是盲估。</p>
+        </div>
+      </div>
+
+      <!-- 影片 2：U-SUN ASIA 國際講座 -->
+      <div class="vid-card" style="border:2px solid rgba(224,177,88,.5)">
+        <div style="background:rgba(224,177,88,.12);padding:8px 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <span style="background:var(--gold);color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.12em;padding:.25em .7em;border-radius:999px">🎙️ 受邀嘉賓講座</span>
+          <span style="font-size:.72rem;color:#9b7e3a">U-SUN ASIA × TimeWaver</span>
+        </div>
+        <div class="vid-wrap">
+          <iframe src="https://www.youtube.com/embed/3w91tUDtHTE"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <div class="vid-label">
+          <h3 style="font-size:1rem">「生活有方」Vol.2 — 能量掃描如何精準找出身心卡點</h3>
+          <p style="font-size:.85rem">受邀 U-SUN ASIA 國際研討會，現場示範 Aura 光環模組掃描。</p>
+        </div>
+      </div>
+
+      <!-- 影片 3：TimeWaver 官方 -->
+      <div class="vid-card">
+        <div style="background:rgba(16,42,48,.06);padding:8px 14px;display:flex;align-items:center;gap:8px">
+          <span style="background:#1A5B63;color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.12em;padding:.25em .7em;border-radius:999px">🏛️ TimeWaver 官方</span>
+        </div>
+        <div class="vid-wrap">
+          <iframe src="https://www.youtube.com/embed/vpY2LPX40ps"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <div class="vid-label">
+          <h3 style="font-size:1rem">TimeWaver Concepts — Information Field Technology</h3>
+          <p style="font-size:.85rem">TimeWaver 官方介紹信息場技術的科學原理與核心概念。</p>
+        </div>
+      </div>
+
+  </div>
+</section>
+
+
+<script>
+// THREE-LANGUAGE SYSTEM 繁體 / 簡體 / EN
+const T = {
+  // TOPBAR
+  'topbar-text':{'zh-Hant':'全新推出「此刻 · 香頻」個人化天然精油香水訂製 · <a href="/perfume/" data-lhref>了解更多 →</a>','zh-Hans':'全新推出「此刻 · 香频」个性化天然精油香水定制 · <a href="/perfume/sc/" data-lhref>了解更多 →</a>','en':'New: Scent of Now — personalised natural essential oil perfume · <a href="/perfume/en/" data-lhref>Learn more →</a>'},
+  // NAV
+  'm-consult':{'zh-Hant':'TimeWaver 諮詢服務','zh-Hans':'TimeWaver 咨询服务','en':'TimeWaver Consultations'},
+  'm-pricing':{'zh-Hant':'收費方案','zh-Hans':'收费方案','en':'Pricing'},
+  'm-booking':{'zh-Hant':'預約諮詢','zh-Hans':'预约咨询','en':'Book a Session'},
+  'm-perfume':{'zh-Hant':'此刻 · 香頻 香水訂製','zh-Hans':'此刻 · 香频 香水定制','en':'Scent of Now — Custom Perfume'},
+  'm-oils':{'zh-Hant':'精油療癒','zh-Hans':'精油疗愈','en':'Essential Oil Therapy'},
+  'm-julia':{'zh-Hant':'關於 Julia','zh-Hans':'关于 Julia','en':'About Julia'},
+  'm-tw':{'zh-Hant':'什麼是 TimeWaver','zh-Hans':'什么是 TimeWaver','en':'What is TimeWaver'},
+  'm-testi':{'zh-Hant':'客人見證','zh-Hans':'客人见证','en':'Testimonials'},
+  'm-videos':{'zh-Hant':'影片','zh-Hans':'视频','en':'Videos'},
+  'sc-title':{'zh-Hant':'你的香氣先到，世界便記住你。','zh-Hans':'你的香气先到，世界便记住你。','en':'Your scent arrives first — and the world remembers you.'},
+  'sc-desc':{'zh-Hant':'TimeWaver 配對 · 個人化天然精油香水 · HK$980 起','zh-Hans':'TimeWaver 配对 · 个性化天然精油香水 · HK$980 起','en':'TimeWaver-matched natural essential oil perfume · from HK$980'},
+  'sc-more':{'zh-Hant':'訂製你的香 →','zh-Hans':'定制你的香 →','en':'Create your scent →'},
+  'tr1':{'zh-Hant':'定方向','zh-Hans':'定方向','en':'Find your direction'},
+  'tr1d':{'zh-Hant':'卡住了，想看清下一步','zh-Hans':'卡住了，想看清下一步','en':'Stuck, and want to see the next step'},
+  'tr1l':{'zh-Hant':'隱才定位系統 HK$2,880 · TimeWaver 諮詢 HK$1,680 起','zh-Hans':'隐才定位系统 HK$2,880 · TimeWaver 咨询 HK$1,680 起','en':'Latent HK$2,880 · TimeWaver from HK$1,680'},
+  'tr1go':{'zh-Hant':'由這裡開始 →','zh-Hans':'从这里开始 →','en':'Start here →'},
+  'tr2':{'zh-Hant':'日常調理','zh-Hans':'日常调理','en':'Everyday care'},
+  'tr2d':{'zh-Hant':'想每天有一樣用得上的東西','zh-Hans':'想每天有一样用得上的东西','en':'Something you can use every day'},
+  'tr2l':{'zh-Hant':'香頻香水 HK$980 起 · 唇語潤唇膏 HK$65 起 · 精油療癒','zh-Hans':'香频香水 HK$980 起 · 唇语润唇膏 HK$65 起 · 精油疗愈','en':'Bespoke scent from HK$980 · Lip balm from HK$65 · Essential oils'},
+  'tr2go':{'zh-Hant':'看看產品 →','zh-Hans':'看看产品 →','en':'See the products →'},
+  'tr3':{'zh-Hant':'學一套方法','zh-Hans':'学一套方法','en':'Learn the method'},
+  'tr3d':{'zh-Hant':'想學回來，自己用或者教人','zh-Hans':'想学回来，自己用或者教人','en':'Learn it for yourself, or to teach'},
+  'tr3l':{'zh-Hant':'證書課程（嬰兒按摩 · 健腦操 · 兒童芳療）· 親子 DIY 班 HK$280','zh-Hans':'证书课程（婴儿按摩 · 健脑操 · 儿童芳疗）· 亲子 DIY 班 HK$280','en':'Certificate courses (infant massage · Brain Gym · children\u2019s aromatherapy) · Parent-child DIY HK$280'},
+  'tr3go':{'zh-Hant':'查看課程 →','zh-Hans':'查看课程 →','en':'View courses →'},
+  'b2b-h':{'zh-Hant':'給團隊與機構','zh-Hans':'给团队与机构','en':'For teams and organisations'},
+  'b2b-d':{'zh-Hant':'企業禮品訂製 · 學校／診所／企業 團隊減壓工作坊','zh-Hans':'企业礼品定制 · 学校／诊所／企业 团队减压工作坊','en':'Bespoke corporate gifts · wind-down workshops for schools, clinics and companies'},
+  'b2b-go':{'zh-Hant':'了解更多 →','zh-Hans':'了解更多 →','en':'Find out more →'},
+  'm-latent':{'zh-Hant':'隱才定位系統','zh-Hans':'隐才定位系统','en':'Latent Positioning'},
+  'm-gift':{'zh-Hant':'企業禮品訂製','zh-Hans':'企业礼品定制','en':'Corporate Gifts'},
+  'sv-lt':{'zh-Hant':'想先搞清楚方向，而不只是放鬆？','zh-Hans':'想先搞清楚方向，而不只是放松？','en':'Want direction, not just relaxation?'},
+  'sv-ltd':{'zh-Hant':'隱才定位系統 —— 30 分鐘，找出你的隱藏優勢、卡點與下一步，附個人定位報告及兩星期遠距調理。','zh-Hans':'隐才定位系统 —— 30 分钟，找出你的隐藏优势、卡点与下一步，附个人定位报告及两星期远距调理。','en':'Latent \u2014 30 minutes to find your hidden strengths, where you are stuck and what comes next, with a written positioning report and two weeks of remote work.'},
+  'sv-ltgo':{'zh-Hant':'了解隱才定位系統 →','zh-Hans':'了解隐才定位系统 →','en':'About Latent \u2192'},
+  'en-kicker':{'zh-Hant':'探索此刻','zh-Hans':'探索此刻','en':'Explore'},
+  'en-h2':{'zh-Hant':'你想由哪裡開始？','zh-Hans':'你想从哪里开始？','en':'Where would you like to begin?'},
+  'en-c1':{'zh-Hant':'TimeWaver 諮詢','zh-Hans':'TimeWaver 咨询','en':'TimeWaver Consultation'},
+  'en-c1d':{'zh-Hant':'了解身心狀態 · 遙距進行','zh-Hans':'了解身心状态 · 远程进行','en':'Understand your body & mind · remote'},
+  'en-c2':{'zh-Hant':'此刻 · 香頻 香水訂製','zh-Hans':'此刻 · 香频 香水定制','en':'Scent of Now Perfume'},
+  'en-c2d':{'zh-Hant':'TimeWaver 配對 · HK$980 起','zh-Hans':'TimeWaver 配对 · HK$980 起','en':'TimeWaver-matched · from HK$980'},
+  'en-c3':{'zh-Hant':'此刻 · 唇語 潤唇膏','zh-Hans':'此刻 · 唇语 润唇膏','en':'Balm of Now Lip Balm'},
+  'en-c3d':{'zh-Hant':'訂製送禮 · 親子 DIY 班','zh-Hans':'定制送礼 · 亲子 DIY 班','en':'Custom gifts · parent-child DIY class'},
+  'en-c4':{'zh-Hant':'證書課程','zh-Hans':'证书课程','en':'Certificate Courses'},
+  'en-c4d':{'zh-Hant':'嬰兒按摩 · 健腦操 · 兒童芳療','zh-Hans':'婴儿按摩 · 健脑操 · 儿童芳疗','en':'Baby massage · Brain Gym · kids aromatherapy'},
+  'ex-tools':{'zh-Hant':'免費工具箱：','zh-Hans':'免费工具箱：','en':'Free tools:'},
+  'ex-all':{'zh-Hant':'全部 →','zh-Hans':'全部 →','en':'All →'},
+  'nav-tools':{'zh-Hant':'免費工具','zh-Hans':'免费工具','en':'Free tools'},
+  'tl-kicker':{'zh-Hant':'免費工具箱','zh-Hans':'免费工具箱','en':'Free tools'},
+  'tl-h2':{'zh-Hant':'隨時用得著的身心工具箱','zh-Hans':'随时用得着的身心工具箱','en':'Everyday tools for body and mind'},
+  'tl-br':{'zh-Hant':'呼吸練習計時器','zh-Hans':'呼吸练习计时器','en':'Breathing timer'},
+  'tl-brd':{'zh-Hant':'方形呼吸 · 4-7-8 · 跟住圓圈同聲音一呼一吸','zh-Hans':'方形呼吸 · 4-7-8 · 跟着圆圈和声音一呼一吸','en':'Box and 4-7-8 breathing, guided by a circle and sound'},
+  'tl-fo':{'zh-Hant':'專注溫習計時器','zh-Hans':'专注复习计时器','en':'Study timer + music'},
+  'tl-fod':{'zh-Hant':'番茄鐘 · 50/10 心流 · 雨聲同琴音陪讀','zh-Hans':'番茄钟 · 50/10 心流 · 雨声和琴音陪读','en':'Pomodoro and 50/10 flow with rain or soft piano'},
+  'tl-fr':{'zh-Hant':'頻率聲音播放器','zh-Hans':'频率声音播放器','en':'Frequency sound player'},
+  'tl-frd':{'zh-Hant':'528Hz · 432Hz · 索菲亞頻率 · 雙耳節拍','zh-Hans':'528Hz · 432Hz · 索菲亚频率 · 双耳节拍','en':'528 Hz, 432 Hz, Solfeggio tones and binaural beats'},
+  'tl-di':{'zh-Hant':'精油稀釋計算器','zh-Hans':'精油稀释计算器','en':'Essential oil dilution calculator'},
+  'tl-did':{'zh-Hant':'幾多滴精油？輸入容量同用途即時計','zh-Hans':'要滴多少滴精油？输入容量和用途即时计算','en':'How many drops? Enter bottle size and use'},
+  'tl-go':{'zh-Hant':'免費使用 →','zh-Hans':'免费使用 →','en':'Try it free →'},
+  'tl-all':{'zh-Hant':'查看全部免費工具 →','zh-Hans':'查看全部免费工具 →','en':'See all free tools →'},
+  'en-go':{'zh-Hant':'了解更多 →','zh-Hans':'了解更多 →','en':'Learn more →'},
+  'en-go2':{'zh-Hant':'訂製你的香 →','zh-Hans':'定制你的香 →','en':'Create your scent →'},
+  'en-go3':{'zh-Hant':'睇吓款式 →','zh-Hans':'查看款式 →','en':'See the range →'},
+  'en-go4':{'zh-Hant':'查看課程 →','zh-Hans':'查看课程 →','en':'View courses →'},
+  'pf-kicker':{'zh-Hant':'全新推出 · 此刻 · 香頻 Scent of Now','zh-Hans':'全新推出 · 此刻 · 香频 Scent of Now','en':'New · Scent of Now'},
+  'pf-h2':{'zh-Hant':'你的香氣先到，<em>世界便記住你。</em>','zh-Hans':'你的香气先到，<em>世界便记住你。</em>','en':'Your scent arrives first — <em>and the world remembers you.</em>'},
+  'pf-p':{'zh-Hant':'先了解你想發揮的意圖，再以 TimeWaver 配對最適合你此刻的香氣，由 Julia 親手調配一支只屬於你的天然精油香水。全程遙距，7–10 個工作天寄到。','zh-Hans':'先了解你想发挥的意图，再以 TimeWaver 配对最适合你此刻的香气，由 Julia 亲手调配一支只属于你的天然精油香水。全程远程，7–10 个工作日寄到。','en':'Julia first learns your intention, then matches your scent with TimeWaver and hand-blends a natural essential oil perfume that is yours alone. Fully remote; delivered in 7–10 working days.'},
+  'pf-pt1':{'zh-Hant':'對頻 HK$980','zh-Hans':'对频 HK$980','en':'Attune HK$980'},
+  'pf-pt2':{'zh-Hant':'調和 HK$1,980','zh-Hans':'调和 HK$1,980','en':'Harmonise HK$1,980'},
+  'pf-pt3':{'zh-Hant':'顯化 HK$3,880','zh-Hans':'显化 HK$3,880','en':'Manifest HK$3,880'},
+  'pf-btn1':{'zh-Hant':'了解及訂製 →','zh-Hans':'了解及定制 →','en':'Learn more & order →'},
+  'pf-btn2':{'zh-Hant':'為家人調的香','zh-Hans':'为家人调的香','en':'Scents for my family'},
+  'nav-services':{'zh-Hant':'服務','zh-Hans':'服务','en':'Services'},
+  'nav-products':{'zh-Hant':'產品','zh-Hans':'产品','en':'Products'},
+  'nav-courses':{'zh-Hant':'課程','zh-Hans':'课程','en':'Courses'},
+  'nav-articles':{'zh-Hant':'文章','zh-Hans':'文章','en':'Articles'},
+  'm-faq':{'zh-Hant':'常見問題','zh-Hans':'常见问题','en':'FAQ'},
+  'om-title':{'zh-Hant':'Oildiction 會員專區','zh-Hans':'Oildiction 会员专区','en':'Oildiction Members'},
+  'om-desc':{'zh-Hant':'會員見證、課程紀錄與學習資源，都在這裡。','zh-Hans':'会员见证、课程纪录与学习资源，都在这里。','en':'Member stories, course records and resources \u2014 all in one place.'},
+  'om-go':{'zh-Hant':'前往會員登入 \u2192','zh-Hans':'前往会员登入 \u2192','en':'Go to member login \u2192'},
+  'om-q':{'zh-Hant':'還不是會員？','zh-Hans':'还不是会员？','en':'Not a member yet?'},
+  'om-join':{'zh-Hant':'WhatsApp 查詢','zh-Hans':'WhatsApp 查询','en':'Ask on WhatsApp'},
+  'nav-oildiction':{'zh-Hant':'🌿 Oildiction 會員見證專區','zh-Hans':'🌿 Oildiction 会员见证专区','en':'🌿 Oildiction Member Stories'},
+  'nav-about':{'zh-Hant':'關於','zh-Hans':'关于','en':'About'},
+  'nav-member':{'zh-Hant':'會員專區','zh-Hans':'会员专区','en':'Members'},
+  // HERO
+  'hero-kicker':{'zh-Hant':'身心健康 · TimeWaver 諮詢','zh-Hans':'身心健康 · TimeWaver 咨询','en':'Wellness · TimeWaver Consultation'},
+  'hero-h1':{'zh-Hant':'回到<em>此刻</em>，<br>讓身心重新和諧。','zh-Hans':'回到<em>此刻</em>，<br>让身心重新和谐。','en':'Return to <em>this moment</em>,<br>restore harmony within.'},
+  'hero-btn1':{'zh-Hant':'預約一次諮詢 →','zh-Hans':'预约一次咨询 →','en':'Book a Consultation →'},
+  'hero-btn2':{'zh-Hant':'認識 TimeWaver','zh-Hans':'认识 TimeWaver','en':'Learn About TimeWaver'},
+  // INTRO
+  'intro-kicker':{'zh-Hant':'什麼是 TimeWaver','zh-Hans':'什么是 TimeWaver','en':'What is TimeWaver'},
+  'intro-h2':{'zh-Hant':'在信息場中，<br>聆聽身心的訊息。','zh-Hans':'在信息场中，<br>聆听身心的讯息。','en':'In the information field,<br>listen to what your body knows.'},
+  'intro-p':{'zh-Hant':'TimeWaver 是一套源自德國的信息場技術。我們透過它去分析與和諧身心的深層背景，讓被打結的能量重新流動，陪你在放鬆中找回內在的平衡與覺察。',
+    'zh-Hans':'TimeWaver 是一套源自德国的信息场技术。我们透过它去分析与和谐身心的深层背景，让被打结的能量重新流动，陪你在放松中找回内在的平衡与觉察。',
+    'en':'TimeWaver is an information field technology from Germany. It analyses the deeper background of your body and mind, helps blocked energy flow again, and guides you back to inner balance.'},
+  // SERVICES
+  'srv-kicker':{'zh-Hant':'諮詢服務','zh-Hans':'咨询服务','en':'Consultation Services'},
+  'srv-h2':{'zh-Hant':'找到最適合你此刻的方式','zh-Hans':'找到最适合你此刻的方式','en':'Find the right approach for you'},
+  'srv1-h3':{'zh-Hant':'量子諮詢','zh-Hans':'量子咨询','en':'Quantum Consultation'},
+  'srv1-p':{'zh-Hant':'透過信息場分析，了解身心當下的整體狀態，為你梳理需要被看見的面向。',
+    'zh-Hans':'透过信息场分析，了解身心当下的整体状态，为你梳理需要被看见的面向。',
+    'en':'Through information field analysis, we reveal the overall state of your body and mind, and surface what needs to be seen.'},
+  'srv2-h3':{'zh-Hant':'量子調和','zh-Hans':'量子调和','en':'Quantum Harmonizing'},
+  'srv2-p':{'zh-Hant':'針對分析結果進行能量和諧，協助被阻塞的生命能量重新流動。',
+    'zh-Hans':'针对分析结果进行能量和谐，协助被阻塞的生命能量重新流动。',
+    'en':'We harmonise energy based on the analysis results, helping blocked life energy flow freely again.'},
+  'srv3-h3':{'zh-Hant':'身心療癒','zh-Hans':'身心疗愈','en':'Body & Mind Wellness'},
+  'srv3-p':{'zh-Hant':'結合芳香療法與身心陪伴，在放鬆的空間裡，溫柔地回到自己。',
+    'zh-Hans':'结合芳香疗法与身心陪伴，在放松的空间里，温柔地回到自己。',
+    'en':'Combining aromatherapy and mindful accompaniment, gently returning to yourself in a relaxed space.'},
+  // PRODUCT
+  'prd-kicker':{'zh-Hant':'嚴選產品','zh-Hans':'严选产品','en':'Curated Products'},
+  'prd-h2':{'zh-Hant':'精油療癒','zh-Hans':'精油疗愈','en':'Therapeutic Essential Oil Set'},
+  'prd-p':{'zh-Hant':'精心挑選的天然植物精油，為你每天的身心照顧而設。透過芳香分子的頻率共振，把諮詢室裡的安定與療癒，延伸到你的日常生活中。',
+    'zh-Hans':'精心挑选的天然植物精油，为你每天的身心照顾而设。透过芳香分子的频率共振，把咨询室里的安定与疗愈，延伸到你的日常生活中。',
+    'en':'Carefully curated therapeutic essential oils for your daily body-mind care. Through the frequency resonance of natural aromatic molecules, bring the calm and healing of your session into everyday life.'},
+  'prd-btn':{'zh-Hant':'選購套裝 →','zh-Hans':'选购套装 →','en':'Shop Sets →'},
+  // COURSES
+  'crs-kicker':{'zh-Hant':'證書課程','zh-Hans':'证书课程','en':'Certificate Courses'},
+  'crs-h2':{'zh-Hant':'把照顧的能力，帶回家庭','zh-Hans':'把照顾的能力，带回家庭','en':'Bring the gift of care home'},
+  'crs1-h3':{'zh-Hant':'嬰兒按摩證書課程','zh-Hans':'婴儿按摩证书课程','en':'Infant Massage Certificate'},
+  'crs1-p':{'zh-Hant':'透過溫柔的觸碰，建立親子之間的安全感與連結。','zh-Hans':'透过温柔的触碰，建立亲子之间的安全感与连结。','en':'Build safety and connection through gentle touch.'},
+  'crs1-btn':{'zh-Hant':'課程詳情 →','zh-Hans':'课程详情 →','en':'Course Details →'},
+  'crs2-h3':{'zh-Hant':'健腦操證書課程','zh-Hans':'健脑操证书课程','en':'Brain Gym Certificate'},
+  'crs2-p':{'zh-Hant':'以簡單的身體律動，幫助孩子提升專注與學習狀態。','zh-Hans':'以简单的身体律动，帮助孩子提升专注与学习状态。','en':'Simple body movements to support children\'s focus and learning.'},
+  'crs2-btn':{'zh-Hant':'課程詳情 →','zh-Hans':'课程详情 →','en':'Course Details →'},
+  'crs3-h3':{'zh-Hant':'兒童芳療證書課程','zh-Hans':'儿童芳疗证书课程','en':'Kids Aromatherapy Certificate'},
+  'crs3-p':{'zh-Hant':'認識適合兒童的精油與安全用法，為家庭打造天然的照顧。','zh-Hans':'认识适合儿童的精油与安全用法，为家庭打造天然的照顾。','en':'Learn child-safe essential oils and natural family care.'},
+  'crs3-btn':{'zh-Hant':'課程詳情 →','zh-Hans':'课程详情 →','en':'Course Details →'},
+  'crs3-modal-p':{'zh-Hant':'認識適合兒童的精油與安全用法，為家庭打造天然的照顧。課程由 SANE 機構提供，按此了解詳情及報名。',
+    'zh-Hans':'认识适合儿童的精油与安全用法，为家庭打造天然的照顾。课程由 SANE 机构提供，按此了解详情及报名。',
+    'en':'Learn child-safe essential oils and natural family care. This course is provided by SANE. Click below for details and registration.'},
+  'crs3-modal-btn':{'zh-Hant':'前往課程報名 →','zh-Hans':'前往课程报名 →','en':'Go to Course Registration →'},
+  'crs3-modal-close':{'zh-Hant':'關閉','zh-Hans':'关闭','en':'Close'},
+  // BOOKING
+  'bk-kicker':{'zh-Hant':'預約 · 免費體驗','zh-Hans':'预约 · 免费体验','en':'Book · Free Discovery'},
+  'bk-h2':{'zh-Hant':'準備好回到此刻了嗎？','zh-Hans':'准备好回到此刻了吗？','en':'Ready to return to the present?'},
+  'bk-p':{'zh-Hant':'先來一次免費的 15 分鐘了解，看看哪一種方式最適合你。',
+    'zh-Hans':'先来一次免费的 15 分钟了解，看看哪一种方式最适合你。',
+    'en':'Start with a free 15-minute discovery call to find the right fit for you.'},
+  'bk-btn1':{'zh-Hant':'WhatsApp 預約','zh-Hans':'WhatsApp 预约','en':'WhatsApp Booking'},
+  'bk-btn2':{'zh-Hant':'WhatsApp 揀時間','zh-Hans':'WhatsApp 选时间','en':'Pick a Time via WhatsApp'},
+  // ARTICLES
+  'art-kicker':{'zh-Hant':'文章 · 見證','zh-Hans':'文章 · 见证','en':'Articles & Stories'},
+  'art1-alt':{'zh-Hant':'看不見的層面 · 情緒與身體的關係','zh-Hans':'看不见的层面 · 情绪与身体的关系','en':'The invisible layer — emotion and the body'},
+  'art2-alt':{'zh-Hant':'一次資訊場諮詢之後的安靜','zh-Hans':'一次信息场咨询之后的安静','en':'The quiet after a first consultation'},
+  'art3-alt':{'zh-Hant':'天然精油、薰衣草與薄荷','zh-Hans':'天然精油、薰衣草与薄荷','en':'Natural essential oils, lavender and mint'},
+  'art-h2':{'zh-Hant':'慢讀一篇，照顧自己','zh-Hans':'慢读一篇，照顾自己','en':'Slow down. Read. Take care.'},
+  // TESTIMONIALS
+  'tst-kicker':{'zh-Hant':'真實回饋','zh-Hans':'真实回馈','en':'Client Stories'},
+  'tst-h2':{'zh-Hant':'她們留下的話','zh-Hans':'她们留下的话','en':'Words from Our Clients'},
+  // FOOTER
+  'ft-desc':{'zh-Hant':'陪你回到當下，讓身心重新和諧。TimeWaver 信息場諮詢 · 芳香療法 · 身心課程。',
+    'zh-Hans':'陪你回到当下，让身心重新和谐。TimeWaver 信息场咨询 · 芳香疗法 · 身心课程。',
+    'en':'Guiding you back to the present. TimeWaver Consultation · Aromatherapy · Wellness Courses.'},
+  'ft-explore':{'zh-Hant':'探索','zh-Hans':'探索','en':'Explore'},
+  'ft-srv':{'zh-Hant':'諮詢服務','zh-Hans':'咨询服务','en':'Consultations'},
+  'ft-prd':{'zh-Hant':'精油療癒','zh-Hans':'精油疗愈','en':'Essential Oil Therapy'},
+  'ft-crs':{'zh-Hant':'證書課程','zh-Hans':'证书课程','en':'Courses'},
+  'ft-art':{'zh-Hant':'文章見證','zh-Hans':'文章见证','en':'Articles'},
+  'ft-contact':{'zh-Hant':'聯絡我們','zh-Hans':'联络我们','en':'Contact'},
+  'ft-wa':{'zh-Hant':'WhatsApp 預約','zh-Hans':'WhatsApp 预约','en':'WhatsApp Booking'},
+  'ft-hours':{'zh-Hant':'辦公時間：一至五 10:30–18:30','zh-Hans':'办公时间：周一至五 10:30–18:30','en':'Mon–Fri 10:30–18:30'},
+  'ft-member':{'zh-Hant':'會員專區','zh-Hans':'会员专区','en':'Members Area'},
+  'ft-login':{'zh-Hant':'會員登入','zh-Hans':'会员登入','en':'Member Login'},
+  'ft-mycourse':{'zh-Hant':'我的課程','zh-Hans':'我的课程','en':'My Courses'},
+  'ft-join':{'zh-Hant':'立即加入會員','zh-Hans':'立即加入会员','en':'Join Now'},
+  'ft-disc':{'zh-Hant':'聲明：TimeWaver 信息場分析與和諧屬整全身心調理範疇，並非醫療診斷、治療或藥物，不能取代專業醫療意見。如有健康問題，請諮詢註冊醫療人員。',
+    'zh-Hans':'声明：TimeWaver 信息场分析与和谐属整全身心调理范畴，并非医疗诊断、治疗或药物，不能取代专业医疗意见。如有健康问题，请咨询注册医疗人员。',
+    'en':'Disclaimer: TimeWaver information field analysis and harmonisation falls within holistic wellness and does not constitute medical diagnosis, treatment or medication, and cannot replace professional medical advice.'},
+  // ABOUT JULIA
+  'ab2-kicker':{'zh-Hant':'關於 Julia','zh-Hans':'关于 Julia','en':'About Julia'},
+  'ab2-h2':{'zh-Hant':'由課室走到諮詢室','zh-Hans':'从课室走到咨询室','en':'From the classroom to the consultation room'},
+  'ab2-p1':{'zh-Hant':'我是 Julia Yuen，整合身心諮詢顧問、「此刻 · The Present」創辦人（Wellness Path 旗下品牌），TimeWaver 13 模組認證顧問、Brain Gym® 認證導師、香港國際嬰兒按摩協會認證導師。',
+    'zh-Hans':'我是 Julia Yuen，整合身心咨询顾问、「此刻 · The Present」创办人（Wellness Path 旗下品牌），TimeWaver 13 模组认证顾问、Brain Gym® 认证导师、香港国际婴儿按摩协会认证导师。',
+    'en':"I'm Julia Yuen — integrative mind-body consultant and founder of The Present, a Wellness Path brand. Certified TimeWaver consultant (13 modules), certified Brain Gym® instructor, and certified infant massage instructor with HKIIMA."},
+  'ab2-p2':{'zh-Hant':'二十年的教學生涯裡，我做得最多的不是講課，而是留意 —— 誰今天安靜了，誰需要多一點時間。今天在諮詢室，我做的仍然是同一件事，只是換了工具。',
+    'zh-Hans':'二十年的教学生涯里，我做得最多的不是讲课，而是留意 —— 谁今天安静了，谁需要多一点时间。今天在咨询室，我做的仍然是同一件事，只是换了工具。',
+    'en':"In twenty years of teaching, most of my work wasn't lecturing — it was noticing. Who had gone quiet today, who needed a little more time. In the consultation room I'm still doing the same thing; only the tools have changed."},
+  'ab2-p3':{'zh-Hant':'我也是兩個孩子的媽媽。孩子讓我明白，照顧不是靠急，而是日常裡每一個微小的選擇 —— 由一支親手做的潤唇膏，到一次深呼吸。',
+    'zh-Hans':'我也是两个孩子的妈妈。孩子让我明白，照顾不是靠急，而是日常里每一个微小的选择 —— 从一支亲手做的润唇膏，到一次深呼吸。',
+    'en':"I'm also a mother of two. My children taught me that care isn't about urgency — it's the small daily choices, from a hand-poured lip balm to a single deep breath."},
+  'ab2-link':{'zh-Hant':'看看我親手做的潤唇膏 →','zh-Hans':'看看我亲手做的润唇膏 →','en':'See the lip balms I make by hand →'},
+  // DIY LIP BALM
+  'nav-lip':{'zh-Hant':'此刻 · 唇語 潤唇膏','zh-Hans':'此刻 · 唇语 润唇膏','en':'Balm of Now — Lip Balm'},
+  'lip-kicker':{'zh-Hant':'此刻 · 唇語 Balm of Now · 手作系列','zh-Hans':'此刻 · 唇语 Balm of Now · 手作系列','en':'Balm of Now · Handmade'},
+  'lip-h2':{'zh-Hant':'親手倒模的<em>天然潤唇膏</em>','zh-Hans':'亲手倒模的<em>天然润唇膏</em>','en':'Hand-poured <em>natural lip balm</em>'},
+  'lip-p':{'zh-Hant':'乳木果脂、蜂蠟、植物油與純精油，每一支都由 Julia 親手倒模，成分全部公開。可訂製作生日、節日或婚禮回禮，亦可報名 DIY 班親手製作。',
+    'zh-Hans':'乳木果脂、蜂蜡、植物油与纯精油，每一支都由 Julia 亲手倒模，成分全部公开。可定制作生日、节日或婚礼回礼，也可报名 DIY 课程亲手制作。',
+    'en':'Shea butter, beeswax, plant oils and pure essential oils — every balm is hand-poured by Julia, with every ingredient listed. Order them as birthday, festive or wedding gifts, or join a DIY workshop and make your own.'},
+  'lip-pt1':{'zh-Hant':'7 種香味','zh-Hans':'7 种香味','en':'7 scents'},
+  'lip-pt2':{'zh-Hant':'訂製送禮','zh-Hans':'定制送礼','en':'Custom gifts'},
+  'lip-pt3':{'zh-Hant':'DIY 潤唇膏班','zh-Hans':'DIY 润唇膏课程','en':'DIY workshops'},
+  'lip-btn1':{'zh-Hant':'看製作過程 · 訂製送禮 →','zh-Hans':'看制作过程 · 定制送礼 →','en':'See how it\'s made · Order →'},
+  'lip-btn2':{'zh-Hant':'DIY 潤唇膏班','zh-Hans':'DIY 润唇膏课程','en':'DIY workshop'},
+  'ft-copy':{'zh-Hant':'© 2026 Wellness Path · 此刻 The Present。版權所有。','zh-Hans':'© 2026 Wellness Path · 此刻 The Present。版权所有。','en':'© 2026 Wellness Path · The Present. All rights reserved.'},
+};
+// ===== 2026-11 restructure: new / overriding strings =====
+Object.assign(T, {
+  'tb2':{'zh-Hant':'全新 · TimeWaver Mobile／Home 家用設備 · <a href="/devices/">預約免費視像示範 →</a>','zh-Hans':'全新 · TimeWaver Mobile／Home 家用设备 · <a href="/devices/">预约免费视频示范 →</a>','en':'New · TimeWaver Mobile & Home for daily use · <a href="/devices/">Book a free video demo →</a>'},
+  'nav-consult':{'zh-Hant':'諮詢','zh-Hans':'咨询','en':'Consultations'},
+  'm-tw1':{'zh-Hant':'TimeWaver 首次諮詢','zh-Hans':'TimeWaver 首次咨询','en':'First TimeWaver session'},
+  'm-pay':{'zh-Hant':'收費及付款','zh-Hans':'收费及付款','en':'Fees & payment'},
+  'nav-dev':{'zh-Hant':'家用設備','zh-Hans':'家用设备','en':'Home devices'},
+  'm-oils2':{'zh-Hant':'天然精油','zh-Hans':'天然精油','en':'Essential oils'},
+  'nav-lip':{'zh-Hant':'此刻 · 唇語 潤唇膏','zh-Hans':'此刻 · 唇语 润唇膏','en':'Balm of Now — Lip Balm'},
+  'nav-book':{'zh-Hant':'預約諮詢','zh-Hans':'预约咨询','en':'Book'},
+  'h-kicker':{'zh-Hant':'Julia Yuen · 整合身心諮詢顧問','zh-Hans':'Julia Yuen · 整合身心咨询顾问','en':'Julia Yuen · Integrative Mind-Body Consultant'},
+  'h-h1':{'zh-Hant':'TimeWaver 信息場諮詢，<br>由了解到<em>帶回家用</em>。','zh-Hans':'TimeWaver 信息场咨询，<br>由了解到<em>带回家用</em>。','en':'TimeWaver consultations —<br>from insight to <em>daily use at home</em>.'},
+  'h-sub':{'zh-Hant':'我是 Julia，TimeWaver 13 模組認證顧問，做了二十年老師。先用一次遙距諮詢，看清你此刻的身心狀態；再決定需不需要把 TimeWaver 設備帶回家，每天自己用。','zh-Hans':'我是 Julia，TimeWaver 13 模组认证顾问，做了二十年老师。先用一次远程咨询，看清你此刻的身心状态；再决定需不需要把 TimeWaver 设备带回家，每天自己用。','en':'I’m Julia — a TimeWaver consultant certified in 13 modules, and a teacher for twenty years. We start with one remote session to see where you are right now. Then you decide whether a TimeWaver device for daily use at home makes sense.'},
+  'h-b1':{'zh-Hant':'預約免費 15 分鐘了解 →','zh-Hans':'预约免费 15 分钟了解 →','en':'Book a free 15-minute chat →'},
+  'h-b2':{'zh-Hant':'了解家用設備','zh-Hans':'了解家用设备','en':'Explore home devices'},
+  'h-t1':{'zh-Hant':'TimeWaver 13 模組認證','zh-Hans':'TimeWaver 13 模组认证','en':'TimeWaver 13-module certified'},
+  'h-t2':{'zh-Hant':'Brain Gym® 認證導師','zh-Hans':'Brain Gym® 认证导师','en':'Brain Gym® instructor'},
+  'h-t3':{'zh-Hant':'20 年教育經驗','zh-Hans':'20 年教育经验','en':'20 years in education'},
+  'h-t4':{'zh-Hant':'香港 · 台灣 · 全球遙距','zh-Hans':'香港 · 台湾 · 全球远程','en':'Hong Kong · Taiwan · remote worldwide'},
+  'h-cap':{'zh-Hant':'Wellness Path 創辦人','zh-Hans':'Wellness Path 创办人','en':'Founder, Wellness Path'},
+  'c-kicker':{'zh-Hant':'怎樣開始','zh-Hans':'怎样开始','en':'How it works'},
+  'c-h2':{'zh-Hant':'三步，由了解到帶回家','zh-Hans':'三步，由了解到带回家','en':'Three steps, from insight to home'},
+  'c1-t':{'zh-Hant':'免費 15 分鐘了解','zh-Hans':'免费 15 分钟了解','en':'Free 15-minute chat'},
+  'c1-d':{'zh-Hant':'WhatsApp 或視像傾一傾，看看哪一種方式最適合你。','zh-Hans':'WhatsApp 或视频聊一聊，看看哪一种方式最适合你。','en':'A quick WhatsApp or video call to see which option suits you.'},
+  'c1-p':{'zh-Hant':'免費','zh-Hans':'免费','en':'Free'},
+  'c1-b':{'zh-Hant':'WhatsApp 預約 →','zh-Hans':'WhatsApp 预约 →','en':'Book on WhatsApp →'},
+  'c2-t':{'zh-Hant':'遙距諮詢','zh-Hans':'远程咨询','en':'Remote consultation'},
+  'c2-d':{'zh-Hant':'選一項開始。全程遙距，香港以外都可以。','zh-Hans':'选一项开始。全程远程，香港以外都可以。','en':'Pick one to start. Fully remote, wherever you are.'},
+  'o1-t':{'zh-Hant':'TimeWaver 首次諮詢','zh-Hans':'TimeWaver 首次咨询','en':'First TimeWaver session'},
+  'o1-d':{'zh-Hant':'90 分鐘諮詢 ＋ 報告 ＋ 兩星期頻率調和','zh-Hans':'90 分钟咨询 ＋ 报告 ＋ 两星期频率调和','en':'90-minute session + report + two weeks of frequency balancing'},
+  'o2-t':{'zh-Hant':'隱才定位系統','zh-Hans':'隐才定位系统','en':'Latent Positioning'},
+  'o2-d':{'zh-Hant':'30 分鐘 ＋ 個人定位報告 ＋ 兩星期遠距調理','zh-Hans':'30 分钟 ＋ 个人定位报告 ＋ 两星期远距调理','en':'30 minutes + personal positioning report + two weeks of remote work'},
+  'o3':{'zh-Hant':'想長線陪伴？三個月 6 節 HK$6,880 · <a href="/latent/">了解 →</a>','zh-Hans':'想长线陪伴？三个月 6 节 HK$6,880 · <a href="/latent/">了解 →</a>','en':'Longer support? Three months, 6 sessions, HK$6,880 · <a href="/latent/">Details →</a>'},
+  'pay':{'zh-Hant':'PayPal 付款','zh-Hans':'PayPal 付款','en':'Pay with PayPal'},
+  'ask':{'zh-Hant':'WhatsApp 查詢','zh-Hans':'WhatsApp 查询','en':'Ask on WhatsApp'},
+  'ask2':{'zh-Hant':'WhatsApp 查詢 →','zh-Hans':'WhatsApp 查询 →','en':'Ask on WhatsApp →'},
+  'more':{'zh-Hant':'了解更多','zh-Hans':'了解更多','en':'Learn more'},
+  'go':{'zh-Hant':'了解 →','zh-Hans':'了解 →','en':'See more →'},
+  'c3-t':{'zh-Hant':'帶回家每天用','zh-Hans':'带回家每天用','en':'Use it at home, every day'},
+  'c3-d':{'zh-Hant':'如果適合，我會陪你揀 TimeWaver Mobile 或 Home，教你設定和使用。','zh-Hans':'如果适合，我会陪你选 TimeWaver Mobile 或 Home，教你设置和使用。','en':'If it fits, I’ll help you choose TimeWaver Mobile or Home and show you how to set it up and use it.'},
+  'c3-p':{'zh-Hant':'免費示範','zh-Hans':'免费示范','en':'Free demo'},
+  'c3-b':{'zh-Hant':'了解家用設備 →','zh-Hans':'了解家用设备 →','en':'Explore home devices →'},
+  'pay-note':{'zh-Hant':'PayPal 可用信用卡付款。付款時請選「購買商品或服務」，付款後 WhatsApp 我約時間。','zh-Hans':'PayPal 可用信用卡付款。付款时请选「购买商品或服务」，付款后 WhatsApp 我约时间。','en':'PayPal accepts credit cards. Please choose “Paying for an item or service”, then WhatsApp me to book a time.'},
+  'd-kicker':{'zh-Hant':'家用設備 · NEW','zh-Hans':'家用设备 · NEW','en':'Home devices · NEW'},
+  'd-h2':{'zh-Hant':'把 TimeWaver 帶回家，每天自己用','zh-Hans':'把 TimeWaver 带回家，每天自己用','en':'Bring TimeWaver home'},
+  'd-lead':{'zh-Hant':'經 Julia 介紹購買，Julia 陪你揀型號、教你使用。','zh-Hans':'经 Julia 介绍购买，Julia 陪你选型号、教你使用。','en':'Buy through Julia’s introduction — she helps you choose and shows you how to use it.'},
+  'dm-tag':{'zh-Hant':'隨身型 · Portable','zh-Hans':'随身型 · Portable','en':'Portable'},
+  'dm-d':{'zh-Hant':'輕巧隨身，出門、上班、旅行都可以用，隨時隨地享受信息場調頻。','zh-Hans':'轻巧随身，出门、上班、旅行都可以用，随时随地享受信息场调频。','en':'Light and portable — at work, out and about or travelling, information-field tuning wherever you are.'},
+  'dm-fit':{'zh-Hant':'適合：經常外出、想隨身使用的你','zh-Hans':'适合：经常外出、想随身使用的你','en':'For: people on the move who want it with them'},
+  'dh-tag':{'zh-Hant':'家居型 · For the family','zh-Hans':'家居型 · For the family','en':'For the whole family'},
+  'dh-d':{'zh-Hant':'放在家中，全家人都可以用，居家多方面擴充應用。','zh-Hans':'放在家中，全家人都可以用，居家多方面扩充应用。','en':'Kept at home for the whole family, with a range of add-on uses around the house.'},
+  'dh-fit':{'zh-Hant':'適合：想照顧全家、包括長輩的家庭','zh-Hans':'适合：想照顾全家、包括长辈的家庭','en':'For: families who want to look after everyone, including older parents'},
+  'd-b1':{'zh-Hant':'預約免費視像示範 →','zh-Hans':'预约免费视频示范 →','en':'Book a free video demo →'},
+  'd-b2':{'zh-Hant':'比較兩款','zh-Hans':'比较两款','en':'Compare the two'},
+  'd-note':{'zh-Hant':'價錢以官方最新報價為準，歡迎 WhatsApp 查詢。','zh-Hans':'价格以官方最新报价为准，欢迎 WhatsApp 查询。','en':'Prices follow the latest official quote — ask on WhatsApp.'},
+  'e-kicker':{'zh-Hant':'日常 · 學習 · 機構','zh-Hans':'日常 · 学习 · 机构','en':'Everyday · Learning · Organisations'},
+  'e-h2':{'zh-Hant':'把照顧，帶進每一天','zh-Hans':'把照顾，带进每一天','en':'Care, woven into every day'},
+  'e1-d':{'zh-Hant':'TimeWaver 配對 · HK$980 起','zh-Hans':'TimeWaver 配对 · HK$980 起','en':'TimeWaver-matched · from HK$980'},
+  'e2-d':{'zh-Hant':'手作天然 · 訂製送禮 · HK$65 起','zh-Hans':'手作天然 · 定制送礼 · HK$65 起','en':'Handmade, natural · custom gifts · from HK$65'},
+  'e3-d':{'zh-Hant':'Young Living 精油 · 日常身心照顧','zh-Hans':'Young Living 精油 · 日常身心照顾','en':'Young Living oils for everyday care'},
+  'e4-t':{'zh-Hant':'證書課程','zh-Hans':'证书课程','en':'Certificate courses'},
+  'e4-d':{'zh-Hant':'嬰兒按摩 · 健腦操 · 兒童芳療','zh-Hans':'婴儿按摩 · 健脑操 · 儿童芳疗','en':'Infant massage · Brain Gym · children’s aromatherapy'},
+  'e5-t':{'zh-Hant':'親子 DIY 班','zh-Hans':'亲子 DIY 班','en':'Parent-child DIY class'},
+  'e5-d':{'zh-Hant':'手作潤唇膏 · HK$280／位','zh-Hans':'手作润唇膏 · HK$280／位','en':'Make your own lip balm · HK$280 per person'},
+  'e6-t':{'zh-Hant':'企業禮品 · 團隊工作坊','zh-Hans':'企业礼品 · 团队工作坊','en':'Corporate gifts · team workshops'},
+  'e6-d':{'zh-Hant':'學校 · 診所 · 企業','zh-Hans':'学校 · 诊所 · 企业','en':'Schools · clinics · companies'},
+  'j-kicker':{'zh-Hant':'關於 Julia','zh-Hans':'关于 Julia','en':'About Julia'},
+  'j-h2':{'zh-Hant':'由課室走到諮詢室','zh-Hans':'由课室走到咨询室','en':'From the classroom to the consultation room'},
+  'j-p1':{'zh-Hant':'二十年的教學生涯裡，我做得最多的不是講課，而是留意 —— 誰今天安靜了，誰需要多一點時間。今天在諮詢室，我做的仍然是同一件事，只是換了工具。','zh-Hans':'二十年的教学生涯里，我做得最多的不是讲课，而是留意 —— 谁今天安静了，谁需要多一点时间。今天在咨询室，我做的仍然是同一件事，只是换了工具。','en':'In twenty years of teaching, what I did most was not lecturing but noticing — who had gone quiet today, who needed a little more time. In the consultation room I do the same thing, with different tools.'},
+  'j-p2':{'zh-Hant':'我也是兩個孩子的媽媽。孩子讓我明白，照顧不是靠急，而是日常裡每一個微小的選擇。','zh-Hans':'我也是两个孩子的妈妈。孩子让我明白，照顾不是靠急，而是日常里每一个微小的选择。','en':'I’m also a mother of two. My children taught me that care isn’t about rushing — it’s the small choices we make every day.'},
+  'j-more':{'zh-Hant':'什麼是 TimeWaver？ →','zh-Hans':'什么是 TimeWaver？ →','en':'What is TimeWaver? →'},
+  'cr1':{'zh-Hant':'✦ TimeWaver 13 模組認證顧問','zh-Hans':'✦ TimeWaver 13 模组认证顾问','en':'✦ TimeWaver consultant, 13 modules certified'},
+  'cr2':{'zh-Hant':'🎓 Brain Gym® 認證導師','zh-Hans':'🎓 Brain Gym® 认证导师','en':'🎓 Certified Brain Gym® instructor'},
+  'cr3':{'zh-Hant':'👶 香港國際嬰兒按摩協會認證導師','zh-Hans':'👶 香港国际婴儿按摩协会认证导师','en':'👶 Certified instructor, HK International Infant Massage Association'},
+  'cr4':{'zh-Hant':'🎙️ U-SUN ASIA 國際講座受邀嘉賓','zh-Hans':'🎙️ U-SUN ASIA 国际讲座受邀嘉宾','en':'🎙️ Invited speaker, U-SUN ASIA international webinar'},
+  'cr5':{'zh-Hant':'🏫 註冊教師 · 20 年教育經驗','zh-Hans':'🏫 注册教师 · 20 年教育经验','en':'🏫 Registered teacher · 20 years in education'},
+  'q1':{'zh-Hant':'「以前總是感覺有甚麼卡住了，但說不清楚在哪裡。調和報告出來的時候，那些卡點一目了然。四週之後，做決定時那種拉扯感消失了，整個人清爽了很多。」','zh-Hans':'「以前总是感觉有什么卡住了，但说不清楚在哪里。调和报告出来的时候，那些卡点一目了然。四周之后，做决定时那种拉扯感消失了，整个人清爽了很多。」','en':'“I always felt stuck somewhere but couldn’t say where. When the report came out, the blockages were plain to see. Four weeks later, the push-and-pull I felt when making decisions was gone — I felt so much clearer.”'},
+  'q1-w':{'zh-Hant':'跨國企業高管 · 香港','zh-Hans':'跨国企业高管 · 香港','en':'Executive, multinational · Hong Kong'},
+  'q2':{'zh-Hant':'「每個人的卡點都不一樣，但全部都在報告裡。四週遙距調和之後，家裡的氛圍輕鬆了，飯桌上的笑聲多了。」','zh-Hans':'「每个人的卡点都不一样，但全部都在报告里。四周远程调和之后，家里的氛围轻松了，饭桌上的笑声多了。」','en':'“Each of us had different blockages, and they were all in the report. After four weeks of remote harmonising, home feels lighter and there’s more laughter at the dinner table.”'},
+  'q2-w':{'zh-Hant':'三孩媽媽 · 太古城','zh-Hans':'三孩妈妈 · 太古城','en':'Mother of three · Taikoo Shing'},
+  'q3':{'zh-Hant':'「完全不需要請假，不需要改變任何日程 —— 這對我來說非常重要。報告像一面鏡子。調和之後，那種說不出來的沉重感慢慢散了。」','zh-Hans':'「完全不需要请假，不需要改变任何日程 —— 这对我来说非常重要。报告像一面镜子。调和之后，那种说不出来的沉重感慢慢散了。」','en':'“No time off, no change to my schedule — that mattered a lot to me. The report was like a mirror. Afterwards, a heaviness I couldn’t name slowly lifted.”'},
+  'q3-w':{'zh-Hant':'專業顧問 · 中環','zh-Hans':'专业顾问 · 中环','en':'Consultant · Central'},
+  'f-kicker':{'zh-Hant':'常見問題','zh-Hans':'常见问题','en':'FAQ'},
+  'f-h2':{'zh-Hant':'開始之前，你可能想知道','zh-Hans':'开始之前，你可能想知道','en':'Before you start'},
+  'fq1':{'zh-Hant':'諮詢怎樣進行？','zh-Hans':'咨询怎样进行？','en':'How do sessions work?'},
+  'fa1':{'zh-Hant':'全程遙距，用 WhatsApp 或視像進行，香港、台灣及海外都可以，不用出門。','zh-Hans':'全程远程，用 WhatsApp 或视频进行，香港、台湾及海外都可以，不用出门。','en':'Fully remote, by WhatsApp or video — Hong Kong, Taiwan or anywhere else. No need to travel.'},
+  'fq2':{'zh-Hant':'怎樣付款？','zh-Hans':'怎样付款？','en':'How do I pay?'},
+  'fa2':{'zh-Hant':'可以在網站用 PayPal 付款（支援信用卡），亦可以 WhatsApp 我安排其他方式。','zh-Hans':'可以在网站用 PayPal 付款（支持信用卡），也可以 WhatsApp 我安排其他方式。','en':'Pay on this site with PayPal (credit cards accepted), or WhatsApp me to arrange another way.'},
+  'fq3':{'zh-Hant':'諮詢和家用設備有甚麼分別？','zh-Hans':'咨询和家用设备有什么分别？','en':'What’s the difference between a session and a home device?'},
+  'fa3':{'zh-Hant':'諮詢由 Julia 用專業版 TimeWaver 為你分析和調和；家用設備就是你自己每天在家或隨身使用。建議先做一次諮詢，再決定適不適合買設備。','zh-Hans':'咨询由 Julia 用专业版 TimeWaver 为你分析和调和；家用设备就是你自己每天在家或随身使用。建议先做一次咨询，再决定适不适合买设备。','en':'In a session, Julia uses professional TimeWaver to analyse and harmonise for you. A home device is something you use yourself every day. We suggest one session first, then decide whether a device suits you.'},
+  'fq4':{'zh-Hant':'TimeWaver 是醫療嗎？','zh-Hans':'TimeWaver 是医疗吗？','en':'Is TimeWaver medical treatment?'},
+  'fa4':{'zh-Hant':'不是。TimeWaver 屬整全身心調理，並非醫療診斷或治療，不能取代專業醫療意見。如有健康問題，請諮詢註冊醫療人員。','zh-Hans':'不是。TimeWaver 属整全身心调理，并非医疗诊断或治疗，不能取代专业医疗意见。如有健康问题，请咨询注册医疗人员。','en':'No. TimeWaver is holistic wellbeing support, not medical diagnosis or treatment, and does not replace professional medical advice. For health concerns, please see a registered medical practitioner.'},
+  'f-more':{'zh-Hant':'更多常見問題 →','zh-Hans':'更多常见问题 →','en':'More FAQs →'},
+  'b-h2':{'zh-Hant':'準備好，就由 15 分鐘開始。','zh-Hans':'准备好，就由 15 分钟开始。','en':'When you’re ready, start with 15 minutes.'},
+  'b-p':{'zh-Hant':'免費、不用承諾，先聊聊你此刻最想改變的一件事。','zh-Hans':'免费、不用承诺，先聊聊你此刻最想改变的一件事。','en':'Free, no commitment — just tell me the one thing you most want to change right now.'},
+  'b-b1':{'zh-Hant':'WhatsApp 預約 →','zh-Hans':'WhatsApp 预约 →','en':'Book on WhatsApp →'},
+  'b-b2':{'zh-Hant':'台灣朋友：LINE 聯絡','zh-Hans':'台湾朋友：LINE 联系','en':'In Taiwan? Message on LINE'},
+  'ft-desc2':{'zh-Hant':'TimeWaver 信息場諮詢 · 家用設備 · 天然香氣 · 身心課程。Wellness Path 旗下。','zh-Hans':'TimeWaver 信息场咨询 · 家用设备 · 天然香气 · 身心课程。Wellness Path 旗下。','en':'TimeWaver consultations · home devices · natural scents · courses. Part of Wellness Path.'},
+  'ft-h1':{'zh-Hant':'服務','zh-Hans':'服务','en':'Services'},
+  'ft-h2':{'zh-Hant':'產品與資源','zh-Hans':'产品与资源','en':'Products & resources'},
+  'ft-h3':{'zh-Hant':'聯絡','zh-Hans':'联系','en':'Contact'},
+  'ft-disc':{'zh-Hant':'聲明：TimeWaver 信息場分析與和諧屬整全身心調理範疇，並非醫療診斷、治療或藥物，不能取代專業醫療意見。如有健康問題，請諮詢註冊醫療人員。','zh-Hans':'声明：TimeWaver 信息场分析与和谐属整全身心调理范畴，并非医疗诊断、治疗或药物，不能取代专业医疗意见。如有健康问题，请咨询注册医疗人员。','en':'Disclaimer: TimeWaver information-field analysis and harmonising are holistic wellbeing practices, not medical diagnosis, treatment or medicine, and do not replace professional medical advice. For health concerns, please consult a registered medical practitioner.'},
+  'ft-copy2':{'zh-Hant':'© 2026 Wellness Path · Julia Yuen。版權所有。','zh-Hans':'© 2026 Wellness Path · Julia Yuen。版权所有。','en':'© 2026 Wellness Path · Julia Yuen. All rights reserved.'}
+});
+// ----- /devices/ and /timewaver/ pages -----
+Object.assign(T, {
+  'dv-kicker':{'zh-Hant':'TimeWaver 家用設備','zh-Hans':'TimeWaver 家用设备','en':'TimeWaver home devices'},
+  'dv-h1':{'zh-Hant':'TimeWaver Mobile 與 Home','zh-Hans':'TimeWaver Mobile 与 Home','en':'TimeWaver Mobile & Home'},
+  'dv-lead':{'zh-Hant':'兩款都是把 TimeWaver 帶進日常的家用設備：一款隨身，一款放在家中。不肯定哪款適合你？先約一次免費視像示範。','zh-Hans':'两款都是把 TimeWaver 带进日常的家用设备：一款随身，一款放在家中。不确定哪款适合你？先约一次免费视频示范。','en':'Two ways to bring TimeWaver into daily life: one goes with you, one stays at home. Not sure which suits you? Book a free video demo first.'},
+  'dm-l1':{'zh-Hant':'細小輕巧，放得入手袋','zh-Hans':'小巧轻便，放得进手袋','en':'Small and light enough for your bag'},
+  'dm-l2':{'zh-Hant':'隨時隨地，沒有空間限制','zh-Hans':'随时随地，没有空间限制','en':'Anytime, anywhere'},
+  'dm-l3':{'zh-Hant':'適合經常外出、想隨身使用的你','zh-Hans':'适合经常外出、想随身使用的你','en':'For people often on the move'},
+  'dh-l1':{'zh-Hant':'放在家中，一家人共用','zh-Hans':'放在家中，一家人共用','en':'Stays at home, shared by the family'},
+  'dh-l2':{'zh-Hant':'居家多方面擴充應用','zh-Hans':'居家多方面扩充应用','en':'A range of add-on uses around the home'},
+  'dh-l3':{'zh-Hant':'適合想照顧全家、包括長輩的家庭','zh-Hans':'适合想照顾全家、包括长辈的家庭','en':'For families looking after everyone, including older parents'},
+  'cp-kicker':{'zh-Hant':'比較','zh-Hans':'比较','en':'Compare'},
+  'cp-h2':{'zh-Hant':'哪一款適合你？','zh-Hans':'哪一款适合你？','en':'Which one suits you?'},
+  'cp-r1':{'zh-Hant':'在哪裡用','zh-Hans':'在哪里用','en':'Where'},
+  'cp-r1a':{'zh-Hant':'隨身：出門、上班、旅行','zh-Hans':'随身：出门、上班、旅行','en':'With you: out, at work, travelling'},
+  'cp-r1b':{'zh-Hant':'家中','zh-Hans':'家中','en':'At home'},
+  'cp-r2':{'zh-Hant':'誰用','zh-Hans':'谁用','en':'Who'},
+  'cp-r2a':{'zh-Hant':'主要自己用','zh-Hans':'主要自己用','en':'Mainly you'},
+  'cp-r2b':{'zh-Hant':'全家人共用','zh-Hans':'全家人共用','en':'The whole family'},
+  'cp-r3':{'zh-Hant':'適合','zh-Hans':'适合','en':'Best for'},
+  'cp-r3a':{'zh-Hant':'經常外出、生活節奏快','zh-Hans':'经常外出、生活节奏快','en':'Busy lives, often away'},
+  'cp-r3b':{'zh-Hant':'想照顧全家、包括長輩','zh-Hans':'想照顾全家、包括长辈','en':'Caring for the whole family, including elders'},
+  'cp-r4':{'zh-Hant':'價錢','zh-Hans':'价格','en':'Price'},
+  'cp-r4a':{'zh-Hant':'以官方最新報價為準，歡迎 WhatsApp 查詢','zh-Hans':'以官方最新报价为准，欢迎 WhatsApp 查询','en':'Per the latest official quote — ask on WhatsApp'},
+  'hw-kicker':{'zh-Hant':'怎樣購買','zh-Hans':'怎样购买','en':'How to buy'},
+  'hw-h2':{'zh-Hant':'經 Julia 購買，三步完成','zh-Hans':'经 Julia 购买，三步完成','en':'Three steps with Julia'},
+  'hw1-t':{'zh-Hant':'預約免費視像示範','zh-Hans':'预约免费视频示范','en':'Book a free video demo'},
+  'hw1-d':{'zh-Hant':'WhatsApp 約時間，Julia 用視像示範兩款設備，解答你的問題。','zh-Hans':'WhatsApp 约时间，Julia 用视频示范两款设备，解答你的问题。','en':'Book on WhatsApp. Julia shows you both devices on video and answers your questions.'},
+  'hw2-t':{'zh-Hant':'揀啱型號','zh-Hans':'选对型号','en':'Choose the right one'},
+  'hw2-d':{'zh-Hant':'按你和家人的需要，揀 Mobile 或 Home。想更清楚自己的狀態，可以先做一次諮詢（非必須）。','zh-Hans':'按你和家人的需要，选 Mobile 或 Home。想更清楚自己的状态，可以先做一次咨询（非必须）。','en':'Pick Mobile or Home for you and your family. A consultation first is optional, if you want a clearer picture.'},
+  'hw3-t':{'zh-Hant':'落單及開始使用','zh-Hans':'下单及开始使用','en':'Order and get started'},
+  'hw3-d':{'zh-Hant':'經 Julia 介紹落單，收貨後 Julia 教你設定和使用。','zh-Hans':'经 Julia 介绍下单，收货后 Julia 教你设置和使用。','en':'Order through Julia’s introduction; once it arrives, Julia shows you how to set it up and use it.'},
+  'dvf-h2':{'zh-Hant':'關於家用設備','zh-Hans':'关于家用设备','en':'About the devices'},
+  'dq1':{'zh-Hant':'價錢是多少？','zh-Hans':'价格是多少？','en':'How much does it cost?'},
+  'da1':{'zh-Hant':'價錢以 TimeWaver 官方最新報價為準。WhatsApp 我，我會給你最新價錢。','zh-Hans':'价格以 TimeWaver 官方最新报价为准。WhatsApp 我，我会给你最新价格。','en':'Prices follow TimeWaver’s latest official quote. WhatsApp me for the current price.'},
+  'dq2':{'zh-Hant':'一定要先做諮詢嗎？','zh-Hans':'一定要先做咨询吗？','en':'Do I need a consultation first?'},
+  'da2':{'zh-Hant':'不一定。但先做一次諮詢，可以更清楚你和家人的需要，揀型號時更有把握。','zh-Hans':'不一定。但先做一次咨询，可以更清楚你和家人的需要，选型号时更有把握。','en':'No. But one session first gives a clearer picture of what you and your family need, so choosing is easier.'},
+  'dq4':{'zh-Hant':'家用設備是醫療器材嗎？','zh-Hans':'家用设备是医疗器材吗？','en':'Are the devices medical equipment?'},
+  'da4':{'zh-Hant':'TimeWaver 家用設備屬整全身心調理用途，並非醫療診斷或治療，不能取代專業醫療意見。如有健康問題，請諮詢註冊醫療人員。','zh-Hans':'TimeWaver 家用设备属整全身心调理用途，并非医疗诊断或治疗，不能取代专业医疗意见。如有健康问题，请咨询注册医疗人员。','en':'TimeWaver home devices are for holistic wellbeing, not medical diagnosis or treatment, and do not replace professional medical advice. For health concerns, please see a registered medical practitioner.'},
+  'tw-h1':{'zh-Hant':'什麼是 TimeWaver？','zh-Hans':'什么是 TimeWaver？','en':'What is TimeWaver?'},
+  'tw-lead':{'zh-Hant':'源自德國的信息場技術。這一頁整理了原理、運作方式和影片，讓你慢慢了解。','zh-Hans':'源自德国的信息场技术。这一页整理了原理、运作方式和视频，让你慢慢了解。','en':'An information-field technology from Germany. This page gathers the ideas, how it works and videos, so you can explore at your own pace.'}
+});
+
+// ---- dropdown menu ----
+document.querySelectorAll('.dd-btn').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    const li=btn.parentElement, open=!li.classList.contains('open');
+    document.querySelectorAll('.menu .dd.open').forEach(d=>{d.classList.remove('open');d.querySelector('.dd-btn').setAttribute('aria-expanded','false')});
+    if(open){li.classList.add('open');btn.setAttribute('aria-expanded','true')}
+  });
+});
+document.addEventListener('click',()=>document.querySelectorAll('.menu .dd.open').forEach(d=>d.classList.remove('open')));
+document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>{const b=document.getElementById('burger-box');if(b)b.checked=false}));
+function updatePerfumeLinks(lang){
+  const map={'zh-Hant':'/perfume/','zh-Hans':'/perfume/sc/','en':'/perfume/en/'};
+  document.querySelectorAll('[data-lhref]').forEach(a=>a.setAttribute('href',(map[lang]||'/perfume/')+(a.getAttribute('data-lhref-hash')||'')));
+}
+let currentLang='zh-Hant';
+function setLang(lang){
+  currentLang=lang;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===lang));
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(T[k]&&T[k][lang])el.innerHTML=T[k][lang];});
+  document.documentElement.lang=lang;
+  updatePerfumeLinks(lang);
+  try{localStorage.setItem('tp-lang',lang);}catch(e){}
+}
+(function(){
+  let saved=new URLSearchParams(location.search).get('lang');
+  if(!['zh-Hant','zh-Hans','en'].includes(saved)){try{saved=localStorage.getItem('tp-lang');}catch(e){saved=null;}}
+  if(saved&&['zh-Hans','en'].includes(saved))setLang(saved);
+})();
+function switchTab(btn,panelId){
+  document.querySelectorAll('.tw-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tw-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');document.getElementById(panelId).classList.add('active');
+}
+
+</script>
+
+<!-- ══════ tp-watag 2026-10-10 ══════ -->
+<script>
+(function(){
+  "use strict";
+  var LBL = ["TimeWaver 介紹", "TimeWaver 介绍", "About TimeWaver"], FALLBACK = ["你好，我喺【主頁】見到你個網站，想了解多啲。", "你好，我在【主页】看到你的网站，想了解更多。", "Hi Julia — I'd like to know more."], SUBJ = ["查詢：主頁", "咨询：主页", "Enquiry: Home"];
+  function L(){
+    var h=(document.documentElement.lang||"").toLowerCase();
+    if(h.indexOf("en")===0) return 2;
+    if(h.indexOf("zh-hans")===0||h.indexOf("zh-cn")===0) return 1;
+    return 0;
+  }
+  var FROM = (function(){
+    try{
+      var m=/[?&]from=([A-Za-z0-9_-]{1,24})/.exec(location.search);
+      return m ? m[1] : "";
+    }catch(e){ return ""; }
+  })();
+  function srcLine(i){
+    var lbl = LBL[i] + (FROM ? " · " + FROM : "");
+    if(i===2) return "\n(Source: "+lbl+")";
+    return i===1 ? "\n（来源："+lbl+"）" : "\n（來源："+lbl+"）";
+  }
+  function tagWA(){
+    var a=document.querySelectorAll('a[href^="https://wa.me/"]'), i;
+    for(i=0;i<a.length;i++){
+      var el=a[i], u;
+      try{ u=new URL(el.href); }catch(e){ continue; }
+      var cur=u.searchParams.get("text")||"";
+      /* remember the page's own message once, before we ever touch it */
+      if(el.dataset.tpBase===undefined) el.dataset.tpBase=cur;
+      var base=el.dataset.tpBase;
+      var i18=L();
+      /* the page may already carry its own 來源 line — don't add a second */
+      var has = base && (base.indexOf("來源：")>=0 || base.indexOf("来源：")>=0
+                         || base.indexOf("Source:")>=0);
+      var out;
+      if(!base) out = FALLBACK[i18];
+      else if(has) out = base;   /* page handles its own source line, incl. ?from= */
+      else out = base + srcLine(i18);
+      u.searchParams.set("text", out);
+      el.setAttribute("href", u.toString());
+    }
+  }
+  function tagMail(){
+    var a=document.querySelectorAll('a[href^="mailto:"]'), i;
+    for(i=0;i<a.length;i++){
+      var el=a[i], h=el.getAttribute("href")||"";
+      if(el.dataset.tpMail===undefined) el.dataset.tpMail=h;
+      var orig=el.dataset.tpMail;
+      if(orig.indexOf("subject=")>=0) continue;   /* page already set one */
+      var addr=orig.split("?")[0];
+      el.setAttribute("href", addr+"?subject="+encodeURIComponent(SUBJ[L()]));
+    }
+  }
+  function tag(){ tagWA(); tagMail(); }
+  function go(){
+    tag();
+    /* the page may rebuild its own links, and the language can change */
+    try{
+      new MutationObserver(tag)
+        .observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+    }catch(e){}
+    setTimeout(tag, 1200);
+    setTimeout(tag, 3000);
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",go);
+  else go();
+})();
+</script>
+
+<!-- Cloudflare Web Analytics (cookieless) -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "e12395482b7a4782a53e9f87f2c6abe4"}'></script>
+</body>
+</html>
