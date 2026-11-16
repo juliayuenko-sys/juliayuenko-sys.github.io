@@ -698,6 +698,18 @@
 .ref-grid span{font-size:.92rem;color:var(--muted)}
 .ref-how{margin:16px 0;font-size:.9rem;color:var(--muted)}
 @media(max-width:600px){.ref-grid{grid-template-columns:1fr}}
+
+/* v4: tools strip right after hero */
+.tools-top{padding:clamp(36px,5vw,64px) 0}
+.tools-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:20px}
+.tools-head h2{margin-top:8px;font-size:clamp(1.4rem,3vw,2rem)}
+.tools-top .tools-grid{grid-template-columns:repeat(5,1fr)}
+@media(max-width:980px){.tools-top .tools-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){
+  .tools-head{flex-direction:column;align-items:flex-start;gap:4px}
+  .tools-top .tools-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:0 0 8px;margin:0}
+  .tools-top .tool-card{flex:0 0 72%;scroll-snap-align:start}
+}
 </style>
 </head>
 <body>
@@ -724,6 +736,7 @@
           <li><a href="/gift/" data-i18n="m-gift">企業禮品訂製</a></li>
         </ul></li>
       <li><a href="/#learn" data-i18n="nav-courses">課程</a></li>
+      <li><a href="/tools/" data-i18n="nav-tools">免費工具</a></li>
       <li class="dd"><button class="dd-btn" aria-expanded="false"><span data-i18n="nav-about">關於</span><i></i></button>
         <ul class="dd-menu">
           <li><a href="/#julia" data-i18n="m-julia">關於 Julia</a></li>
@@ -1559,6 +1572,12 @@ Object.assign(T, {
   'rf-bd':{'zh-Hant':'首次深度諮詢減 HK$200，只需 HK$1,480','zh-Hans':'首次深度咨询减 HK$200，只需 HK$1,480','en':'HK$200 off the first session — HK$1,480'},
   'rf-how':{'zh-Hant':'朋友預約時，請 WhatsApp 告訴 Julia 介紹人的名字即可。','zh-Hans':'朋友预约时，请 WhatsApp 告诉 Julia 介绍人的名字即可。','en':'When booking, your friend just tells Julia your name on WhatsApp.'},
   'rf-cta':{'zh-Hant':'我是朋友介紹的 · WhatsApp 預約 →','zh-Hans':'我是朋友介绍的 · WhatsApp 预约 →','en':'I was referred — book on WhatsApp →'}
+});
+
+Object.assign(T, {
+  'tl-h2b':{'zh-Hant':'隨時用得著的身心工具','zh-Hans':'随时用得着的身心工具','en':'Everyday tools for body and mind'},
+  'tl-we':{'zh-Hant':'體重管理計算器','zh-Hans':'体重管理计算器','en':'Weight management calculator'},
+  'tl-wed':{'zh-Hant':'蛋白質 · 飲水量 · BMI 一次計','zh-Hans':'蛋白质 · 饮水量 · BMI 一次算','en':'Protein, water and BMI in one go'}
 });
 
 // ---- dropdown menu ----
