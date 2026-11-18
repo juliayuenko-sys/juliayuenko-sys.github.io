@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>此刻 · 唇語 — 基督書院同學專屬溫習角</title>
+<meta name="description" content="基督書院同學專屬 — 重溫11月20日DIY潤唇膏工作坊：10款精油、三步法、免費呼吸同溫習工具">
+<style>
+  :root{
+    --mint:#a8d5c4;
+    --mint-dark:#5e9b82;
+    --cream:#fdf8f0;
+    --ink:#2f4f3f;
+    --accent:#e8a87c;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+    background:linear-gradient(160deg, var(--mint) 0%, var(--cream) 55%, #fff 100%);
+    color:var(--ink);
+    line-height:1.7;
+  }
+  .wrap{max-width:600px;margin:0 auto;padding:0 20px 60px;}
+  header{text-align:center;padding:36px 20px 18px;}
+  .badge{
+    display:inline-block;
+    background:var(--ink);
+    color:#fff;
+    font-size:13px;
+    letter-spacing:1px;
+    padding:6px 16px;
+    border-radius:999px;
+    margin-bottom:14px;
+  }
+  h1{font-size:25px;margin:0 0 6px;letter-spacing:2px;}
+  .sub{font-size:14px;color:var(--mint-dark);margin:0;}
+  .date-chip{
+    margin-top:14px;
+    display:inline-block;
+    background:#fff;
+    border:1px solid var(--mint-dark);
+    border-radius:12px;
+    padding:8px 18px;
+    font-size:14px;
+  }
+  h2.section-title{
+    font-size:19px;
+    margin:34px 0 14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .card{
+    background:#fff;
+    border-radius:18px;
+    padding:24px 22px;
+    margin-bottom:16px;
+    box-shadow:0 6px 24px rgba(47,79,63,.08);
+  }
+  .card p{font-size:15px;margin:0 0 10px;}
+  .card p:last-child{margin-bottom:0;}
+  .highlight{
+    background:var(--cream);
+    border-left:4px solid var(--accent);
+    border-radius:10px;
+    padding:14px 16px;
+    font-size:14.5px;
+    margin:10px 0;
+  }
+  .steps{margin:0;padding-left:0;list-style:none;}
+  .steps li{display:flex;gap:10px;font-size:14.5px;margin-bottom:10px;align-items:flex-start;}
+  .steps li span.n{
+    flex:0 0 22px;height:22px;border-radius:50%;
+    background:var(--mint-dark);color:#fff;font-size:12px;
+    display:flex;align-items:center;justify-content:center;margin-top:2px;
+  }
+  .ing-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+  .ing{background:var(--cream);border-radius:10px;padding:10px 12px;font-size:13px;text-align:center;}
+
+  .oil-group{margin-bottom:18px;}
+  .oil-group:last-child{margin-bottom:0;}
+  .oil-cat{
+    font-size:14px;font-weight:700;color:var(--mint-dark);
+    margin-bottom:6px;display:flex;align-items:center;gap:6px;
+  }
+  .oil-cat small{font-weight:400;color:#8a8a8a;font-size:12px;}
+  .oil{
+    background:var(--cream);
+    border-radius:10px;
+    padding:10px 14px;
+    margin-bottom:6px;
+  }
+  .oil .name{font-size:14.5px;font-weight:600;}
+  .oil .effect{font-size:13px;color:#555;margin-top:2px;}
+
+  .tool-link{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:var(--cream);
+    border-radius:14px;
+    padding:14px 16px;
+    text-decoration:none;
+    color:var(--ink);
+    margin-bottom:10px;
+  }
+  .tool-link .emoji{font-size:26px;}
+  .tool-link .t-title{font-size:15px;font-weight:600;}
+  .tool-link .t-desc{font-size:13px;color:#666;margin-top:2px;}
+  .tool-link .arrow{margin-left:auto;color:var(--mint-dark);font-size:18px;}
+
+  .cta{
+    display:block;text-align:center;background:var(--ink);color:#fff;
+    text-decoration:none;font-size:15.5px;font-weight:600;
+    padding:15px;border-radius:14px;margin:10px 0 6px;
+  }
+  .cta.secondary{background:#fff;color:var(--ink);border:1.5px solid var(--mint-dark);}
+  .hint{font-size:12.5px;color:#888;text-align:center;margin-top:4px;}
+  .me{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:14px;
+  }
+  .me img{
+    width:56px;height:56px;border-radius:50%;
+    object-fit:cover;flex:0 0 56px;
+    border:2px solid var(--mint);
+  }
+  .me span{font-size:13.5px;color:#666;}
+  .me b{display:block;font-size:14.5px;color:var(--ink);}
+
+  footer{text-align:center;font-size:12.5px;color:#8a8a8a;margin-top:34px;}
+  footer a{color:var(--mint-dark);text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="badge">基督書院同學專屬</span>
+    <h1>此刻 · 唇語 溫習角</h1>
+    <p class="sub">Balm of Now · 掃呢個QR，隨時返嚟重溫</p>
+    <div class="date-chip">2026年11月20日　DIY潤唇膏工作坊</div>
+  </header>
+
+  <!-- 今日學咗咩 -->
+  <h2 class="section-title">🌿 今日學咗嘅「三步法」</h2>
+  <div class="card">
+    <p>呢支唇膏唔單止係潤唇膏，係你隨身帶得走嘅一個小提示。覺得緊張、卡住、唔知點樣先好嘅時候：</p>
+    <ol class="steps">
+      <li><span class="n">1</span>攞出唇膏</li>
+      <li><span class="n">2</span>塗一下，然後聞三下（吸氣4秒、呼氣6秒）</li>
+      <li><span class="n">3</span>先至決定接住做咩</li>
+    </ol>
+    <div class="highlight">
+      記住：唔係唇膏令你冷靜——係你自己做嗰三下深呼吸。唇膏只係提你記得去做。
+    </div>
+    <p style="margin-top:12px;">揀香味嗰陣，我哋問嘅唔係「邊款你鍾意」，而係「邊款令你個膊頭鬆咗少少」——身體嘅反應，先係最準嘅答案。</p>
+  </div>
+
+  <!-- 材料 -->
+  <h2 class="section-title">🧴 潤唇膏入面有咩</h2>
+  <div class="card">
+    <img src="lip-sample.jpg" alt="此刻 · 唇語 Balm of Now 立體手作潤唇膏實物" style="width:100%;border-radius:14px;display:block;margin-bottom:14px;">
+    <p>全部用天然成分，手工倒模而成：</p>
+    <div class="ing-grid">
+      <div class="ing">乳木果油<br>Shea Butter</div>
+      <div class="ing">蜂蠟<br>Beeswax</div>
+      <div class="ing">植物油配方<br>Plant Oil Blend</div>
+      <div class="ing">純天然精油<br>Essential Oils</div>
+    </div>
+    <p style="margin-top:12px;">唔含人工香精、唔聲稱治療功效——淨係想你每次塗嘅時候，記得停低嗰三秒鐘。</p>
+  </div>
+
+  <!-- 10 款精油 -->
+  <h2 class="section-title">🌸 10款精油，你最喜歡邊隻？</h2>
+  <div class="card">
+
+    <div class="oil-group">
+      <div class="oil-cat">🌺 花朵類 Floral <small>安撫與包容</small></div>
+      <div class="oil"><div class="name">Lavender 薰衣草</div><div class="effect">安撫考前焦躁，提供深層安全感</div></div>
+    </div>
+
+    <div class="oil-group">
+      <div class="oil-cat">🍊 果皮類 Citrus <small>陽光與喜悅</small></div>
+      <div class="oil"><div class="name">Orange 甜橙</div><div class="effect">帶來快樂能量，掃走學習鬱悶</div></div>
+      <div class="oil"><div class="name">Lemon 檸檬</div><div class="effect">清理閉塞思緒，讓頭腦保持澄淨</div></div>
+    </div>
+
+    <div class="oil-group">
+      <div class="oil-cat">🍃 葉片與草本類 Herbaceous <small>呼吸與專注</small></div>
+      <div class="oil"><div class="name">Peppermint 薄荷</div><div class="effect">強效提神醒腦，打通學習思路</div></div>
+      <div class="oil"><div class="name">Rosemary 迷迭香</div><div class="effect">提升記憶力與集中力，對抗大腦疲勞</div></div>
+    </div>
+
+    <div class="oil-group">
+      <div class="oil-cat">🪵 木質類 Wood <small>支撐與內在力量</small></div>
+      <div class="oil"><div class="name">Cedarwood 北非雪松</div><div class="effect">沉穩扎根，讓浮躁嘅心情安定下來</div></div>
+      <div class="oil"><div class="name">Northern Lights Black Spruce 北極光黑雲杉</div><div class="effect">帶有極地森林嘅堅韌生命力，為疲憊身心充電</div></div>
+    </div>
+
+    <div class="oil-group">
+      <div class="oil-cat">🌱 根莖部 Root <small>踏實與安全感</small></div>
+      <div class="oil"><div class="name">Vetiver 岩蘭草</div><div class="effect">深層鎮靜神經，幫助克服怯場與恐慌</div></div>
+    </div>
+
+    <div class="oil-group">
+      <div class="oil-cat">💧 樹脂類 Resin <small>修復與深呼吸</small></div>
+      <div class="oil"><div class="name">Frankincense 乳香</div><div class="effect">放慢呼吸頻率，極佳嘅減壓與靜心選擇</div></div>
+    </div>
+
+    <div class="oil-group">
+      <div class="oil-cat">🤝 複方精油 Blend <small>輕鬆與協同</small></div>
+      <div class="oil"><div class="name">Stress Away 樂自在</div><div class="effect">結合古巴香脂（樹脂）、青檸（果皮）、雪松（木質）與雲呢拿；釋放肩上重擔，帶來宛如度假般嘅輕鬆感</div></div>
+    </div>
+
+  </div>
+
+  <!-- 免費工具 -->
+  <h2 class="section-title">🛠️ 温書同靜心，呢兩個免費工具幫到你</h2>
+  <div class="card">
+    <a class="tool-link" href="https://juliayuen.com/tools/breathing/">
+      <span class="emoji">🫁</span>
+      <span>
+        <span class="t-title">呼吸練習計時器</span><br>
+        <span class="t-desc">跟住圓圈練返今日嘅吸4呼6，仲有戰術方形呼吸等其他節奏</span>
+      </span>
+      <span class="arrow">›</span>
+    </a>
+    <a class="tool-link" href="https://juliayuen.com/tools/focus/">
+      <span class="emoji">🍅</span>
+      <span>
+        <span class="t-title">專注溫習計時器</span><br>
+        <span class="t-desc">番茄鐘，仲有「做功課 15/5」設定，完成一個回合攞一粒⭐</span>
+      </span>
+      <span class="arrow">›</span>
+    </a>
+    <a class="tool-link" href="https://www.youtube.com/@伴讀媽媽Julia">
+      <span class="emoji">🎵</span>
+      <span>
+        <span class="t-title">伴讀媽媽 Julia</span><br>
+        <span class="t-desc">溫書陪伴音樂 YouTube 頻道</span>
+      </span>
+      <span class="arrow">›</span>
+    </a>
+  </div>
+
+  <!-- 想搵人傾吓 -->
+  <h2 class="section-title">🌼 如果你有需要</h2>
+  <div class="card">
+    <div class="me">
+      <img src="https://juliayuen.com/lip/portrait.jpg" alt="Julia">
+      <span><b>Julia</b>一齊整唇膏嗰位老師</span>
+    </div>
+    <p>呢個QR頁會一直喺度。溫書壓力大、心情唔靚、或者淨係想搵個大人傾吓，都可以搵我——唔使等到下次先見到我。</p>
+    <a class="cta" href="https://wa.me/85296215876?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%E5%9F%BA%E6%9D%B1%E6%9B%B8%E9%99%A2%E5%90%8C%E5%AD%B8%EF%BC%8C%E6%83%B3%E5%92%8CJulia%E5%82%BE%E5%93%A5">💬 WhatsApp Julia 傾吓</a>
+    <p class="hint">按一下會自動開WhatsApp</p>
+  </div>
+
+  <footer>
+    此刻 · 唇語 Balm of Now　|　此刻 · The Present　|　Wellness Path<br>
+    <a href="mailto:hello@juliayuen.com">hello@juliayuen.com</a>　·　<a href="https://juliayuen.com">juliayuen.com</a>
+  </footer>
+
+</div>
+</body>
+</html>
