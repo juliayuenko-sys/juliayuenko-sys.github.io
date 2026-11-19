@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>生活健康輪自測 Wellness Wheel | 此刻 · The Present</title>
+<meta name="description" content="Free 5-minute Wellness Wheel check: 24 questions across breath, sleep, food, movement, emotions, energy, connection and meaning, with a gentle first step for you. 免費 5 分鐘生活健康輪自測：8 個生活範疇，看見自己最需要照顧的地方。">
+<link rel="canonical" href="https://juliayuen.com/tools/wheel/">
+<meta property="og:title" content="生活健康輪 Wellness Wheel · 5 分鐘自測">
+<meta property="og:description" content="輪嘅邊度凹，就由邊度開始。Find the part of your life that needs care first.">
+<meta property="og:url" content="https://juliayuen.com/tools/wheel/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"生活健康輪 Wellness Wheel","url":"https://juliayuen.com/tools/wheel/","applicationCategory":"HealthApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"HKD"},"isPartOf":{"@type":"WebSite","name":"此刻 · The Present","url":"https://juliayuen.com/"},"author":{"@type":"Person","name":"Julia Yuen"}}
+</script>
+<style>
+  :root{
+    --mint:#EBF6F1; --cream:#FBFAF4; --paper:#ffffff;
+    --ink:#234B47; --ink-soft:#5C7370; --line:rgba(35,75,71,.13);
+    --green:#157F74; --green-soft:#DDF1EC; --gold:#C28A2E; --gold-soft:#F7EDD6;
+    --warn:#8a5a2b; --warn-soft:#F8E8DA; --radius:16px;
+    --serif:"Fraunces","Noto Serif TC","Songti TC",Georgia,serif;
+    --sans:"Noto Sans TC",-apple-system,"Segoe UI","PingFang TC",sans-serif;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;font-family:var(--sans);color:var(--ink);line-height:1.65;
+       background:linear-gradient(180deg,var(--mint) 0%,var(--cream) 42%,var(--cream) 100%);min-height:100vh}
+  a{color:var(--green)}
+  html[data-lang="zh"] [lang="en"],html[data-lang="zh"] [lang="zh-Hans"],
+  html[data-lang="zhs"] [lang="en"],html[data-lang="zhs"] [lang="zh-Hant"],
+  html[data-lang="en"] [lang="zh-Hant"],html[data-lang="en"] [lang="zh-Hans"]{display:none!important}
+  .wrap{max-width:760px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px))}
+  header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .brand{font-family:var(--serif);font-size:18px;color:var(--green);text-decoration:none;letter-spacing:.04em}
+  .langs{display:flex;gap:4px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:3px}
+  .langs button{border:0;background:none;font:inherit;font-size:13px;padding:5px 12px;border-radius:999px;cursor:pointer;color:var(--ink-soft)}
+  .langs button[aria-pressed="true"]{background:var(--green);color:#fff}
+  .crumbs{font-size:13px;color:var(--ink-soft);margin:-4px 0 0}
+  .crumbs a{color:var(--ink-soft);text-decoration:none}
+  .crumbs a:hover{color:var(--green)}
+  .hero{text-align:center;padding:28px 0 22px}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,5.5vw,38px);line-height:1.25;margin:8px 0 10px;color:var(--ink);text-wrap:balance}
+  .hero p{margin:0 auto;max-width:520px;color:var(--ink-soft)}
+  h2{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:22px;margin:0 0 14px;text-wrap:balance}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 2px rgba(35,75,71,.04),0 8px 28px rgba(35,75,71,.06)}
+  .muted{color:var(--ink-soft);font-size:13px}
+  .bar{height:5px;background:var(--green-soft);border-radius:5px;overflow:hidden;margin-bottom:16px}
+  .bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .35s ease}
+  .steprow{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px;font-size:13px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+  .dimtag{display:inline-block;font-size:12px;letter-spacing:.06em;color:var(--green);background:var(--green-soft);border-radius:999px;padding:3px 12px}
+  .q{padding:16px 0;display:flex;flex-direction:column;gap:10px}
+  .q + .q{border-top:1px solid var(--line)}
+  .q p{margin:0;font-weight:500;font-size:16px}
+  .scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+  .scale button,.yn button{font:inherit;border:1px solid var(--line);background:var(--cream);color:var(--ink);border-radius:12px;cursor:pointer;transition:background .15s,border-color .15s}
+  .scale button{padding:8px 2px;font-size:12.5px;display:flex;flex-direction:column;align-items:center;gap:1px;min-height:52px}
+  .scale button b{font-size:17px;font-family:var(--serif);font-variant-numeric:tabular-nums}
+  .scale button:hover,.yn button:hover{border-color:var(--green)}
+  .scale button[aria-pressed="true"],.yn button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+  .yn{display:flex;gap:8px}
+  .yn button{flex:1;padding:10px;font-size:15px}
+  .nav{display:flex;gap:10px;justify-content:space-between;margin-top:18px;flex-wrap:wrap}
+  .go{border:0;background:var(--green);color:#fff;font:inherit;font-size:16px;font-weight:500;padding:13px 28px;border-radius:999px;cursor:pointer;min-width:150px}
+  .go:disabled{opacity:.4;cursor:not-allowed}
+  .back{border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);font:inherit;font-size:15px;padding:12px 22px;border-radius:999px;cursor:pointer}
+  button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .center{text-align:center}
+  .wheelbox svg{width:100%;max-width:420px;height:auto;display:block;margin:0 auto}
+  .pill{display:inline-block;font-size:12px;color:var(--gold);background:var(--gold-soft);border-radius:999px;padding:3px 12px}
+  .alert{background:var(--warn-soft);border:1px solid var(--warn);border-radius:12px;padding:14px 16px;margin-bottom:16px;color:var(--ink)}
+  .alert b{color:var(--warn)}
+  .rec{background:var(--gold-soft);border-radius:var(--radius);padding:20px;margin-top:16px}
+  .rec h2{font-size:20px;margin-bottom:8px}
+  .rec p{margin:0 0 8px}
+  .scores{display:grid;grid-template-columns:1fr auto;gap:6px 14px;font-size:15px;font-variant-numeric:tabular-nums;margin-top:16px}
+  .scores .low{color:var(--warn);font-weight:500}
+  .meter{grid-column:1 / -1;height:4px;background:var(--green-soft);border-radius:4px;margin:-2px 0 6px;overflow:hidden}
+  .meter i{display:block;height:100%;background:var(--green)}
+  .meter.low i{background:var(--warn)}
+  .cta{background:linear-gradient(135deg,var(--green) 0%,#199E91 100%);color:#fff;border-radius:var(--radius);padding:26px 22px;text-align:center;margin-top:18px}
+  .cta h2{color:#fff}
+  .cta p{margin:0 auto 18px;max-width:480px;opacity:.92}
+  .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:500;font-size:15px}
+  .btn.primary{background:var(--gold-soft);color:var(--green)}
+  .btn.ghost{border:1px solid rgba(255,255,255,.6);color:#fff;background:none;font:inherit;cursor:pointer}
+  section{margin-top:40px}
+  details{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:8px}
+  summary{cursor:pointer;font-weight:500}
+  details p{margin:8px 0 2px;color:var(--ink-soft)}
+  footer{margin:48px 0 0;padding:24px 0 40px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--ink-soft)}
+  footer a{color:var(--ink-soft)}
+  @media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <a class="brand" href="/">此刻 · The Present</a>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-set-lang="zh" aria-pressed="true">繁</button>
+      <button type="button" data-set-lang="zhs" aria-pressed="false">简</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">此刻</a> › <a href="/tools/"><span lang="zh-Hant">免費工具</span><span lang="zh-Hans">免费工具</span><span lang="en">Free tools</span></a> › <span lang="zh-Hant">生活健康輪</span><span lang="zh-Hans">生活健康轮</span><span lang="en">Wellness Wheel</span></nav>
+
+  <div class="hero">
+    <div class="eyebrow">Wellness Path · Free Check</div>
+    <h1><span lang="zh-Hant">生活健康輪</span><span lang="zh-Hans">生活健康轮</span><span lang="en">Wellness Wheel</span></h1>
+    <p>
+      <span lang="zh-Hant">5 分鐘、24 條問題，把生活分成 8 部分。輪的邊度凹，就由邊度開始照顧自己。</span>
+      <span lang="zh-Hans">5 分钟、24 道问题，把生活分成 8 个部分。轮子哪里凹，就从哪里开始照顾自己。</span>
+      <span lang="en">5 minutes, 24 questions, 8 parts of daily life. Wherever your wheel dips is where to start caring for yourself.</span>
+    </p>
+  </div>
+
+  <main class="card" id="app" aria-live="polite"></main>
+
+  <section>
+    <h2><span lang="zh-Hant">常見問題</span><span lang="zh-Hans">常见问题</span><span lang="en">Questions</span></h2>
+    <details><summary><span lang="zh-Hant">我的答案會被儲存或傳送嗎？</span><span lang="zh-Hans">我的答案会被储存或发送吗？</span><span lang="en">Are my answers stored or sent anywhere?</span></summary>
+      <p><span lang="zh-Hant">不會。答案只留在你自己的手機或電腦。只有你按「WhatsApp Julia」時，分數才會由你親自發送。</span><span lang="zh-Hans">不会。答案只留在你自己的手机或电脑。只有你按「WhatsApp Julia」时，分数才会由你亲自发送。</span><span lang="en">No. Your answers stay on your own phone or computer. Your scores are only shared if you tap “WhatsApp Julia” and send them yourself.</span></p></details>
+    <details><summary><span lang="zh-Hant">這是醫學檢查嗎？</span><span lang="zh-Hans">这是医学检查吗？</span><span lang="en">Is this a medical test?</span></summary>
+      <p><span lang="zh-Hant">不是。生活健康輪是健康教育和自我覺察的工具，幫你看見生活習慣的強弱，不作任何診斷。如有身體或情緒不適，請諮詢醫生。</span><span lang="zh-Hans">不是。生活健康轮是健康教育和自我觉察的工具，帮你看见生活习惯的强弱，不作任何诊断。如有身体或情绪不适，请咨询医生。</span><span lang="en">No. The Wellness Wheel is a self-awareness and health-education tool. It shows the strengths and gaps in your daily habits and does not diagnose anything. If you feel unwell, please see a doctor.</span></p></details>
+    <details><summary><span lang="zh-Hant">多久做一次？</span><span lang="zh-Hans">多久做一次？</span><span lang="en">How often should I do it?</span></summary>
+      <p><span lang="zh-Hant">建議每 3 至 4 星期做一次，看看輪子有沒有變得更圓。</span><span lang="zh-Hans">建议每 3 至 4 星期做一次，看看轮子有没有变得更圆。</span><span lang="en">Every 3 to 4 weeks is a good rhythm. See whether your wheel is getting rounder.</span></p></details>
+  </section>
+
+  <footer>
+    <div><a href="/">此刻 · The Present</a> · Julia Yuen · Wellness Path</div>
+    <div>WhatsApp <a href="https://wa.me/85296215876">+852 9621 5876</a> · <a href="mailto:hello@juliayuen.com">hello@juliayuen.com</a></div>
+    <div style="margin-top:6px"><span lang="zh-Hant">健康教育用途，並非醫療診斷。</span><span lang="zh-Hans">健康教育用途，并非医疗诊断。</span><span lang="en">For health education only. Not a medical diagnosis.</span></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var lang="zh", hans=false;
+  var WA="https://wa.me/85296215876?text=";
+  function $(id){return document.getElementById(id);}
+  function T(a){return lang==="en"?a[2]:(hans?a[1]:a[0]);}
+
+  var DIMS=[
+    {k:["呼吸","呼吸","Breath"],n:["呼吸與放鬆","呼吸与放松","Breath & Relaxation"],
+     q:[["我會留意自己的呼吸","我会留意自己的呼吸","I notice my breathing during the day"],
+        ["緊張時我懂得用呼吸令自己平靜","紧张时我懂得用呼吸让自己平静","When I'm tense, I can use my breath to calm down"],
+        ["我多數用鼻、用腹部慢慢呼吸","我多数用鼻、用腹部慢慢呼吸","I usually breathe slowly through my nose, into my belly"]],
+     tip:["由「觀察呼吸」開始：只看不改，數 1 分鐘呼吸次數。","从「观察呼吸」开始：只看不改，数 1 分钟呼吸次数。","Start by watching your breath: don't change it, just count your breaths for 1 minute."],tool:true},
+    {k:["睡眠","睡眠","Sleep"],n:["睡眠與休息","睡眠与休息","Sleep & Rest"],
+     q:[["我容易入睡","我容易入睡","I fall asleep easily"],
+        ["我醒來覺得精神恢復","我醒来觉得精神恢复","I wake up feeling refreshed"],
+        ["我大多在 23:00 前上床","我大多在 23:00 前上床","I'm usually in bed before 11 pm"]],
+     tip:["今晚試試延長呼氣：吸 4 秒、呼 6 秒，做 3 分鐘。","今晚试试延长呼气：吸 4 秒、呼 6 秒，做 3 分钟。","Tonight, try longer out-breaths: in for 4, out for 6, for 3 minutes."],tool:true},
+    {k:["飲食","饮食","Food"],n:["飲食與飲水","饮食与饮水","Food & Water"],
+     q:[["我每日飲足夠的水","我每天喝足够的水","I drink enough water every day"],
+        ["我的餐單以原型食物、蔬菜為主","我的饮食以原型食物、蔬菜为主","My meals are mostly whole foods and vegetables"],
+        ["我吃飯時專心、七分飽","我吃饭时专心、七分饱","I eat mindfully and stop at about 70% full"]],
+     tip:["明早起床先飲一杯暖水，每餐前慢呼吸 3 次。","明早起床先喝一杯温水，每餐前慢呼吸 3 次。","Tomorrow, start with a glass of warm water and take 3 slow breaths before each meal."]},
+    {k:["活動","活动","Movement"],n:["活動與身體","活动与身体","Movement & Body"],
+     q:[["我每日有走動或運動 30 分鐘","我每天有走动或运动 30 分钟","I move or exercise for 30 minutes a day"],
+        ["我身體少有緊繃或痠痛","我身体很少紧绷或酸痛","My body rarely feels tight or sore"],
+        ["久坐時我會起身伸展","久坐时我会起身伸展","I get up and stretch after sitting for a long time"]],
+     tip:["散步時 4 步吸、4 步呼，走 5 分鐘。","散步时 4 步吸、4 步呼，走 5 分钟。","On a walk, breathe in for 4 steps and out for 4 steps, for 5 minutes."]},
+    {k:["情緒","情绪","Emotions"],n:["情緒與壓力","情绪与压力","Emotions & Stress"],
+     q:[["我能察覺並說出自己的情緒","我能察觉并说出自己的情绪","I can notice and name my feelings"],
+        ["壓力過後我能較快回復","压力过后我能较快恢复","I bounce back fairly quickly after stress"],
+        ["我很少被舊情緒困擾","我很少被旧情绪困扰","Old feelings rarely weigh on me"]],
+     tip:["停一停：嗅一口喜歡的香氣，慢呼吸 3 次，再為此刻的情緒起個名字。","停一停：闻一口喜欢的香气，慢呼吸 3 次，再为此刻的情绪起个名字。","Pause: smell a scent you like, take 3 slow breaths, then give the feeling a name."]},
+    {k:["能量","能量","Energy"],n:["能量與體質","能量与体质","Energy & Constitution"],
+     q:[["我日間精神充足","我白天精神充足","I have enough energy during the day"],
+        ["我少有怕冷怕熱、口乾等不適","我很少怕冷怕热、口干等不适","I rarely feel too cold, too hot or dry-mouthed"],
+        ["我的消化與大小便規律","我的消化与大小便规律","My digestion and bowel habits are regular"]],
+     tip:["起床後 3 個深呼吸，配合雙手向上伸展。","起床后 3 个深呼吸，配合双手向上伸展。","After waking, take 3 deep breaths while stretching your arms up."]},
+    {k:["關係","关系","Connection"],n:["關係與連結","关系与连结","Relationships & Connection"],
+     q:[["我有可以傾訴的人","我有可以倾诉的人","I have someone I can talk to"],
+        ["與家人朋友相處令我感到滋養","与家人朋友相处让我感到滋养","Time with family and friends nourishes me"],
+        ["我懂得說「不」、設界線","我懂得说「不」、设界线","I can say no and set boundaries"]],
+     tip:["今天向一個人說一句具體的感謝。","今天向一个人说一句具体的感谢。","Today, give one person a specific thank-you."]},
+    {k:["心靈","心灵","Spirit"],n:["意義與心靈","意义与心灵","Meaning & Spirit"],
+     q:[["我每日有片刻安靜與自己相處","我每天有片刻安静与自己相处","I have a quiet moment with myself every day"],
+        ["我知道自己在乎甚麼","我知道自己在乎什么","I know what matters to me"],
+        ["我對生活感到感恩","我对生活感到感恩","I feel grateful for my life"]],
+     tip:["找一個角落，閉眼慢呼吸 3 分鐘，問自己：此刻我需要甚麼？","找一个角落，闭眼慢呼吸 3 分钟，问自己：此刻我需要什么？","Find a quiet corner, close your eyes, breathe slowly for 3 minutes and ask: what do I need right now?"]}
+  ];
+  var LABELS=[["從不","从不","Never"],["很少","很少","Rarely"],["有時","有时","Sometimes"],["經常","经常","Often"],["總是","总是","Always"]];
+  var FLAGS=[
+    ["最近有沒有持續胸痛、心跳異常或呼吸困難？","最近有没有持续胸痛、心跳异常或呼吸困难？","Recently, have you had ongoing chest pain, an irregular heartbeat or trouble breathing?"],
+    ["最近有沒有不明原因的體重明顯下降？","最近有没有不明原因的体重明显下降？","Have you lost a noticeable amount of weight without knowing why?"],
+    ["情緒低落已影響日常生活超過兩星期，或有傷害自己的念頭？","情绪低落已影响日常生活超过两星期，或有伤害自己的念头？","Has low mood affected your daily life for more than two weeks, or have you had thoughts of harming yourself?"]
+  ];
+  var SAMPLE=[8,10,11,12,7,9,13,10];
+
+  var S={screen:"intro",step:0,ans:fresh(),flags:[null,null,null]};
+  function fresh(){return DIMS.map(function(){return [0,0,0];});}
+  var last=null; try{last=JSON.parse(localStorage.getItem("tp-wheel")||"null");}catch(e){}
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+
+  function radar(scores,sample,prev){
+    var c=200,R=122,N=8;
+    function pt(i,r){var a=-Math.PI/2+i*2*Math.PI/N;return [c+r*Math.cos(a),c+r*Math.sin(a)];}
+    var g="";
+    [0.2,0.4,0.6,0.8,1].forEach(function(f){g+='<polygon points="'+DIMS.map(function(_,i){return pt(i,R*f).join(",");}).join(" ")+'" fill="none" stroke="rgba(35,75,71,.13)" stroke-width="1"/>';});
+    DIMS.forEach(function(_,i){var p=pt(i,R);g+='<line x1="'+c+'" y1="'+c+'" x2="'+p[0]+'" y2="'+p[1]+'" stroke="rgba(35,75,71,.13)" stroke-width="1"/>';});
+    if(prev){g+='<polygon points="'+prev.map(function(s,i){return pt(i,R*s/15).join(",");}).join(" ")+'" fill="none" stroke="#5C7370" stroke-width="1.5" stroke-dasharray="4 4"/>';}
+    var min=Math.min.apply(null,scores);
+    g+='<polygon points="'+scores.map(function(s,i){return pt(i,R*s/15).join(",");}).join(" ")+'" fill="#C28A2E" fill-opacity=".22" stroke="#C28A2E" stroke-width="2"/>';
+    scores.forEach(function(s,i){var p=pt(i,R*s/15),low=(s===min&&!sample);g+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+(low?6:4)+'" fill="'+(low?"#8a5a2b":"#157F74")+'"/>';});
+    DIMS.forEach(function(d,i){var p=pt(i,R+34),low=(scores[i]===min&&!sample);
+      g+='<text x="'+p[0]+'" y="'+(p[1]+5)+'" text-anchor="middle" font-size="15" font-weight="'+(low?600:500)+'" fill="'+(low?"#8a5a2b":"#234B47")+'" font-family="Noto Sans TC,sans-serif">'+esc(T(d.k))+'</text>';});
+    return '<svg viewBox="0 0 400 400" role="img" aria-label="'+esc(T(["生活健康輪雷達圖","生活健康轮雷达图","Wellness Wheel chart"]))+'">'+g+'</svg>';
+  }
+
+  function progress(){
+    var total=DIMS.length+1,n=0,label="";
+    if(S.screen==="q"){n=S.step;}else if(S.screen==="flags"){n=DIMS.length;}else if(S.screen==="result"){n=total;}
+    return {pct:n/total*100,label:(S.screen==="q"?(S.step+1):total)+" / "+total};
+  }
+
+  function render(){
+    var app=$("app"),h="";
+    if(S.screen==="intro"){
+      var s=last?last.scores:SAMPLE;
+      h+='<div class="center"><span class="pill">'+esc(last?T(["你上次的結果","你上次的结果","Your last result"])+" · "+last.date:T(["示例結果","示例结果","Example result"]))+'</span></div>';
+      h+='<div class="wheelbox">'+radar(s,!last)+'</div>';
+      h+='<p class="muted center" style="margin:6px 0 0">'+esc(T(["每題按最近兩星期回答，1 = 從不，5 = 總是。","每题按最近两星期回答，1 = 从不，5 = 总是。","Answer for the last two weeks: 1 = never, 5 = always."]))+'</p>';
+      h+='<div class="nav" style="justify-content:center"><button type="button" class="go" id="start">'+esc(last?T(["重新自測","重新自测","Check again"]):T(["開始自測","开始自测","Start"]))+'</button></div>';
+      app.innerHTML=h;
+      $("start").onclick=function(){S={screen:"q",step:0,ans:fresh(),flags:[null,null,null]};render();scrollTop();};
+      return;
+    }
+    var p=progress();
+    h+='<div class="steprow"><span>'+esc(T(["生活健康輪","生活健康轮","Wellness Wheel"]))+'</span><span>'+p.label+'</span></div><div class="bar"><i style="width:'+p.pct+'%"></i></div>';
+    if(S.screen==="q"){
+      var d=DIMS[S.step],a=S.ans[S.step];
+      h+='<span class="dimtag">'+esc(T(d.n))+'</span>';
+      d.q.forEach(function(q,qi){
+        h+='<div class="q"><p id="ql'+qi+'">'+esc(T(q))+'</p><div class="scale" role="group" aria-labelledby="ql'+qi+'">';
+        LABELS.forEach(function(l,v){h+='<button type="button" id="b'+S.step+'-'+qi+'-'+(v+1)+'" data-q="'+qi+'" data-v="'+(v+1)+'" aria-pressed="'+(a[qi]===v+1)+'"><b>'+(v+1)+'</b>'+esc(T(l))+'</button>';});
+        h+='</div></div>';
+      });
+      h+='<div class="nav"><button type="button" class="back" id="back">'+esc(T(["上一步","上一步","Back"]))+'</button><button type="button" class="go" id="next"'+(a.indexOf(0)>=0?" disabled":"")+'>'+esc(T(["下一步","下一步","Next"]))+'</button></div>';
+      app.innerHTML=h;
+      app.querySelectorAll(".scale button").forEach(function(b){b.onclick=function(){a[+b.dataset.q]=+b.dataset.v;render();var nb=$(b.id);if(nb)nb.focus();};});
+      $("back").onclick=function(){if(S.step===0)S.screen="intro";else S.step--;render();scrollTop();};
+      $("next").onclick=function(){if(S.step<DIMS.length-1)S.step++;else S.screen="flags";render();scrollTop();};
+      return;
+    }
+    if(S.screen==="flags"){
+      h+='<span class="dimtag">'+esc(T(["安全檢查","安全检查","Safety check"]))+'</span>';
+      h+='<p class="muted" style="margin:10px 0 0">'+esc(T(["最後三條不計分，只用來提醒你是否需要先見醫生。","最后三道题不计分，只用来提醒你是否需要先看医生。","These last three are not scored. They only help you see whether to check with a doctor first."]))+'</p>';
+      FLAGS.forEach(function(f,i){
+        h+='<div class="q"><p id="fl'+i+'">'+esc(T(f))+'</p><div class="yn" role="group" aria-labelledby="fl'+i+'"><button type="button" id="f'+i+'y" data-i="'+i+'" data-v="1" aria-pressed="'+(S.flags[i]===1)+'">'+esc(T(["有","有","Yes"]))+'</button><button type="button" id="f'+i+'n" data-i="'+i+'" data-v="0" aria-pressed="'+(S.flags[i]===0)+'">'+esc(T(["沒有","没有","No"]))+'</button></div></div>';
+      });
+      h+='<div class="nav"><button type="button" class="back" id="back">'+esc(T(["上一步","上一步","Back"]))+'</button><button type="button" class="go" id="next"'+(S.flags.indexOf(null)>=0?" disabled":"")+'>'+esc(T(["看結果","看结果","See my wheel"]))+'</button></div>';
+      app.innerHTML=h;
+      app.querySelectorAll(".yn button").forEach(function(b){b.onclick=function(){S.flags[+b.dataset.i]=+b.dataset.v;render();var nb=$(b.id);if(nb)nb.focus();};});
+      $("back").onclick=function(){S.screen="q";S.step=DIMS.length-1;render();scrollTop();};
+      $("next").onclick=function(){
+        var scores=S.ans.map(function(a){return a[0]+a[1]+a[2];});
+        S.prev=last?last.scores:null; S.prevDate=last?last.date:null;
+        var today=new Date(); var ds=today.getFullYear()+"-"+String(today.getMonth()+1).padStart(2,"0")+"-"+String(today.getDate()).padStart(2,"0");
+        last={scores:scores,date:ds};
+        try{localStorage.setItem("tp-wheel",JSON.stringify(last));}catch(e){}
+        S.screen="result";render();scrollTop();
+      };
+      return;
+    }
+    // result
+    var scores=S.ans.map(function(a){return a[0]+a[1]+a[2];});
+    var min=Math.min.apply(null,scores),li=scores.indexOf(min),d=DIMS[li];
+    if(S.flags.indexOf(1)>=0){
+      h+='<div class="alert"><b>'+esc(T(["請先照顧安全。","请先照顾安全。","Please put your safety first."]))+'</b> '+esc(T(["你有回答「有」的情況，建議先見醫生。以下練習只作輔助，不能代替專業意見。","你有回答「有」的情况，建议先看医生。以下练习只作辅助，不能代替专业意见。","You answered yes to at least one safety question, so please see a doctor first. The practice below is a support, not a replacement for professional care."]));
+      if(S.flags[2]===1){h+=' '+esc(T(["需要即時傾訴，可致電 18111 精神健康支援熱線，或撒瑪利亞防止自殺會 2389 2222（24 小時）。","需要即时倾诉，可致电 18111 精神健康支援热线，或撒玛利亚防止自杀会 2389 2222（24 小时）。","If you need to talk now in Hong Kong, call the Mental Health Support Hotline 18111 or Samaritan Befrienders Hong Kong 2389 2222 (24 hours)."]));}
+      h+='</div>';
+    }
+    h+='<div class="wheelbox">'+radar(scores,false,S.prev)+'</div>';
+    if(S.prev){h+='<p class="muted center" style="margin:4px 0 0">'+esc(T(["虛線＝上次結果","虚线＝上次结果","Dashed line = your last result"]))+' ('+esc(S.prevDate)+')</p>';}
+    h+='<div class="rec"><span class="pill" style="background:#fff">'+esc(T(["建議起步點","建议起步点","Your first step"]))+'</span>';
+    h+='<h2 style="margin-top:10px">'+esc(T(d.n))+' · '+min+' / 15</h2>';
+    h+='<p>'+esc(T(d.tip))+'</p>';
+    if(d.tool){h+='<p><a href="/tools/breathing/">'+esc(T(["用呼吸練習計時器跟住做 →","用呼吸练习计时器跟着做 →","Try it with the breathing timer →"]))+'</a></p>';}
+    else{h+='<p class="muted" style="margin:0">'+esc(T(["所有改變都可以由呼吸開始。","所有改变都可以从呼吸开始。","Every change can begin with a breath."]))+' <a href="/tools/breathing/">'+esc(T(["呼吸練習計時器","呼吸练习计时器","Breathing timer"]))+'</a></p>';}
+    h+='</div>';
+    h+='<div class="scores">';
+    DIMS.forEach(function(x,i){var low=(i===li);h+='<span class="'+(low?"low":"")+'">'+esc(T(x.n))+'</span><span class="'+(low?"low":"")+'">'+scores[i]+' / 15</span><span class="meter'+(low?" low":"")+'"><i style="width:'+(scores[i]/15*100)+'%"></i></span>';});
+    h+='</div>';
+    h+='<div class="nav" style="justify-content:center"><button type="button" class="back" id="again">'+esc(T(["重新自測","重新自测","Check again"]))+'</button></div>';
+    var summary=DIMS.map(function(x,i){return T(x.k)+" "+scores[i];}).join(" | ");
+    var msg=T(["你好 Julia，我做咗生活健康輪自測，最需要照顧嘅係「"+T(d.n)+"」（"+min+"/15）。\n"+summary+"\n想了解多啲。",
+               "你好 Julia，我做了生活健康轮自测，最需要照顾的是「"+T(d.n)+"」（"+min+"/15）。\n"+summary+"\n想了解更多。",
+               "Hi Julia, I did the Wellness Wheel check. My lowest area is “"+T(d.n)+"” ("+min+"/15).\n"+summary+"\nI'd like to know more."]);
+    app.innerHTML=h;
+    $("again").onclick=function(){S={screen:"q",step:0,ans:fresh(),flags:[null,null,null]};render();scrollTop();};
+    var cta=$("cta");
+    cta.hidden=false;
+    $("ctaWA").href=WA+encodeURIComponent(msg);
+  }
+  function scrollTop(){var a=$("app");if(a&&a.getBoundingClientRect().top<0)a.scrollIntoView({behavior:"smooth",block:"start"});}
+
+  // CTA block inserted after the card
+  var ctaHTML='<section class="cta" id="cta" hidden><h2><span lang="zh-Hant">想有人陪你一步步行？</span><span lang="zh-Hans">想有人陪你一步步走？</span><span lang="en">Want someone to walk with you?</span></h2>'+
+    '<p><span lang="zh-Hant">把結果 WhatsApp 給 Julia，一起看看由哪裡開始最適合你。</span><span lang="zh-Hans">把结果 WhatsApp 给 Julia，一起看看从哪里开始最适合你。</span><span lang="en">Send your result to Julia on WhatsApp and work out the best place for you to start.</span></p>'+
+    '<div class="btns"><a class="btn primary" id="ctaWA" href="https://wa.me/85296215876" target="_blank" rel="noopener">WhatsApp Julia</a></div></section>';
+  $("app").insertAdjacentHTML("afterend",ctaHTML);
+
+  function setLang(l){
+    hans=(l==="zhs"); if(hans) l="zh";
+    lang=l;
+    document.documentElement.setAttribute("data-lang", hans?"zhs":l);
+    document.documentElement.lang = hans?"zh-Hans":(l==="zh"?"zh-Hant":"en");
+    document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.setLang===(hans?"zhs":l)?"true":"false"); });
+    try{ localStorage.setItem("tp-lang", l==="en"?"en":(hans?"zh-Hans":"zh-Hant")); }catch(e){}
+    render();
+  }
+  document.querySelectorAll("[data-set-lang]").forEach(function(b){ b.addEventListener("click", function(){ setLang(b.dataset.setLang); }); });
+  var q=new URLSearchParams(location.search).get("lang"), saved=null;
+  try{ var tp=localStorage.getItem("tp-lang"); saved = tp==="en"?"en":(tp==="zh-Hans"?"zhs":(tp?"zh":null)); }catch(e){}
+  var initial=(q==="en"||q==="zh"||q==="zhs")?q:(saved==="en"||saved==="zh"||saved==="zhs")?saved:(/^zh-(cn|sg|hans)/i.test(navigator.language||"")?"zhs":(/^zh/i.test(navigator.language||"")?"zh":"en"));
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
