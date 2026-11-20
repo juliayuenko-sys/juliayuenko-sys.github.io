@@ -160,6 +160,22 @@
   .ba-grid figure{margin:0;}
   .ba-grid img{width:100%;border-radius:12px;display:block;}
   .ba-grid figcaption{text-align:center;font-size:13px;font-weight:600;margin-top:6px;color:var(--ink);}
+
+  .breathe-wrap{display:flex;flex-direction:column;align-items:center;margin:18px 0 6px;}
+  .breathe-circle{
+    width:120px;height:120px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #c9e8da, var(--mint-dark));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:15px;font-weight:700;letter-spacing:1px;
+    animation:breatheAnim 10s ease-in-out infinite;
+    box-shadow:0 8px 26px rgba(94,155,130,.35);
+  }
+  @keyframes breatheAnim{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.35);}
+    100%{transform:scale(1);}
+  }
+  .breathe-hint{font-size:12.5px;color:#888;margin-top:12px;text-align:center;}
 </style>
 </head>
 <body>
@@ -223,6 +239,21 @@
     })();
   </script>
 
+  <script>
+    // 迷你靜心：圈大就「呼氣」，圈細就「吸氣」，同個動畫節奏一致
+    (function(){
+      var label = document.getElementById('breatheLabel') || document.getElementById('breatheCircle');
+      if (!label) return;
+      var words = ['吸氣','呼氣'];
+      var i = 0;
+      label.textContent = words[0];
+      setInterval(function(){
+        i = 1 - i;
+        label.textContent = words[i];
+      }, 5000);
+    })();
+  </script>
+
   <!-- 今日學咗咩 -->
   <h2 class="section-title">🌿 今日學咗嘅「三步法」</h2>
   <div class="card">
@@ -236,6 +267,27 @@
       記住：唔係唇膏令你冷靜——係你自己做嗰三下深呼吸。唇膏只係提你記得去做。
     </div>
     <p style="margin-top:12px;">揀香味嗰陣，我哋問嘅唔係「邊款你鍾意」，而係「邊款令你個膊頭鬆咗少少」——身體嘅反應，先係最準嘅答案。</p>
+  </div>
+
+  <!-- 迷你靜心 -->
+  <h2 class="section-title">😌 迷你靜心 Mini Meditation</h2>
+  <div class="card">
+    <p>除咗塗唇膏嗰三秒，呢度再教多樣嘢俾你——一個隨時隨地、唔使工具都做得到嘅「迷你靜心」：</p>
+    <div class="highlight">
+      <b>5秒吸氣　→　5秒呼氣</b>　，重複3次，大約30秒
+    </div>
+    <div class="breathe-wrap">
+      <div class="breathe-circle" id="breatheCircle">吸氣</div>
+      <p class="breathe-hint">跟住個圈大細嚟吸氣、呼氣，試吓3個循環</p>
+    </div>
+    <p style="margin-top:14px;">呢個節奏特別之處：吸呼一樣長，慢慢令個心跳同呼吸「夾埋一齊」，身體會快啲靜返落嚟。唔需要諗嘢，淨係跟住個圈。</p>
+    <p>咩時候用得著：</p>
+    <ol class="steps">
+      <li><span class="n">1</span>測驗、考試前，個心離一離</li>
+      <li><span class="n">2</span>同人嘈交、嬲嬲哋嗰陣，俾自己一個「停一停」嘅空間</li>
+      <li><span class="n">3</span>瞓覺前，幫個腦由忙亂轉做慢嘅狀態</li>
+    </ol>
+    <p style="margin-top:10px;">想要更長、更仔細嘅版本，落便「温書同靜心」入面個呼吸計時器度都搵到。</p>
   </div>
 
   <!-- 材料 -->
