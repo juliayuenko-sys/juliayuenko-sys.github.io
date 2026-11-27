@@ -188,9 +188,9 @@
     <div class="date-chip">2026年11月20日　DIY潤唇膏工作坊</div>
   </header>
 
-  <!-- 製作過程示範（限今日工作坊，11月20日後自動隱藏） -->
+  <!-- 製作過程回顧 -->
   <div id="demo-section">
-  <h2 class="section-title">🎬 開始整之前，睇定先</h2>
+  <h2 class="section-title">🎬 製作過程回顧</h2>
   <div class="card">
     <div class="ratio-box">
       <div>蜂蠟<br><b>27%</b></div>
@@ -198,7 +198,7 @@
       <div>植物底油<br><b>41%</b></div>
       <div>精油<br><b>1–2%</b></div>
     </div>
-    <p>（香港秋冬配方比例，温度濕度啱今日天氣）</p>
+    <p>（嗰日用嘅係香港秋冬配方比例，温度濕度啱嗰日天氣）</p>
 
     <div class="ba-grid">
       <figure>
@@ -228,17 +228,6 @@
     </div>
   </div>
   </div>
-  <script>
-    (function(){
-      // 工作坊當日（2026-11-20）之後自動隱藏呢個示範環節
-      var cutoff = new Date('2026-11-21T00:00:00+08:00').getTime();
-      if (Date.now() > cutoff) {
-        var el = document.getElementById('demo-section');
-        if (el) el.style.display = 'none';
-      }
-    })();
-  </script>
-
   <script>
     // 迷你靜心：圈大就「呼氣」，圈細就「吸氣」，同個動畫節奏一致
     (function(){
